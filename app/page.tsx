@@ -26,6 +26,13 @@ import {
   MessageCircle,
   HelpCircle,
   ExternalLink,
+  Calendar,
+  Play,
+  Star,
+  Fingerprint,
+  CloudUpload,
+  Settings2,
+  Send,
 } from "lucide-react";
 import { productGroups, groupMeta, contactDetails } from "@/data/navigation";
 import { FeatureIcon } from "@/components/IconHelper";
@@ -119,37 +126,58 @@ export default function HomePage() {
                 Face check-in at the door or on the phone, leave and overtime calculated automatically, your own salary structures, and bank transfer files generated in one click.
               </p>
 
-              {/* CTAs */}
-              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3.5 animate-fade-up [animation-delay:600ms]">
+              {/* CTAs (AttendoHR Premium Button Styling) */}
+              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-fade-up [animation-delay:550ms]">
                 <Link
                   href="/book-a-demo"
-                  className="shimmer-pill group rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-teal-500/25 hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-xl hover:shadow-teal-500/35 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-300 flex items-center gap-2"
+                  className="btn-attendo-primary group rounded-2xl px-7 py-3.5 text-sm font-bold text-white flex items-center gap-2.5"
                 >
-                  <span>Book a demo</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <Calendar className="h-4 w-4 text-teal-100 transition-transform duration-300 group-hover:scale-110" />
+                  <span>Book a Free Demo</span>
+                </Link>
+
+                <Link
+                  href="/features"
+                  className="btn-attendo-secondary group rounded-2xl px-6 py-3.5 text-sm font-bold text-slate-800 flex items-center gap-2.5"
+                >
+                  <Play className="h-4 w-4 text-[#12B5A5] fill-[#12B5A5]/20 transition-transform duration-300 group-hover:scale-110 group-hover:fill-[#12B5A5]" />
+                  <span>See how it works</span>
                 </Link>
 
                 <a
                   href={contactDetails.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-full border border-teal-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:border-teal-300 hover:bg-teal-50/60 hover:text-[#0E7A6E] hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 flex items-center gap-2"
+                  className="group rounded-2xl border border-transparent px-4 py-3.5 text-sm font-semibold text-slate-600 hover:text-[#0E7A6E] hover:bg-teal-50/60 transition-all flex items-center gap-2"
                 >
                   <MessageCircle className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
                   <span>WhatsApp us</span>
                 </a>
+              </div>
 
-                <Link
-                  href="/features"
-                  className="group rounded-full px-5 py-3.5 text-sm font-semibold text-slate-600 hover:text-[#0E7A6E] hover:bg-teal-50/50 transition-all duration-300 flex items-center gap-1.5"
-                >
-                  <span className="text-hover-lux">Explore 34 features</span>
-                  <span className="arrow-hover-lux transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </Link>
+              {/* Review Stars & Social Proof (AttendoHR Rating Bar) */}
+              <div className="mt-7 flex items-center justify-center lg:justify-start gap-3 text-xs font-semibold text-slate-700 animate-fade-up [animation-delay:650ms]">
+                <div className="flex items-center gap-1.5">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white border border-slate-200 shadow-2xs font-black text-rose-500 text-[10px]">
+                    G
+                  </span>
+                  <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white border border-slate-200 shadow-2xs font-black text-orange-500 text-[10px]">
+                    G2
+                  </span>
+                </div>
+                <div className="flex items-center gap-0.5 text-amber-400">
+                  <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                  <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                  <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                  <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                  <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                </div>
+                <span className="text-slate-800 font-bold">4.9</span>
+                <span className="text-slate-500 font-normal">from 150+ Indian Organisations</span>
               </div>
 
               {/* Trust Indicators */}
-              <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-6 animate-fade-up [animation-delay:700ms]">
+              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-5 animate-fade-up [animation-delay:720ms]">
                 <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
                   <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
                   <span>Indian statutory compliant</span>
@@ -585,42 +613,76 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 4. CONNECTED FLOW PIPELINE */}
+      {/* 4. FROM PUNCH TO PAYSLIP, FULLY AUTOMATED (AttendoHR Process Flow) */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="rounded-3xl border border-teal-100/90 bg-gradient-to-b from-[#F0FDFB] to-white p-8 sm:p-12 shadow-card">
+        <div className="rounded-3xl border border-teal-100/90 bg-gradient-to-b from-[#F0FDFB]/80 via-white to-white p-8 sm:p-14 shadow-card">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0E7A6E]">
-              Seamless Integration
-            </span>
-            <h2 className="mt-2 font-display text-3xl font-extrabold text-slate-950">
-              One connected flow, no re-typing
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight leading-tight">
+              From Punch To Payslip,{" "}
+              <span className="bg-gradient-to-r from-[#12B5A5] to-[#0E9486] bg-clip-text text-transparent block sm:inline">
+                Fully Automated
+              </span>
             </h2>
-            <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-              Each step feeds the next: shifts decide attendance status, attendance and leave decide paid days, and payroll turns them into payslips and the bank file.
+            <p className="mt-3 text-base text-slate-600 font-medium">
+              Five simple steps. Zero manual efforts.
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+          <div className="mt-14 flex flex-col md:flex-row items-center justify-between gap-6 relative">
             {[
-              { label: "1. Staff records", sub: "Profiles & fields", icon: Users },
-              { label: "2. Shifts", sub: "Timings & roster", icon: Clock },
-              { label: "3. Face check-in", sub: "Gate / Phone", icon: ScanFace },
-              { label: "4. Leave", sub: "Balances & approvals", icon: CalendarCheck },
-              { label: "5. Payroll", sub: "Formulas & lock", icon: Calculator },
-              { label: "6. Bank transfer", sub: "File & payslips", icon: Receipt },
-              { label: "7. Reports", sub: "Excel export", icon: FileSpreadsheet },
+              {
+                num: "01",
+                title: "Punch",
+                desc: "Finger or face scan",
+                icon: Fingerprint,
+              },
+              {
+                num: "02",
+                title: "Sync",
+                desc: "Data reaches the Cloud",
+                icon: CloudUpload,
+              },
+              {
+                num: "03",
+                title: "Process",
+                desc: "Attendance, Shifts, Leaves applied",
+                icon: Settings2,
+              },
+              {
+                num: "04",
+                title: "Calculate",
+                desc: "Salary computed daily",
+                icon: Calculator,
+              },
+              {
+                num: "05",
+                title: "Deliver",
+                desc: "Payslip on Employee App",
+                icon: Send,
+              },
             ].map((step, idx) => (
-              <div
-                key={idx}
-                className="attendo-card attendo-card-hover group flex flex-col items-center text-center p-3.5 bg-white"
-              >
-                <div className="attendo-icon-box h-11 w-11 mb-2 shrink-0">
-                  <step.icon className="h-5 w-5 stroke-[2.2]" />
+              <React.Fragment key={step.num}>
+                <div className="flex flex-col items-center text-center group cursor-default">
+                  <div className="attendo-flow-circle">
+                    <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#12B5A5] text-[10px] font-black text-white shadow-sm border-2 border-white group-hover:scale-110 group-hover:bg-[#0E9486] transition-all">
+                      {step.num}
+                    </span>
+                    <step.icon className="flow-icon h-10 w-10 stroke-[2]" />
+                  </div>
+                  <h4 className="mt-4 font-display text-base font-extrabold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
+                    {step.title}
+                  </h4>
+                  <p className="mt-1 text-xs text-slate-500 max-w-[130px] leading-snug">
+                    {step.desc}
+                  </p>
                 </div>
-                <span className="text-xs font-bold text-slate-900 text-hover-lux">{step.label}</span>
-                <span className="text-[11px] text-slate-500 mt-0.5">{step.sub}</span>
-              </div>
+                {idx < 4 && (
+                  <div className="hidden md:flex items-center justify-center text-teal-300 -mt-8">
+                    <ArrowRight className="h-5 w-5 animate-[pulse_2s_ease-in-out_infinite]" />
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </div>
         </div>
