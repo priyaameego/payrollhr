@@ -40,6 +40,131 @@ import featuresData from "@/data/features.json";
 import solutionsData from "@/data/solutions.json";
 import toolsData from "@/data/tools.json";
 
+// 3D Visual Badges inspired by AttendoHR Showcase Design
+function Calendar3DBadge({ className = "" }: { className?: string }) {
+  return (
+    <div className={`filter drop-shadow-xl select-none ${className}`}>
+      <svg width="64" height="64" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="calBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#2563EB" />
+            <stop offset="100%" stopColor="#1D4ED8" />
+          </linearGradient>
+          <linearGradient id="calBody" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="100%" stopColor="#F8FAFC" />
+          </linearGradient>
+          <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#94A3B8" />
+            <stop offset="50%" stopColor="#F8FAFC" />
+            <stop offset="100%" stopColor="#64748B" />
+          </linearGradient>
+        </defs>
+        <rect x="10" y="14" width="52" height="50" rx="10" fill="url(#calBody)" stroke="#CBD5E1" strokeWidth="1.5" />
+        <path d="M10 24C10 18.4772 14.4772 14 20 14H52C57.5228 14 62 18.4772 62 24V28H10V24Z" fill="url(#calBlue)" />
+        <rect x="20" y="8" width="5" height="12" rx="2.5" fill="url(#ringGrad)" stroke="#475569" strokeWidth="0.8" />
+        <rect x="34" y="8" width="5" height="12" rx="2.5" fill="url(#ringGrad)" stroke="#475569" strokeWidth="0.8" />
+        <rect x="48" y="8" width="5" height="12" rx="2.5" fill="url(#ringGrad)" stroke="#475569" strokeWidth="0.8" />
+        <rect x="18" y="34" width="6" height="5" rx="1.5" fill="#93C5FD" />
+        <rect x="28" y="34" width="6" height="5" rx="1.5" fill="#93C5FD" />
+        <rect x="38" y="34" width="6" height="5" rx="1.5" fill="#93C5FD" />
+        <rect x="48" y="34" width="6" height="5" rx="1.5" fill="#EF4444" />
+        <rect x="18" y="44" width="6" height="5" rx="1.5" fill="#93C5FD" />
+        <rect x="28" y="44" width="6" height="5" rx="1.5" fill="#93C5FD" />
+        <rect x="38" y="44" width="6" height="5" rx="1.5" fill="#93C5FD" />
+        <rect x="48" y="44" width="6" height="5" rx="1.5" fill="#93C5FD" />
+        <rect x="18" y="53" width="6" height="4" rx="1.5" fill="#CBD5E1" />
+        <rect x="28" y="53" width="6" height="4" rx="1.5" fill="#CBD5E1" />
+      </svg>
+    </div>
+  );
+}
+
+function Coin3DBadge({ className = "" }: { className?: string }) {
+  return (
+    <div className={`filter drop-shadow-xl select-none ${className}`}>
+      <svg width="64" height="64" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="coinGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+            <stop offset="0%" stopColor="#FDE68A" />
+            <stop offset="45%" stopColor="#F59E0B" />
+            <stop offset="100%" stopColor="#D97706" />
+          </linearGradient>
+          <linearGradient id="coinRim" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FEF3C7" />
+            <stop offset="50%" stopColor="#D97706" />
+            <stop offset="100%" stopColor="#78350F" />
+          </linearGradient>
+          <linearGradient id="coinInner" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FBBF24" />
+            <stop offset="100%" stopColor="#D97706" />
+          </linearGradient>
+        </defs>
+        <circle cx="36" cy="38" r="28" fill="#B45309" />
+        <circle cx="36" cy="36" r="28" fill="url(#coinGrad)" stroke="url(#coinRim)" strokeWidth="3" />
+        <circle cx="36" cy="36" r="21" fill="url(#coinInner)" stroke="#FDE68A" strokeWidth="1.5" strokeDasharray="3 2" />
+        <text x="36" y="44" textAnchor="middle" fill="#FFFFFF" fontSize="24" fontWeight="900" fontFamily="sans-serif">
+          ₹
+        </text>
+      </svg>
+    </div>
+  );
+}
+
+function Clock3DBadge({ className = "" }: { className?: string }) {
+  return (
+    <div className={`filter drop-shadow-xl select-none ${className}`}>
+      <svg width="64" height="64" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="clockBezel" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="100%" stopColor="#0284C7" />
+          </linearGradient>
+          <linearGradient id="clockFace" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="100%" stopColor="#F8FAFC" />
+          </linearGradient>
+        </defs>
+        <circle cx="36" cy="38" r="28" fill="#0369A1" />
+        <circle cx="36" cy="36" r="28" fill="url(#clockBezel)" />
+        <circle cx="36" cy="36" r="22" fill="url(#clockFace)" stroke="#E0F2FE" strokeWidth="1.5" />
+        <circle cx="36" cy="18" r="1.5" fill="#0284C7" />
+        <circle cx="54" cy="36" r="1.5" fill="#0284C7" />
+        <circle cx="36" cy="54" r="1.5" fill="#0284C7" />
+        <circle cx="18" cy="36" r="1.5" fill="#0284C7" />
+        <line x1="36" y1="36" x2="36" y2="22" stroke="#EF4444" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="36" y1="36" x2="48" y2="36" stroke="#0284C7" strokeWidth="2.5" strokeLinecap="round" />
+        <circle cx="36" cy="36" r="3" fill="#0F172A" />
+      </svg>
+    </div>
+  );
+}
+
+function WhatsApp3DBadge({ className = "" }: { className?: string }) {
+  return (
+    <div className={`filter drop-shadow-xl select-none ${className}`}>
+      <svg width="64" height="64" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="waGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#4ADE80" />
+            <stop offset="50%" stopColor="#22C55E" />
+            <stop offset="100%" stopColor="#15803D" />
+          </linearGradient>
+          <linearGradient id="waSheen" x1="0%" y1="0%" x2="100%" y2="50%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <rect x="8" y="10" width="56" height="56" rx="18" fill="#14532D" />
+        <rect x="8" y="8" width="56" height="56" rx="18" fill="url(#waGrad)" />
+        <path d="M8 24C8 15.1634 15.1634 8 24 8H48C56.8366 8 64 15.1634 64 24C64 28 50 40 36 40C20 40 8 30 8 24Z" fill="url(#waSheen)" />
+        <path d="M36 18C26.0589 18 18 26.0589 18 36C18 39.4678 19.006 42.7132 20.7634 45.463L19 53L26.7924 51.2778C29.4344 52.9837 32.6022 54 36 54C45.9411 54 54 45.9411 54 36C54 26.0589 45.9411 18 36 18Z" fill="#FFFFFF" />
+        <path d="M44.5 39.8C43.9 39.5 40.5 37.8 40 37.6C39.5 37.4 39.1 37.3 38.7 37.9C38.3 38.5 37.2 39.8 36.9 40.1C36.6 40.4 36.3 40.5 35.7 40.2C35.1 39.9 33.2 39.3 30.9 37.2C29.1 35.6 27.9 33.6 27.6 33C27.3 32.4 27.5 32.1 27.8 31.8C28.1 31.5 28.5 31 28.8 30.6C29.1 30.2 29.2 29.9 29.4 29.5C29.6 29.1 29.5 28.8 29.4 28.5C29.2 28.2 28.2 25.7 27.8 24.6C27.4 23.5 27 23.7 26.7 23.7C26.4 23.7 26 23.7 25.6 23.7C25.2 23.7 24.6 23.9 24.1 24.4C23.6 24.9 22.2 26.2 22.2 28.8C22.2 31.4 24.1 33.9 24.4 34.3C24.7 34.7 28.1 39.9 33.3 42.1C38.5 44.3 38.5 43.6 39.5 43.5C40.5 43.4 42.6 42.2 43.1 41C43.6 39.8 43.6 38.8 43.4 38.5C43.2 38.2 42.8 38.1 42.2 37.8L44.5 39.8Z" fill="#22C55E" />
+      </svg>
+    </div>
+  );
+}
+
 export default function HomePage() {
   const [activeTabIdx, setActiveTabIdx] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -689,116 +814,511 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 5. EVERYTHING IN ONE PLACE - TABBED SHOWCASE */}
+      {/* 5. COMPLETE PRODUCT SUITE - 5-PART ALTERNATING ATTENDOHR SHOWCASE */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
             Complete Product Suite
           </span>
-          <h2 className="mt-2 font-display text-3xl font-extrabold text-slate-950 sm:text-4xl">
-            Everything HR and payroll, in one place
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+            Everything Your Payroll Needs
+            <br />
+            <span className="text-[#12B5A5]">
+              In One Place
+            </span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600">
+          <p className="mt-3 text-sm sm:text-base text-slate-600 font-medium">
             Five parts that work together, from the first day of a new joiner to the month-end bank file.
           </p>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 border-b border-slate-200 pb-4">
-          {productGroups.map((group, idx) => (
-            <button
-              key={group.title}
-              type="button"
-              onClick={() => setActiveTabIdx(idx)}
-              className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
-                activeTabIdx === idx
-                  ? "shimmer-pill bg-gradient-to-r from-[#12B5A5] to-[#0E9486] text-white shadow-md shadow-teal-500/25 scale-105"
-                  : "bg-white text-slate-600 hover:bg-teal-50/70 hover:text-[#12B5A5] border border-slate-200/80"
-              }`}
-            >
-              {group.title}
-            </button>
-          ))}
-        </div>
+        {/* 5 Alternating Feature Sections (Matching AttendoHR Showcase Design) */}
+        <div className="mt-16 space-y-20 sm:space-y-28">
+          {/* ========================================================== */}
+          {/* 1. ATTENDANCE MANAGEMENT (Left Mockup, Right Content) */}
+          {/* ========================================================== */}
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            {/* Left Mockup Card */}
+            <div className="relative group max-w-md mx-auto lg:mx-0 w-full">
+              {/* Soft Light Blue Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform -rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+              
+              <div className="overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_12px_36px_-6px_rgba(0,0,0,0.08),0_4px_12px_-2px_rgba(0,0,0,0.03)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.14)]">
+                {/* Pastel Sky Header */}
+                <div className="bg-[#BAE6FD] px-5 py-3.5 border-b border-sky-100 flex items-center justify-between">
+                  <span className="font-display text-sm font-bold text-slate-900">
+                    Attendance Details
+                  </span>
+                  <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                </div>
+                {/* Table */}
+                <div className="p-4 sm:p-5">
+                  <table className="w-full text-xs sm:text-sm">
+                    <thead>
+                      <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
+                        <th className="pb-3">Name</th>
+                        <th className="pb-3">Time</th>
+                        <th className="pb-3 text-right">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
+                      <tr className="hover:bg-slate-50/70 transition-colors">
+                        <td className="py-3 font-semibold text-slate-800">Rohit</td>
+                        <td className="py-3 font-mono text-slate-700">9:22 AM</td>
+                        <td className="py-3 text-right font-bold text-[#881337]">22 Min. late</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/70 transition-colors">
+                        <td className="py-3 font-semibold text-slate-800">Priya</td>
+                        <td className="py-3 font-mono text-slate-700">9:00 AM</td>
+                        <td className="py-3 text-right font-bold text-emerald-600">On time</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/70 transition-colors">
+                        <td className="py-3 font-semibold text-slate-800">Harsh</td>
+                        <td className="py-3 font-mono text-slate-700">9:09 AM</td>
+                        <td className="py-3 text-right font-bold text-[#881337]">09 Min. late</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
 
-        {/* Active Tab Content Card */}
-        <div key={activeGroup.title} className="mt-8 attendo-card p-6 sm:p-10 shadow-card animate-in fade-in zoom-in-98 duration-200">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            {/* Left points */}
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-                {activeGroup.title} Overview
-              </span>
-              <h3 className="mt-2 font-display text-2xl sm:text-3xl font-bold text-slate-950">
-                {activeMeta.headline}
+            {/* Right Content */}
+            <div className="text-center lg:text-left">
+              <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+                Attendance Management
               </h3>
-
-              <ul className="mt-6 space-y-3.5">
-                {activeMeta.points.map((pt, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#12B5A5] mt-0.5" />
-                    <span>{pt}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Capture attendance through{" "}
                 <Link
-                  href={`/features/${activeMeta.lead}`}
-                  className="rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-6 py-3 text-sm font-bold text-white shadow-md hover:shadow-lg transition-all"
+                  href="/features/face-attendance"
+                  className="font-semibold text-[#12B5A5] underline decoration-[#12B5A5]/40 hover:text-[#0E7A6E] transition-colors"
                 >
-                  Learn more about {activeGroup.title}
+                  biometric devices that sync to the cloud
+                </Link>{" "}
+                in real time. The data flows directly into shifts, hours, overtime, and salary, no manual entry required.
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/features/attendance-management"
+                  className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
+                >
+                  <span className="text-hover-lux">Explore Time & Attendance</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                 </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* ========================================================== */}
+          {/* 2. LEAVE MANAGEMENT (Left Content, Right Stacked Mockup) */}
+          {/* ========================================================== */}
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            {/* Left Content */}
+            <div className="text-center lg:text-left order-2 lg:order-1">
+              <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+                Leave Management
+              </h3>
+              <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Approve leave requests from a single dashboard while employees apply through the mobile app. Balances update automatically, and deductions reflect in the same month's salary.
+              </p>
+              <div className="mt-6">
                 <Link
-                  href="/features"
-                  className="rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                  href="/features/leave-management"
+                  className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
                 >
-                  See all features
+                  <span className="text-hover-lux">Explore Leave & Holidays</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                 </Link>
               </div>
             </div>
 
-            {/* Right Screen Mockup */}
-            <div className="rounded-2xl border border-teal-100 bg-[#F0FDFB] p-6 shadow-sm">
-              <div className="flex items-center justify-between border-b border-teal-100/80 pb-3">
-                <span className="font-display text-sm font-bold text-slate-900">
-                  {activeGroup.title} Records
-                </span>
-                <span className="rounded-full bg-[#E6F9F6] px-2.5 py-0.5 text-xs font-bold text-[#0E7A6E]">
-                  Sample view
-                </span>
-              </div>
-              <div className="mt-4 divide-y divide-teal-100/60">
-                {activeMeta.mock.map(([k, v], idx) => (
-                  <div key={idx} className="flex justify-between py-2.5 text-sm">
-                    <span className="text-slate-600">{k}</span>
-                    <span className="font-semibold text-slate-900 bg-white px-2.5 py-0.5 rounded border border-teal-100">
-                      {v}
-                    </span>
-                  </div>
-                ))}
+            {/* Right Stacked Mockup Cards */}
+            <div className="relative group max-w-md sm:max-w-lg mx-auto lg:mx-0 w-full order-1 lg:order-2">
+              {/* Soft Light Blue Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+              
+              {/* Floating 3D Calendar Badge */}
+              <div className="absolute -top-6 right-2 sm:right-6 z-30 animate-float pointer-events-none">
+                <Calendar3DBadge />
               </div>
 
-              {/* Sub-features pills */}
-              <div className="mt-6 pt-4 border-t border-teal-100/80">
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">
-                  Included capabilities:
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {activeGroup.items.map((slug) => {
-                    const f = featuresData.find((item: any) => item.slug === slug);
-                    return (
-                      <Link
-                        key={slug}
-                        href={`/features/${slug}`}
-                        className="rounded-lg bg-white border border-teal-100 px-2.5 py-1 text-xs font-medium text-slate-700 hover:border-[#12B5A5] hover:text-[#12B5A5] transition-colors"
-                      >
-                        {f?.name || slug}
-                      </Link>
-                    );
-                  })}
+              {/* Back Card: Approval Requests */}
+              <div className="w-[90%] sm:w-[84%] overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
+                <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-100 text-xs sm:text-sm font-bold text-slate-900">
+                  Approval Requests
                 </div>
+                <div className="p-3.5">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
+                        <th className="pb-2">Name</th>
+                        <th className="pb-2">Type</th>
+                        <th className="pb-2 text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
+                        <td className="py-2">Sick</td>
+                        <td className="py-2 text-right">
+                          <span className="inline-flex items-center gap-1.5 text-xs">
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-rose-200 text-rose-500 font-bold hover:bg-rose-50 transition-colors">✕</span>
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-emerald-200 text-emerald-600 font-bold hover:bg-emerald-50 transition-colors">✓</span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Priya</td>
+                        <td className="py-2">Privilege</td>
+                        <td className="py-2 text-right">
+                          <span className="inline-flex items-center gap-1.5 text-xs">
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-rose-200 text-rose-500 font-bold hover:bg-rose-50 transition-colors">✕</span>
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-emerald-200 text-emerald-600 font-bold hover:bg-emerald-50 transition-colors">✓</span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
+                        <td className="py-2">Casual</td>
+                        <td className="py-2 text-right">
+                          <span className="inline-flex items-center gap-1.5 text-xs">
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-rose-200 text-rose-500 font-bold hover:bg-rose-50 transition-colors">✕</span>
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-emerald-200 text-emerald-600 font-bold hover:bg-emerald-50 transition-colors">✓</span>
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Front Overlapping Card: Leave Balance */}
+              <div className="w-[90%] sm:w-[86%] -mt-10 sm:-mt-14 ml-auto relative z-20 overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
+                <div className="bg-[#FEF3C7] px-4 py-2.5 border-b border-amber-100 text-xs sm:text-sm font-bold text-slate-900">
+                  Leave Balance
+                </div>
+                <div className="p-3.5">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
+                        <th className="pb-2">Name</th>
+                        <th className="pb-2 text-center">Total</th>
+                        <th className="pb-2 text-center">Used</th>
+                        <th className="pb-2 text-right">Balance</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
+                        <td className="py-2 text-center font-mono">16</td>
+                        <td className="py-2 text-center text-rose-600 font-mono font-medium">-5</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">11</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Priya</td>
+                        <td className="py-2 text-center font-mono">12</td>
+                        <td className="py-2 text-center text-rose-600 font-mono font-medium">-3</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">9</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
+                        <td className="py-2 text-center font-mono">15</td>
+                        <td className="py-2 text-center text-rose-600 font-mono font-medium">-10</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">5</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ========================================================== */}
+          {/* 3. SALARY MANAGEMENT (Left Mockup, Right Content) */}
+          {/* ========================================================== */}
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            {/* Left Stacked Mockup Cards */}
+            <div className="relative group max-w-md sm:max-w-lg mx-auto lg:mx-0 w-full">
+              {/* Soft Light Blue Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform -rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+
+              {/* Floating 3D Gold Rupee Coin Badge */}
+              <div className="absolute top-4 -left-4 sm:-left-7 z-30 animate-float pointer-events-none">
+                <Coin3DBadge />
+              </div>
+
+              {/* Back Card: Monthly Payroll (shifted right) */}
+              <div className="w-[90%] sm:w-[86%] ml-auto overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
+                <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-100 text-xs sm:text-sm font-bold text-slate-900">
+                  Monthly Payroll
+                </div>
+                <div className="p-3.5">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
+                        <th className="pb-2">Name</th>
+                        <th className="pb-2">Daily Wage</th>
+                        <th className="pb-2">Incentive</th>
+                        <th className="pb-2 text-right">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
+                        <td className="py-2 font-mono">25000</td>
+                        <td className="py-2 text-emerald-600 font-semibold font-mono">+700</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">25700</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Priya</td>
+                        <td className="py-2 font-mono">30000</td>
+                        <td className="py-2 text-emerald-600 font-semibold font-mono">+1000</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">31000</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
+                        <td className="py-2 font-mono">50000</td>
+                        <td className="py-2 text-emerald-600 font-semibold font-mono">+1400</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">51400</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Front Overlapping Card: Statutory Compliance (shifted left) */}
+              <div className="w-[88%] sm:w-[82%] -mt-10 sm:-mt-14 mr-auto relative z-20 overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
+                <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-100 text-xs sm:text-sm font-bold text-slate-900">
+                  Statutory Compliance
+                </div>
+                <div className="p-3.5 sm:p-4 grid grid-cols-2 gap-2 text-xs">
+                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-xs">
+                    Provident Fund
+                  </div>
+                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-xs">
+                    Employees State Insurance C.
+                  </div>
+                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-xs">
+                    Professional Tax
+                  </div>
+                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-xs">
+                    Labour Welfare Tax
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content */}
+            <div className="text-center lg:text-left">
+              <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+                Salary Management
+              </h3>
+              <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Calculate salaries as attendance and leave data come in. Apply PF, ESIC, PT, LWF and other compliance rules automatically. Release approved payslips in one click.
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/features/salary-structure-management"
+                  className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
+                >
+                  <span className="text-hover-lux">Explore Payroll & Payout</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* ========================================================== */}
+          {/* 4. SHIFT MANAGEMENT (Left Content, Right Stacked Mockup) */}
+          {/* ========================================================== */}
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            {/* Left Content */}
+            <div className="text-center lg:text-left order-2 lg:order-1">
+              <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+                Shift Management
+              </h3>
+              <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Build shifts that match how your business actually runs. Assign by role, department, or location. Handle overnight, split, and rotating schedules without the spreadsheet hassle.
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/features/shift-management"
+                  className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
+                >
+                  <span className="text-hover-lux">Explore Shifts & Roster</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Stacked Mockup Cards */}
+            <div className="relative group max-w-md sm:max-w-lg mx-auto lg:mx-0 w-full order-1 lg:order-2">
+              {/* Soft Light Blue Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+
+              {/* Floating 3D Clock Badge */}
+              <div className="absolute -top-6 right-2 sm:right-6 z-30 animate-float-delayed pointer-events-none">
+                <Clock3DBadge />
+              </div>
+
+              {/* Back Card: Assign Shifts */}
+              <div className="w-[90%] sm:w-[84%] overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
+                <div className="bg-[#FEF3C7] px-4 py-2.5 border-b border-amber-100 text-xs sm:text-sm font-bold text-slate-900">
+                  Assign Shifts
+                </div>
+                <div className="p-3.5">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
+                        <th className="pb-2">Name</th>
+                        <th className="pb-2">Shifts</th>
+                        <th className="pb-2 text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
+                        <td className="py-2">Day</td>
+                        <td className="py-2 text-right text-emerald-600 font-semibold">Assigned</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Priya</td>
+                        <td className="py-2">Night</td>
+                        <td className="py-2 text-right text-emerald-600 font-semibold">Assigned</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
+                        <td className="py-2">Day</td>
+                        <td className="py-2 text-right text-emerald-600 font-semibold">Assigned</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Front Overlapping Card: Shift Details */}
+              <div className="w-[92%] sm:w-[88%] -mt-10 sm:-mt-14 ml-auto relative z-20 overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
+                <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-100 text-xs sm:text-sm font-bold text-slate-900">
+                  Shift Details
+                </div>
+                <div className="p-3.5">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
+                        <th className="pb-2">Name</th>
+                        <th className="pb-2">Dept.</th>
+                        <th className="pb-2">Designation</th>
+                        <th className="pb-2 text-right">Shifts</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
+                        <td className="py-2">Sales</td>
+                        <td className="py-2">Sales Executive</td>
+                        <td className="py-2 text-right font-bold text-slate-900">Day</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Priya</td>
+                        <td className="py-2">UI/UX</td>
+                        <td className="py-2">UI/UX Design</td>
+                        <td className="py-2 text-right font-bold text-slate-900">Night</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/60 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
+                        <td className="py-2">UI/UX</td>
+                        <td className="py-2">UI/UX Design</td>
+                        <td className="py-2 text-right font-bold text-slate-900">Day</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ========================================================== */}
+          {/* 5. WHATSAPP ALERTS (Left Mockup, Right Content) */}
+          {/* ========================================================== */}
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            {/* Left Stacked Mockup Cards */}
+            <div className="relative group max-w-md sm:max-w-lg mx-auto lg:mx-0 w-full">
+              {/* Soft Light Blue Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform -rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+
+              {/* Floating 3D WhatsApp Badge */}
+              <div className="absolute -bottom-5 -left-3 sm:-left-6 z-30 animate-float pointer-events-none">
+                <WhatsApp3DBadge />
+              </div>
+
+              {/* Back Card: Daily Whatsapp Alerts */}
+              <div className="w-[88%] sm:w-[82%] overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
+                <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-100 text-xs sm:text-sm font-bold text-slate-900">
+                  Daily Whatsapp Alerts
+                </div>
+                <div className="p-4 space-y-2 text-xs">
+                  <div className="pb-1.5 border-b border-slate-100">
+                    <span className="font-bold text-slate-900 block">Attendance update for 5 April</span>
+                  </div>
+                  <div className="flex justify-between py-1 border-b border-slate-100">
+                    <span className="text-slate-500">Organization :</span>
+                    <span className="font-semibold text-slate-800">Indian Zaika</span>
+                  </div>
+                  <div className="flex justify-between py-1">
+                    <span className="text-slate-500">Total Employees:</span>
+                    <span className="font-bold text-[#12B5A5]">200</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Front Overlapping Card: Attendance Summary */}
+              <div className="w-[84%] sm:w-[78%] -mt-12 sm:-mt-16 ml-auto relative z-20 overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
+                <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-100 text-xs sm:text-sm font-bold text-slate-900">
+                  Attendance Summary
+                </div>
+                <div className="p-3.5 divide-y divide-slate-100 text-xs">
+                  <div className="flex justify-between py-1.5">
+                    <span className="text-slate-600 font-medium">Full Day:</span>
+                    <span className="font-bold text-slate-900 font-mono">185</span>
+                  </div>
+                  <div className="flex justify-between py-1.5">
+                    <span className="text-slate-600 font-medium">Absent:</span>
+                    <span className="font-bold text-rose-600 font-mono">5</span>
+                  </div>
+                  <div className="flex justify-between py-1.5">
+                    <span className="text-slate-600 font-medium">Currently Working:</span>
+                    <span className="font-bold text-emerald-600 font-mono">180</span>
+                  </div>
+                  <div className="flex justify-between py-1.5">
+                    <span className="text-slate-600 font-medium">Half Day:</span>
+                    <span className="font-bold text-amber-600 font-mono">5</span>
+                  </div>
+                  <div className="flex justify-between py-1.5">
+                    <span className="text-slate-600 font-medium">Time Off:</span>
+                    <span className="font-bold text-slate-700 font-mono">5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content */}
+            <div className="text-center lg:text-left">
+              <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+                WhatsApp Alerts
+              </h3>
+              <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Get daily attendance summaries with other details straight on WhatsApp. Skip the calls, skip the follow-ups.
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/features/employee-self-service"
+                  className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
+                >
+                  <span className="text-hover-lux">Explore WhatsApp Updates</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </Link>
               </div>
             </div>
           </div>
