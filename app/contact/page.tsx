@@ -45,56 +45,59 @@ export default function ContactPage() {
             href={contactDetails.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-start gap-4 rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:shadow-card-hover hover:border-teal-300 transition-all"
+            className="attendo-card attendo-card-hover group flex items-start gap-4 p-6 bg-white"
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#E6F9F6] text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
-              <MessageCircle className="h-6 w-6" />
+            <div className="attendo-icon-box h-12 w-12 shrink-0">
+              <MessageCircle className="h-6 w-6 stroke-[2.2]" />
             </div>
             <div>
-              <h2 className="font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5]">
+              <h2 className="font-display text-base font-bold text-slate-900 text-hover-lux">
                 WhatsApp
               </h2>
               <p className="mt-1 text-xs text-slate-500">
                 Fastest way to reach us. Text us with any question.
               </p>
-              <span className="mt-3 inline-block text-xs font-bold text-[#12B5A5]">
-                Chat on WhatsApp →
+              <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
+                <span className="text-hover-lux">Chat on WhatsApp</span>
+                <span className="arrow-hover-lux">→</span>
               </span>
             </div>
           </a>
 
           <a
             href={contactDetails.tel}
-            className="group flex items-start gap-4 rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:shadow-card-hover hover:border-teal-300 transition-all"
+            className="attendo-card attendo-card-hover group flex items-start gap-4 p-6 bg-white"
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-teal-50 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
-              <Phone className="h-6 w-6" />
+            <div className="attendo-icon-box h-12 w-12 shrink-0">
+              <Phone className="h-6 w-6 stroke-[2.2]" />
             </div>
             <div>
-              <h2 className="font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5]">
+              <h2 className="font-display text-base font-bold text-slate-900 text-hover-lux">
                 Phone
               </h2>
               <p className="mt-1 text-xs text-slate-500">{contactDetails.phone}</p>
-              <span className="mt-3 inline-block text-xs font-bold text-[#12B5A5]">
-                Call our support team →
+              <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
+                <span className="text-hover-lux">Call our support team</span>
+                <span className="arrow-hover-lux">→</span>
               </span>
             </div>
           </a>
 
           <a
             href={`mailto:${contactDetails.email}`}
-            className="group flex items-start gap-4 rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:shadow-card-hover hover:border-teal-300 transition-all"
+            className="attendo-card attendo-card-hover group flex items-start gap-4 p-6 bg-white"
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-teal-50 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
-              <Mail className="h-6 w-6" />
+            <div className="attendo-icon-box h-12 w-12 shrink-0">
+              <Mail className="h-6 w-6 stroke-[2.2]" />
             </div>
             <div>
-              <h2 className="font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5]">
+              <h2 className="font-display text-base font-bold text-slate-900 text-hover-lux">
                 Email
               </h2>
               <p className="mt-1 text-xs text-slate-500">{contactDetails.email}</p>
-              <span className="mt-3 inline-block text-xs font-bold text-[#12B5A5]">
-                Send an email inquiry →
+              <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
+                <span className="text-hover-lux">Send an email</span>
+                <span className="arrow-hover-lux">→</span>
               </span>
             </div>
           </a>

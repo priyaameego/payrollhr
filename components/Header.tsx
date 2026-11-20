@@ -283,11 +283,11 @@ export default function Header() {
                               onClick={() => setActiveMenu(null)}
                               className="group flex items-start gap-2.5 rounded-2xl p-2.5 transition-all duration-200 hover:bg-gradient-to-r hover:from-teal-50/90 hover:to-emerald-50/40 hover:shadow-xs border border-transparent hover:border-teal-200/60"
                             >
-                              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50/70 text-[#12B5A5] border border-teal-100 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#12B5A5] group-hover:to-[#0E9486] group-hover:text-white group-hover:shadow-sm transition-all duration-300">
-                                <FeatureIcon slug={slug} className="h-4 w-4" />
+                              <span className="attendo-icon-box h-8 w-8 shrink-0 mt-0.5">
+                                <FeatureIcon slug={slug} className="h-4 w-4 stroke-[2.2]" />
                               </span>
                               <span className="min-w-0">
-                                <span className="block text-xs font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors leading-tight">
+                                <span className="block text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-tight text-hover-lux">
                                   {feat.name}
                                 </span>
                                 <span className="block text-[11px] text-slate-500 leading-snug line-clamp-2 mt-0.5 group-hover:text-slate-600">
@@ -342,11 +342,11 @@ export default function Header() {
                     onClick={() => setActiveMenu(null)}
                     className="group flex gap-3.5 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
                   >
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
-                      <FeatureIcon slug={sol.slug} className="h-4 w-4" />
+                    <span className="attendo-icon-box h-9 w-9 shrink-0 mt-0.5">
+                      <FeatureIcon slug={sol.slug} className="h-4 w-4 stroke-[2.2]" />
                     </span>
                     <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#12B5A5]">
+                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] text-hover-lux">
                         {sol.name}
                       </span>
                       <span className="mt-0.5 block text-[11px] leading-snug text-slate-500 line-clamp-2">
@@ -382,11 +382,11 @@ export default function Header() {
                     onClick={() => setActiveMenu(null)}
                     className="group flex gap-3.5 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
                   >
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
-                      <FeatureIcon slug={tool.slug} className="h-4 w-4" />
+                    <span className="attendo-icon-box h-9 w-9 shrink-0 mt-0.5">
+                      <FeatureIcon slug={tool.slug} className="h-4 w-4 stroke-[2.2]" />
                     </span>
                     <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#12B5A5]">
+                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] text-hover-lux">
                         {tool.name}
                       </span>
                       <span className="mt-0.5 block text-[11px] leading-snug text-slate-500 line-clamp-2">
@@ -422,11 +422,11 @@ export default function Header() {
                     onClick={() => setActiveMenu(null)}
                     className="group flex gap-3 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
                   >
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
-                      <FeatureIcon slug={item.to.split("/").pop() || "guides"} className="h-4 w-4" />
+                    <span className="attendo-icon-box h-9 w-9 shrink-0 mt-0.5">
+                      <FeatureIcon slug={item.to.split("/").pop() || "guides"} className="h-4 w-4 stroke-[2.2]" />
                     </span>
                     <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#12B5A5]">
+                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] text-hover-lux">
                         {item.name}
                       </span>
                       <span className="mt-0.5 block text-[11px] leading-snug text-slate-500">
@@ -450,11 +450,11 @@ export default function Header() {
                     onClick={() => setActiveMenu(null)}
                     className="group flex gap-3 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
                   >
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
-                      <Sparkles className="h-4 w-4" />
+                    <span className="attendo-icon-box h-9 w-9 shrink-0 mt-0.5">
+                      <Sparkles className="h-4 w-4 stroke-[2.2]" />
                     </span>
                     <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#12B5A5]">
+                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] text-hover-lux">
                         {item.name}
                       </span>
                       <span className="mt-0.5 block text-[11px] leading-snug text-slate-500">

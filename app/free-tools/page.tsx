@@ -58,10 +58,10 @@ export default function FreeToolsIndexPage() {
                 className="attendo-card attendo-card-hover group p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
               >
                 <div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 border border-teal-100/80 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-sm">
-                    <FeatureIcon slug={tool.slug} className="h-5 w-5" />
+                  <div className="attendo-icon-box h-12 w-12 shrink-0">
+                    <FeatureIcon slug={tool.slug} className="h-6 w-6 stroke-[2.2]" />
                   </div>
-                  <h3 className="mt-4 font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
+                  <h3 className="mt-4 font-display text-base font-bold text-slate-900 text-hover-lux">
                     {tool.name}
                   </h3>
                   <p className="mt-1.5 text-xs text-slate-600 leading-relaxed line-clamp-2">
@@ -71,9 +71,9 @@ export default function FreeToolsIndexPage() {
                     {tool.formula}
                   </div>
                 </div>
-                <div className="mt-5 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:gap-2 transition-all">
-                  <span>Calculate now</span>
-                  <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
+                  <span className="text-hover-lux font-bold">Calculate now</span>
+                  <ArrowRight className="h-4 w-4 arrow-hover-lux" />
                 </div>
               </Link>
             ))}
@@ -99,10 +99,10 @@ export default function FreeToolsIndexPage() {
                 className="attendo-card attendo-card-hover group p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
               >
                 <div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 border border-teal-100/80 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-sm">
-                    <FeatureIcon slug={tool.slug} className="h-5 w-5" />
+                  <div className="attendo-icon-box h-12 w-12 shrink-0">
+                    <FeatureIcon slug={tool.slug} className="h-6 w-6 stroke-[2.2]" />
                   </div>
-                  <h3 className="mt-4 font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
+                  <h3 className="mt-4 font-display text-base font-bold text-slate-900 text-hover-lux">
                     {tool.name}
                   </h3>
                   <p className="mt-1.5 text-xs text-slate-600 leading-relaxed line-clamp-2">
@@ -112,9 +112,9 @@ export default function FreeToolsIndexPage() {
                     {tool.formula}
                   </div>
                 </div>
-                <div className="mt-5 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:gap-2 transition-all">
-                  <span>Calculate now</span>
-                  <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
+                  <span className="text-hover-lux font-bold">Calculate now</span>
+                  <ArrowRight className="h-4 w-4 arrow-hover-lux" />
                 </div>
               </Link>
             ))}

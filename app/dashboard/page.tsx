@@ -126,9 +126,9 @@ export default function DashboardPage() {
                 className="attendo-card attendo-card-hover group relative overflow-hidden p-5 transition-all duration-300"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-slate-500">{s.name}</span>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 border border-teal-100/80 text-[#12B5A5] transition-all duration-300 group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 shadow-sm">
-                    <Icon className="h-5 w-5" />
+                  <span className="text-xs font-semibold text-slate-500 text-hover-lux">{s.name}</span>
+                  <div className="attendo-icon-box h-11 w-11 shrink-0">
+                    <Icon className="h-5 w-5 stroke-[2.2]" />
                   </div>
                 </div>
                 <div className="mt-4">

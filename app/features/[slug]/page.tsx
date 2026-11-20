@@ -222,17 +222,23 @@ export default async function FeatureDetailPage({
                 <Link
                   key={rf.slug}
                   href={`/features/${rf.slug}`}
-                  className="card-interactive group rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:shadow-card-hover hover:border-[#12B5A5] transition-all"
+                  className="attendo-card attendo-card-hover group p-6 bg-white flex flex-col justify-between"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all">
-                    <FeatureIcon slug={rf.slug} className="h-5 w-5" />
+                  <div>
+                    <div className="attendo-icon-box h-11 w-11 shrink-0">
+                      <FeatureIcon slug={rf.slug} className="h-5 w-5 stroke-[2.2]" />
+                    </div>
+                    <h3 className="mt-4 font-display font-bold text-slate-900 text-hover-lux">
+                      {rf.name}
+                    </h3>
+                    <p className="mt-1.5 text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                      {rf.short}
+                    </p>
                   </div>
-                  <h3 className="mt-3.5 font-display font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
-                    {rf.name}
-                  </h3>
-                  <p className="mt-1 text-xs text-slate-600 line-clamp-2">
-                    {rf.short}
-                  </p>
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
+                    <span className="text-hover-lux font-bold">View module</span>
+                    <ArrowRight className="h-3.5 w-3.5 arrow-hover-lux" />
+                  </div>
                 </Link>
               ))}
             </div>

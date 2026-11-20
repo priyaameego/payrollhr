@@ -78,27 +78,27 @@ export default function ResourcesHubPage() {
           <Link
             key={cat.href}
             href={cat.href}
-            className="group rounded-3xl border border-teal-100/80 bg-white p-7 shadow-card hover:shadow-card-hover hover:border-teal-300 transition-all flex flex-col justify-between"
+            className="attendo-card attendo-card-hover group p-7 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
           >
             <div>
               <div className="flex items-center justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-100/60 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
-                  <cat.icon className="h-6 w-6" />
+                <div className="attendo-icon-box h-12 w-12 shrink-0">
+                  <cat.icon className="h-6 w-6 stroke-[2.2]" />
                 </div>
-                <span className="rounded-full bg-[#E6F9F6] px-3 py-1 text-xs font-bold text-[#0E7A6E]">
+                <span className="rounded-full bg-[#E8FAF7] border border-teal-200/80 px-3 py-1 text-xs font-bold text-[#0E7A6E]">
                   {cat.count}
                 </span>
               </div>
-              <h2 className="mt-5 font-display text-xl font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
+              <h2 className="mt-5 font-display text-xl font-bold text-slate-900 text-hover-lux">
                 {cat.title}
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 {cat.desc}
               </p>
             </div>
-            <div className="mt-6 flex items-center gap-1.5 text-xs font-bold text-[#12B5A5] group-hover:underline">
-              <span>Explore {cat.title}</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
+              <span className="text-hover-lux font-bold">Explore {cat.title}</span>
+              <ArrowRight className="h-4 w-4 arrow-hover-lux" />
             </div>
           </Link>
         ))}

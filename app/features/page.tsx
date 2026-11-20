@@ -86,29 +86,30 @@ export default function FeaturesPage() {
                     <Link
                       key={slug}
                       href={`/features/${slug}`}
-                      className="card-interactive group rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:shadow-card-hover hover:border-[#12B5A5] transition-all flex flex-col justify-between"
+                      className="attendo-card attendo-card-hover group p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
                     >
                       <div>
                         <div className="flex items-center justify-between">
-                          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-[#12B5A5] border border-teal-100/80 group-hover:bg-gradient-to-r group-hover:from-[#12B5A5] group-hover:to-[#0E9486] group-hover:text-white transition-all shadow-xs">
-                            <FeatureIcon slug={slug} className="h-5 w-5" />
+                          <div className="attendo-icon-box h-12 w-12 shrink-0">
+                            <FeatureIcon slug={slug} className="h-6 w-6 stroke-[2.2]" />
                           </div>
-                          <span className="text-[10px] font-mono text-slate-400 uppercase">
+                          <span className="text-[10px] font-mono font-bold text-teal-700 bg-teal-50 border border-teal-200/80 rounded-full px-2 py-0.5 uppercase">
                             Active
                           </span>
                         </div>
 
-                        <h3 className="mt-4 font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
+                        <h3 className="mt-4 font-display text-base font-bold text-slate-900 text-hover-lux">
                           {feat.name}
                         </h3>
-                        <p className="mt-2 text-xs text-slate-600 leading-relaxed line-clamp-2">
+                        <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2 font-normal">
                           {feat.short}
                         </p>
                       </div>
 
                       <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
-                        <span className="font-bold text-[#12B5A5] group-hover:underline flex items-center gap-1">
-                          Explore module <ArrowRight className="h-3 w-3" />
+                        <span className="font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] flex items-center gap-1.5 transition-colors">
+                          <span className="text-hover-lux font-bold">Explore module</span>
+                          <ArrowRight className="h-3.5 w-3.5 arrow-hover-lux" />
                         </span>
                         <span className="text-[10px] text-slate-400">PayroleHR Core</span>
                       </div>
