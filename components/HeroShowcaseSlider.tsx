@@ -122,6 +122,7 @@ const slides: SlideData[] = [
 ];
 
 export default function HeroShowcaseSlider() {
+  const [mounted, setMounted] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [simPunchState, setSimPunchState] = useState<"idle" | "scanning" | "matched">("idle");
@@ -130,11 +131,16 @@ export default function HeroShowcaseSlider() {
   const [copiedBankFile, setCopiedBankFile] = useState(false);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  const activeSlide = slides[currentIdx];
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const safeIdx = Math.max(0, Math.min(currentIdx, slides.length - 1));
+  const activeSlide = slides[safeIdx] || slides[0];
 
   // Auto-play timer (5.5 seconds per slide), pauses on hover or interaction
   useEffect(() => {
-    if (isPaused) {
+    if (!mounted || isPaused) {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
       return;
     }
@@ -146,7 +152,7 @@ export default function HeroShowcaseSlider() {
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
-  }, [isPaused, currentIdx]);
+  }, [mounted, isPaused]);
 
   const handleNext = () => {
     setCurrentIdx((prev) => (prev + 1) % slides.length);
@@ -184,36 +190,40 @@ export default function HeroShowcaseSlider() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* BambooHR-Inspired Floating Interactive Top Badge */}
-      <div className="animate-float absolute -top-4 -right-2 sm:-right-4 z-20 flex items-center gap-2.5 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
-        <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
-        <div>
-          <span className="block text-xs font-bold text-slate-800 leading-tight">
-            {activeSlide.floatingBadgeTop.text}
-          </span>
-          <span className="block text-[10px] text-teal-700 font-semibold">
-            {activeSlide.floatingBadgeTop.sub}
-          </span>
+      {activeSlide?.floatingBadgeTop && (
+        <div className="animate-float absolute -top-4 -right-2 sm:-right-4 z-20 flex items-center gap-2.5 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
+          <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+          <div>
+            <span className="block text-xs font-bold text-slate-800 leading-tight">
+              {activeSlide.floatingBadgeTop.text}
+            </span>
+            <span className="block text-[10px] text-teal-700 font-semibold">
+              {activeSlide.floatingBadgeTop.sub}
+            </span>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* BambooHR-Inspired Floating Interactive Bottom Badge */}
-      <div className="animate-float-delayed absolute -bottom-5 -left-2 sm:-left-4 z-20 flex items-center gap-2.5 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
-        <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-teal-50 border border-teal-200/70 text-[#0E7A6E] font-bold text-xs">
-          {activeSlide.floatingBadgeBottom.icon === "rupee"
-            ? "₹"
-            : activeSlide.floatingBadgeBottom.icon === "sync"
-            ? "⚡"
-            : "✓"}
+      {activeSlide?.floatingBadgeBottom && (
+        <div className="animate-float-delayed absolute -bottom-5 -left-2 sm:-left-4 z-20 flex items-center gap-2.5 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
+          <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-teal-50 border border-teal-200/70 text-[#0E7A6E] font-bold text-xs">
+            {activeSlide.floatingBadgeBottom.icon === "rupee"
+              ? "₹"
+              : activeSlide.floatingBadgeBottom.icon === "sync"
+              ? "⚡"
+              : "✓"}
+          </div>
+          <div>
+            <span className="block text-xs font-bold text-slate-800 leading-tight">
+              {activeSlide.floatingBadgeBottom.text}
+            </span>
+            <span className="block text-[10px] text-slate-500 font-medium">
+              {activeSlide.floatingBadgeBottom.sub}
+            </span>
+          </div>
         </div>
-        <div>
-          <span className="block text-xs font-bold text-slate-800 leading-tight">
-            {activeSlide.floatingBadgeBottom.text}
-          </span>
-          <span className="block text-[10px] text-slate-500 font-medium">
-            {activeSlide.floatingBadgeBottom.sub}
-          </span>
-        </div>
-      </div>
+      )}
 
       {/* Layered 2.5D Stacked Background Cards (BambooHR Visual Storytelling Depth) */}
       <div
