@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { productGroups, groupMeta, contactDetails } from "@/data/navigation";
 import { FeatureIcon } from "@/components/IconHelper";
+import HeroShowcaseSlider from "@/components/HeroShowcaseSlider";
 import featuresData from "@/data/features.json";
 import solutionsData from "@/data/solutions.json";
 import toolsData from "@/data/tools.json";
@@ -36,20 +37,6 @@ import toolsData from "@/data/tools.json";
 export default function HomePage() {
   const [activeTabIdx, setActiveTabIdx] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [heroSimTab, setHeroSimTab] = useState<"face" | "geo" | "payroll">("face");
-  const [simPunchState, setSimPunchState] = useState<"idle" | "scanning" | "matched">("idle");
-  const [presentCount, setPresentCount] = useState<number>(68);
-
-  const triggerSimPunch = () => {
-    setSimPunchState("scanning");
-    setTimeout(() => {
-      setSimPunchState("matched");
-      setPresentCount((c) => (c === 68 ? 69 : 68));
-      setTimeout(() => {
-        setSimPunchState("idle");
-      }, 3500);
-    }, 450);
-  };
 
   const activeGroup = productGroups[activeTabIdx];
   const activeMeta = groupMeta[activeGroup.title];
@@ -159,233 +146,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Live Interactive Mockup Hero Card */}
+            {/* Right Animated BambooHR-Inspired Interactive Showcase Hero Card */}
             <div className="relative">
-              {/* Floating Badge 1: Top-right face scan pill */}
-              <div className="animate-float absolute -top-5 -right-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
-                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-xs font-bold text-slate-800">Face Scan: 0.18s Match</span>
-              </div>
-
-              {/* Floating Badge 2: Bottom-left salary payout pill */}
-              <div className="animate-float-delayed absolute -bottom-5 -left-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
-                <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-teal-50 text-[#12B5A5] font-bold text-xs">₹</span>
-                <span className="text-xs font-bold text-slate-800">Bank File Ready (HDFC CMS)</span>
-              </div>
-
-              {/* Soft teal glow */}
-              <div className="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-[#12B5A5]/25 via-[#8FE8DC]/20 to-transparent blur-3xl pointer-events-none" />
-
-              <div className="attendo-card p-5 sm:p-6 shadow-xl relative overflow-hidden">
-                {/* Simulator Mode Switcher Tabs */}
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
-                  <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-xl text-xs font-semibold">
-                    <button
-                      type="button"
-                      onClick={() => setHeroSimTab("face")}
-                      className={`rounded-lg px-2.5 py-1 transition-all ${
-                        heroSimTab === "face"
-                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs"
-                          : "text-slate-600 hover:text-slate-900"
-                      }`}
-                    >
-                      Face Kiosk
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setHeroSimTab("geo")}
-                      className={`rounded-lg px-2.5 py-1 transition-all ${
-                        heroSimTab === "geo"
-                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs"
-                          : "text-slate-600 hover:text-slate-900"
-                      }`}
-                    >
-                      Mobile Punch
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setHeroSimTab("payroll")}
-                      className={`rounded-lg px-2.5 py-1 transition-all ${
-                        heroSimTab === "payroll"
-                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs"
-                          : "text-slate-600 hover:text-slate-900"
-                      }`}
-                    >
-                      1-Click Payroll
-                    </button>
-                  </div>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
-                    Live Preview
-                  </span>
-                </div>
-
-                {/* TAB 1: FACE KIOSK SIMULATOR */}
-                {heroSimTab === "face" && (
-                  <div className="mt-4 space-y-4 animate-in fade-in duration-200">
-                    {/* Live Scanner Viewfinder Box */}
-                    <div className="relative overflow-hidden rounded-2xl border border-teal-200/80 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 p-4 text-white">
-                      {/* Scanning beam */}
-                      <div className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-[#8FE8DC] to-transparent shadow-[0_0_12px_#12B5A5] animate-[bounce_2.5s_ease-in-out_infinite]" />
-
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                          <span className="text-[11px] font-mono text-teal-300 font-semibold tracking-wider uppercase">
-                            Reception Tablet 01
-                          </span>
-                        </div>
-                        <span className="text-[10px] text-slate-400 font-mono">0.18s Match</span>
-                      </div>
-
-                      <div className="my-4 flex items-center justify-center">
-                        <div className={`relative flex h-20 w-20 items-center justify-center rounded-2xl border-2 transition-all duration-300 ${
-                          simPunchState === "matched"
-                            ? "border-emerald-400 bg-emerald-500/20 shadow-[0_0_25px_rgba(16,185,129,0.5)]"
-                            : simPunchState === "scanning"
-                            ? "border-teal-400 bg-teal-500/20 animate-pulse"
-                            : "border-dashed border-teal-500/60 bg-teal-900/20"
-                        }`}>
-                          {simPunchState === "matched" ? (
-                            <CheckCircle2 className="h-10 w-10 text-emerald-400 animate-in zoom-in-75 duration-200" />
-                          ) : (
-                            <ScanFace className="h-9 w-9 text-teal-300" />
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Status indicator line */}
-                      <div className="text-center">
-                        {simPunchState === "matched" ? (
-                          <div className="animate-in fade-in duration-150">
-                            <span className="text-xs font-bold text-emerald-300">
-                              ✓ Arun Sharma (EMP-0142) · 99.8% Match
-                            </span>
-                            <p className="text-[10px] text-slate-300 mt-0.5">Punched IN at 09:02:14 AM</p>
-                          </div>
-                        ) : simPunchState === "scanning" ? (
-                          <span className="text-xs font-bold text-teal-300">
-                            Scanning AI facial vectors...
-                          </span>
-                        ) : (
-                          <span className="text-xs text-slate-300 font-medium">
-                            Ready for contactless check-in
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Interactive Button */}
-                      <div className="mt-3 text-center">
-                        <button
-                          type="button"
-                          onClick={triggerSimPunch}
-                          disabled={simPunchState !== "idle"}
-                          className="shimmer-pill w-full rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2 text-xs font-bold text-white shadow-md hover:from-[#0E9486] hover:to-[#0B7A6E] active:scale-95 transition-all disabled:opacity-70"
-                        >
-                          {simPunchState === "matched"
-                            ? "Punch Recorded!"
-                            : simPunchState === "scanning"
-                            ? "Scanning..."
-                            : "⚡ Simulate Live Face Punch (0.18s)"}
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Live Metrics Grid */}
-                    <div className="grid grid-cols-3 gap-2.5">
-                      <div className="rounded-xl border border-teal-100 bg-[#F0FDFB] p-2.5 text-center">
-                        <span className="text-[11px] text-slate-500 font-medium">Present</span>
-                        <div className="font-display text-xl font-extrabold text-[#12B5A5]">
-                          {presentCount}
-                        </div>
-                      </div>
-                      <div className="rounded-xl border border-amber-100/80 bg-amber-50/50 p-2.5 text-center">
-                        <span className="text-[11px] text-slate-500 font-medium">Late In</span>
-                        <div className="font-display text-xl font-extrabold text-amber-600">
-                          4
-                        </div>
-                      </div>
-                      <div className="rounded-xl border border-slate-100 bg-slate-50 p-2.5 text-center">
-                        <span className="text-[11px] text-slate-500 font-medium">On Leave</span>
-                        <div className="font-display text-xl font-extrabold text-slate-700">
-                          3
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* TAB 2: MOBILE GEO-PUNCH SIMULATOR */}
-                {heroSimTab === "geo" && (
-                  <div className="mt-4 space-y-3.5 animate-in fade-in duration-200">
-                    <div className="rounded-2xl border border-teal-100 bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                          <Smartphone className="h-4 w-4 text-[#12B5A5]" />
-                          Staff Mobile App Punch
-                        </span>
-                        <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5">
-                          Within Fence
-                        </span>
-                      </div>
-                      <div className="mt-3 space-y-2 text-xs">
-                        <div className="flex justify-between py-1 border-b border-slate-100">
-                          <span className="text-slate-500">Target Geofence:</span>
-                          <span className="font-semibold text-slate-800">Head Office Campus (50m radius)</span>
-                        </div>
-                        <div className="flex justify-between py-1 border-b border-slate-100">
-                          <span className="text-slate-500">Live GPS Accuracy:</span>
-                          <span className="font-mono font-bold text-emerald-600">3.2m · Accurate</span>
-                        </div>
-                        <div className="flex justify-between py-1">
-                          <span className="text-slate-500">Selfie Anti-Spoof:</span>
-                          <span className="font-semibold text-teal-700">Liveness Verified (Pass)</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 text-center text-xs text-slate-600">
-                      📱 Staff check in via any Android/iOS browser with instant OTP.
-                    </div>
-                  </div>
-                )}
-
-                {/* TAB 3: 1-CLICK PAYROLL RUN */}
-                {heroSimTab === "payroll" && (
-                  <div className="mt-4 space-y-3.5 animate-in fade-in duration-200">
-                    <div className="rounded-2xl border border-teal-100 bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                          <Receipt className="h-4 w-4 text-[#12B5A5]" />
-                          October 2026 Salary Run
-                        </span>
-                        <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5">
-                          148 Staff Ready
-                        </span>
-                      </div>
-                      <div className="mt-3 space-y-2 text-xs">
-                        <div className="flex justify-between py-1 border-b border-slate-100">
-                          <span className="text-slate-500">Gross Earnings:</span>
-                          <span className="font-mono font-bold text-slate-900">₹69,82,400</span>
-                        </div>
-                        <div className="flex justify-between py-1 border-b border-slate-100">
-                          <span className="text-slate-500">Statutory Deductions (PF/ESI/PT):</span>
-                          <span className="font-mono text-rose-600">-₹5,53,950</span>
-                        </div>
-                        <div className="flex justify-between py-1">
-                          <span className="text-slate-700 font-semibold">Net Payout:</span>
-                          <span className="font-mono font-black text-teal-700 text-sm">₹64,28,450</span>
-                        </div>
-                      </div>
-                    </div>
-                    <Link
-                      href="/payroll"
-                      className="block text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2 text-xs font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E]"
-                    >
-                      Export HDFC CMS Direct Transfer File →
-                    </Link>
-                  </div>
-                )}
-              </div>
+              <HeroShowcaseSlider />
             </div>
           </div>
         </div>
@@ -1012,27 +775,27 @@ export default function HomePage() {
             <Link
               key={tool.slug}
               href={`/free-tools/${tool.slug}`}
-              className="attendo-card attendo-card-hover group p-7 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
+              className="rounded-3xl border border-[#8FE8DC]/80 bg-white p-7 shadow-sm hover:shadow-xl hover:border-[#12B5A5] transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <div className="attendo-icon-box h-12 w-12 shrink-0">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8FAF7] border border-[#8FE8DC]/60 text-[#12B5A5]">
                     <FeatureIcon slug={tool.slug} className="h-6 w-6 stroke-[2.2]" />
                   </div>
-                  <span className="rounded-full bg-teal-50/80 border border-teal-200/80 px-3 py-1 text-[11px] font-bold text-[#0E7A6E] group-hover:bg-[#E8FAF7] group-hover:border-teal-300 transition-colors">
+                  <span className="rounded-full bg-[#E8FAF7] border border-[#8FE8DC] px-3.5 py-1 text-xs font-semibold text-[#0E7A6E]">
                     {tool.category}
                   </span>
                 </div>
-                <h3 className="mt-5 font-display text-base font-bold text-slate-900 text-hover-lux">
+                <h3 className="mt-5 font-display text-lg font-bold text-[#0E7A6E] group-hover:text-[#12B5A5] transition-colors">
                   {tool.name}
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2">
                   {tool.short}
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
-                <span className="text-hover-lux font-bold">Open calculator</span>
-                <ArrowRight className="h-4 w-4 arrow-hover-lux" />
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0E7A6E] group-hover:text-[#12B5A5] transition-colors">
+                <span>Open calculator</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </div>
             </Link>
           ))}
