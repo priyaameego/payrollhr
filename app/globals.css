@@ -19,8 +19,12 @@
     --accent-foreground: #0E7A6E;
     --border: #E5F2F0;
     --ring: #12B5A5;
-    --radius: 1rem;
+    --radius: 1.25rem;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -29,22 +33,23 @@ body {
   font-family: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
-/* RonHR Visual Theme Utilities */
+/* AttendoHR & RonHR Visual Theme Utilities */
 .bg-gradient-mesh {
-  background: radial-gradient(at 0% 0%, rgba(143, 232, 220, 0.28) 0px, transparent 50%),
-              radial-gradient(at 100% 0%, rgba(18, 181, 165, 0.18) 0px, transparent 50%),
-              radial-gradient(at 50% 100%, rgba(215, 247, 242, 0.45) 0px, transparent 50%);
+  background: radial-gradient(at 0% 0%, rgba(143, 232, 220, 0.3) 0px, transparent 55%),
+              radial-gradient(at 100% 0%, rgba(18, 181, 165, 0.2) 0px, transparent 55%),
+              radial-gradient(at 50% 100%, rgba(215, 247, 242, 0.5) 0px, transparent 60%);
 }
 
 .bg-dot-grid {
-  background-image: radial-gradient(rgba(18, 181, 165, 0.14) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(18, 181, 165, 0.16) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
 }
 
@@ -62,22 +67,88 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
 }
 
-.shadow-card {
-  box-shadow: 0 4px 20px -2px rgba(18, 181, 165, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+/* AttendoHR-Inspired Card Design System */
+.attendo-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(229, 242, 240, 0.95);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(18, 181, 165, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.shadow-card-hover {
-  box-shadow: 0 20px 40px -4px rgba(18, 181, 165, 0.18), 0 8px 16px -2px rgba(0, 0, 0, 0.06);
+.attendo-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.attendo-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(18, 181, 165, 0.65);
+  box-shadow: 0 20px 40px -10px rgba(18, 181, 165, 0.16), 0 8px 16px -4px rgba(0, 0, 0, 0.04);
+}
+
+.attendo-card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.attendo-card-sheen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #12B5A5, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.attendo-card-sheen:hover::before {
+  opacity: 1;
+}
+
+/* AttendoHR-Inspired Icon Containers */
+.attendo-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #F0FDFB 0%, #E6FAF7 100%);
+  border: 1px solid rgba(18, 181, 165, 0.2);
+  color: #12B5A5;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .attendo-icon-box {
+  transform: scale(1.08) rotate(1deg);
+  background: linear-gradient(135deg, #12B5A5 0%, #0E9486 100%);
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px -4px rgba(18, 181, 165, 0.35);
+}
+
+/* Attendo Badge */
+.attendo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(18, 181, 165, 0.3);
+  background-color: #E8FAF7;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0E7A6E;
+  box-shadow: 0 1px 3px rgba(18, 181, 165, 0.08);
 }
 
 .glass-nav {
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(229, 242, 240, 0.9);
 }
 
-/* Animations */
+/* Keyframe Animations */
 @keyframes floatSlow {
   0%, 100% {
     transform: translateY(0px);
@@ -92,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-10px) rotate(1deg);
+    transform: translateY(-10px) rotate(1.5deg);
   }
 }
 
@@ -102,8 +173,8 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1);
   }
   50% {
-    opacity: 0.75;
-    transform: scale(1.06);
+    opacity: 0.8;
+    transform: scale(1.08);
   }
 }
 
@@ -116,27 +187,42 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes subtleFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-float {
-  animation: floatSlow 4s ease-in-out infinite;
+  animation: floatSlow 4.5s ease-in-out infinite;
 }
 
 .animate-float-delayed {
-  animation: floatSlowAlt 5s ease-in-out 1.5s infinite;
+  animation: floatSlowAlt 5.5s ease-in-out 1.5s infinite;
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
+.animate-fade-up {
+  animation: subtleFadeUp 0.5s ease-out forwards;
+}
+
 /* Interactive Card Elevation */
 .card-interactive {
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-interactive:hover {
-  transform: translateY(-3px);
-  border-color: rgba(18, 181, 165, 0.6);
-  box-shadow: 0 16px 36px -4px rgba(18, 181, 165, 0.16), 0 6px 14px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-4px);
+  border-color: rgba(18, 181, 165, 0.65);
+  box-shadow: 0 20px 40px -10px rgba(18, 181, 165, 0.16), 0 8px 16px -4px rgba(0, 0, 0, 0.04);
 }
 
 /* Shimmer Pill Button */
@@ -152,25 +238,30 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transform: translateX(-100%);
-  transition: transform 0.6s ease;
+  transition: transform 0.65s ease;
 }
 
 .shimmer-pill:hover::after {
   transform: translateX(100%);
 }
 
+/* Subtle Gradient Glow Ring */
+.glow-ring {
+  box-shadow: 0 0 0 1px rgba(18, 181, 165, 0.2), 0 8px 24px -4px rgba(18, 181, 165, 0.12);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
   background: #F8FCFB;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C6F4EC;
+  background: #BCEFE7;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {

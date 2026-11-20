@@ -117,10 +117,12 @@ export default function PricingPage() {
         </p>
 
         {/* Cost Estimator */}
-        <div className="mx-auto mt-10 max-w-xl rounded-3xl border border-teal-100 bg-white p-6 shadow-card">
+        <div className="mx-auto mt-10 max-w-xl attendo-card p-6 text-left relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-sm font-semibold text-slate-700">Estimated team size:</span>
-            <span className="font-display text-xl font-bold text-[#0E7A6E]">{empCount} employees</span>
+            <span className="inline-flex items-center rounded-full bg-teal-50 border border-teal-200/80 px-3.5 py-1 font-display text-base font-bold text-[#0E7A6E]">
+              {empCount} employees
+            </span>
           </div>
           <input
             type="range"
@@ -129,11 +131,11 @@ export default function PricingPage() {
             step="5"
             value={empCount}
             onChange={(e) => setEmpCount(parseInt(e.target.value))}
-            className="mt-4 h-2 w-full cursor-pointer appearance-none rounded-lg bg-teal-100 accent-[#12B5A5]"
+            className="mt-5 h-2 w-full cursor-pointer appearance-none rounded-lg bg-teal-100 accent-[#12B5A5]"
           />
-          <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-4">
-            <div className="text-left">
-              <span className="text-xs text-slate-500">Estimated Growth plan:</span>
+          <div className="mt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-slate-100 pt-4">
+            <div>
+              <span className="text-xs text-slate-500 font-medium">Estimated Growth plan:</span>
               <div className="font-display text-2xl font-black text-slate-950">
                 ₹{estimatedGrowthCost.toLocaleString("en-IN")}{" "}
                 <span className="text-xs font-normal text-slate-500">/ month</span>
@@ -141,7 +143,7 @@ export default function PricingPage() {
             </div>
             <Link
               href="/book-a-demo"
-              className="rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
+              className="shimmer-pill rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all text-center"
             >
               Get Custom Quote →
             </Link>
@@ -155,37 +157,39 @@ export default function PricingPage() {
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative flex flex-col justify-between rounded-3xl p-8 transition-all ${
+              className={`relative flex flex-col justify-between rounded-3xl p-8 transition-all duration-300 ${
                 p.popular
-                  ? "border-2 border-[#12B5A5] bg-white shadow-xl ring-4 ring-[#12B5A5]/10"
-                  : "border border-teal-100/80 bg-white shadow-card hover:border-teal-200"
+                  ? "attendo-card attendo-card-hover attendo-card-sheen border-2 border-[#12B5A5] bg-white shadow-xl shadow-teal-500/10 ring-4 ring-[#12B5A5]/10 lg:-translate-y-2"
+                  : "attendo-card attendo-card-hover bg-white"
               }`}
             >
               {p.popular && (
-                <div className="absolute -top-3.5 right-6 rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-3.5 py-1 text-xs font-bold text-white shadow-sm">
+                <div className="absolute -top-3.5 right-6 rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-4 py-1 text-xs font-extrabold text-white shadow-md uppercase tracking-wider">
                   {p.badge}
                 </div>
               )}
 
               <div>
-                <h3 className="font-display text-2xl font-bold text-slate-950">{p.name}</h3>
+                <h3 className="font-display text-2xl font-extrabold text-slate-950">{p.name}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-slate-600">{p.description}</p>
                 <div className="mt-6 flex items-baseline gap-2">
                   <span className="font-display text-4xl font-black text-slate-950">{p.price}</span>
-                  <span className="text-xs text-slate-500">{p.period}</span>
+                  <span className="text-xs text-slate-500 font-medium">{p.period}</span>
                 </div>
 
                 <div className="my-6 border-t border-slate-100" />
 
                 <div className="space-y-3">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                     What&apos;s included
                   </span>
                   <ul className="space-y-2.5 text-sm text-slate-700">
                     {p.features.map((feat, i) => (
                       <li key={i} className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 shrink-0 text-[#12B5A5] mt-0.5" />
-                        <span className="text-xs leading-relaxed">{feat}</span>
+                        <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-teal-50 border border-teal-200/80 text-[#12B5A5]">
+                          <Check className="h-2.5 w-2.5 stroke-[2.5]" />
+                        </div>
+                        <span className="text-xs leading-relaxed font-medium text-slate-700">{feat}</span>
                       </li>
                     ))}
                   </ul>
@@ -195,10 +199,10 @@ export default function PricingPage() {
               <div className="mt-8 pt-4">
                 <Link
                   href={p.ctaLink}
-                  className={`block w-full text-center rounded-xl py-3 text-sm font-bold transition-all shadow-sm ${
+                  className={`block w-full text-center rounded-xl py-3 text-sm font-bold transition-all ${
                     p.popular
-                      ? "bg-gradient-to-r from-[#12B5A5] to-[#0E9486] text-white hover:from-[#0E9486] hover:to-[#0B7A6E]"
-                      : "border border-teal-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-[#12B5A5]"
+                      ? "shimmer-pill bg-gradient-to-r from-[#12B5A5] to-[#0E9486] text-white shadow-md shadow-teal-500/25 hover:from-[#0E9486] hover:to-[#0B7A6E]"
+                      : "border border-teal-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-[#12B5A5] hover:border-teal-300 shadow-sm"
                   }`}
                 >
                   {p.cta}
@@ -220,7 +224,7 @@ export default function PricingPage() {
             return (
               <div
                 key={idx}
-                className="overflow-hidden rounded-2xl border border-teal-100/80 bg-white shadow-sm"
+                className="overflow-hidden rounded-2xl border border-teal-100/80 bg-white shadow-sm transition-all duration-200 hover:border-teal-200"
               >
                 <button
                   type="button"
@@ -228,14 +232,12 @@ export default function PricingPage() {
                   className="flex w-full items-center justify-between gap-4 p-5 text-left font-display text-base font-semibold text-slate-900 transition-colors hover:text-[#12B5A5]"
                 >
                   <span>{faq.q}</span>
-                  <ChevronDown
-                    className={`h-4 w-4 text-[#12B5A5] transition-transform ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  />
+                  <div className={`flex h-6 w-6 items-center justify-center rounded-full bg-teal-50 text-[#12B5A5] transition-transform ${isOpen ? "rotate-180 bg-[#12B5A5] text-white" : ""}`}>
+                    <ChevronDown className="h-3.5 w-3.5" />
+                  </div>
                 </button>
                 {isOpen && (
-                  <div className="border-t border-slate-100 bg-slate-50/40 px-5 pb-5 pt-3 text-sm text-slate-600">
+                  <div className="border-t border-slate-100 bg-[#F0FDFB]/40 px-5 pb-5 pt-3 text-sm text-slate-600 leading-relaxed">
                     {faq.a}
                   </div>
                 )}
@@ -247,29 +249,32 @@ export default function PricingPage() {
 
       {/* Pre-footer CTA */}
       <section className="px-6">
-        <div className="mx-auto max-w-5xl rounded-3xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0B7A6E] p-10 text-white shadow-xl md:p-14">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">
-            Want a customized proposal for your team?
-          </h2>
-          <p className="mt-3 max-w-xl text-teal-50">
-            Tell us how many employees, branches, and shifts you operate. We&apos;ll configure a live sandbox and provide an exact quote.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <Link
-              href="/book-a-demo"
-              className="rounded-xl bg-white px-8 py-3 text-sm font-bold text-[#0E7A6E] shadow-sm hover:bg-teal-50 transition-colors"
-            >
-              Book a live demo
-            </Link>
-            <a
-              href={contactDetails.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-8 py-3 text-sm font-bold text-white hover:bg-white/20 transition-colors"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Chat on WhatsApp
-            </a>
+        <div className="relative overflow-hidden mx-auto max-w-5xl rounded-3xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0B7A6E] p-10 text-white shadow-xl md:p-14">
+          <div className="absolute -top-12 -right-12 h-64 w-64 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+          <div className="relative z-10">
+            <h2 className="font-display text-2xl font-bold md:text-3xl">
+              Want a customized proposal for your team?
+            </h2>
+            <p className="mt-3 max-w-xl text-teal-50 leading-relaxed">
+              Tell us how many employees, branches, and shifts you operate. We&apos;ll configure a live sandbox and provide an exact quote.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Link
+                href="/book-a-demo"
+                className="rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[#0E7A6E] shadow-lg hover:bg-teal-50 transition-all active:scale-95"
+              >
+                Book a live demo
+              </Link>
+              <a
+                href={contactDetails.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-sm font-bold text-white hover:bg-white/20 transition-all backdrop-blur-md"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Chat on WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>

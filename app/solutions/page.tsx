@@ -41,22 +41,22 @@ export default function SolutionsIndexPage() {
           <Link
             key={sol.slug}
             href={`/solutions/${sol.slug}`}
-            className="group rounded-3xl border border-teal-100/80 bg-white p-7 shadow-card hover:shadow-card-hover hover:border-teal-300 transition-all flex flex-col justify-between"
+            className="attendo-card attendo-card-hover group p-7 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
           >
             <div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-100/70 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 border border-teal-100/80 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-sm">
                 <FeatureIcon slug={sol.slug} className="h-6 w-6" />
               </div>
               <h2 className="mt-5 font-display text-lg font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
                 {sol.name}
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 {sol.short}
               </p>
             </div>
-            <div className="mt-6 flex items-center gap-1.5 text-xs font-bold text-[#12B5A5] group-hover:underline">
+            <div className="mt-6 flex items-center gap-1.5 text-xs font-bold text-[#12B5A5] group-hover:gap-2.5 transition-all">
               <span>View solution</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </div>
           </Link>
         ))}

@@ -281,13 +281,13 @@ export default function Header() {
                               key={slug}
                               href={`/features/${slug}`}
                               onClick={() => setActiveMenu(null)}
-                              className="group flex items-start gap-2.5 rounded-xl p-2 transition-all duration-150 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100/60"
+                              className="group flex items-start gap-2.5 rounded-2xl p-2.5 transition-all duration-200 hover:bg-gradient-to-r hover:from-teal-50/90 hover:to-emerald-50/40 hover:shadow-xs border border-transparent hover:border-teal-200/60"
                             >
-                              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-[#12B5A5] border border-teal-100/70 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
-                                <FeatureIcon slug={slug} className="h-3.5 w-3.5" />
+                              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50/70 text-[#12B5A5] border border-teal-100 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#12B5A5] group-hover:to-[#0E9486] group-hover:text-white group-hover:shadow-sm transition-all duration-300">
+                                <FeatureIcon slug={slug} className="h-4 w-4" />
                               </span>
                               <span className="min-w-0">
-                                <span className="block text-xs font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors leading-snug">
+                                <span className="block text-xs font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors leading-tight">
                                   {feat.name}
                                 </span>
                                 <span className="block text-[11px] text-slate-500 leading-snug line-clamp-2 mt-0.5 group-hover:text-slate-600">

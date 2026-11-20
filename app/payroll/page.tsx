@@ -89,19 +89,19 @@ export default function PayrollPage() {
     >
       <div className="space-y-6">
         {/* Active Month Banner */}
-        <div className="rounded-3xl border border-teal-200 bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/50 p-6 shadow-card">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="attendo-card attendo-card-sheen p-6 relative overflow-hidden bg-gradient-to-r from-teal-50/70 via-white to-emerald-50/40">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between relative z-10">
             <div>
               <div className="flex items-center gap-2">
-                <span className="rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-[#0E7A6E]">
+                <span className="rounded-full bg-teal-100/80 border border-teal-200 px-3 py-1 text-xs font-bold text-[#0E7A6E]">
                   Current Period: November 2026
                 </span>
-                <span className="text-xs text-slate-500">20 days elapsed</span>
+                <span className="text-xs text-slate-500 font-medium">20 days elapsed</span>
               </div>
               <h2 className="mt-2 font-display text-xl font-bold text-slate-950 sm:text-2xl">
                 Ready to preview November salary run
               </h2>
-              <p className="mt-1 text-xs text-slate-600 max-w-xl">
+              <p className="mt-1 text-xs text-slate-600 max-w-xl leading-relaxed">
                 148 active staff attendance records synced. 3 pending leaves will be factored into payable days upon approval.
               </p>
             </div>
@@ -110,7 +110,7 @@ export default function PayrollPage() {
               <button
                 type="button"
                 onClick={startNovemberRun}
-                className="rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E]"
+                className="shimmer-pill rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-teal-500/20 hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
               >
                 Calculate Draft Run →
               </button>
@@ -123,7 +123,7 @@ export default function PayrollPage() {
           <h3 className="font-display text-base font-bold text-slate-950 mb-3">
             Finalized Payroll History
           </h3>
-          <div className="overflow-hidden rounded-2xl border border-teal-100/80 bg-white shadow-card">
+          <div className="attendo-card overflow-hidden">
             <table className="w-full text-left text-xs">
               <thead className="border-b border-teal-100/80 bg-[#E8FAF7]/40 text-slate-600 font-semibold">
                 <tr>

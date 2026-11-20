@@ -140,35 +140,35 @@ export default function AttendanceRegisterPage() {
       <div className="space-y-6">
         {/* Metric summary banner */}
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
-          <div className="rounded-2xl border border-teal-100/80 bg-white p-4 shadow-card">
+          <div className="attendo-card attendo-card-hover p-4">
             <span className="text-[11px] font-semibold text-slate-500">Total Staff</span>
-            <div className="font-display text-2xl font-bold text-slate-900 mt-1">148</div>
-            <span className="text-[10px] text-slate-400">Scheduled today</span>
+            <div className="font-display text-2xl font-black text-slate-900 mt-1">148</div>
+            <span className="inline-block mt-1 text-[10px] text-slate-400 font-medium">Scheduled today</span>
           </div>
-          <div className="rounded-2xl border border-teal-100/80 bg-white p-4 shadow-card">
+          <div className="attendo-card attendo-card-hover p-4">
             <span className="text-[11px] font-semibold text-emerald-600">Present</span>
-            <div className="font-display text-2xl font-bold text-emerald-700 mt-1">136</div>
-            <span className="text-[10px] text-emerald-600">91.8% rate</span>
+            <div className="font-display text-2xl font-black text-emerald-700 mt-1">136</div>
+            <span className="inline-block mt-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">91.8% rate</span>
           </div>
-          <div className="rounded-2xl border border-teal-100/80 bg-white p-4 shadow-card">
+          <div className="attendo-card attendo-card-hover p-4">
             <span className="text-[11px] font-semibold text-amber-600">Late In</span>
-            <div className="font-display text-2xl font-bold text-amber-700 mt-1">5</div>
-            <span className="text-[10px] text-amber-600">&gt; 15 mins grace</span>
+            <div className="font-display text-2xl font-black text-amber-700 mt-1">5</div>
+            <span className="inline-block mt-1 text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-100">&gt; 15m grace</span>
           </div>
-          <div className="rounded-2xl border border-teal-100/80 bg-white p-4 shadow-card">
+          <div className="attendo-card attendo-card-hover p-4">
             <span className="text-[11px] font-semibold text-sky-600">On Leave</span>
-            <div className="font-display text-2xl font-bold text-sky-700 mt-1">7</div>
-            <span className="text-[10px] text-sky-600">Approved by HR</span>
+            <div className="font-display text-2xl font-black text-sky-700 mt-1">7</div>
+            <span className="inline-block mt-1 text-[10px] font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded-full border border-sky-100">Approved by HR</span>
           </div>
-          <div className="rounded-2xl border border-teal-100/80 bg-white p-4 shadow-card">
-            <span className="text-[11px] font-semibold text-rose-600">Absent</span>
-            <div className="font-display text-2xl font-bold text-rose-700 mt-1">0</div>
-            <span className="text-[10px] text-slate-400">Zero unaccounted</span>
+          <div className="attendo-card attendo-card-hover p-4">
+            <span className="text-[11px] font-semibold text-teal-600">Absent</span>
+            <div className="font-display text-2xl font-black text-slate-900 mt-1">0</div>
+            <span className="inline-block mt-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">Zero unaccounted</span>
           </div>
         </div>
 
         {/* Filter bar */}
-        <div className="rounded-2xl border border-teal-100/80 bg-white p-4 shadow-sm flex flex-wrap items-center justify-between gap-4">
+        <div className="attendo-card p-4 flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-3">
             {/* Search */}
             <div className="relative w-64">
@@ -178,7 +178,7 @@ export default function AttendanceRegisterPage() {
                 placeholder="Search by name, ID or department..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50/50 py-1.5 pl-9 pr-3 text-xs text-slate-800 placeholder-slate-400 focus:border-[#12B5A5] focus:bg-white focus:outline-none"
+                className="w-full rounded-xl border border-slate-200/80 bg-slate-50/50 py-2 pl-9 pr-3 text-xs text-slate-800 placeholder-slate-400 focus:border-[#12B5A5] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#12B5A5]/20 transition-all"
               />
             </div>
 
@@ -207,13 +207,13 @@ export default function AttendanceRegisterPage() {
               type="date"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-800 font-medium focus:border-[#12B5A5] focus:outline-none"
+              className="rounded-xl border border-slate-200/80 bg-white px-3 py-1.5 text-xs text-slate-800 font-medium focus:border-[#12B5A5] focus:outline-none focus:ring-2 focus:ring-[#12B5A5]/20 shadow-sm transition-all"
             />
           </div>
         </div>
 
         {/* Register Table */}
-        <div className="overflow-hidden rounded-2xl border border-teal-100/80 bg-white shadow-card">
+        <div className="attendo-card overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead className="border-b border-teal-100/80 bg-[#E8FAF7]/40 text-slate-600 font-semibold">

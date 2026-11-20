@@ -55,10 +55,10 @@ export default function FreeToolsIndexPage() {
               <Link
                 key={tool.slug}
                 href={`/free-tools/${tool.slug}`}
-                className="group rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:shadow-card-hover hover:border-teal-300 transition-all flex flex-col justify-between"
+                className="attendo-card attendo-card-hover group p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
               >
                 <div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-100/60 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 border border-teal-100/80 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-sm">
                     <FeatureIcon slug={tool.slug} className="h-5 w-5" />
                   </div>
                   <h3 className="mt-4 font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
@@ -67,11 +67,11 @@ export default function FreeToolsIndexPage() {
                   <p className="mt-1.5 text-xs text-slate-600 leading-relaxed line-clamp-2">
                     {tool.short}
                   </p>
-                  <div className="mt-3 rounded-xl bg-slate-50 p-2.5 text-[11px] font-mono text-slate-600 border border-slate-100 line-clamp-2">
+                  <div className="mt-3 rounded-xl bg-slate-50/80 p-2.5 text-[11px] font-mono text-slate-600 border border-slate-200/60 line-clamp-2">
                     {tool.formula}
                   </div>
                 </div>
-                <div className="mt-5 flex items-center justify-between text-xs font-semibold text-[#12B5A5] group-hover:underline">
+                <div className="mt-5 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:gap-2 transition-all">
                   <span>Calculate now</span>
                   <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -96,10 +96,10 @@ export default function FreeToolsIndexPage() {
               <Link
                 key={tool.slug}
                 href={`/free-tools/${tool.slug}`}
-                className="group rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:shadow-card-hover hover:border-teal-300 transition-all flex flex-col justify-between"
+                className="attendo-card attendo-card-hover group p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
               >
                 <div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-100/60 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 border border-teal-100/80 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-sm">
                     <FeatureIcon slug={tool.slug} className="h-5 w-5" />
                   </div>
                   <h3 className="mt-4 font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
@@ -108,11 +108,11 @@ export default function FreeToolsIndexPage() {
                   <p className="mt-1.5 text-xs text-slate-600 leading-relaxed line-clamp-2">
                     {tool.short}
                   </p>
-                  <div className="mt-3 rounded-xl bg-slate-50 p-2.5 text-[11px] font-mono text-slate-600 border border-slate-100 line-clamp-2">
+                  <div className="mt-3 rounded-xl bg-slate-50/80 p-2.5 text-[11px] font-mono text-slate-600 border border-slate-200/60 line-clamp-2">
                     {tool.formula}
                   </div>
                 </div>
-                <div className="mt-5 flex items-center justify-between text-xs font-semibold text-[#12B5A5] group-hover:underline">
+                <div className="mt-5 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:gap-2 transition-all">
                   <span>Calculate now</span>
                   <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>

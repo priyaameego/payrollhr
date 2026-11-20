@@ -98,7 +98,7 @@ export default async function SolutionDetailPage({
 
       {/* Challenges & Needs */}
       {sol.challenges && sol.challenges.length > 0 && (
-        <section className="rounded-3xl border border-teal-100/90 bg-white p-8 sm:p-12 shadow-card">
+        <section className="attendo-card p-8 sm:p-12">
           <div className="max-w-xl">
             <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
               Real-world pain points
@@ -112,9 +112,11 @@ export default async function SolutionDetailPage({
             {sol.challenges.map((ch: string, idx: number) => (
               <div
                 key={idx}
-                className="flex items-start gap-3.5 rounded-2xl border border-teal-100/60 bg-[#F0FDFB] p-5"
+                className="attendo-card-hover flex items-start gap-3.5 rounded-2xl border border-rose-100 bg-rose-50/25 p-5 transition-all"
               >
-                <AlertCircle className="h-5 w-5 shrink-0 text-[#12B5A5] mt-0.5" />
+                <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-rose-50 text-rose-500 border border-rose-200/60">
+                  <AlertCircle className="h-4 w-4" />
+                </div>
                 <p className="text-sm font-medium text-slate-700 leading-relaxed">
                   {ch}
                 </p>
@@ -125,31 +127,43 @@ export default async function SolutionDetailPage({
       )}
 
       {/* Suggested Features / Capabilities */}
-      <section className="rounded-3xl border border-teal-100/80 bg-white p-8 sm:p-12 shadow-sm">
+      <section className="attendo-card p-8 sm:p-12">
         <h2 className="font-display text-2xl font-bold text-slate-950 mb-6">
           How PayroleHR is configured for this workflow
         </h2>
         <div className="grid gap-6 sm:grid-cols-3">
-          <div className="rounded-2xl border border-slate-100 p-5">
-            <CheckCircle2 className="h-5 w-5 text-[#12B5A5] mb-2" />
-            <h3 className="font-bold text-sm text-slate-900">Custom Timings & Rosters</h3>
-            <p className="mt-1 text-xs text-slate-600">
-              Different staff groups follow different shift patterns, grace rules and holiday calendars.
-            </p>
+          <div className="attendo-card attendo-card-hover p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 border border-teal-100 text-[#12B5A5] mb-4">
+                <CheckCircle2 className="h-5 w-5" />
+              </div>
+              <h3 className="font-bold text-sm text-slate-900">Custom Timings & Rosters</h3>
+              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-normal">
+                Different staff groups follow different shift patterns, grace rules and holiday calendars.
+              </p>
+            </div>
           </div>
-          <div className="rounded-2xl border border-slate-100 p-5">
-            <CheckCircle2 className="h-5 w-5 text-[#12B5A5] mb-2" />
-            <h3 className="font-bold text-sm text-slate-900">Zero Device Friction</h3>
-            <p className="mt-1 text-xs text-slate-600">
-              Run face attendance kiosks on standard Android tablets without buying vendor-locked hardware.
-            </p>
+          <div className="attendo-card attendo-card-hover p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 border border-teal-100 text-[#12B5A5] mb-4">
+                <CheckCircle2 className="h-5 w-5" />
+              </div>
+              <h3 className="font-bold text-sm text-slate-900">Zero Device Friction</h3>
+              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-normal">
+                Run face attendance kiosks on standard Android tablets without buying vendor-locked hardware.
+              </p>
+            </div>
           </div>
-          <div className="rounded-2xl border border-slate-100 p-5">
-            <CheckCircle2 className="h-5 w-5 text-[#12B5A5] mb-2" />
-            <h3 className="font-bold text-sm text-slate-900">1-Click Bank Salary Payout</h3>
-            <p className="mt-1 text-xs text-slate-600">
-              Generate error-free bank bulk upload sheets formatted for ICICI, HDFC, SBI, Axis and more.
-            </p>
+          <div className="attendo-card attendo-card-hover p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 border border-teal-100 text-[#12B5A5] mb-4">
+                <CheckCircle2 className="h-5 w-5" />
+              </div>
+              <h3 className="font-bold text-sm text-slate-900">1-Click Bank Salary Payout</h3>
+              <p className="mt-2 text-xs text-slate-600 leading-relaxed font-normal">
+                Generate error-free bank bulk upload sheets formatted for ICICI, HDFC, SBI, Axis and more.
+              </p>
+            </div>
           </div>
         </div>
       </section>

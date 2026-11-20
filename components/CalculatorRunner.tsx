@@ -31,10 +31,10 @@ export default function CalculatorRunner({ slug, name }: CalculatorRunnerProps) 
   };
 
   return (
-    <div className="rounded-3xl border border-teal-100/90 bg-white p-6 sm:p-8 shadow-card">
+    <div className="attendo-card p-6 sm:p-8">
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-5">
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E6F9F6] px-3 py-1 text-xs font-bold text-[#0E7A6E]">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E8FAF7] border border-teal-200/80 px-3 py-1 text-xs font-bold text-[#0E7A6E]">
             <Calculator className="h-3.5 w-3.5 text-[#12B5A5]" />
             Interactive Calculator
           </span>
@@ -46,7 +46,7 @@ export default function CalculatorRunner({ slug, name }: CalculatorRunnerProps) 
           <button
             type="button"
             onClick={handlePrint}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200/80 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-teal-50 hover:text-[#12B5A5] hover:border-teal-200 transition-all shadow-sm"
           >
             <Printer className="h-3.5 w-3.5" />
             Print
