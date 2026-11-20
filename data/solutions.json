@@ -1,0 +1,330 @@
+[
+  {
+    "slug": "education",
+    "name": "Educational Institutions",
+    "icon": "nc",
+    "short": "Teaching and non-teaching staff, academic calendars and staff payroll.",
+    "headline": "HR and payroll for schools, colleges and institutes",
+    "intro": "Teaching and non-teaching staff often follow different timings, salary structures and rounding rules. PayroleHR lets you set each one up the way your institution already works.",
+    "challenges": [
+      "Teaching and non-teaching staff on different salary structures.",
+      "Morning and day timings for different sections.",
+      "Staff who hold two roles, such as teacher and hostel warden.",
+      "Several approval levels before salaries are released."
+    ],
+    "features": [
+      {
+        "slug": "salary-structure-management",
+        "why": "Separate structures for teaching and non-teaching staff, each with its own columns and rounding."
+      },
+      {
+        "slug": "face-attendance",
+        "why": "A kiosk at the staff gate replaces the attendance register."
+      },
+      {
+        "slug": "shift-management",
+        "why": "Different timings per weekday, such as shorter Saturdays."
+      },
+      {
+        "slug": "payroll-management",
+        "why": "HR → Accounts → Principal sign-off before salaries are locked."
+      },
+      {
+        "slug": "leave-management",
+        "why": "Casual and sick leave credited monthly or yearly."
+      }
+    ],
+    "workflow": [
+      "Staff check in at the gate kiosk each morning.",
+      "The month's attendance flows into each staff group's salary structure.",
+      "Accounts reviews, the principal approves, and the bank file is exported.",
+      "Staff download payslips from the portal."
+    ],
+    "scenarios": [
+      {
+        "title": "Two roles, one bank transfer",
+        "text": "A teacher who is also hostel warden keeps two staff records with separate salaries; the bank file pays both in one line."
+      },
+      {
+        "title": "Holidays and vacations",
+        "text": "Institution holidays come from your calendar. Separate vacation-period handling is planned, not available yet."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can non-teaching staff salaries keep paise while teachers round?",
+        "a": "Yes. Rounding is set per column in each structure."
+      }
+    ]
+  },
+  {
+    "slug": "corporate",
+    "name": "Corporate Offices",
+    "icon": "Ds",
+    "short": "Departments, custom roles, self-service and approvals.",
+    "headline": "HR for offices that want fewer spreadsheets and emails",
+    "intro": "Give employees a self-service portal, managers their own department view, and finance a payroll they can approve with confidence.",
+    "challenges": [
+      "Staff asking HR for payslips and leave balances.",
+      "Managers who should see only their team.",
+      "Increments that need to take effect from a future month."
+    ],
+    "features": [
+      {
+        "slug": "employee-management",
+        "why": "Self-registration and custom fields for each employee."
+      },
+      {
+        "slug": "organization-policies",
+        "why": "Custom roles and department-head visibility."
+      },
+      {
+        "slug": "payroll-management",
+        "why": "Scheduled salary revisions and approval stages."
+      },
+      {
+        "slug": "helpdesk",
+        "why": "HR queries tracked instead of lost in email."
+      },
+      {
+        "slug": "performance-management",
+        "why": "Goals and reviews alongside attendance and pay."
+      }
+    ],
+    "workflow": [
+      "Employees sign in to the portal with mobile OTP.",
+      "They apply for leave, raise queries and update goals.",
+      "Managers approve for their department.",
+      "Finance approves payroll and payslips are published."
+    ],
+    "scenarios": [
+      {
+        "title": "Increment from April",
+        "text": "Schedule the revision in advance; it applies automatically when April payroll is calculated."
+      },
+      {
+        "title": "Hybrid attendance",
+        "text": "Office staff use the kiosk; others check in from the portal, optionally with face verification."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can department heads see salaries?",
+        "a": "Only if their role allows it. Custom roles can narrow access."
+      }
+    ]
+  },
+  {
+    "slug": "manufacturing",
+    "name": "Manufacturing & Factories",
+    "icon": "Js",
+    "short": "Multiple shifts, overtime and fast gate attendance.",
+    "headline": "Shift attendance and overtime for factories",
+    "intro": "Large numbers of workers on several shifts need fast check-in, correct late marks and overtime that reaches payroll.",
+    "challenges": [
+      "Queues at the gate at shift change.",
+      "Workers on morning, evening and night shifts.",
+      "Overtime calculated by hand.",
+      "Weekly offs that differ by shift."
+    ],
+    "features": [
+      {
+        "slug": "face-attendance",
+        "why": "Quick face recognition keeps the gate moving."
+      },
+      {
+        "slug": "shift-management",
+        "why": "Multiple shifts with their own timings and weekly offs."
+      },
+      {
+        "slug": "attendance-management",
+        "why": "Late, half-day and early-leaving rules per shift."
+      },
+      {
+        "slug": "payroll-management",
+        "why": "Approved overtime hours become a payroll formula input."
+      },
+      {
+        "slug": "reports-analytics",
+        "why": "Daily absentee and late-comer reports."
+      }
+    ],
+    "workflow": [
+      "Workers scan at the gate kiosk.",
+      "Status is decided from their assigned shift.",
+      "Supervisors approve overtime.",
+      "Payroll pays overtime through your own formula."
+    ],
+    "scenarios": [
+      {
+        "title": "Shift change for a week",
+        "text": "Assign a different shift for a date range; attendance follows it for those days only."
+      },
+      {
+        "title": "Overtime rate",
+        "text": "Use OT hours in a salary column formula, e.g. hourly rate × 2 × OT hours."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Do you support rotating shift patterns?",
+        "a": "You can assign shifts by date range. Automatic rotation is not built in."
+      }
+    ]
+  },
+  {
+    "slug": "healthcare",
+    "name": "Healthcare Organizations",
+    "icon": "ac",
+    "short": "Round-the-clock shifts, rosters and credential documents.",
+    "headline": "Rosters and records for clinics and hospitals",
+    "intro": "Nursing and support staff work around the clock, and their registrations and certificates must be on file.",
+    "challenges": [
+      "Day, evening and night rosters.",
+      "Licences and certificates to keep on record.",
+      "Many staff categories with different pay."
+    ],
+    "features": [
+      {
+        "slug": "shift-management",
+        "why": "Roster calendar for every ward or team."
+      },
+      {
+        "slug": "document-management",
+        "why": "Staff upload certificates; HR verifies them."
+      },
+      {
+        "slug": "salary-structure-management",
+        "why": "Different structures per staff category."
+      },
+      {
+        "slug": "attendance-management",
+        "why": "Check-in and check-out times per shift."
+      }
+    ],
+    "workflow": [
+      "Plan the month's roster.",
+      "Staff check in by face or portal.",
+      "HR verifies documents.",
+      "Payroll runs per category."
+    ],
+    "scenarios": [
+      {
+        "title": "Certificate on file",
+        "text": "Ask staff to upload registration documents; pending items are visible at a glance."
+      },
+      {
+        "title": "Night shift timings",
+        "text": "Shift timings are configurable per weekday."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Does it track certificate expiry?",
+        "a": "Not automatically yet; documents are stored and verified."
+      }
+    ]
+  },
+  {
+    "slug": "retail",
+    "name": "Retail & Hospitality",
+    "icon": "Rc",
+    "short": "Several outlets, part-time staff and cash wages.",
+    "headline": "HR for shops, outlets and hotels",
+    "intro": "Outlet staff work varied timings, some are paid in cash, and managers need simple tools on a phone.",
+    "challenges": [
+      "Staff across several outlets.",
+      "Some staff paid in cash.",
+      "High joining and leaving."
+    ],
+    "features": [
+      {
+        "slug": "face-attendance",
+        "why": "A phone or tablet at each outlet as a kiosk."
+      },
+      {
+        "slug": "employee-management",
+        "why": "Quick self-registration and approval for new joiners."
+      },
+      {
+        "slug": "payroll-management",
+        "why": "Cash-paid staff left out of the bank file automatically."
+      },
+      {
+        "slug": "shift-management",
+        "why": "Different timings for weekdays and weekends."
+      }
+    ],
+    "workflow": [
+      "New staff register from their phone.",
+      "They check in at the outlet kiosk.",
+      "Payroll pays bank and cash staff correctly.",
+      "Exit clearance on leaving."
+    ],
+    "scenarios": [
+      {
+        "title": "Cash wages",
+        "text": "Mark an employee as cash-paid; they stay on payroll but not in the bank file."
+      },
+      {
+        "title": "Weekend timings",
+        "text": "Use per-day shift timings for longer weekend hours."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can each outlet have its own camera?",
+        "a": "Yes, each scan records which camera took it."
+      }
+    ]
+  },
+  {
+    "slug": "small-business",
+    "name": "Small and Medium Businesses",
+    "icon": "Es",
+    "short": "Everything in one place without an HR team.",
+    "headline": "Payroll and attendance without a full HR department",
+    "intro": "Owners and accountants who handle HR on the side need something that is quick to set up and hard to get wrong.",
+    "challenges": [
+      "No dedicated HR person.",
+      "Salaries worked out in Excel each month.",
+      "Staff asking for payslips."
+    ],
+    "features": [
+      {
+        "slug": "attendance-management",
+        "why": "Attendance totals ready at month end."
+      },
+      {
+        "slug": "payroll-management",
+        "why": "Salaries, payslips and bank file in a few clicks."
+      },
+      {
+        "slug": "leave-management",
+        "why": "Staff apply for leave from their phone."
+      },
+      {
+        "slug": "employee-management",
+        "why": "Import your existing staff list from Excel."
+      }
+    ],
+    "workflow": [
+      "Import staff from Excel.",
+      "Staff mark attendance from the portal or a kiosk.",
+      "Calculate payroll at month end.",
+      "Publish payslips."
+    ],
+    "scenarios": [
+      {
+        "title": "First month",
+        "text": "Enter last month's days by hand; switch to attendance-only from the month you choose."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How long does setup take?",
+        "a": "Most small teams are set up in a day once salary structures are decided."
+      }
+    ]
+  }
+]

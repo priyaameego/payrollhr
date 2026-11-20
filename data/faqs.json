@@ -1,0 +1,95 @@
+[
+  {
+    "title": "Getting started",
+    "items": [
+      {
+        "q": "What is PayroleHR?",
+        "a": "An HR and payroll system for organisations in India: staff records, attendance, face check-in, leave, salary structures, payroll, payslips, bank files and reports in one place."
+      },
+      {
+        "q": "How do we move our existing staff in?",
+        "a": "Import your staff list from an Excel sheet. Each row is checked and errors are shown before anything is saved."
+      },
+      {
+        "q": "Do staff need to install an app?",
+        "a": "No. The staff portal works in any phone browser and can be added to the home screen. Staff sign in with their mobile number and a one-time code."
+      },
+      {
+        "q": "Can new joiners fill in their own details?",
+        "a": "Yes. Staff can register from the sign-in page with mobile verification and upload documents. HR approves them before they get portal access."
+      }
+    ]
+  },
+  {
+    "title": "Attendance & face check-in",
+    "items": [
+      {
+        "q": "What hardware do we need for face attendance?",
+        "a": "Any phone, tablet or laptop with a camera and a browser. No special device is required."
+      },
+      {
+        "q": "Can someone mark attendance for a colleague?",
+        "a": "The kiosk records the face it recognises. Portal face check-in only counts when the face matches the signed-in employee."
+      },
+      {
+        "q": "How are late and half-day decided?",
+        "a": "From each employee's shift and your grace time. The same rules apply to face scans, portal punches and HR corrections."
+      },
+      {
+        "q": "Is location tracked?",
+        "a": "Only if you switch it on for an employee, and only between their check-in and check-out while the portal is open."
+      }
+    ]
+  },
+  {
+    "title": "Payroll",
+    "items": [
+      {
+        "q": "Do we have to use a fixed salary layout?",
+        "a": "No. You build each salary structure from your own columns and formulas."
+      },
+      {
+        "q": "Who approves payroll?",
+        "a": "Runs move through HR review, finance review and final approval before they are locked."
+      },
+      {
+        "q": "Which banks are supported?",
+        "a": "Any bank. You set up your bank's file layout once, and files are exported only from locked or paid runs."
+      },
+      {
+        "q": "Can some staff be paid in cash?",
+        "a": "Yes. Cash-paid staff stay on the payroll sheet but are left out of the bank file."
+      }
+    ]
+  },
+  {
+    "title": "Data & security",
+    "items": [
+      {
+        "q": "Can one organisation see another's data?",
+        "a": "No. Each organisation's data is kept separate."
+      },
+      {
+        "q": "Who can see what inside our organisation?",
+        "a": "Access follows roles. You can create custom roles and limit department heads to their own department."
+      },
+      {
+        "q": "Are changes recorded?",
+        "a": "Yes. The audit log shows what changed and who changed it."
+      }
+    ]
+  },
+  {
+    "title": "Pricing & demo",
+    "items": [
+      {
+        "q": "How much does it cost?",
+        "a": "Pricing depends on your organisation's size and needs. Book a demo and we'll share a quote."
+      },
+      {
+        "q": "How do I book a demo?",
+        "a": "Use the Book a demo page, or WhatsApp or call +91 70079 01057."
+      }
+    ]
+  }
+]

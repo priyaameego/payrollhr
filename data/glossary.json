@@ -1,0 +1,130 @@
+[
+  {
+    "term": "Arrears",
+    "def": "Salary owed for a past period, paid later — for example after a back-dated increment."
+  },
+  {
+    "term": "Attendance regularisation",
+    "def": "Correcting a missed or wrong punch with a reason, usually approved by HR."
+  },
+  {
+    "term": "Basic salary",
+    "def": "The fixed core part of pay. PF, gratuity and often HRA are worked out from it."
+  },
+  {
+    "term": "Bank salary file",
+    "def": "A file in your bank's format listing each employee's account and net pay for bulk transfer."
+  },
+  {
+    "term": "Carry forward",
+    "def": "Unused leave moved into the next leave year, often up to a limit."
+  },
+  {
+    "term": "CTC",
+    "def": "Cost to Company — everything the employer spends on an employee in a year, including employer PF."
+  },
+  {
+    "term": "DA",
+    "def": "Dearness Allowance, paid to offset inflation; counted with basic for PF and gratuity where paid."
+  },
+  {
+    "term": "Deductions",
+    "def": "Amounts subtracted from gross pay, such as PF, ESI, professional tax, TDS and loan recovery."
+  },
+  {
+    "term": "Employer contribution",
+    "def": "Amounts the employer pays on top of salary, such as employer PF and ESI."
+  },
+  {
+    "term": "EPF / PF",
+    "def": "Employees' Provident Fund. Employee and employer each contribute 12% of basic (commonly capped at ₹15,000)."
+  },
+  {
+    "term": "ESI",
+    "def": "Employees' State Insurance for staff earning up to ₹21,000 gross a month: 0.75% employee, 3.25% employer."
+  },
+  {
+    "term": "Full and final settlement",
+    "def": "The last payment to a leaving employee: pending salary, leave encashment, gratuity, minus recoveries."
+  },
+  {
+    "term": "Grace time",
+    "def": "Minutes after shift start during which a check-in is still treated as on time."
+  },
+  {
+    "term": "Gratuity",
+    "def": "A lump sum after 5+ years of service: 15/26 × last basic + DA × years of service."
+  },
+  {
+    "term": "Gross salary",
+    "def": "Total earnings before deductions."
+  },
+  {
+    "term": "Half day",
+    "def": "A day where the employee worked less than the full-day threshold but more than the minimum."
+  },
+  {
+    "term": "HRA",
+    "def": "House Rent Allowance, part of salary meant for rent; partly tax-exempt under the old regime."
+  },
+  {
+    "term": "Leave encashment",
+    "def": "Paying unused leave in cash, usually at exit or year end."
+  },
+  {
+    "term": "LOP",
+    "def": "Loss of Pay — days without pay, reducing the month's salary."
+  },
+  {
+    "term": "Net salary",
+    "def": "Take-home pay after all deductions."
+  },
+  {
+    "term": "Onboarding",
+    "def": "Steps to bring a new employee in: records, documents, access and equipment."
+  },
+  {
+    "term": "Overtime",
+    "def": "Hours worked beyond the normal schedule, often paid at a higher rate."
+  },
+  {
+    "term": "Paid days",
+    "def": "Days in the month the employee is paid for: present days, paid leave, holidays and weekly offs."
+  },
+  {
+    "term": "Payroll",
+    "def": "The process of calculating, approving and paying salaries for a period."
+  },
+  {
+    "term": "Payslip",
+    "def": "A statement of one employee's earnings, deductions and net pay for a month."
+  },
+  {
+    "term": "Professional tax (PT)",
+    "def": "A state tax on employment, deducted monthly; amount depends on the state."
+  },
+  {
+    "term": "Roster",
+    "def": "A schedule showing which employee works which shift on which day."
+  },
+  {
+    "term": "Shift",
+    "def": "A defined block of working hours, with start, end, breaks and weekly offs."
+  },
+  {
+    "term": "TDS",
+    "def": "Tax Deducted at Source — income tax deducted from salary each month."
+  },
+  {
+    "term": "Unpaid days",
+    "def": "Days not paid: absence without approved leave or unpaid leave."
+  },
+  {
+    "term": "UAN",
+    "def": "Universal Account Number — an employee's lifelong PF account number."
+  },
+  {
+    "term": "Weekly off",
+    "def": "The regular day(s) off each week, such as Sunday."
+  }
+]

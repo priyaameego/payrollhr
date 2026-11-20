@@ -1,0 +1,57 @@
+[
+  {
+    "file": "employee-information-form.csv",
+    "name": "Employee Information Form",
+    "text": "Columns for personal, job, bank and statutory details — also importable as a staff list."
+  },
+  {
+    "file": "leave-application-form.csv",
+    "name": "Leave Application Form",
+    "text": "Leave type, dates, days, reason and approval columns."
+  },
+  {
+    "file": "attendance-register.csv",
+    "name": "Attendance Register",
+    "text": "Monthly register with a column for each day and totals."
+  },
+  {
+    "file": "salary-structure-template.csv",
+    "name": "Salary Structure Template",
+    "text": "Earnings, deductions and formulas laid out for a structure."
+  },
+  {
+    "file": "employee-exit-checklist.csv",
+    "name": "Employee Exit Checklist",
+    "text": "Clearance items from assets to final settlement."
+  },
+  {
+    "file": "shift-roster-template.csv",
+    "name": "Shift Roster Template",
+    "text": "Employees down the side, dates across, shift codes in cells."
+  },
+  {
+    "file": "performance-review-template.csv",
+    "name": "Performance Review Template",
+    "text": "Goals, self rating, manager rating and comments."
+  },
+  {
+    "file": "offer-letter-template.csv",
+    "name": "Offer Letter Template",
+    "text": "Position, joining date, salary, probation and validity fields for an offer letter."
+  },
+  {
+    "file": "appointment-letter-template.csv",
+    "name": "Appointment Letter Template",
+    "text": "Designation, place of work, salary, notice period and leave terms."
+  },
+  {
+    "file": "salary-slip-template.csv",
+    "name": "Salary Slip Template",
+    "text": "Earnings, deductions and net pay laid out for a monthly payslip."
+  },
+  {
+    "file": "full-and-final-settlement-checklist.csv",
+    "name": "Full & Final Settlement Checklist",
+    "text": "Last salary, leave encashment, gratuity, recoveries and letters to issue."
+  }
+]

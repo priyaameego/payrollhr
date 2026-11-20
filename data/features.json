@@ -1,0 +1,2302 @@
+[
+  {
+    "slug": "employee-management",
+    "name": "Employee Management",
+    "icon": "Qc",
+    "short": "One record per person: details, documents, bank, salary and history.",
+    "headline": "Every staff record in one place, with your own fields",
+    "intro": "Keep personal, job, bank and statutory details for every employee, add the fields your organisation needs, and let staff register themselves for HR to approve.",
+    "problem": [
+      "Staff details spread across Excel sheets, files and WhatsApp messages.",
+      "Every organisation needs different fields, but most software forces a fixed form.",
+      "New joiners wait days for HR to type in their details and documents."
+    ],
+    "solution": "PayroleHR keeps one record per employee with departments, designations, bank details, PAN, UAN and ESI numbers, plus custom fields you define. Staff can apply from the registration page with mobile OTP; HR reviews and approves before they get portal access.",
+    "capabilities": [
+      {
+        "title": "Custom fields",
+        "text": "Add text, number, date or list fields that appear on the form and in imports."
+      },
+      {
+        "title": "Self-registration",
+        "text": "Staff find your organisation, verify their mobile and upload documents for HR review."
+      },
+      {
+        "title": "Bulk import",
+        "text": "Import staff from Excel with row-by-row checks before anything is saved."
+      },
+      {
+        "title": "Departments & designations",
+        "text": "Defined by you, used across attendance, payroll and reports."
+      },
+      {
+        "title": "Onboarding & offboarding",
+        "text": "Hire from recruitment, track joining tasks, and complete exit clearance."
+      },
+      {
+        "title": "Archive, never lose",
+        "text": "Former staff are archived with their history kept for reports."
+      }
+    ],
+    "steps": [
+      "Set up departments, designations and any custom fields.",
+      "Import existing staff or share the registration page.",
+      "Approve new joiners; they get portal sign-in automatically."
+    ],
+    "screen": {
+      "title": "Employee record",
+      "rows": [
+        [
+          "Department",
+          "Accounts"
+        ],
+        [
+          "Designation",
+          "Senior Accountant"
+        ],
+        [
+          "Date of joining",
+          "01 Apr 2024"
+        ],
+        [
+          "Bank",
+          "Verified"
+        ],
+        [
+          "Portal access",
+          "Active"
+        ]
+      ]
+    },
+    "related": [
+      "attendance-management",
+      "document-management",
+      "payroll-management"
+    ],
+    "faqs": [
+      {
+        "q": "Can we add our own fields?",
+        "a": "Yes. Each organisation defines its own extra fields, and they are validated the same way on the form and in imports."
+      },
+      {
+        "q": "Can staff fill in their own details?",
+        "a": "Yes. Staff register with a one-time SMS code; their application stays pending until HR approves it."
+      },
+      {
+        "q": "What happens when someone leaves?",
+        "a": "Offboarding clearance sets the leaving date and blocks portal access. Their records stay for reports."
+      }
+    ]
+  },
+  {
+    "slug": "attendance-management",
+    "name": "Attendance Management",
+    "icon": "ks",
+    "short": "Daily attendance with check-in/out times, late and half-day rules.",
+    "headline": "Attendance that follows your shifts and rules",
+    "intro": "Mark attendance by face scan, the staff portal or HR entry. Every method uses the same late, early-leaving and half-day rules, so the numbers always match.",
+    "problem": [
+      "Paper registers and manual totals at month end.",
+      "Late and half-day rules applied differently by different people.",
+      "Attendance and payroll figures that never quite agree."
+    ],
+    "solution": "Check-in and check-out times are stored for every day. One rule set decides Present, Late, Half day or Left early based on the employee's shift and grace time, and the monthly totals flow straight into payroll.",
+    "capabilities": [
+      {
+        "title": "Several ways to punch",
+        "text": "Face kiosk, staff portal button or face check-in, and HR corrections."
+      },
+      {
+        "title": "Shift-aware rules",
+        "text": "Grace minutes, half-day thresholds and weekly offs from the employee's shift."
+      },
+      {
+        "title": "Monthly sheet",
+        "text": "See the whole month per employee and correct days with a reason."
+      },
+      {
+        "title": "Holidays",
+        "text": "Organisation holiday calendar, with import."
+      },
+      {
+        "title": "Overtime requests",
+        "text": "Approved overtime hours become a payroll input."
+      },
+      {
+        "title": "Attendance reports",
+        "text": "Daily, monthly, late-comers, absentees and more, exportable to Excel."
+      }
+    ],
+    "steps": [
+      "Set your shifts and grace time.",
+      "Staff punch in and out by face or portal.",
+      "Review the month and send it to payroll."
+    ],
+    "screen": {
+      "title": "Today",
+      "rows": [
+        [
+          "Present",
+          "68"
+        ],
+        [
+          "Late",
+          "4"
+        ],
+        [
+          "On leave",
+          "3"
+        ],
+        [
+          "Absent",
+          "2"
+        ],
+        [
+          "Not marked yet",
+          "5"
+        ]
+      ]
+    },
+    "related": [
+      "face-attendance",
+      "shift-management",
+      "reports-analytics"
+    ],
+    "faqs": [
+      {
+        "q": "Does attendance feed payroll automatically?",
+        "a": "Yes. Paid days, leave and overtime are worked out from attendance when you calculate payroll."
+      },
+      {
+        "q": "Can HR correct a wrong punch?",
+        "a": "Yes, HR can edit check-in/out times; the same rules re-apply and the change is logged."
+      },
+      {
+        "q": "Is location tracking available?",
+        "a": "Optional live location while checked in can be switched on per employee from the web portal."
+      }
+    ]
+  },
+  {
+    "slug": "face-attendance",
+    "name": "Face Attendance",
+    "icon": "Ac",
+    "short": "Kiosk and portal check-in by face, with photo proof options.",
+    "headline": "Staff check in by looking at a camera",
+    "intro": "Put a tablet or phone at the entrance in kiosk mode. Staff look at it, it recognises them and records check-in or check-out within moments.",
+    "problem": [
+      "Buddy punching with cards and registers.",
+      "Biometric devices that need cleaning and break down.",
+      "No proof of who actually marked attendance."
+    ],
+    "solution": "Faces are enrolled once by an authorised operator behind a PIN. The kiosk recognises the person, applies their shift rules, greets them and resets for the next person. Optional check-in photos are stored privately for HR.",
+    "capabilities": [
+      {
+        "title": "Kiosk mode",
+        "text": "Full-screen check-in screen for an attendance operator account."
+      },
+      {
+        "title": "Check-in and check-out sessions",
+        "text": "Optional time windows; the camera sleeps when nobody is in front of it."
+      },
+      {
+        "title": "Portal face check-in",
+        "text": "Staff can check in from their own phone, matched only to their own face."
+      },
+      {
+        "title": "PIN-protected enrolment",
+        "text": "Only authorised people can register or change faces."
+      },
+      {
+        "title": "Photo proof",
+        "text": "Optionally keep check-in photos privately, deleted by HR when no longer needed."
+      },
+      {
+        "title": "Multiple cameras",
+        "text": "Built-in, USB or network cameras recorded against each scan."
+      }
+    ],
+    "steps": [
+      "Enrol each employee's face once.",
+      "Open the kiosk on a tablet at the entrance.",
+      "Staff look at the camera; attendance is marked instantly."
+    ],
+    "screen": {
+      "title": "Kiosk",
+      "rows": [
+        [
+          "Recognised",
+          "Priya Sharma"
+        ],
+        [
+          "Action",
+          "Check-in"
+        ],
+        [
+          "Time",
+          "09:52 am"
+        ],
+        [
+          "Status",
+          "Present"
+        ],
+        [
+          "Shift",
+          "General"
+        ]
+      ]
+    },
+    "related": [
+      "attendance-management",
+      "shift-management",
+      "organization-policies"
+    ],
+    "faqs": [
+      {
+        "q": "What hardware is needed?",
+        "a": "Any phone, tablet or laptop with a camera and a browser. No special device is required."
+      },
+      {
+        "q": "Can someone mark for a colleague?",
+        "a": "The kiosk records the recognised face. Portal face check-in only counts when the face matches the signed-in employee."
+      },
+      {
+        "q": "Are photos stored?",
+        "a": "Only if you switch it on. They are private and viewed through short-lived links."
+      }
+    ]
+  },
+  {
+    "slug": "leave-management",
+    "name": "Leave Management",
+    "icon": "js",
+    "short": "Leave types, balances, monthly credit and approvals.",
+    "headline": "Leave requests, balances and approvals without the back-and-forth",
+    "intro": "Define your own leave types, credit them yearly or monthly, and let staff apply from the portal while managers approve in one click.",
+    "problem": [
+      "Leave balances tracked in a notebook or spreadsheet.",
+      "Staff asking HR every week how much leave is left.",
+      "Approved leave not reflected in payroll."
+    ],
+    "solution": "Each leave type has its own yearly or monthly entitlement. Staff see live balances in the portal and apply; approvers get the request; approved leave is counted as paid or unpaid in payroll.",
+    "capabilities": [
+      {
+        "title": "Your leave types",
+        "text": "Casual, sick, earned or anything else, paid or unpaid."
+      },
+      {
+        "title": "Monthly credit",
+        "text": "Leave added each month, with HR adjustments that match on both sides."
+      },
+      {
+        "title": "Staff self-service",
+        "text": "Apply, see balance and status from the phone."
+      },
+      {
+        "title": "Approvals",
+        "text": "Approve or reject with comments; history is kept."
+      },
+      {
+        "title": "Holiday calendar",
+        "text": "Organisation holidays are excluded automatically."
+      },
+      {
+        "title": "Payroll link",
+        "text": "Paid and unpaid leave flow into salary calculation."
+      }
+    ],
+    "steps": [
+      "Create leave types and entitlements.",
+      "Staff apply from the portal.",
+      "Approve; balances and payroll update."
+    ],
+    "screen": {
+      "title": "Leave balance",
+      "rows": [
+        [
+          "Casual leave",
+          "6 of 12"
+        ],
+        [
+          "Sick leave",
+          "5 of 7"
+        ],
+        [
+          "Earned leave",
+          "11.5"
+        ],
+        [
+          "Pending requests",
+          "1"
+        ],
+        [
+          "Next holiday",
+          "Diwali"
+        ]
+      ]
+    },
+    "related": [
+      "attendance-management",
+      "payroll-management",
+      "organization-policies"
+    ],
+    "faqs": [
+      {
+        "q": "Can leave be credited monthly?",
+        "a": "Yes. Monthly leave types add a fixed amount each month; HR changes are spread correctly."
+      },
+      {
+        "q": "Is vacation leave supported?",
+        "a": "Vacation-specific handling is not available yet."
+      }
+    ]
+  },
+  {
+    "slug": "payroll-management",
+    "name": "Payroll Management",
+    "icon": "$c",
+    "short": "Monthly payroll runs with approvals, payslips and bank files.",
+    "headline": "Run payroll with approvals, payslips and bank files",
+    "intro": "Calculate salaries from attendance and your own salary structures, pass them through HR, Finance and Management sign-off, then lock, pay and send payslips.",
+    "problem": [
+      "Salary sheets rebuilt every month in Excel.",
+      "Formula mistakes found after salaries are paid.",
+      "Typing bank transfer files by hand."
+    ],
+    "solution": "Payroll runs pick up paid days, leave and overtime from attendance, apply each employee's salary structure and produce a reviewable sheet. After approval the run is locked, payslips are published and the bank file is exported in your bank's format.",
+    "capabilities": [
+      {
+        "title": "Approval chain",
+        "text": "Draft → HR review → Finance review → Management approval → Locked."
+      },
+      {
+        "title": "Extra pay rows",
+        "text": "Pending salary, pay after resignation and one-off amounts per month."
+      },
+      {
+        "title": "Salary revisions",
+        "text": "Schedule future increments that apply automatically in the right month."
+      },
+      {
+        "title": "Loans & advances",
+        "text": "Recover instalments through payroll."
+      },
+      {
+        "title": "Payslips",
+        "text": "Design templates per structure or department; staff download from the portal."
+      },
+      {
+        "title": "Bank salary export",
+        "text": "Files built to each bank's exact layout, from locked runs only."
+      }
+    ],
+    "steps": [
+      "Calculate the month.",
+      "Review and approve through each stage.",
+      "Lock, export the bank file and publish payslips."
+    ],
+    "screen": {
+      "title": "Payroll — this month",
+      "rows": [
+        [
+          "Employees",
+          "75"
+        ],
+        [
+          "Gross",
+          "₹ —"
+        ],
+        [
+          "Deductions",
+          "₹ —"
+        ],
+        [
+          "Status",
+          "Finance review"
+        ],
+        [
+          "Bank file",
+          "Ready after lock"
+        ]
+      ]
+    },
+    "related": [
+      "salary-structure-management",
+      "attendance-management",
+      "reports-analytics"
+    ],
+    "faqs": [
+      {
+        "q": "Which banks are supported?",
+        "a": "Any. You build a bank file template once to match your bank's format."
+      },
+      {
+        "q": "Can cash-paid staff be handled?",
+        "a": "Yes. Staff marked as cash are left out of the bank file but still on the payroll sheet."
+      },
+      {
+        "q": "Is TDS calculated?",
+        "a": "TDS, PF, ESI and PT come from columns in your salary structure, and reports pick them up."
+      }
+    ]
+  },
+  {
+    "slug": "salary-structure-management",
+    "name": "Salary Structure Management",
+    "icon": "zc",
+    "short": "Spreadsheet-like salary columns and formulas you define.",
+    "headline": "Salary structures that work like your spreadsheet",
+    "intro": "Build each salary structure from your own columns: some entered per employee, others calculated by formulas. Nothing is hard-coded.",
+    "problem": [
+      "Software that forces a fixed Basic/HRA/DA layout.",
+      "Different staff groups with different rules.",
+      "Rounding rules that don't match what the accountant expects."
+    ],
+    "solution": "Each structure is a list of columns with optional formulas referencing other columns, paid days and overtime hours. Employees are assigned to a structure with their own input values and optional working-day policy.",
+    "capabilities": [
+      {
+        "title": "Your columns",
+        "text": "Earnings, deductions and employer contributions you name."
+      },
+      {
+        "title": "Formulas",
+        "text": "Reference other columns, paid days, month days and overtime hours."
+      },
+      {
+        "title": "Per-employee inputs",
+        "text": "Leave a formula empty to enter the value per person."
+      },
+      {
+        "title": "Working-day policy",
+        "text": "Fixed days or calendar days, per organisation or per employee."
+      },
+      {
+        "title": "Rounding",
+        "text": "Choose how each column rounds."
+      },
+      {
+        "title": "Test values",
+        "text": "Try a structure with sample inputs before using it."
+      }
+    ],
+    "steps": [
+      "Create the columns and formulas.",
+      "Assign employees and enter their values.",
+      "Payroll uses it every month."
+    ],
+    "screen": {
+      "title": "Structure columns",
+      "rows": [
+        [
+          "Basic",
+          "Input"
+        ],
+        [
+          "HRA",
+          "Basic × 40%"
+        ],
+        [
+          "PF",
+          "min(Basic,15000) × 12%"
+        ],
+        [
+          "Earned",
+          "Gross × Paid days ÷ Month days"
+        ],
+        [
+          "Net",
+          "Earned − Deductions"
+        ]
+      ]
+    },
+    "related": [
+      "payroll-management",
+      "organization-policies",
+      "reports-analytics"
+    ],
+    "faqs": [
+      {
+        "q": "Can we have different structures for different staff?",
+        "a": "Yes, as many as you need."
+      },
+      {
+        "q": "Do statutory reports still work?",
+        "a": "Yes. You tell reports which columns are PF, ESI, PT and TDS."
+      }
+    ]
+  },
+  {
+    "slug": "shift-management",
+    "name": "Shift Management",
+    "icon": "Gs",
+    "short": "Shifts, per-day timings, rosters and team scheduling.",
+    "headline": "Shifts and rosters for every team",
+    "intro": "Create shifts with different timings per weekday, breaks and weekly offs, assign them to people or departments, and see the roster on a calendar.",
+    "problem": [
+      "Staff on different timings handled by memory.",
+      "Late marks wrong because the system doesn't know someone's shift.",
+      "Roster changes communicated on paper."
+    ],
+    "solution": "Shifts carry per-day timings and grace time. Assignments decide who works which shift on which dates, with a default shift as a fallback. Attendance rules always use the employee's effective shift.",
+    "capabilities": [
+      {
+        "title": "Per-day timings",
+        "text": "Different start and end times for each weekday."
+      },
+      {
+        "title": "Default shift",
+        "text": "Used whenever no assignment applies."
+      },
+      {
+        "title": "Team scheduling",
+        "text": "Assign shifts to people or groups for date ranges."
+      },
+      {
+        "title": "Roster calendar",
+        "text": "See who works when, month by month."
+      },
+      {
+        "title": "Weekly offs",
+        "text": "Fixed weekly off days per shift."
+      },
+      {
+        "title": "Works with attendance",
+        "text": "Late and half-day rules follow the shift."
+      }
+    ],
+    "steps": [
+      "Create shifts and timings.",
+      "Assign them to staff.",
+      "Attendance follows automatically."
+    ],
+    "screen": {
+      "title": "Roster — this week",
+      "rows": [
+        [
+          "General",
+          "09:30 – 17:30"
+        ],
+        [
+          "Morning",
+          "07:00 – 15:00"
+        ],
+        [
+          "Evening",
+          "14:00 – 22:00"
+        ],
+        [
+          "Weekly off",
+          "Sunday"
+        ],
+        [
+          "Grace",
+          "30 min"
+        ]
+      ]
+    },
+    "related": [
+      "attendance-management",
+      "face-attendance",
+      "organization-policies"
+    ],
+    "faqs": [
+      {
+        "q": "Do you support rotating shifts?",
+        "a": "You can assign different shifts for different date ranges. Automatic rotation patterns are not built in."
+      }
+    ]
+  },
+  {
+    "slug": "performance-management",
+    "name": "Performance Management",
+    "icon": "Bc",
+    "short": "Goals, review cycles and feedback.",
+    "headline": "Goals and reviews in the same system as attendance and pay",
+    "intro": "Set goals, run review cycles and keep feedback history with each employee, so reviews are based on a year of notes rather than memory.",
+    "problem": [
+      "Appraisals done on paper once a year.",
+      "Goals forgotten after they are set.",
+      "No record of past reviews."
+    ],
+    "solution": "Staff and managers track goals through the year. Review cycles collect self and manager ratings, and everything stays on the employee's record.",
+    "capabilities": [
+      {
+        "title": "Goals",
+        "text": "Staff can add and update their goals from the portal."
+      },
+      {
+        "title": "Review cycles",
+        "text": "Run reviews for a period with ratings and comments."
+      },
+      {
+        "title": "History",
+        "text": "All past reviews kept with the employee."
+      }
+    ],
+    "steps": [
+      "Set goals.",
+      "Run a review cycle.",
+      "Keep the history for next year."
+    ],
+    "screen": {
+      "title": "Review cycle",
+      "rows": [
+        [
+          "Cycle",
+          "Annual 2026"
+        ],
+        [
+          "Self reviews",
+          "In progress"
+        ],
+        [
+          "Manager reviews",
+          "Not started"
+        ],
+        [
+          "Goals set",
+          "42"
+        ],
+        [
+          "Due",
+          "31 Mar"
+        ]
+      ]
+    },
+    "related": [
+      "employee-management",
+      "reports-analytics",
+      "helpdesk"
+    ],
+    "faqs": [
+      {
+        "q": "Can staff see their reviews?",
+        "a": "Staff see their own goals and reviews in the portal."
+      }
+    ]
+  },
+  {
+    "slug": "document-management",
+    "name": "Document Management",
+    "icon": "Qs",
+    "short": "Employee documents with HR verification.",
+    "headline": "Employee documents stored safely and verified by HR",
+    "intro": "Staff upload their own documents from the portal; HR verifies or rejects each one. Files are private to your organisation.",
+    "problem": [
+      "Photocopies in folders that go missing.",
+      "No way to know which documents are still pending."
+    ],
+    "solution": "Each employee has a document list. Self-uploaded documents start as pending and HR marks them verified or rejected with a reason.",
+    "capabilities": [
+      {
+        "title": "Self upload",
+        "text": "Staff add documents from their phone."
+      },
+      {
+        "title": "Verification",
+        "text": "Pending → verified or rejected by HR."
+      },
+      {
+        "title": "Private storage",
+        "text": "Files are not public and open through short-lived links."
+      }
+    ],
+    "steps": [
+      "Staff upload documents.",
+      "HR verifies them.",
+      "Find any document in seconds."
+    ],
+    "screen": {
+      "title": "Documents",
+      "rows": [
+        [
+          "Aadhaar",
+          "Verified"
+        ],
+        [
+          "PAN",
+          "Verified"
+        ],
+        [
+          "Degree",
+          "Pending"
+        ],
+        [
+          "Experience letter",
+          "Rejected"
+        ],
+        [
+          "Photo",
+          "Verified"
+        ]
+      ]
+    },
+    "related": [
+      "employee-management",
+      "asset-management",
+      "helpdesk"
+    ],
+    "faqs": [
+      {
+        "q": "Who can see the files?",
+        "a": "Only authorised HR users in your organisation and the employee themselves."
+      }
+    ]
+  },
+  {
+    "slug": "asset-management",
+    "name": "Asset Management",
+    "icon": "dc",
+    "short": "Track laptops, phones and equipment given to staff.",
+    "headline": "Know which equipment is with whom",
+    "intro": "Record organisation assets, assign them to employees and get them back during offboarding.",
+    "problem": [
+      "Laptops and keys not returned when staff leave.",
+      "No list of who has what."
+    ],
+    "solution": "Assets are recorded with details and assigned to employees. Returns are recorded when staff hand items back.",
+    "capabilities": [
+      {
+        "title": "Asset register",
+        "text": "Item details, serial numbers and condition."
+      },
+      {
+        "title": "Assignments",
+        "text": "Issue to an employee and record returns."
+      },
+      {
+        "title": "Returns",
+        "text": "Record when an item comes back, including at exit."
+      }
+    ],
+    "steps": [
+      "Add assets.",
+      "Assign to staff.",
+      "Collect back at exit."
+    ],
+    "screen": {
+      "title": "Assets",
+      "rows": [
+        [
+          "Laptop #A102",
+          "Assigned"
+        ],
+        [
+          "Phone #P07",
+          "In store"
+        ],
+        [
+          "ID card",
+          "Assigned"
+        ],
+        [
+          "Projector",
+          "In repair"
+        ],
+        [
+          "Keys",
+          "Returned"
+        ]
+      ]
+    },
+    "related": [
+      "employee-management",
+      "document-management",
+      "helpdesk"
+    ],
+    "faqs": [
+      {
+        "q": "Can staff see what is assigned to them?",
+        "a": "Yes, staff see their own assets in the portal."
+      }
+    ]
+  },
+  {
+    "slug": "helpdesk",
+    "name": "Helpdesk",
+    "icon": "hc",
+    "short": "Staff raise HR queries; HR tracks them to closure.",
+    "headline": "HR questions answered and tracked, not lost in chats",
+    "intro": "Staff raise tickets from the portal about salary, leave or documents. HR replies and closes them, with a full history.",
+    "problem": [
+      "Questions lost in WhatsApp and phone calls.",
+      "No idea how many queries are open."
+    ],
+    "solution": "Tickets have a category, status and conversation thread visible to the employee and HR.",
+    "capabilities": [
+      {
+        "title": "Raise from portal",
+        "text": "Staff create tickets from their phone."
+      },
+      {
+        "title": "Status tracking",
+        "text": "Open, in progress, resolved."
+      },
+      {
+        "title": "History",
+        "text": "Every reply kept."
+      }
+    ],
+    "steps": [
+      "Staff raise a ticket.",
+      "HR replies.",
+      "Ticket is resolved and kept."
+    ],
+    "screen": {
+      "title": "Helpdesk",
+      "rows": [
+        [
+          "Open",
+          "6"
+        ],
+        [
+          "In progress",
+          "3"
+        ],
+        [
+          "Resolved this month",
+          "21"
+        ],
+        [
+          "Top category",
+          "Payslip"
+        ],
+        [
+          "Oldest open",
+          "2 days"
+        ]
+      ]
+    },
+    "related": [
+      "employee-management",
+      "performance-management",
+      "document-management"
+    ],
+    "faqs": [
+      {
+        "q": "Can staff see replies?",
+        "a": "Yes, in their portal."
+      }
+    ]
+  },
+  {
+    "slug": "reports-analytics",
+    "name": "Reports & Analytics",
+    "icon": "Fs",
+    "short": "Attendance, payroll, statutory and headcount reports.",
+    "headline": "The reports HR and accounts actually ask for",
+    "intro": "Attendance, payroll register, PF/ESI/PT, TDS, bank transfer and headcount reports, filtered by month and department and exported to Excel.",
+    "problem": [
+      "Reports built manually every month.",
+      "Statutory figures that don't match the payroll sheet."
+    ],
+    "solution": "Reports are built from the same attendance rules and locked payroll data, so figures always agree with what was paid.",
+    "capabilities": [
+      {
+        "title": "Attendance reports",
+        "text": "Daily, monthly, late, absent and summary."
+      },
+      {
+        "title": "Payroll register",
+        "text": "Every column of every structure for the month."
+      },
+      {
+        "title": "Statutory",
+        "text": "PF, ESI, PT and TDS from the columns you choose."
+      },
+      {
+        "title": "Headcount",
+        "text": "Staff and pay totals by department."
+      },
+      {
+        "title": "Audit log",
+        "text": "Every change with who made it."
+      },
+      {
+        "title": "Excel export",
+        "text": "Every report downloads as a spreadsheet."
+      }
+    ],
+    "steps": [
+      "Pick a report.",
+      "Filter by month or department.",
+      "Export."
+    ],
+    "screen": {
+      "title": "Reports",
+      "rows": [
+        [
+          "Payroll register",
+          "Excel"
+        ],
+        [
+          "PF report",
+          "Excel"
+        ],
+        [
+          "Monthly attendance",
+          "Excel"
+        ],
+        [
+          "Bank transfer",
+          "Excel"
+        ],
+        [
+          "Headcount",
+          "Excel"
+        ]
+      ]
+    },
+    "related": [
+      "payroll-management",
+      "attendance-management",
+      "salary-structure-management"
+    ],
+    "faqs": [
+      {
+        "q": "Can I export to Excel?",
+        "a": "Yes, every report."
+      }
+    ]
+  },
+  {
+    "slug": "organization-policies",
+    "name": "Organization Policies",
+    "icon": "kc",
+    "short": "Your own rules for grace time, working days, rounding and access.",
+    "headline": "Configure the rules your organisation actually follows",
+    "intro": "Grace time, half-day thresholds, working-day counting, rounding, approvals and who can see what are all settings, not code.",
+    "problem": [
+      "Software that assumes every organisation works the same way.",
+      "Rules that live only in the HR manager's head."
+    ],
+    "solution": "Policies are stored per organisation and applied consistently by attendance, leave and payroll. Custom roles narrow what each office user can see and do.",
+    "capabilities": [
+      {
+        "title": "Attendance rules",
+        "text": "Grace minutes, half-day and early-leave thresholds."
+      },
+      {
+        "title": "Working days",
+        "text": "Fixed or calendar days, per organisation or per employee."
+      },
+      {
+        "title": "Custom roles",
+        "text": "Create roles from a built-in base and narrow their permissions."
+      },
+      {
+        "title": "Department heads",
+        "text": "See only their own department's staff."
+      },
+      {
+        "title": "Approval stages",
+        "text": "Who signs off payroll and leave."
+      },
+      {
+        "title": "Separate organisations",
+        "text": "Each organisation's data is fully separate."
+      }
+    ],
+    "steps": [
+      "Set your rules once.",
+      "Create roles for your office users.",
+      "Everything follows the same rules."
+    ],
+    "screen": {
+      "title": "Policies",
+      "rows": [
+        [
+          "Grace time",
+          "30 min"
+        ],
+        [
+          "Half day after",
+          "4 h"
+        ],
+        [
+          "Working days",
+          "Calendar"
+        ],
+        [
+          "Payroll approvals",
+          "3 stages"
+        ],
+        [
+          "Custom roles",
+          "4"
+        ]
+      ]
+    },
+    "related": [
+      "attendance-management",
+      "salary-structure-management",
+      "shift-management"
+    ],
+    "faqs": [
+      {
+        "q": "Can different staff follow different working-day rules?",
+        "a": "Yes, an employee can override the organisation rule."
+      }
+    ]
+  },
+  {
+    "slug": "employee-database",
+    "name": "Employee Database",
+    "icon": "qs",
+    "short": "Search, filter, import and export every staff record.",
+    "headline": "A searchable staff database instead of scattered sheets",
+    "intro": "Find anyone in seconds, filter by department or status, and bring existing staff in from Excel.",
+    "problem": [
+      "Staff lists kept in several Excel files that never match.",
+      "Hard to see who has left, who is new and who is missing details."
+    ],
+    "solution": "Every employee is one record with your own extra fields. HR can search, filter, bulk-import from Excel, bulk-update fields and archive people who leave without losing their history.",
+    "capabilities": [
+      {
+        "title": "Bulk import",
+        "text": "Upload staff from a spreadsheet and fix errors row by row."
+      },
+      {
+        "title": "Bulk update",
+        "text": "Change a field for many people at once."
+      },
+      {
+        "title": "Custom fields",
+        "text": "Fields your organisation defines appear in forms and imports."
+      },
+      {
+        "title": "Archive, not delete",
+        "text": "People who leave keep their full history."
+      }
+    ],
+    "steps": [
+      "Import your current staff list.",
+      "Add the fields you need.",
+      "Search and filter any time."
+    ],
+    "screen": {
+      "title": "Employee Database",
+      "rows": [
+        [
+          "Active staff",
+          "Filter by department"
+        ],
+        [
+          "Import",
+          "Excel upload"
+        ],
+        [
+          "Custom fields",
+          "Your own"
+        ],
+        [
+          "Archived",
+          "History kept"
+        ]
+      ]
+    },
+    "related": [
+      "employee-management",
+      "departments-designations",
+      "document-management"
+    ],
+    "faqs": [
+      {
+        "q": "Can I import existing staff?",
+        "a": "Yes, from an Excel sheet."
+      }
+    ]
+  },
+  {
+    "slug": "employee-self-service",
+    "name": "Employee Self-Service",
+    "icon": "Vs",
+    "short": "Staff portal for attendance, leave, payslips and documents.",
+    "headline": "Let staff help themselves from their phone",
+    "intro": "Staff sign in with their mobile number and a one-time code to check attendance, apply for leave, download payslips and upload documents.",
+    "problem": [
+      "HR answers the same questions about leave balance and payslips every day.",
+      "Paper leave forms get lost."
+    ],
+    "solution": "The staff portal shows each person only their own data. They can punch in and out (optionally with face check), apply for leave, download payslips, upload documents, submit tax declarations, raise helpdesk tickets and read announcements.",
+    "capabilities": [
+      {
+        "title": "Mobile OTP sign-in",
+        "text": "No passwords to hand out."
+      },
+      {
+        "title": "Leave and attendance",
+        "text": "Balances, history and applications."
+      },
+      {
+        "title": "Payslips",
+        "text": "Download any month's payslip."
+      },
+      {
+        "title": "Documents and declarations",
+        "text": "Uploads go to HR for review."
+      }
+    ],
+    "steps": [
+      "HR adds staff; portal access is turned on.",
+      "Staff sign in with their mobile.",
+      "Requests reach HR for approval."
+    ],
+    "screen": {
+      "title": "Employee Self-Service",
+      "rows": [
+        [
+          "Today",
+          "Checked in 9:52"
+        ],
+        [
+          "Leave balance",
+          "8 days"
+        ],
+        [
+          "Payslip",
+          "Download"
+        ],
+        [
+          "Helpdesk",
+          "1 open ticket"
+        ]
+      ]
+    },
+    "related": [
+      "employee-management",
+      "leave-management",
+      "payslip-management"
+    ],
+    "faqs": [
+      {
+        "q": "Do staff need an app?",
+        "a": "No, the portal works in any phone browser and can be added to the home screen."
+      }
+    ]
+  },
+  {
+    "slug": "onboarding-offboarding",
+    "name": "Onboarding & Offboarding",
+    "icon": "Yc",
+    "short": "From hiring a candidate to exit clearance in one flow.",
+    "headline": "One flow from joining to exit",
+    "intro": "Hire a candidate into an employee record, track onboarding tasks, and close exits with a clearance checklist.",
+    "problem": [
+      "Joiner details typed twice: once in recruitment, again in HR.",
+      "Exits finish without assets returned or access removed."
+    ],
+    "solution": "Hiring a candidate creates the employee and starts onboarding. Staff can also self-register for HR approval. Offboarding clearance sets the leaving date and blocks portal access once complete.",
+    "capabilities": [
+      {
+        "title": "Hire to employee",
+        "text": "No re-typing of candidate details."
+      },
+      {
+        "title": "Self-registration",
+        "text": "Joiners fill details and upload documents for HR to approve."
+      },
+      {
+        "title": "Exit clearance",
+        "text": "Checklist before the last day."
+      },
+      {
+        "title": "Portal blocked on exit",
+        "text": "Access ends automatically."
+      }
+    ],
+    "steps": [
+      "Hire or approve a joiner.",
+      "Complete onboarding tasks.",
+      "Run clearance when they leave."
+    ],
+    "screen": {
+      "title": "Onboarding & Offboarding",
+      "rows": [
+        [
+          "New joiners",
+          "3 to review"
+        ],
+        [
+          "Onboarding",
+          "In progress"
+        ],
+        [
+          "Exit clearance",
+          "2 pending"
+        ],
+        [
+          "Portal",
+          "Blocked on exit"
+        ]
+      ]
+    },
+    "related": [
+      "employee-management",
+      "asset-management",
+      "document-management"
+    ],
+    "faqs": [
+      {
+        "q": "Can a finished exit be undone?",
+        "a": "Yes, cancelling clearance can restore the employee."
+      }
+    ]
+  },
+  {
+    "slug": "organization-management",
+    "name": "Organization Management",
+    "icon": "Ds",
+    "short": "Organisation details, holidays, office users and roles.",
+    "headline": "Set up your organisation once",
+    "intro": "Organisation details, holidays, office user accounts and roles in one place.",
+    "problem": [
+      "Settings spread across people and spreadsheets.",
+      "No clear list of who has access to what."
+    ],
+    "solution": "Each organisation keeps its own settings, holiday calendar and office user accounts. Data from one organisation is never visible to another.",
+    "capabilities": [
+      {
+        "title": "Holiday calendar",
+        "text": "Your own holidays, importable."
+      },
+      {
+        "title": "Office users",
+        "text": "Create, disable and reset accounts in bulk."
+      },
+      {
+        "title": "Roles",
+        "text": "Built-in and custom roles."
+      },
+      {
+        "title": "Separate data",
+        "text": "Each organisation is fully isolated."
+      }
+    ],
+    "steps": [
+      "Enter organisation details.",
+      "Add holidays.",
+      "Create office users and roles."
+    ],
+    "screen": {
+      "title": "Organization Management",
+      "rows": [
+        [
+          "Holidays",
+          "Calendar"
+        ],
+        [
+          "Office users",
+          "Active"
+        ],
+        [
+          "Roles",
+          "Custom"
+        ],
+        [
+          "Audit log",
+          "Every change"
+        ]
+      ]
+    },
+    "related": [
+      "departments-designations",
+      "configurable-rules",
+      "organization-policies"
+    ],
+    "faqs": [
+      {
+        "q": "Can one company run several organisations?",
+        "a": "Yes, each with separate data."
+      }
+    ]
+  },
+  {
+    "slug": "departments-designations",
+    "name": "Department & Designation Management",
+    "icon": "Sc",
+    "short": "Your own departments, designations and department heads.",
+    "headline": "Your structure, not a template",
+    "intro": "Define the departments and designations your organisation actually uses, and give department heads a view of their own team.",
+    "problem": [
+      "Fixed department lists that don't match how you work."
+    ],
+    "solution": "Departments and designations are defined per organisation. The dashboard groups staff by your departments, and department heads only see their own department's staff.",
+    "capabilities": [
+      {
+        "title": "Your own lists",
+        "text": "Add, rename or retire any time."
+      },
+      {
+        "title": "Department heads",
+        "text": "Limited to their own team."
+      },
+      {
+        "title": "Dashboard by department",
+        "text": "Headcount per department."
+      }
+    ],
+    "steps": [
+      "Create departments.",
+      "Add designations.",
+      "Assign staff and heads."
+    ],
+    "screen": {
+      "title": "Department & Designation Management",
+      "rows": [
+        [
+          "Departments",
+          "Your list"
+        ],
+        [
+          "Designations",
+          "Your list"
+        ],
+        [
+          "Department heads",
+          "Own team only"
+        ]
+      ]
+    },
+    "related": [
+      "employee-database",
+      "organization-management",
+      "configurable-rules"
+    ],
+    "faqs": [
+      {
+        "q": "Can a department head see other departments?",
+        "a": "No, the database limits them to their own."
+      }
+    ]
+  },
+  {
+    "slug": "attendance-reports",
+    "name": "Attendance Reports",
+    "icon": "Ys",
+    "short": "Daily punch, monthly summary, working hours and shift-wise reports.",
+    "headline": "Attendance reports that match your rules",
+    "intro": "Reports use the same late, half-day and shift rules as the attendance screens, so numbers always agree.",
+    "problem": [
+      "Reports built by hand from registers at month end."
+    ],
+    "solution": "Ready reports: daily punch, attendance master, monthly summary, working hours and shift-wise. Filter by month or department and export to Excel.",
+    "capabilities": [
+      {
+        "title": "Daily punch",
+        "text": "Check-in and check-out per person."
+      },
+      {
+        "title": "Monthly summary",
+        "text": "Present, late, half day, absent."
+      },
+      {
+        "title": "Working hours",
+        "text": "Hours worked per day."
+      },
+      {
+        "title": "Shift-wise",
+        "text": "Grouped by shift."
+      }
+    ],
+    "steps": [
+      "Pick a report.",
+      "Choose month and filters.",
+      "Export to Excel."
+    ],
+    "screen": {
+      "title": "Attendance Reports",
+      "rows": [
+        [
+          "Daily punch",
+          "Excel"
+        ],
+        [
+          "Attendance master",
+          "Excel"
+        ],
+        [
+          "Summary",
+          "Excel"
+        ],
+        [
+          "Working hours",
+          "Excel"
+        ]
+      ]
+    },
+    "related": [
+      "attendance-management",
+      "shift-management",
+      "reports-analytics"
+    ],
+    "faqs": [
+      {
+        "q": "Do reports follow grace time?",
+        "a": "Yes, the same rules as the attendance screens."
+      }
+    ]
+  },
+  {
+    "slug": "workforce-scheduling",
+    "name": "Workforce Scheduling",
+    "icon": "Ps",
+    "short": "Assign shifts to teams and see who works when.",
+    "headline": "Plan who works which shift",
+    "intro": "Assign shifts to departments, groups or individuals, with a default shift as fallback.",
+    "problem": [
+      "Shift plans on paper that attendance never sees."
+    ],
+    "solution": "Team scheduling assigns shifts; attendance and reports read the same assignments, so late marks follow each person's real shift.",
+    "capabilities": [
+      {
+        "title": "Team scheduling",
+        "text": "Assign shifts in bulk."
+      },
+      {
+        "title": "Default shift",
+        "text": "Used when nothing else matches."
+      },
+      {
+        "title": "Per-day timings",
+        "text": "Different hours and breaks by weekday."
+      }
+    ],
+    "steps": [
+      "Create shifts.",
+      "Assign to teams or people.",
+      "Attendance follows automatically."
+    ],
+    "screen": {
+      "title": "Workforce Scheduling",
+      "rows": [
+        [
+          "Shifts",
+          "3 active"
+        ],
+        [
+          "Assignments",
+          "By department"
+        ],
+        [
+          "Default",
+          "General shift"
+        ]
+      ]
+    },
+    "related": [
+      "shift-management",
+      "roster-management",
+      "attendance-management"
+    ],
+    "faqs": [
+      {
+        "q": "What if someone has no shift assigned?",
+        "a": "The default shift applies."
+      }
+    ]
+  },
+  {
+    "slug": "roster-management",
+    "name": "Roster Management",
+    "icon": "As",
+    "short": "Calendar view of shifts across your team.",
+    "headline": "See the roster as a calendar",
+    "intro": "A calendar of who is on which shift each day.",
+    "problem": [
+      "No single view of the week's shifts."
+    ],
+    "solution": "The roster calendar shows each person's effective shift per day, worked out from shift assignments.",
+    "capabilities": [
+      {
+        "title": "Calendar view",
+        "text": "Day by day."
+      },
+      {
+        "title": "Effective shift",
+        "text": "Same rule as attendance."
+      },
+      {
+        "title": "Weekly offs",
+        "text": "Shown per shift."
+      }
+    ],
+    "steps": [
+      "Open the roster calendar.",
+      "Pick a week or month.",
+      "Adjust assignments if needed."
+    ],
+    "screen": {
+      "title": "Roster Management",
+      "rows": [
+        [
+          "Mon",
+          "General"
+        ],
+        [
+          "Tue",
+          "Morning"
+        ],
+        [
+          "Wed",
+          "General"
+        ],
+        [
+          "Sun",
+          "Weekly off"
+        ]
+      ]
+    },
+    "related": [
+      "workforce-scheduling",
+      "shift-management"
+    ],
+    "faqs": [
+      {
+        "q": "Is automatic shift rotation available?",
+        "a": "Not yet. Shifts are assigned by HR."
+      }
+    ]
+  },
+  {
+    "slug": "geo-fencing-attendance",
+    "name": "Geo-Fencing & Live Location",
+    "icon": "vc",
+    "short": "Office-area checks and optional live location while checked in.",
+    "headline": "Know staff checked in from the right place",
+    "intro": "Set an office area for portal check-ins and, if you choose, record location only while someone is checked in.",
+    "problem": [
+      "Field and remote staff can't use a fixed attendance device."
+    ],
+    "solution": "Portal punches can be checked against your office area. Live tracking is opt-in per employee and only records location between check-in and check-out while the portal is open.",
+    "capabilities": [
+      {
+        "title": "Office area",
+        "text": "Check-ins outside can be flagged."
+      },
+      {
+        "title": "Opt-in tracking",
+        "text": "Turned on per employee."
+      },
+      {
+        "title": "Punch window only",
+        "text": "No location outside working hours."
+      }
+    ],
+    "steps": [
+      "Set your office area.",
+      "Turn on tracking for chosen staff.",
+      "View locations on the map."
+    ],
+    "screen": {
+      "title": "Geo-Fencing & Live Location",
+      "rows": [
+        [
+          "Office area",
+          "Set"
+        ],
+        [
+          "Tracking",
+          "Opt-in"
+        ],
+        [
+          "Map",
+          "Today"
+        ]
+      ]
+    },
+    "related": [
+      "attendance-management",
+      "face-attendance"
+    ],
+    "faqs": [
+      {
+        "q": "Does it track staff all day?",
+        "a": "No, only between check-in and check-out while the portal is open."
+      }
+    ]
+  },
+  {
+    "slug": "advanced-leave-management",
+    "name": "Advanced Leave Management",
+    "icon": "Ns",
+    "short": "Monthly accrual, carry forward, encashment and leave policies.",
+    "headline": "Leave rules beyond a simple balance",
+    "intro": "Leave types with monthly accrual, carry forward, encashment and policies assigned to groups of staff.",
+    "problem": [
+      "Accrual and carry-forward worked out by hand each year."
+    ],
+    "solution": "Each leave type has its own rules. Balances are worked out the same way for HR and on the staff portal, and HR adjustments are tracked.",
+    "capabilities": [
+      {
+        "title": "Monthly accrual",
+        "text": "Earned month by month."
+      },
+      {
+        "title": "Carry forward",
+        "text": "Unused leave rolls over by your rule."
+      },
+      {
+        "title": "Encashment",
+        "text": "Where your policy allows."
+      },
+      {
+        "title": "Policies",
+        "text": "Assign leave sets to groups."
+      }
+    ],
+    "steps": [
+      "Create leave types.",
+      "Assign policies.",
+      "Balances update automatically."
+    ],
+    "screen": {
+      "title": "Advanced Leave Management",
+      "rows": [
+        [
+          "Casual leave",
+          "1/month"
+        ],
+        [
+          "Earned leave",
+          "Carry forward"
+        ],
+        [
+          "Encashment",
+          "Allowed"
+        ]
+      ]
+    },
+    "related": [
+      "leave-management",
+      "payroll-processing"
+    ],
+    "faqs": [
+      {
+        "q": "Do HR and staff see the same balance?",
+        "a": "Yes, one formula is used for both."
+      }
+    ]
+  },
+  {
+    "slug": "payroll-processing",
+    "name": "Payroll Processing",
+    "icon": "Os",
+    "short": "Monthly runs with staged approvals and locking.",
+    "headline": "Run payroll with sign-offs",
+    "intro": "Calculate the month from attendance and your salary columns, then pass it through HR, finance and management before locking.",
+    "problem": [
+      "Payroll in one spreadsheet that anyone can edit."
+    ],
+    "solution": "Payroll moves draft → HR review → finance review → final approval → locked. Locked runs can't change, and bank files only come from locked or paid runs.",
+    "capabilities": [
+      {
+        "title": "Attendance-based days",
+        "text": "Paid days from attendance."
+      },
+      {
+        "title": "Staged approvals",
+        "text": "Each step signed off."
+      },
+      {
+        "title": "Locking",
+        "text": "No changes after approval."
+      },
+      {
+        "title": "Extra pay rows",
+        "text": "Pending salary or one-off amounts."
+      }
+    ],
+    "steps": [
+      "Calculate the month.",
+      "Review and approve.",
+      "Lock and export."
+    ],
+    "screen": {
+      "title": "Payroll Processing",
+      "rows": [
+        [
+          "Stage",
+          "Finance review"
+        ],
+        [
+          "Staff",
+          "In this run"
+        ],
+        [
+          "Locked",
+          "After approval"
+        ]
+      ]
+    },
+    "related": [
+      "salary-structure-management",
+      "payslip-management",
+      "bank-salary-export"
+    ],
+    "faqs": [
+      {
+        "q": "Can a locked run be edited?",
+        "a": "No, that keeps past months fixed."
+      }
+    ]
+  },
+  {
+    "slug": "payslip-management",
+    "name": "Payslip Management",
+    "icon": "Oc",
+    "short": "Your own payslip designs, downloaded by HR or staff.",
+    "headline": "Payslips in your own layout",
+    "intro": "Design payslip templates and choose which one applies by salary structure, department or employment type.",
+    "problem": [
+      "Payslips typed or copied by hand every month."
+    ],
+    "solution": "Templates are built in a payslip designer. The right template is picked automatically for each person, and staff download their own from the portal.",
+    "capabilities": [
+      {
+        "title": "Template designer",
+        "text": "Your logo, fields and layout."
+      },
+      {
+        "title": "Automatic choice",
+        "text": "By structure, department or type."
+      },
+      {
+        "title": "PDF download",
+        "text": "HR and staff."
+      }
+    ],
+    "steps": [
+      "Design a template.",
+      "Set which staff it applies to.",
+      "Payslips are ready after payroll."
+    ],
+    "screen": {
+      "title": "Payslip Management",
+      "rows": [
+        [
+          "Templates",
+          "2"
+        ],
+        [
+          "Default",
+          "Standard"
+        ],
+        [
+          "Staff downloads",
+          "Portal"
+        ]
+      ]
+    },
+    "related": [
+      "payroll-processing",
+      "employee-self-service"
+    ],
+    "faqs": [
+      {
+        "q": "Can different staff get different payslips?",
+        "a": "Yes, by structure, department or employment type."
+      }
+    ]
+  },
+  {
+    "slug": "arrears-management",
+    "name": "Arrears Management",
+    "icon": "sc",
+    "short": "Back pay from salary revisions and pending amounts.",
+    "headline": "Pay arrears without spreadsheets",
+    "intro": "Work out back pay after a salary revision and pay pending amounts in a later month.",
+    "problem": [
+      "Arrears worked out by hand and easy to miss."
+    ],
+    "solution": "Salary revisions are kept as history, and future ones apply on their date. Arrears are recorded in the settlements section, and pending salary can be added as an extra pay row in the month you pay it.",
+    "capabilities": [
+      {
+        "title": "Revision history",
+        "text": "Every change kept."
+      },
+      {
+        "title": "Scheduled revisions",
+        "text": "Applied on their date."
+      },
+      {
+        "title": "Arrears rows",
+        "text": "Paid in the chosen month."
+      }
+    ],
+    "steps": [
+      "Record the revision.",
+      "Review arrears.",
+      "Pay in the next payroll."
+    ],
+    "screen": {
+      "title": "Arrears Management",
+      "rows": [
+        [
+          "Revisions",
+          "Scheduled"
+        ],
+        [
+          "Arrears",
+          "Pending"
+        ],
+        [
+          "Paid in",
+          "Next month"
+        ]
+      ]
+    },
+    "related": [
+      "payroll-processing",
+      "salary-structure-management"
+    ],
+    "faqs": [
+      {
+        "q": "Do arrears change past payroll?",
+        "a": "No, they are paid in a later month."
+      }
+    ]
+  },
+  {
+    "slug": "gratuity-management",
+    "name": "Gratuity Management",
+    "icon": "rc",
+    "short": "Record and pay gratuity with full history.",
+    "headline": "Gratuity at full and final settlement",
+    "intro": "Record gratuity for leaving staff in the settlements section, with a full history.",
+    "problem": [
+      "Gratuity calculated by hand at exit."
+    ],
+    "solution": "Gratuity is recorded and paid from the settlements section, next to arrears and loan settlements. Use the free Gratuity Calculator to work out the amount.",
+    "capabilities": [
+      {
+        "title": "Settlement screen",
+        "text": "Gratuity next to other settlement items."
+      },
+      {
+        "title": "History",
+        "text": "Every gratuity payment kept."
+      }
+    ],
+    "steps": [
+      "Complete exit clearance.",
+      "Open settlements.",
+      "Record and pay gratuity."
+    ],
+    "screen": {
+      "title": "Gratuity Management",
+      "rows": [
+        [
+          "Employee",
+          "Leaving staff"
+        ],
+        [
+          "Amount",
+          "Recorded"
+        ],
+        [
+          "Status",
+          "Paid"
+        ]
+      ]
+    },
+    "related": [
+      "onboarding-offboarding",
+      "payroll-processing"
+    ],
+    "faqs": [
+      {
+        "q": "Is there a free calculator?",
+        "a": "Yes, see the Gratuity Calculator under Free Tools."
+      }
+    ]
+  },
+  {
+    "slug": "bank-salary-export",
+    "name": "Bank Salary Export",
+    "icon": "uc",
+    "short": "Salary files in your bank's exact format.",
+    "headline": "Bank files in exactly your bank's format",
+    "intro": "Build a template for your bank once and export salary files from approved payroll.",
+    "problem": [
+      "Every bank wants a different file layout."
+    ],
+    "solution": "Templates define columns, separators and headers. Files come only from locked or paid runs, cash-paid staff are left out, and each export keeps a copy of the template used.",
+    "capabilities": [
+      {
+        "title": "Any layout",
+        "text": "Text, CSV or Excel styles."
+      },
+      {
+        "title": "Approved runs only",
+        "text": "No accidental files."
+      },
+      {
+        "title": "Cash staff skipped",
+        "text": "Only bank-paid staff."
+      },
+      {
+        "title": "Reproducible",
+        "text": "Past files can be rebuilt."
+      }
+    ],
+    "steps": [
+      "Build your bank template.",
+      "Lock payroll.",
+      "Export the file."
+    ],
+    "screen": {
+      "title": "Bank Salary Export",
+      "rows": [
+        [
+          "Template",
+          "Your bank"
+        ],
+        [
+          "Run",
+          "Locked"
+        ],
+        [
+          "Rows",
+          "Bank-paid staff"
+        ]
+      ]
+    },
+    "related": [
+      "payroll-processing",
+      "salary-structure-management"
+    ],
+    "faqs": [
+      {
+        "q": "Is any bank format built in?",
+        "a": "No, you set up your bank's layout once."
+      }
+    ]
+  },
+  {
+    "slug": "goals-kpis",
+    "name": "Goals & KPIs",
+    "icon": "tc",
+    "short": "Set goals and track progress for each person.",
+    "headline": "Goals everyone can see",
+    "intro": "Set goals for staff, and let them track their own progress from the portal.",
+    "problem": [
+      "Goals discussed once and forgotten."
+    ],
+    "solution": "Goals are recorded per employee; staff see and update their own in the portal.",
+    "capabilities": [
+      {
+        "title": "Per-person goals",
+        "text": "Clear targets."
+      },
+      {
+        "title": "Staff updates",
+        "text": "Progress from the portal."
+      }
+    ],
+    "steps": [
+      "Set goals.",
+      "Staff update progress.",
+      "Review together."
+    ],
+    "screen": {
+      "title": "Goals & KPIs",
+      "rows": [
+        [
+          "Goals",
+          "Active"
+        ],
+        [
+          "Progress",
+          "Updated by staff"
+        ]
+      ]
+    },
+    "related": [
+      "performance-reviews",
+      "continuous-feedback",
+      "performance-management"
+    ],
+    "faqs": [
+      {
+        "q": "Can staff add their own goals?",
+        "a": "Yes, from the portal."
+      }
+    ]
+  },
+  {
+    "slug": "performance-reviews",
+    "name": "Performance Reviews",
+    "icon": "Us",
+    "short": "Structured reviews recorded against each employee.",
+    "headline": "Reviews on record",
+    "intro": "Record reviews for each person so history stays with their record.",
+    "problem": [
+      "Reviews on paper with no history."
+    ],
+    "solution": "Reviews are kept with the employee alongside goals and feedback.",
+    "capabilities": [
+      {
+        "title": "Review records",
+        "text": "Kept with the employee."
+      },
+      {
+        "title": "Linked to goals",
+        "text": "One view of performance."
+      }
+    ],
+    "steps": [
+      "Start a review.",
+      "Record ratings and notes.",
+      "Keep history."
+    ],
+    "screen": {
+      "title": "Performance Reviews",
+      "rows": [
+        [
+          "Reviews",
+          "This year"
+        ],
+        [
+          "Goals",
+          "Linked"
+        ]
+      ]
+    },
+    "related": [
+      "goals-kpis",
+      "continuous-feedback"
+    ],
+    "faqs": [
+      {
+        "q": "Is there a template?",
+        "a": "Yes, see the Performance Review template under Resources."
+      }
+    ]
+  },
+  {
+    "slug": "continuous-feedback",
+    "name": "Continuous Feedback",
+    "icon": "bc",
+    "short": "Feedback any time, not just at review time.",
+    "headline": "Feedback throughout the year",
+    "intro": "Staff and managers can share feedback whenever it matters.",
+    "problem": [
+      "Feedback saved up for one annual meeting."
+    ],
+    "solution": "Feedback is recorded through the year and visible next to goals and reviews.",
+    "capabilities": [
+      {
+        "title": "Any-time feedback",
+        "text": "From the portal."
+      },
+      {
+        "title": "Kept with goals",
+        "text": "One performance view."
+      }
+    ],
+    "steps": [
+      "Give feedback.",
+      "See it next to goals.",
+      "Use it in reviews."
+    ],
+    "screen": {
+      "title": "Continuous Feedback",
+      "rows": [
+        [
+          "Feedback",
+          "Recent"
+        ],
+        [
+          "Goals",
+          "Linked"
+        ]
+      ]
+    },
+    "related": [
+      "goals-kpis",
+      "performance-reviews"
+    ],
+    "faqs": [
+      {
+        "q": "Where do staff give feedback?",
+        "a": "From the staff portal."
+      }
+    ]
+  },
+  {
+    "slug": "payroll-reports",
+    "name": "Payroll Reports",
+    "icon": "Is",
+    "short": "Payroll register, PF/ESI/PT, TDS and bank transfer reports.",
+    "headline": "Payroll reports from your own columns",
+    "intro": "Reports read your salary columns, so they work with any structure.",
+    "problem": [
+      "Statutory reports rebuilt by hand each month."
+    ],
+    "solution": "Payroll register, statutory (PF, ESI, PT), TDS and bank transfer reports come from each run. You choose which of your columns feed each statutory report.",
+    "capabilities": [
+      {
+        "title": "Payroll register",
+        "text": "Every column."
+      },
+      {
+        "title": "Statutory",
+        "text": "PF, ESI, PT."
+      },
+      {
+        "title": "TDS",
+        "text": "Tax deducted."
+      },
+      {
+        "title": "Bank transfer",
+        "text": "Amounts by bank."
+      }
+    ],
+    "steps": [
+      "Pick a run.",
+      "Choose a report.",
+      "Export."
+    ],
+    "screen": {
+      "title": "Payroll Reports",
+      "rows": [
+        [
+          "Register",
+          "Excel"
+        ],
+        [
+          "PF / ESI / PT",
+          "Excel"
+        ],
+        [
+          "TDS",
+          "Excel"
+        ]
+      ]
+    },
+    "related": [
+      "payroll-processing",
+      "reports-analytics"
+    ],
+    "faqs": [
+      {
+        "q": "What if my columns have different names?",
+        "a": "You map them once in settings."
+      }
+    ]
+  },
+  {
+    "slug": "employee-reports",
+    "name": "Employee Reports",
+    "icon": "Zc",
+    "short": "Headcount and staff lists by department and status.",
+    "headline": "Know your workforce",
+    "intro": "Headcount by department and staff lists you can export.",
+    "problem": [
+      "Headcount counted by hand."
+    ],
+    "solution": "Headcount and staff reports use the same records as the rest of the app, filtered by department and status.",
+    "capabilities": [
+      {
+        "title": "Headcount",
+        "text": "By department."
+      },
+      {
+        "title": "Staff lists",
+        "text": "Export to Excel."
+      }
+    ],
+    "steps": [
+      "Open reports.",
+      "Filter.",
+      "Export."
+    ],
+    "screen": {
+      "title": "Employee Reports",
+      "rows": [
+        [
+          "Headcount",
+          "By department"
+        ],
+        [
+          "Export",
+          "Excel"
+        ]
+      ]
+    },
+    "related": [
+      "employee-database",
+      "reports-analytics"
+    ],
+    "faqs": [
+      {
+        "q": "Can I export?",
+        "a": "Yes, to Excel."
+      }
+    ]
+  },
+  {
+    "slug": "configurable-rules",
+    "name": "Configurable Rules Management",
+    "icon": "Lc",
+    "short": "Grace time, half day, working days, rounding and approvals as settings.",
+    "headline": "Rules are settings, not code",
+    "intro": "Change how attendance, leave and payroll behave without asking a developer.",
+    "problem": [
+      "Every change in policy means a software change."
+    ],
+    "solution": "Grace time, half-day thresholds, working-day counting, rounding, face check-in options and approval stages are settings. Individual staff can follow their own working-day rule.",
+    "capabilities": [
+      {
+        "title": "Attendance rules",
+        "text": "Grace and half day."
+      },
+      {
+        "title": "Working days",
+        "text": "Fixed or calendar."
+      },
+      {
+        "title": "Rounding",
+        "text": "Per column."
+      },
+      {
+        "title": "Approvals",
+        "text": "Payroll stages."
+      }
+    ],
+    "steps": [
+      "Open settings.",
+      "Change a rule.",
+      "It applies everywhere."
+    ],
+    "screen": {
+      "title": "Configurable Rules Management",
+      "rows": [
+        [
+          "Grace",
+          "30 min"
+        ],
+        [
+          "Half day",
+          "After 4 h"
+        ],
+        [
+          "Working days",
+          "Calendar"
+        ]
+      ]
+    },
+    "related": [
+      "organization-policies",
+      "attendance-management",
+      "payroll-processing"
+    ],
+    "faqs": [
+      {
+        "q": "Can one employee differ from the rest?",
+        "a": "Yes, working-day rules can be set per person."
+      }
+    ]
+  }
+]

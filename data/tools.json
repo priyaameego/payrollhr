@@ -1,0 +1,150 @@
+[
+  {
+    "category": "Salary & Pay",
+    "slug": "salary-per-day-calculator",
+    "name": "Salary Per Day Calculator",
+    "icon": "lc",
+    "short": "Daily and hourly rate from a monthly salary.",
+    "formula": "Per-day salary = Monthly salary ÷ Days in the basis (calendar days, 26, 30 or your own).",
+    "example": "₹26,000 on a 26-day basis = ₹1,000 per day; 20 paid days = ₹20,000.",
+    "feature": "payroll-management",
+    "faqs": [
+      {
+        "q": "Which basis should I use?",
+        "a": "Use what your appointment letter or policy says. Calendar days is common; many factories use 26."
+      },
+      {
+        "q": "Are Sundays counted?",
+        "a": "On the calendar basis, yes. On a 26-day basis, weekly offs are excluded."
+      }
+    ]
+  },
+  {
+    "category": "Attendance & Leave",
+    "slug": "attendance-calculator",
+    "name": "Attendance Calculator",
+    "icon": "Ec",
+    "short": "Attendance percentage and days needed to reach a target.",
+    "formula": "Attendance % = (Present days + Half days × 0.5) ÷ Working days × 100.",
+    "example": "20 present + 2 half days out of 24 = 87.5%.",
+    "feature": "attendance-management",
+    "faqs": [
+      {
+        "q": "How are half days counted?",
+        "a": "As half a day present."
+      }
+    ]
+  },
+  {
+    "category": "Salary & Pay",
+    "slug": "overtime-calculator",
+    "name": "Overtime Calculator",
+    "icon": "Vc",
+    "short": "Overtime pay from salary, hours and rate.",
+    "formula": "Hourly rate = Monthly salary ÷ Days ÷ Hours per day. OT pay = Hourly rate × Multiplier × OT hours.",
+    "example": "₹26,000, 26 days, 8 hours, 10 OT hours at 2× = ₹2,500.",
+    "feature": "attendance-management",
+    "faqs": [
+      {
+        "q": "What multiplier applies?",
+        "a": "The Factories Act sets twice the ordinary rate for covered workers. Check what applies to you."
+      }
+    ]
+  },
+  {
+    "category": "Attendance & Leave",
+    "slug": "leave-calculator",
+    "name": "Leave Calculator",
+    "icon": "Ms",
+    "short": "Leave accrued, available, carried forward and lapsed.",
+    "formula": "Available = Opening + (Per month × Months) − Taken. Carry forward is limited by your cap.",
+    "example": "Opening 2 + 1.5 × 12 − 10 taken = 10 available.",
+    "feature": "leave-management",
+    "faqs": [
+      {
+        "q": "What is lapsed leave?",
+        "a": "Leave above the carry-forward cap that is not carried into the next year."
+      }
+    ]
+  },
+  {
+    "category": "Salary & Pay",
+    "slug": "salary-breakup-calculator",
+    "name": "Salary Breakup Calculator",
+    "icon": "Is",
+    "short": "Split an annual CTC into Basic, HRA and allowances.",
+    "formula": "Basic = CTC × Basic %. HRA = Basic × HRA %. Employer PF = 12% of Basic (capped at ₹15,000). Special allowance = balance.",
+    "example": "₹6,00,000 CTC at 50% basic: Basic ₹25,000, HRA ₹10,000, employer PF ₹1,800.",
+    "feature": "salary-structure-management",
+    "faqs": [
+      {
+        "q": "Is this the only way to structure salary?",
+        "a": "No. It is a common split. PayroleHR lets you define any columns you like."
+      }
+    ]
+  },
+  {
+    "category": "Attendance & Leave",
+    "slug": "working-days-calculator",
+    "name": "Working Days Calculator",
+    "icon": "Ps",
+    "short": "Working days between two dates.",
+    "formula": "Working days = Total days − Weekly offs − Holidays.",
+    "example": "November 2026 with Sundays off and 2 holidays = 23 working days.",
+    "feature": "shift-management",
+    "faqs": [
+      {
+        "q": "Can I have two weekly offs?",
+        "a": "Yes, tick every weekly off day."
+      }
+    ]
+  },
+  {
+    "category": "Statutory & Exit",
+    "slug": "ctc-to-in-hand-calculator",
+    "name": "CTC to In-Hand Calculator",
+    "icon": "rc",
+    "short": "Estimate take-home pay from CTC under the new tax regime.",
+    "formula": "In-hand = Gross − Employee PF − ESI − Professional tax − Monthly TDS (new regime, ₹75,000 standard deduction, 4% cess).",
+    "example": "₹12,00,000 CTC at 50% basic: income tax is nil under the new regime (up to about ₹12.75 lakh gross).",
+    "feature": "payroll-management",
+    "faqs": [
+      {
+        "q": "Why might my real figure differ?",
+        "a": "Bonuses, reimbursements, state professional tax and the old regime all change the result."
+      }
+    ]
+  },
+  {
+    "category": "Statutory & Exit",
+    "slug": "gratuity-calculator",
+    "name": "Gratuity Calculator",
+    "icon": "ec",
+    "short": "Gratuity under the Payment of Gratuity Act.",
+    "formula": "Gratuity = 15 ÷ 26 × Last Basic + DA × Completed years (more than 6 months counts as a year), capped at ₹20 lakh.",
+    "example": "Basic + DA ₹26,000, 5 years 7 months → 6 years → ₹90,000.",
+    "feature": "payroll-management",
+    "faqs": [
+      {
+        "q": "When is gratuity payable?",
+        "a": "Normally after 5 years of continuous service, or earlier on death or disablement."
+      }
+    ]
+  },
+  {
+    "category": "Salary & Pay",
+    "slug": "payroll-cost-calculator",
+    "name": "Payroll Cost Calculator",
+    "icon": "Os",
+    "short": "Monthly and annual employer cost for your team.",
+    "formula": "Cost per employee = Gross + Employer PF + Employer ESI. Total = Cost × Headcount + other costs.",
+    "example": "50 staff at ₹20,000 gross / ₹10,000 basic ≈ ₹10.9 lakh a month.",
+    "feature": "payroll-management",
+    "faqs": [
+      {
+        "q": "Is gratuity included?",
+        "a": "No. Add any provision under other monthly costs."
+      }
+    ]
+  }
+]

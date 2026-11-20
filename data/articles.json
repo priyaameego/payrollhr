@@ -1,0 +1,375 @@
+[
+  {
+    "slug": "how-payroll-processing-works",
+    "kind": "guide",
+    "title": "How payroll processing works",
+    "category": "Payroll",
+    "tags": [
+      "payroll",
+      "basics"
+    ],
+    "date": "2026-11-01",
+    "minutes": 6,
+    "summary": "The monthly payroll cycle from attendance cut-off to bank transfer and payslips.",
+    "sections": [
+      {
+        "h": "1. Close attendance",
+        "p": [
+          "Payroll starts with the number of days each person is paid for. Fix missing punches, approve pending leave and overtime, then treat the month's attendance as final."
+        ]
+      },
+      {
+        "h": "2. Apply salary structures",
+        "p": [
+          "Each employee's structure turns their fixed values into the month's figures. Earnings are usually reduced in proportion to paid days: earned = monthly amount × paid days ÷ days in the month."
+        ]
+      },
+      {
+        "h": "3. Work out deductions",
+        "p": [
+          "Typical deductions are employee PF (12% of basic, commonly capped at ₹15,000), ESI (0.75% when gross is ₹21,000 or less), professional tax (state-specific), TDS and loan recovery."
+        ]
+      },
+      {
+        "h": "4. Review and approve",
+        "p": [
+          "Compare with last month, check new joiners and leavers, and get sign-off. A clear approval chain — HR, then Finance, then Management — catches mistakes before money moves."
+        ]
+      },
+      {
+        "h": "5. Pay and publish",
+        "p": [
+          "Lock the run, create the bank file in your bank's format, upload it, then publish payslips. Statutory returns use the same locked figures."
+        ]
+      }
+    ],
+    "related": [
+      "understanding-salary-components",
+      "what-is-a-salary-structure"
+    ]
+  },
+  {
+    "slug": "how-to-manage-employee-attendance",
+    "kind": "guide",
+    "title": "How to manage employee attendance",
+    "category": "Attendance",
+    "tags": [
+      "attendance"
+    ],
+    "date": "2026-11-02",
+    "minutes": 5,
+    "summary": "Setting clear rules for on-time, late, half day and absence — and applying them the same way every day.",
+    "sections": [
+      {
+        "h": "Write the rules down",
+        "p": [
+          "Decide shift start and end, grace minutes, what counts as a half day and what happens when someone forgets to check out. Unwritten rules are applied differently by different people."
+        ]
+      },
+      {
+        "h": "Choose how people mark attendance",
+        "p": [
+          "Registers are easy to fake. Face recognition at the entrance and check-in from a phone both record exact times and who marked them."
+        ]
+      },
+      {
+        "h": "Review daily, close monthly",
+        "p": [
+          "A quick daily look at absentees and late-comers prevents month-end surprises. Close the month on a fixed date so payroll can start."
+        ]
+      },
+      {
+        "h": "Keep corrections visible",
+        "p": [
+          "Every edit should have a reason and a name attached. That protects both HR and employees."
+        ]
+      }
+    ],
+    "related": [
+      "how-to-manage-shift-scheduling",
+      "how-to-calculate-overtime"
+    ]
+  },
+  {
+    "slug": "understanding-salary-components",
+    "kind": "guide",
+    "title": "Understanding salary components",
+    "category": "Payroll",
+    "tags": [
+      "salary",
+      "basics"
+    ],
+    "date": "2026-11-03",
+    "minutes": 5,
+    "summary": "Basic, HRA, allowances, PF, ESI, PT and TDS explained in plain words.",
+    "sections": [
+      {
+        "h": "Earnings",
+        "p": [
+          "Basic is the core fixed pay. HRA helps with rent. Special or other allowances make up the rest of gross. Some organisations also pay DA, conveyance or a fixed incentive."
+        ]
+      },
+      {
+        "h": "Employee deductions",
+        "p": [
+          "PF, ESI, professional tax and TDS are taken from gross to get net pay. Loan instalments and advances are recovered here too."
+        ]
+      },
+      {
+        "h": "Employer contributions",
+        "p": [
+          "Employer PF (12%) and employer ESI (3.25%) are paid on top of gross. They are part of CTC but not part of take-home pay."
+        ]
+      },
+      {
+        "h": "CTC vs gross vs net",
+        "p": [
+          "CTC = gross + employer contributions (+ benefits). Gross = all earnings. Net = gross − employee deductions."
+        ]
+      }
+    ],
+    "related": [
+      "what-is-a-salary-structure",
+      "how-payroll-processing-works"
+    ]
+  },
+  {
+    "slug": "how-leave-accrual-works",
+    "kind": "guide",
+    "title": "How leave accrual works",
+    "category": "Leave",
+    "tags": [
+      "leave"
+    ],
+    "date": "2026-11-04",
+    "minutes": 4,
+    "summary": "Yearly versus monthly credit, carry forward and lapsing.",
+    "sections": [
+      {
+        "h": "Yearly credit",
+        "p": [
+          "The full entitlement is added at the start of the year. Simple, but a new joiner may take leave they have not yet earned."
+        ]
+      },
+      {
+        "h": "Monthly credit",
+        "p": [
+          "A fixed amount is added each month — for example 1.5 days for an 18-day yearly entitlement. Balances grow with service."
+        ]
+      },
+      {
+        "h": "Carry forward and lapse",
+        "p": [
+          "At year end, unused leave up to a cap moves forward; the rest lapses or is encashed according to policy."
+        ]
+      }
+    ],
+    "related": [
+      "how-to-manage-employee-attendance"
+    ]
+  },
+  {
+    "slug": "how-to-calculate-overtime",
+    "kind": "guide",
+    "title": "How to calculate overtime",
+    "category": "Attendance",
+    "tags": [
+      "overtime",
+      "payroll"
+    ],
+    "date": "2026-11-05",
+    "minutes": 4,
+    "summary": "Turning monthly salary into an hourly rate and paying extra hours correctly.",
+    "sections": [
+      {
+        "h": "Find the hourly rate",
+        "p": [
+          "Hourly rate = monthly salary ÷ working days ÷ hours per day. ₹26,000 ÷ 26 ÷ 8 = ₹125."
+        ]
+      },
+      {
+        "h": "Apply the multiplier",
+        "p": [
+          "Factory workers covered by the Factories Act get twice the ordinary rate. Others follow their policy or contract."
+        ]
+      },
+      {
+        "h": "Approve before paying",
+        "p": [
+          "Only approved overtime hours should reach payroll, and the approval should be recorded."
+        ]
+      }
+    ],
+    "related": [
+      "how-to-manage-shift-scheduling"
+    ]
+  },
+  {
+    "slug": "what-is-a-salary-structure",
+    "kind": "guide",
+    "title": "What is a salary structure?",
+    "category": "Payroll",
+    "tags": [
+      "salary"
+    ],
+    "date": "2026-11-06",
+    "minutes": 4,
+    "summary": "How a structure turns fixed values into a correct monthly salary.",
+    "sections": [
+      {
+        "h": "Columns and formulas",
+        "p": [
+          "A structure is a list of earnings, deductions and totals. Some are entered per employee; others are formulas, like HRA = 40% of basic."
+        ]
+      },
+      {
+        "h": "Why several structures",
+        "p": [
+          "Different groups — teaching and non-teaching, staff and workers — often have different components and rounding. Each gets its own structure."
+        ]
+      },
+      {
+        "h": "Keep it testable",
+        "p": [
+          "Before using a structure, try it with a sample salary and a short month to check proration and rounding."
+        ]
+      }
+    ],
+    "related": [
+      "understanding-salary-components"
+    ]
+  },
+  {
+    "slug": "how-to-manage-shift-scheduling",
+    "kind": "guide",
+    "title": "How to manage shift scheduling",
+    "category": "Attendance",
+    "tags": [
+      "shifts"
+    ],
+    "date": "2026-11-07",
+    "minutes": 4,
+    "summary": "Defining shifts, assigning them and keeping attendance rules in line.",
+    "sections": [
+      {
+        "h": "Define shifts clearly",
+        "p": [
+          "Give each shift start and end times per weekday, breaks, grace time and weekly offs."
+        ]
+      },
+      {
+        "h": "Have a default",
+        "p": [
+          "Most staff work the same shift most of the time. A default shift saves assigning everyone individually."
+        ]
+      },
+      {
+        "h": "Assign by date range",
+        "p": [
+          "Temporary changes — a week on nights — are date-range assignments, so history stays correct."
+        ]
+      }
+    ],
+    "related": [
+      "how-to-manage-employee-attendance"
+    ]
+  },
+  {
+    "slug": "replace-attendance-register-with-face-recognition",
+    "kind": "blog",
+    "title": "Replacing the attendance register with face recognition",
+    "category": "Attendance",
+    "tags": [
+      "face attendance"
+    ],
+    "date": "2026-11-10",
+    "minutes": 4,
+    "summary": "What changes when staff check in by looking at a tablet instead of signing a book.",
+    "sections": [
+      {
+        "h": "The register problem",
+        "p": [
+          "Registers record what people write, not when they arrived. Totals are added up by hand at month end."
+        ]
+      },
+      {
+        "h": "What a kiosk changes",
+        "p": [
+          "A tablet at the entrance recognises each person and records the exact time. Late marks follow the shift automatically."
+        ]
+      },
+      {
+        "h": "Practical tips",
+        "p": [
+          "Mount the tablet at face height with steady light, enrol faces in the same place, and keep a PIN on enrolment so only authorised people can add faces."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "month-end-payroll-checklist",
+    "kind": "blog",
+    "title": "A month-end payroll checklist for small HR teams",
+    "category": "Payroll",
+    "tags": [
+      "payroll",
+      "checklist"
+    ],
+    "date": "2026-11-12",
+    "minutes": 3,
+    "summary": "Ten checks that catch most payroll mistakes before salaries go out.",
+    "sections": [
+      {
+        "h": "Before calculating",
+        "p": [
+          "Approve all leave and overtime. Add new joiners and record leavers. Apply any increments due this month."
+        ]
+      },
+      {
+        "h": "After calculating",
+        "p": [
+          "Compare total net pay with last month and explain big differences. Check zero-salary and very high lines. Confirm bank details for new staff."
+        ]
+      },
+      {
+        "h": "Before paying",
+        "p": [
+          "Get sign-off, lock the run, generate the bank file from the locked figures and keep a copy."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "ctc-vs-in-hand-salary",
+    "kind": "blog",
+    "title": "CTC vs in-hand salary: why the numbers differ",
+    "category": "Payroll",
+    "tags": [
+      "salary",
+      "tax"
+    ],
+    "date": "2026-11-15",
+    "minutes": 3,
+    "summary": "A simple walk from CTC to the amount that reaches the bank account.",
+    "sections": [
+      {
+        "h": "Start with CTC",
+        "p": [
+          "CTC includes employer PF and other employer costs that never reach the employee's account each month."
+        ]
+      },
+      {
+        "h": "Subtract employee deductions",
+        "p": [
+          "From gross, take away employee PF, ESI if applicable, professional tax and monthly TDS."
+        ]
+      },
+      {
+        "h": "Try it",
+        "p": [
+          "Our free CTC to in-hand calculator shows the full breakdown under the new tax regime."
+        ]
+      }
+    ]
+  }
+]
