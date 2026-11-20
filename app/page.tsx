@@ -172,9 +172,9 @@ export default function HomePage() {
   const [simPunchState, setSimPunchState] = useState<"idle" | "scanning" | "matched">("idle");
   const [presentCount, setPresentCount] = useState<number>(68);
   const [leaveApprovals, setLeaveApprovals] = useState<{ [key: string]: "pending" | "approved" | "rejected" }>({
-    rohit: "pending",
-    priya: "approved",
-    harsh: "pending",
+    vikram: "pending",
+    pooja: "approved",
+    manish: "pending",
   });
 
   const triggerSimPunch = () => {
@@ -854,15 +854,12 @@ export default function HomePage() {
                 <div className="bg-[#BAE6FD] px-5 py-3.5 border-b border-sky-200/60 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="font-display text-sm font-bold text-slate-900">
-                      Attendance Details
-                    </span>
-                    <span className="text-[10px] font-semibold text-sky-900 bg-white/70 px-2 py-0.5 rounded-md border border-sky-300/40">
-                      Live Stream
+                      Live Attendance Punch Stream
                     </span>
                   </div>
-                  <span className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-white/70 px-2 py-0.5 rounded-full">
+                  <span className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-white/70 px-2.5 py-0.5 rounded-full border border-emerald-200/50">
                     <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                    Gate 01
+                    Gate 01 Biometric
                   </span>
                 </div>
                 {/* Table */}
@@ -870,45 +867,57 @@ export default function HomePage() {
                   <table className="w-full text-xs sm:text-sm">
                     <thead>
                       <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
-                        <th className="pb-3">Name</th>
-                        <th className="pb-3">Time</th>
-                        <th className="pb-3 text-right">Status</th>
+                        <th className="pb-3">Employee</th>
+                        <th className="pb-3">Punch Time</th>
+                        <th className="pb-3 text-right">Verification & Status</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
                       <tr className="hover:bg-teal-50/40 transition-colors">
                         <td className="py-3 font-semibold text-slate-800 flex items-center gap-2">
-                          <span className="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-700">RS</span>
-                          Rohit Sharma
+                          <span className="h-6 w-6 rounded-full bg-teal-100 text-[#0E7A6E] flex items-center justify-center text-[10px] font-bold">AM</span>
+                          Aarav Mehta
                         </td>
-                        <td className="py-3 font-mono text-slate-700">09:22 AM</td>
+                        <td className="py-3 font-mono text-slate-700">09:12 AM</td>
                         <td className="py-3 text-right">
-                          <span className="inline-flex rounded-md bg-rose-50 px-2 py-0.5 text-xs font-bold text-[#881337] border border-rose-200/60">
-                            22 Min. late
+                          <span className="inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-700 border border-emerald-200/60">
+                            Face Kiosk • On time
                           </span>
                         </td>
                       </tr>
                       <tr className="hover:bg-teal-50/40 transition-colors">
                         <td className="py-3 font-semibold text-slate-800 flex items-center gap-2">
-                          <span className="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-700">PV</span>
-                          Priya Verma
+                          <span className="h-6 w-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-[10px] font-bold">KN</span>
+                          Kavita Nair
+                        </td>
+                        <td className="py-3 font-mono text-slate-700">09:31 AM</td>
+                        <td className="py-3 text-right">
+                          <span className="inline-flex rounded-md bg-rose-50 px-2 py-0.5 text-xs font-bold text-[#881337] border border-rose-200/60">
+                            GPS Mobile • 16m late
+                          </span>
+                        </td>
+                      </tr>
+                      <tr className="hover:bg-teal-50/40 transition-colors">
+                        <td className="py-3 font-semibold text-slate-800 flex items-center gap-2">
+                          <span className="h-6 w-6 rounded-full bg-teal-100 text-[#0E7A6E] flex items-center justify-center text-[10px] font-bold">DR</span>
+                          Devendra Rao
                         </td>
                         <td className="py-3 font-mono text-slate-700">08:58 AM</td>
                         <td className="py-3 text-right">
                           <span className="inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-700 border border-emerald-200/60">
-                            On time
+                            Biometric • On time
                           </span>
                         </td>
                       </tr>
                       <tr className="hover:bg-teal-50/40 transition-colors">
                         <td className="py-3 font-semibold text-slate-800 flex items-center gap-2">
-                          <span className="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-700">HP</span>
-                          Harsh Patel
+                          <span className="h-6 w-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-[10px] font-bold">SK</span>
+                          Simran Kaur
                         </td>
-                        <td className="py-3 font-mono text-slate-700">09:09 AM</td>
+                        <td className="py-3 font-mono text-slate-700">09:05 AM</td>
                         <td className="py-3 text-right">
                           <span className="inline-flex rounded-md bg-rose-50 px-2 py-0.5 text-xs font-bold text-[#881337] border border-rose-200/60">
-                            09 Min. late
+                            Selfie Punch • 05m late
                           </span>
                         </td>
                       </tr>
@@ -978,28 +987,28 @@ export default function HomePage() {
                 <Calendar3DBadge />
               </div>
 
-              {/* Back Card: Approval Requests */}
+              {/* Back Card: Leave Applications Queue */}
               <div className="w-[90%] sm:w-[84%] card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
                 <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
-                  <span>Approval Requests</span>
-                  <span className="text-[10px] font-medium text-rose-700 bg-white/70 px-2 py-0.5 rounded-full">
-                    3 Pending
+                  <span>Leave Applications Queue</span>
+                  <span className="text-[10px] font-semibold text-rose-800 bg-white/70 px-2 py-0.5 rounded-full">
+                    Pending Review
                   </span>
                 </div>
                 <div className="p-3.5">
                   <table className="w-full text-xs">
                     <thead>
                       <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
-                        <th className="pb-2">Name</th>
-                        <th className="pb-2">Type</th>
-                        <th className="pb-2 text-right">Actions</th>
+                        <th className="pb-2">Staff Member</th>
+                        <th className="pb-2">Leave Type</th>
+                        <th className="pb-2 text-right">Decision</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
                       {[
-                        { id: "rohit", name: "Rohit", type: "Sick" },
-                        { id: "priya", name: "Priya", type: "Privilege" },
-                        { id: "harsh", name: "Harsh", type: "Casual" },
+                        { id: "vikram", name: "Vikram Singhania", type: "Casual Leave (2d)" },
+                        { id: "pooja", name: "Pooja Hegde", type: "Privilege Leave (3d)" },
+                        { id: "manish", name: "Manish Tiwari", type: "Sick Leave (1d)" },
                       ].map((item) => (
                         <tr key={item.id} className="hover:bg-teal-50/40 transition-colors">
                           <td className="py-2 font-semibold text-slate-800">{item.name}</td>
@@ -1041,42 +1050,42 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Front Overlapping Card: Leave Balance */}
+              {/* Front Overlapping Card: Employee Leave Ledger */}
               <div className="w-[90%] sm:w-[86%] -mt-10 sm:-mt-14 ml-auto relative z-20 card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
                 <div className="bg-[#FEF3C7] px-4 py-2.5 border-b border-amber-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
-                  <span>Leave Balance</span>
+                  <span>Employee Leave Ledger</span>
                   <span className="text-[10px] font-semibold text-amber-900 bg-white/70 px-2 py-0.5 rounded-md">
-                    FY 2026-27
+                    FY 2026-27 Quota
                   </span>
                 </div>
                 <div className="p-3.5">
                   <table className="w-full text-xs">
                     <thead>
                       <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
-                        <th className="pb-2">Name</th>
-                        <th className="pb-2 text-center">Total</th>
-                        <th className="pb-2 text-center">Used</th>
-                        <th className="pb-2 text-right">Balance</th>
+                        <th className="pb-2">Employee</th>
+                        <th className="pb-2 text-center">Allotted</th>
+                        <th className="pb-2 text-center">Taken</th>
+                        <th className="pb-2 text-right">Available</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
                       <tr className="hover:bg-amber-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
-                        <td className="py-2 text-center font-mono">16</td>
+                        <td className="py-2 font-semibold text-slate-800">Vikram Singhania</td>
+                        <td className="py-2 text-center font-mono">24</td>
                         <td className="py-2 text-center text-rose-600 font-mono font-medium">-5</td>
-                        <td className="py-2 text-right font-bold text-slate-900 font-mono">11</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">19 Days</td>
                       </tr>
                       <tr className="hover:bg-amber-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Priya</td>
-                        <td className="py-2 text-center font-mono">12</td>
+                        <td className="py-2 font-semibold text-slate-800">Pooja Hegde</td>
+                        <td className="py-2 text-center font-mono">21</td>
                         <td className="py-2 text-center text-rose-600 font-mono font-medium">-3</td>
-                        <td className="py-2 text-right font-bold text-slate-900 font-mono">9</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">18 Days</td>
                       </tr>
                       <tr className="hover:bg-amber-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
-                        <td className="py-2 text-center font-mono">15</td>
-                        <td className="py-2 text-center text-rose-600 font-mono font-medium">-10</td>
-                        <td className="py-2 text-right font-bold text-slate-900 font-mono">5</td>
+                        <td className="py-2 font-semibold text-slate-800">Manish Tiwari</td>
+                        <td className="py-2 text-center font-mono">18</td>
+                        <td className="py-2 text-center text-rose-600 font-mono font-medium">-4</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">14 Days</td>
                       </tr>
                     </tbody>
                   </table>
@@ -1099,10 +1108,10 @@ export default function HomePage() {
                 <Coin3DBadge />
               </div>
 
-              {/* Back Card: Monthly Payroll (shifted right) */}
+              {/* Back Card: Monthly Salary Computation */}
               <div className="w-[90%] sm:w-[86%] ml-auto card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
                 <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
-                  <span>Monthly Payroll</span>
+                  <span>Monthly Salary Computation</span>
                   <span className="text-[10px] font-semibold text-emerald-800 bg-white/70 px-2 py-0.5 rounded-md">
                     Net Payout Ready
                   </span>
@@ -1111,56 +1120,56 @@ export default function HomePage() {
                   <table className="w-full text-xs">
                     <thead>
                       <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
-                        <th className="pb-2">Name</th>
-                        <th className="pb-2">Daily Wage</th>
-                        <th className="pb-2">Incentive</th>
-                        <th className="pb-2 text-right">Total</th>
+                        <th className="pb-2">Employee</th>
+                        <th className="pb-2">Basic CTC</th>
+                        <th className="pb-2">Allowances / OT</th>
+                        <th className="pb-2 text-right">Net Salary</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
                       <tr className="hover:bg-emerald-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
-                        <td className="py-2 font-mono">25000</td>
-                        <td className="py-2 text-emerald-600 font-semibold font-mono">+700</td>
-                        <td className="py-2 text-right font-bold text-slate-900 font-mono">25700</td>
+                        <td className="py-2 font-semibold text-slate-800">Sunil Chawla</td>
+                        <td className="py-2 font-mono">₹38,000</td>
+                        <td className="py-2 text-emerald-600 font-semibold font-mono">+₹2,100 OT</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">₹36,450</td>
                       </tr>
                       <tr className="hover:bg-emerald-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Priya</td>
-                        <td className="py-2 font-mono">30000</td>
-                        <td className="py-2 text-emerald-600 font-semibold font-mono">+1000</td>
-                        <td className="py-2 text-right font-bold text-slate-900 font-mono">31000</td>
+                        <td className="py-2 font-semibold text-slate-800">Deepika Sen</td>
+                        <td className="py-2 font-mono">₹52,000</td>
+                        <td className="py-2 text-emerald-600 font-semibold font-mono">+₹3,200 Inc.</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">₹48,900</td>
                       </tr>
                       <tr className="hover:bg-emerald-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
-                        <td className="py-2 font-mono">50000</td>
-                        <td className="py-2 text-emerald-600 font-semibold font-mono">+1400</td>
-                        <td className="py-2 text-right font-bold text-slate-900 font-mono">51400</td>
+                        <td className="py-2 font-semibold text-slate-800">Gaurav Joshi</td>
+                        <td className="py-2 font-mono">₹65,000</td>
+                        <td className="py-2 text-emerald-600 font-semibold font-mono">+₹4,000 Var.</td>
+                        <td className="py-2 text-right font-bold text-slate-900 font-mono">₹61,200</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
 
-              {/* Front Overlapping Card: Statutory Compliance (shifted left) */}
+              {/* Front Overlapping Card: Indian Statutory Auto-Deductions */}
               <div className="w-[88%] sm:w-[82%] -mt-10 sm:-mt-14 mr-auto relative z-20 card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
                 <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
-                  <span>Statutory Compliance</span>
+                  <span>Indian Statutory Auto-Deductions</span>
                   <span className="text-[10px] font-semibold text-rose-800 bg-white/70 px-2 py-0.5 rounded-md">
                     100% Indian Rules
                   </span>
                 </div>
                 <div className="p-3.5 sm:p-4 grid grid-cols-2 gap-2 text-xs">
                   <div className="statutory-pill p-2 sm:p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-2xs cursor-default">
-                    Provident Fund
+                    Employees' PF (EPF 12%)
                   </div>
                   <div className="statutory-pill p-2 sm:p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-2xs cursor-default">
-                    Employees State Insurance C.
+                    ESIC Insurance (0.75%)
                   </div>
                   <div className="statutory-pill p-2 sm:p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-2xs cursor-default">
-                    Professional Tax
+                    Professional Tax (PT Slabs)
                   </div>
                   <div className="statutory-pill p-2 sm:p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-2xs cursor-default">
-                    Labour Welfare Tax
+                    Labour Welfare Fund (LWF)
                   </div>
                 </div>
               </div>
@@ -1219,48 +1228,48 @@ export default function HomePage() {
                 <Clock3DBadge />
               </div>
 
-              {/* Back Card: Assign Shifts */}
+              {/* Back Card: Roster Schedule Planner */}
               <div className="w-[90%] sm:w-[84%] card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
                 <div className="bg-[#FEF3C7] px-4 py-2.5 border-b border-amber-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
-                  <span>Assign Shifts</span>
+                  <span>Roster Schedule Planner</span>
                   <span className="text-[10px] font-semibold text-amber-900 bg-white/70 px-2 py-0.5 rounded-md">
-                    Roster Active
+                    Weekly Schedule
                   </span>
                 </div>
                 <div className="p-3.5">
                   <table className="w-full text-xs">
                     <thead>
                       <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
-                        <th className="pb-2">Name</th>
-                        <th className="pb-2">Shifts</th>
-                        <th className="pb-2 text-right">Actions</th>
+                        <th className="pb-2">Staff Member</th>
+                        <th className="pb-2">Shift Timing</th>
+                        <th className="pb-2 text-right">Roster Status</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
                       <tr className="hover:bg-amber-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
-                        <td className="py-2 font-medium">Day</td>
+                        <td className="py-2 font-semibold text-slate-800">Karan Kashyap</td>
+                        <td className="py-2 font-medium">Shift A (07:00 – 15:30)</td>
                         <td className="py-2 text-right">
                           <span className="inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700 border border-emerald-200/60">
-                            Assigned
+                            Scheduled
                           </span>
                         </td>
                       </tr>
                       <tr className="hover:bg-amber-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Priya</td>
-                        <td className="py-2 font-medium">Night</td>
+                        <td className="py-2 font-semibold text-slate-800">Swati Deshmukh</td>
+                        <td className="py-2 font-medium">General (09:30 – 18:30)</td>
                         <td className="py-2 text-right">
                           <span className="inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700 border border-emerald-200/60">
-                            Assigned
+                            Scheduled
                           </span>
                         </td>
                       </tr>
                       <tr className="hover:bg-amber-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
-                        <td className="py-2 font-medium">Day</td>
+                        <td className="py-2 font-semibold text-slate-800">Nikhil Bansal</td>
+                        <td className="py-2 font-medium">Night (21:30 – 06:00)</td>
                         <td className="py-2 text-right">
                           <span className="inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700 border border-emerald-200/60">
-                            Assigned
+                            Scheduled
                           </span>
                         </td>
                       </tr>
@@ -1269,42 +1278,42 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Front Overlapping Card: Shift Details */}
+              {/* Front Overlapping Card: Department Shift Allocation (Replacing 'Shift Details'!) */}
               <div className="w-[92%] sm:w-[88%] -mt-10 sm:-mt-14 ml-auto relative z-20 card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
                 <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
-                  <span>Shift Details</span>
+                  <span>Department Shift Allocation</span>
                   <span className="text-[10px] font-semibold text-emerald-900 bg-white/70 px-2 py-0.5 rounded-md">
-                    Auto-Detected
+                    Auto-Mapped
                   </span>
                 </div>
                 <div className="p-3.5">
                   <table className="w-full text-xs">
                     <thead>
                       <tr className="border-b border-slate-100 text-left font-bold text-slate-900">
-                        <th className="pb-2">Name</th>
-                        <th className="pb-2">Dept.</th>
+                        <th className="pb-2">Employee</th>
+                        <th className="pb-2">Department</th>
                         <th className="pb-2">Designation</th>
-                        <th className="pb-2 text-right">Shifts</th>
+                        <th className="pb-2 text-right">Roster</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
                       <tr className="hover:bg-emerald-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
-                        <td className="py-2">Sales</td>
-                        <td className="py-2">Sales Executive</td>
-                        <td className="py-2 text-right font-bold text-slate-900">Day</td>
+                        <td className="py-2 font-semibold text-slate-800">Karan Kashyap</td>
+                        <td className="py-2 text-slate-600">Quality Control</td>
+                        <td className="py-2 text-slate-600">QC Supervisor</td>
+                        <td className="py-2 text-right font-bold text-slate-900">Shift A</td>
                       </tr>
                       <tr className="hover:bg-emerald-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Priya</td>
-                        <td className="py-2">UI/UX</td>
-                        <td className="py-2">UI/UX Design</td>
+                        <td className="py-2 font-semibold text-slate-800">Swati Deshmukh</td>
+                        <td className="py-2 text-slate-600">Engineering</td>
+                        <td className="py-2 text-slate-600">Lead Developer</td>
+                        <td className="py-2 text-right font-bold text-slate-900">General</td>
+                      </tr>
+                      <tr className="hover:bg-emerald-50/40 transition-colors">
+                        <td className="py-2 font-semibold text-slate-800">Nikhil Bansal</td>
+                        <td className="py-2 text-slate-600">Supply & Logistics</td>
+                        <td className="py-2 text-slate-600">Warehouse Lead</td>
                         <td className="py-2 text-right font-bold text-slate-900">Night</td>
-                      </tr>
-                      <tr className="hover:bg-emerald-50/40 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
-                        <td className="py-2">UI/UX</td>
-                        <td className="py-2">UI/UX Design</td>
-                        <td className="py-2 text-right font-bold text-slate-900">Day</td>
                       </tr>
                     </tbody>
                   </table>
@@ -1327,10 +1336,10 @@ export default function HomePage() {
                 <WhatsApp3DBadge />
               </div>
 
-              {/* Back Card: Daily Whatsapp Alerts */}
+              {/* Back Card: WhatsApp Daily Digest */}
               <div className="w-[88%] sm:w-[82%] card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
                 <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
-                  <span>Daily Whatsapp Alerts</span>
+                  <span>WhatsApp Daily Digest</span>
                   <span className="text-[10px] font-semibold text-emerald-800 bg-white/70 px-2 py-0.5 rounded-md flex items-center gap-1">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     Automated 10:00 AM
@@ -1338,48 +1347,48 @@ export default function HomePage() {
                 </div>
                 <div className="p-4 space-y-2 text-xs">
                   <div className="pb-1.5 border-b border-slate-100 flex items-center justify-between">
-                    <span className="font-bold text-slate-900">Attendance update for today</span>
-                    <span className="text-[11px] font-mono text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">Synced</span>
+                    <span className="font-bold text-slate-900">Daily Morning Punch Summary</span>
+                    <span className="text-[11px] font-mono text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60 font-semibold">Synced</span>
                   </div>
                   <div className="flex justify-between py-1 border-b border-slate-100">
                     <span className="text-slate-500">Organization :</span>
-                    <span className="font-semibold text-slate-800">Head Office Campus</span>
+                    <span className="font-semibold text-slate-800">PayroleHR Tech Park Campus</span>
                   </div>
                   <div className="flex justify-between py-1">
-                    <span className="text-slate-500">Total Employees:</span>
-                    <span className="font-bold text-[#12B5A5]">200 Registered</span>
+                    <span className="text-slate-500">Active Workforce:</span>
+                    <span className="font-bold text-[#12B5A5]">240 Registered Staff</span>
                   </div>
                 </div>
               </div>
 
-              {/* Front Overlapping Card: Attendance Summary */}
+              {/* Front Overlapping Card: Headcount & Attendance Report */}
               <div className="w-[84%] sm:w-[78%] -mt-12 sm:-mt-16 ml-auto relative z-20 card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
                 <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
-                  <span>Attendance Summary</span>
+                  <span>Headcount & Attendance Report</span>
                   <span className="text-[10px] font-semibold text-rose-800 bg-white/70 px-2 py-0.5 rounded-md">
-                    Real-Time
+                    Live Today
                   </span>
                 </div>
                 <div className="p-3.5 divide-y divide-slate-100 text-xs">
                   <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
-                    <span className="text-slate-600 font-medium">Full Day:</span>
-                    <span className="font-bold text-slate-900 font-mono">185</span>
+                    <span className="text-slate-600 font-medium">On-Time Present:</span>
+                    <span className="font-bold text-slate-900 font-mono">212 Employees</span>
                   </div>
                   <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
-                    <span className="text-slate-600 font-medium">Absent:</span>
-                    <span className="font-bold text-rose-600 font-mono">5</span>
+                    <span className="text-slate-600 font-medium">Late Arrivals (&lt;30m):</span>
+                    <span className="font-bold text-rose-600 font-mono">16 Employees</span>
                   </div>
                   <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
-                    <span className="text-slate-600 font-medium">Currently Working:</span>
-                    <span className="font-bold text-emerald-600 font-mono">180</span>
+                    <span className="text-slate-600 font-medium">On-Field / Client Visits:</span>
+                    <span className="font-bold text-emerald-600 font-mono">6 Staff</span>
                   </div>
                   <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
-                    <span className="text-slate-600 font-medium">Half Day:</span>
-                    <span className="font-bold text-amber-600 font-mono">5</span>
+                    <span className="text-slate-600 font-medium">Approved Paid Leave:</span>
+                    <span className="font-bold text-amber-600 font-mono">4 Staff</span>
                   </div>
                   <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
-                    <span className="text-slate-600 font-medium">Time Off:</span>
-                    <span className="font-bold text-slate-700 font-mono">5</span>
+                    <span className="text-slate-600 font-medium">Unplanned Absence:</span>
+                    <span className="font-bold text-slate-700 font-mono">2 Staff</span>
                   </div>
                 </div>
               </div>
