@@ -461,6 +461,97 @@ h1, h2, h3, h4, h5, h6 {
   animation: heroWordReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* ============================================================ */
+/* PRODUCT SUITE LUXURY 3D & CARD ANIMATIONS */
+/* ============================================================ */
+@keyframes badgeFloat3D {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2.5deg);
+  }
+}
+
+@keyframes badgeFloat3DReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(-2.5deg);
+  }
+}
+
+@keyframes ambientBackdropShift {
+  0%, 100% {
+    transform: rotate(-1deg) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: rotate(0.8deg) scale(1.015);
+    opacity: 1;
+  }
+}
+
+.animate-badge-float {
+  animation: badgeFloat3D 5s ease-in-out infinite;
+}
+
+.animate-badge-float-delayed {
+  animation: badgeFloat3DReverse 6s ease-in-out infinite 1s;
+}
+
+.ambient-backdrop-animated {
+  animation: ambientBackdropShift 9s ease-in-out infinite alternate;
+}
+
+.card-sheen-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.card-sheen-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.card-sheen-sweep:hover::after {
+  transform: translateX(100%) rotate(25deg);
+}
+
+.interactive-action-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.interactive-action-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.12);
+}
+.interactive-action-btn:active {
+  transform: scale(0.92);
+}
+
+.statutory-pill {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.statutory-pill:hover {
+  border-color: #12B5A5;
+  background-color: #F0FDFB;
+  color: #0E7A6E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -3px rgba(18, 181, 165, 0.18);
+}
+
 /* Accessibility: Respect Reduced Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
   .animate-hero-gradient,
@@ -469,9 +560,14 @@ h1, h2, h3, h4, h5, h6 {
   .hero-word-reveal,
   .animate-float,
   .animate-float-delayed,
-  .animate-marquee {
+  .animate-marquee,
+  .animate-badge-float,
+  .animate-badge-float-delayed,
+  .ambient-backdrop-animated,
+  .card-sheen-sweep::after {
     animation: none !important;
     transform: none !important;
     filter: none !important;
+    transition: none !important;
   }
 }

@@ -171,6 +171,11 @@ export default function HomePage() {
   const [heroSimTab, setHeroSimTab] = useState<"face" | "geo" | "payroll">("face");
   const [simPunchState, setSimPunchState] = useState<"idle" | "scanning" | "matched">("idle");
   const [presentCount, setPresentCount] = useState<number>(68);
+  const [leaveApprovals, setLeaveApprovals] = useState<{ [key: string]: "pending" | "approved" | "rejected" }>({
+    rohit: "pending",
+    priya: "approved",
+    harsh: "pending",
+  });
 
   const triggerSimPunch = () => {
     setSimPunchState("scanning");
@@ -818,18 +823,18 @@ export default function HomePage() {
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-            Complete Product Suite
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-50 border border-teal-200/70 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0E9486] shadow-2xs">
+            <Sparkles className="h-3 w-3 text-[#12B5A5]" /> Complete Product Suite
           </span>
-          <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
             Everything Your Payroll Needs
             <br />
-            <span className="text-[#12B5A5]">
+            <span className="animate-hero-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#12B5A5] via-[#2DD4BF] to-[#0E9486]">
               In One Place
             </span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 font-medium">
-            Five parts that work together, from the first day of a new joiner to the month-end bank file.
+          <p className="mt-3 text-sm sm:text-base text-slate-600 font-medium max-w-2xl mx-auto">
+            Five tightly integrated modules designed for Indian businesses — connecting daily attendance check-ins directly to compliant month-end salary payout files.
           </p>
         </div>
 
@@ -841,16 +846,24 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             {/* Left Mockup Card */}
             <div className="relative group max-w-md mx-auto lg:mx-0 w-full">
-              {/* Soft Light Blue Backdrop Panel */}
-              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform -rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+              {/* Soft Ambient Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] ambient-backdrop-animated" />
               
-              <div className="overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_12px_36px_-6px_rgba(0,0,0,0.08),0_4px_12px_-2px_rgba(0,0,0,0.03)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.14)]">
+              <div className="card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_12px_36px_-6px_rgba(0,0,0,0.08),0_4px_12px_-2px_rgba(0,0,0,0.03)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.14)]">
                 {/* Pastel Sky Header */}
-                <div className="bg-[#BAE6FD] px-5 py-3.5 border-b border-sky-100 flex items-center justify-between">
-                  <span className="font-display text-sm font-bold text-slate-900">
-                    Attendance Details
+                <div className="bg-[#BAE6FD] px-5 py-3.5 border-b border-sky-200/60 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="font-display text-sm font-bold text-slate-900">
+                      Attendance Details
+                    </span>
+                    <span className="text-[10px] font-semibold text-sky-900 bg-white/70 px-2 py-0.5 rounded-md border border-sky-300/40">
+                      Live Stream
+                    </span>
+                  </div>
+                  <span className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-white/70 px-2 py-0.5 rounded-full">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                    Gate 01
                   </span>
-                  <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
                 {/* Table */}
                 <div className="p-4 sm:p-5">
@@ -863,20 +876,41 @@ export default function HomePage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
-                      <tr className="hover:bg-slate-50/70 transition-colors">
-                        <td className="py-3 font-semibold text-slate-800">Rohit</td>
-                        <td className="py-3 font-mono text-slate-700">9:22 AM</td>
-                        <td className="py-3 text-right font-bold text-[#881337]">22 Min. late</td>
+                      <tr className="hover:bg-teal-50/40 transition-colors">
+                        <td className="py-3 font-semibold text-slate-800 flex items-center gap-2">
+                          <span className="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-700">RS</span>
+                          Rohit Sharma
+                        </td>
+                        <td className="py-3 font-mono text-slate-700">09:22 AM</td>
+                        <td className="py-3 text-right">
+                          <span className="inline-flex rounded-md bg-rose-50 px-2 py-0.5 text-xs font-bold text-[#881337] border border-rose-200/60">
+                            22 Min. late
+                          </span>
+                        </td>
                       </tr>
-                      <tr className="hover:bg-slate-50/70 transition-colors">
-                        <td className="py-3 font-semibold text-slate-800">Priya</td>
-                        <td className="py-3 font-mono text-slate-700">9:00 AM</td>
-                        <td className="py-3 text-right font-bold text-emerald-600">On time</td>
+                      <tr className="hover:bg-teal-50/40 transition-colors">
+                        <td className="py-3 font-semibold text-slate-800 flex items-center gap-2">
+                          <span className="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-700">PV</span>
+                          Priya Verma
+                        </td>
+                        <td className="py-3 font-mono text-slate-700">08:58 AM</td>
+                        <td className="py-3 text-right">
+                          <span className="inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-700 border border-emerald-200/60">
+                            On time
+                          </span>
+                        </td>
                       </tr>
-                      <tr className="hover:bg-slate-50/70 transition-colors">
-                        <td className="py-3 font-semibold text-slate-800">Harsh</td>
-                        <td className="py-3 font-mono text-slate-700">9:09 AM</td>
-                        <td className="py-3 text-right font-bold text-[#881337]">09 Min. late</td>
+                      <tr className="hover:bg-teal-50/40 transition-colors">
+                        <td className="py-3 font-semibold text-slate-800 flex items-center gap-2">
+                          <span className="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-700">HP</span>
+                          Harsh Patel
+                        </td>
+                        <td className="py-3 font-mono text-slate-700">09:09 AM</td>
+                        <td className="py-3 text-right">
+                          <span className="inline-flex rounded-md bg-rose-50 px-2 py-0.5 text-xs font-bold text-[#881337] border border-rose-200/60">
+                            09 Min. late
+                          </span>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -890,14 +924,14 @@ export default function HomePage() {
                 Attendance Management
               </h3>
               <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Capture attendance through{" "}
+                Capture employee attendance seamlessly through{" "}
                 <Link
                   href="/features/face-attendance"
                   className="font-semibold text-[#12B5A5] underline decoration-[#12B5A5]/40 hover:text-[#0E7A6E] transition-colors"
                 >
                   biometric devices that sync to the cloud
                 </Link>{" "}
-                in real time. The data flows directly into shifts, hours, overtime, and salary, no manual entry required.
+                in real time. The verified punch data flows straight into shifts, late grace periods, overtime, and monthly salary computations — eliminating manual register tallying.
               </p>
               <div className="mt-6">
                 <Link
@@ -905,7 +939,7 @@ export default function HomePage() {
                   className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
                 >
                   <span className="text-hover-lux">Explore Time & Attendance</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
                 </Link>
               </div>
             </div>
@@ -921,7 +955,7 @@ export default function HomePage() {
                 Leave Management
               </h3>
               <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Approve leave requests from a single dashboard while employees apply through the mobile app. Balances update automatically, and deductions reflect in the same month's salary.
+                Approve or reject leave requests from a single intuitive dashboard while employees apply on-the-go via the mobile portal. Balances update automatically with custom sandwich rules, encashment, and deductions reflected in the same month’s pay.
               </p>
               <div className="mt-6">
                 <Link
@@ -929,25 +963,28 @@ export default function HomePage() {
                   className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
                 >
                   <span className="text-hover-lux">Explore Leave & Holidays</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
                 </Link>
               </div>
             </div>
 
             {/* Right Stacked Mockup Cards */}
             <div className="relative group max-w-md sm:max-w-lg mx-auto lg:mx-0 w-full order-1 lg:order-2">
-              {/* Soft Light Blue Backdrop Panel */}
-              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+              {/* Soft Ambient Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] ambient-backdrop-animated" />
               
               {/* Floating 3D Calendar Badge */}
-              <div className="absolute -top-6 right-2 sm:right-6 z-30 animate-float pointer-events-none">
+              <div className="absolute -top-6 right-2 sm:right-6 z-30 animate-badge-float pointer-events-none">
                 <Calendar3DBadge />
               </div>
 
               {/* Back Card: Approval Requests */}
-              <div className="w-[90%] sm:w-[84%] overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
-                <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-100 text-xs sm:text-sm font-bold text-slate-900">
-                  Approval Requests
+              <div className="w-[90%] sm:w-[84%] card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
+                <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
+                  <span>Approval Requests</span>
+                  <span className="text-[10px] font-medium text-rose-700 bg-white/70 px-2 py-0.5 rounded-full">
+                    3 Pending
+                  </span>
                 </div>
                 <div className="p-3.5">
                   <table className="w-full text-xs">
@@ -959,45 +996,58 @@ export default function HomePage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
-                      <tr className="hover:bg-slate-50/60 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Rohit</td>
-                        <td className="py-2">Sick</td>
-                        <td className="py-2 text-right">
-                          <span className="inline-flex items-center gap-1.5 text-xs">
-                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-rose-200 text-rose-500 font-bold hover:bg-rose-50 transition-colors">✕</span>
-                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-emerald-200 text-emerald-600 font-bold hover:bg-emerald-50 transition-colors">✓</span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Priya</td>
-                        <td className="py-2">Privilege</td>
-                        <td className="py-2 text-right">
-                          <span className="inline-flex items-center gap-1.5 text-xs">
-                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-rose-200 text-rose-500 font-bold hover:bg-rose-50 transition-colors">✕</span>
-                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-emerald-200 text-emerald-600 font-bold hover:bg-emerald-50 transition-colors">✓</span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
-                        <td className="py-2 font-semibold text-slate-800">Harsh</td>
-                        <td className="py-2">Casual</td>
-                        <td className="py-2 text-right">
-                          <span className="inline-flex items-center gap-1.5 text-xs">
-                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-rose-200 text-rose-500 font-bold hover:bg-rose-50 transition-colors">✕</span>
-                            <span className="inline-flex items-center justify-center w-5 h-5 rounded border border-emerald-200 text-emerald-600 font-bold hover:bg-emerald-50 transition-colors">✓</span>
-                          </span>
-                        </td>
-                      </tr>
+                      {[
+                        { id: "rohit", name: "Rohit", type: "Sick" },
+                        { id: "priya", name: "Priya", type: "Privilege" },
+                        { id: "harsh", name: "Harsh", type: "Casual" },
+                      ].map((item) => (
+                        <tr key={item.id} className="hover:bg-teal-50/40 transition-colors">
+                          <td className="py-2 font-semibold text-slate-800">{item.name}</td>
+                          <td className="py-2">{item.type}</td>
+                          <td className="py-2 text-right">
+                            {leaveApprovals[item.id] === "approved" ? (
+                              <span className="inline-flex items-center gap-1 rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700 border border-emerald-200">
+                                Approved ✓
+                              </span>
+                            ) : leaveApprovals[item.id] === "rejected" ? (
+                              <span className="inline-flex items-center gap-1 rounded bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-700 border border-rose-200">
+                                Rejected ✕
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center gap-1.5 text-xs">
+                                <button
+                                  type="button"
+                                  onClick={() => setLeaveApprovals((prev) => ({ ...prev, [item.id]: "rejected" }))}
+                                  className="interactive-action-btn inline-flex items-center justify-center w-5 h-5 rounded border border-rose-200 text-rose-500 font-bold hover:bg-rose-500 hover:text-white transition-colors"
+                                  title="Reject"
+                                >
+                                  ✕
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => setLeaveApprovals((prev) => ({ ...prev, [item.id]: "approved" }))}
+                                  className="interactive-action-btn inline-flex items-center justify-center w-5 h-5 rounded border border-emerald-200 text-emerald-600 font-bold hover:bg-emerald-600 hover:text-white transition-colors"
+                                  title="Approve"
+                                >
+                                  ✓
+                                </button>
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
               </div>
 
               {/* Front Overlapping Card: Leave Balance */}
-              <div className="w-[90%] sm:w-[86%] -mt-10 sm:-mt-14 ml-auto relative z-20 overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
-                <div className="bg-[#FEF3C7] px-4 py-2.5 border-b border-amber-100 text-xs sm:text-sm font-bold text-slate-900">
-                  Leave Balance
+              <div className="w-[90%] sm:w-[86%] -mt-10 sm:-mt-14 ml-auto relative z-20 card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
+                <div className="bg-[#FEF3C7] px-4 py-2.5 border-b border-amber-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
+                  <span>Leave Balance</span>
+                  <span className="text-[10px] font-semibold text-amber-900 bg-white/70 px-2 py-0.5 rounded-md">
+                    FY 2026-27
+                  </span>
                 </div>
                 <div className="p-3.5">
                   <table className="w-full text-xs">
@@ -1010,19 +1060,19 @@ export default function HomePage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-amber-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Rohit</td>
                         <td className="py-2 text-center font-mono">16</td>
                         <td className="py-2 text-center text-rose-600 font-mono font-medium">-5</td>
                         <td className="py-2 text-right font-bold text-slate-900 font-mono">11</td>
                       </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-amber-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Priya</td>
                         <td className="py-2 text-center font-mono">12</td>
                         <td className="py-2 text-center text-rose-600 font-mono font-medium">-3</td>
                         <td className="py-2 text-right font-bold text-slate-900 font-mono">9</td>
                       </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-amber-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Harsh</td>
                         <td className="py-2 text-center font-mono">15</td>
                         <td className="py-2 text-center text-rose-600 font-mono font-medium">-10</td>
@@ -1041,18 +1091,21 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             {/* Left Stacked Mockup Cards */}
             <div className="relative group max-w-md sm:max-w-lg mx-auto lg:mx-0 w-full">
-              {/* Soft Light Blue Backdrop Panel */}
-              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform -rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+              {/* Soft Ambient Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] ambient-backdrop-animated" />
 
               {/* Floating 3D Gold Rupee Coin Badge */}
-              <div className="absolute top-4 -left-4 sm:-left-7 z-30 animate-float pointer-events-none">
+              <div className="absolute top-4 -left-4 sm:-left-7 z-30 animate-badge-float pointer-events-none">
                 <Coin3DBadge />
               </div>
 
               {/* Back Card: Monthly Payroll (shifted right) */}
-              <div className="w-[90%] sm:w-[86%] ml-auto overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
-                <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-100 text-xs sm:text-sm font-bold text-slate-900">
-                  Monthly Payroll
+              <div className="w-[90%] sm:w-[86%] ml-auto card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
+                <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
+                  <span>Monthly Payroll</span>
+                  <span className="text-[10px] font-semibold text-emerald-800 bg-white/70 px-2 py-0.5 rounded-md">
+                    Net Payout Ready
+                  </span>
                 </div>
                 <div className="p-3.5">
                   <table className="w-full text-xs">
@@ -1065,19 +1118,19 @@ export default function HomePage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-emerald-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Rohit</td>
                         <td className="py-2 font-mono">25000</td>
                         <td className="py-2 text-emerald-600 font-semibold font-mono">+700</td>
                         <td className="py-2 text-right font-bold text-slate-900 font-mono">25700</td>
                       </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-emerald-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Priya</td>
                         <td className="py-2 font-mono">30000</td>
                         <td className="py-2 text-emerald-600 font-semibold font-mono">+1000</td>
                         <td className="py-2 text-right font-bold text-slate-900 font-mono">31000</td>
                       </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-emerald-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Harsh</td>
                         <td className="py-2 font-mono">50000</td>
                         <td className="py-2 text-emerald-600 font-semibold font-mono">+1400</td>
@@ -1089,21 +1142,24 @@ export default function HomePage() {
               </div>
 
               {/* Front Overlapping Card: Statutory Compliance (shifted left) */}
-              <div className="w-[88%] sm:w-[82%] -mt-10 sm:-mt-14 mr-auto relative z-20 overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
-                <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-100 text-xs sm:text-sm font-bold text-slate-900">
-                  Statutory Compliance
+              <div className="w-[88%] sm:w-[82%] -mt-10 sm:-mt-14 mr-auto relative z-20 card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
+                <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
+                  <span>Statutory Compliance</span>
+                  <span className="text-[10px] font-semibold text-rose-800 bg-white/70 px-2 py-0.5 rounded-md">
+                    100% Indian Rules
+                  </span>
                 </div>
                 <div className="p-3.5 sm:p-4 grid grid-cols-2 gap-2 text-xs">
-                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-xs">
+                  <div className="statutory-pill p-2 sm:p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-2xs cursor-default">
                     Provident Fund
                   </div>
-                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-xs">
+                  <div className="statutory-pill p-2 sm:p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-2xs cursor-default">
                     Employees State Insurance C.
                   </div>
-                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-xs">
+                  <div className="statutory-pill p-2 sm:p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-2xs cursor-default">
                     Professional Tax
                   </div>
-                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-xs">
+                  <div className="statutory-pill p-2 sm:p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 font-semibold text-slate-800 text-center shadow-2xs cursor-default">
                     Labour Welfare Tax
                   </div>
                 </div>
@@ -1116,7 +1172,7 @@ export default function HomePage() {
                 Salary Management
               </h3>
               <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Calculate salaries as attendance and leave data come in. Apply PF, ESIC, PT, LWF and other compliance rules automatically. Release approved payslips in one click.
+                Calculate salaries accurately as attendance and leave data come in. Apply PF, ESIC, PT, LWF, and custom allowances automatically without manual formulas. Release approved payslips and generate CMS bank files in one click.
               </p>
               <div className="mt-6">
                 <Link
@@ -1124,7 +1180,7 @@ export default function HomePage() {
                   className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
                 >
                   <span className="text-hover-lux">Explore Payroll & Payout</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
                 </Link>
               </div>
             </div>
@@ -1140,7 +1196,7 @@ export default function HomePage() {
                 Shift Management
               </h3>
               <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Build shifts that match how your business actually runs. Assign by role, department, or location. Handle overnight, split, and rotating schedules without the spreadsheet hassle.
+                Build shifts that match how your business actually runs. Assign by role, department, or branch location. Handle overnight, split, and rotational schedules smoothly without the spreadsheet hassle.
               </p>
               <div className="mt-6">
                 <Link
@@ -1148,25 +1204,28 @@ export default function HomePage() {
                   className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
                 >
                   <span className="text-hover-lux">Explore Shifts & Roster</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
                 </Link>
               </div>
             </div>
 
             {/* Right Stacked Mockup Cards */}
             <div className="relative group max-w-md sm:max-w-lg mx-auto lg:mx-0 w-full order-1 lg:order-2">
-              {/* Soft Light Blue Backdrop Panel */}
-              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+              {/* Soft Ambient Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] ambient-backdrop-animated" />
 
               {/* Floating 3D Clock Badge */}
-              <div className="absolute -top-6 right-2 sm:right-6 z-30 animate-float-delayed pointer-events-none">
+              <div className="absolute -top-6 right-2 sm:right-6 z-30 animate-badge-float-delayed pointer-events-none">
                 <Clock3DBadge />
               </div>
 
               {/* Back Card: Assign Shifts */}
-              <div className="w-[90%] sm:w-[84%] overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
-                <div className="bg-[#FEF3C7] px-4 py-2.5 border-b border-amber-100 text-xs sm:text-sm font-bold text-slate-900">
-                  Assign Shifts
+              <div className="w-[90%] sm:w-[84%] card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
+                <div className="bg-[#FEF3C7] px-4 py-2.5 border-b border-amber-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
+                  <span>Assign Shifts</span>
+                  <span className="text-[10px] font-semibold text-amber-900 bg-white/70 px-2 py-0.5 rounded-md">
+                    Roster Active
+                  </span>
                 </div>
                 <div className="p-3.5">
                   <table className="w-full text-xs">
@@ -1178,20 +1237,32 @@ export default function HomePage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-amber-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Rohit</td>
-                        <td className="py-2">Day</td>
-                        <td className="py-2 text-right text-emerald-600 font-semibold">Assigned</td>
+                        <td className="py-2 font-medium">Day</td>
+                        <td className="py-2 text-right">
+                          <span className="inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700 border border-emerald-200/60">
+                            Assigned
+                          </span>
+                        </td>
                       </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-amber-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Priya</td>
-                        <td className="py-2">Night</td>
-                        <td className="py-2 text-right text-emerald-600 font-semibold">Assigned</td>
+                        <td className="py-2 font-medium">Night</td>
+                        <td className="py-2 text-right">
+                          <span className="inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700 border border-emerald-200/60">
+                            Assigned
+                          </span>
+                        </td>
                       </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-amber-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Harsh</td>
-                        <td className="py-2">Day</td>
-                        <td className="py-2 text-right text-emerald-600 font-semibold">Assigned</td>
+                        <td className="py-2 font-medium">Day</td>
+                        <td className="py-2 text-right">
+                          <span className="inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700 border border-emerald-200/60">
+                            Assigned
+                          </span>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -1199,9 +1270,12 @@ export default function HomePage() {
               </div>
 
               {/* Front Overlapping Card: Shift Details */}
-              <div className="w-[92%] sm:w-[88%] -mt-10 sm:-mt-14 ml-auto relative z-20 overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
-                <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-100 text-xs sm:text-sm font-bold text-slate-900">
-                  Shift Details
+              <div className="w-[92%] sm:w-[88%] -mt-10 sm:-mt-14 ml-auto relative z-20 card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
+                <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
+                  <span>Shift Details</span>
+                  <span className="text-[10px] font-semibold text-emerald-900 bg-white/70 px-2 py-0.5 rounded-md">
+                    Auto-Detected
+                  </span>
                 </div>
                 <div className="p-3.5">
                   <table className="w-full text-xs">
@@ -1214,19 +1288,19 @@ export default function HomePage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-emerald-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Rohit</td>
                         <td className="py-2">Sales</td>
                         <td className="py-2">Sales Executive</td>
                         <td className="py-2 text-right font-bold text-slate-900">Day</td>
                       </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-emerald-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Priya</td>
                         <td className="py-2">UI/UX</td>
                         <td className="py-2">UI/UX Design</td>
                         <td className="py-2 text-right font-bold text-slate-900">Night</td>
                       </tr>
-                      <tr className="hover:bg-slate-50/60 transition-colors">
+                      <tr className="hover:bg-emerald-50/40 transition-colors">
                         <td className="py-2 font-semibold text-slate-800">Harsh</td>
                         <td className="py-2">UI/UX</td>
                         <td className="py-2">UI/UX Design</td>
@@ -1245,57 +1319,65 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             {/* Left Stacked Mockup Cards */}
             <div className="relative group max-w-md sm:max-w-lg mx-auto lg:mx-0 w-full">
-              {/* Soft Light Blue Backdrop Panel */}
-              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] transform -rotate-1 transition-transform group-hover:rotate-0 duration-500" />
+              {/* Soft Ambient Backdrop Panel */}
+              <div className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl bg-[#EAF5FE] ambient-backdrop-animated" />
 
               {/* Floating 3D WhatsApp Badge */}
-              <div className="absolute -bottom-5 -left-3 sm:-left-6 z-30 animate-float pointer-events-none">
+              <div className="absolute -bottom-5 -left-3 sm:-left-6 z-30 animate-badge-float pointer-events-none">
                 <WhatsApp3DBadge />
               </div>
 
               {/* Back Card: Daily Whatsapp Alerts */}
-              <div className="w-[88%] sm:w-[82%] overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
-                <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-100 text-xs sm:text-sm font-bold text-slate-900">
-                  Daily Whatsapp Alerts
+              <div className="w-[88%] sm:w-[82%] card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1">
+                <div className="bg-[#D1FAE5] px-4 py-2.5 border-b border-emerald-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
+                  <span>Daily Whatsapp Alerts</span>
+                  <span className="text-[10px] font-semibold text-emerald-800 bg-white/70 px-2 py-0.5 rounded-md flex items-center gap-1">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Automated 10:00 AM
+                  </span>
                 </div>
                 <div className="p-4 space-y-2 text-xs">
-                  <div className="pb-1.5 border-b border-slate-100">
-                    <span className="font-bold text-slate-900 block">Attendance update for 5 April</span>
+                  <div className="pb-1.5 border-b border-slate-100 flex items-center justify-between">
+                    <span className="font-bold text-slate-900">Attendance update for today</span>
+                    <span className="text-[11px] font-mono text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">Synced</span>
                   </div>
                   <div className="flex justify-between py-1 border-b border-slate-100">
                     <span className="text-slate-500">Organization :</span>
-                    <span className="font-semibold text-slate-800">Indian Zaika</span>
+                    <span className="font-semibold text-slate-800">Head Office Campus</span>
                   </div>
                   <div className="flex justify-between py-1">
                     <span className="text-slate-500">Total Employees:</span>
-                    <span className="font-bold text-[#12B5A5]">200</span>
+                    <span className="font-bold text-[#12B5A5]">200 Registered</span>
                   </div>
                 </div>
               </div>
 
               {/* Front Overlapping Card: Attendance Summary */}
-              <div className="w-[84%] sm:w-[78%] -mt-12 sm:-mt-16 ml-auto relative z-20 overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
-                <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-100 text-xs sm:text-sm font-bold text-slate-900">
-                  Attendance Summary
+              <div className="w-[84%] sm:w-[78%] -mt-12 sm:-mt-16 ml-auto relative z-20 card-sheen-sweep overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_50px_-8px_rgba(0,0,0,0.16)]">
+                <div className="bg-[#FDE2E4] px-4 py-2.5 border-b border-rose-200/60 text-xs sm:text-sm font-bold text-slate-900 flex items-center justify-between">
+                  <span>Attendance Summary</span>
+                  <span className="text-[10px] font-semibold text-rose-800 bg-white/70 px-2 py-0.5 rounded-md">
+                    Real-Time
+                  </span>
                 </div>
                 <div className="p-3.5 divide-y divide-slate-100 text-xs">
-                  <div className="flex justify-between py-1.5">
+                  <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
                     <span className="text-slate-600 font-medium">Full Day:</span>
                     <span className="font-bold text-slate-900 font-mono">185</span>
                   </div>
-                  <div className="flex justify-between py-1.5">
+                  <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
                     <span className="text-slate-600 font-medium">Absent:</span>
                     <span className="font-bold text-rose-600 font-mono">5</span>
                   </div>
-                  <div className="flex justify-between py-1.5">
+                  <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
                     <span className="text-slate-600 font-medium">Currently Working:</span>
                     <span className="font-bold text-emerald-600 font-mono">180</span>
                   </div>
-                  <div className="flex justify-between py-1.5">
+                  <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
                     <span className="text-slate-600 font-medium">Half Day:</span>
                     <span className="font-bold text-amber-600 font-mono">5</span>
                   </div>
-                  <div className="flex justify-between py-1.5">
+                  <div className="flex justify-between py-1.5 hover:bg-rose-50/30 transition-colors">
                     <span className="text-slate-600 font-medium">Time Off:</span>
                     <span className="font-bold text-slate-700 font-mono">5</span>
                   </div>
@@ -1309,7 +1391,7 @@ export default function HomePage() {
                 WhatsApp Alerts
               </h3>
               <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Get daily attendance summaries with other details straight on WhatsApp. Skip the calls, skip the follow-ups.
+                Get automated daily attendance summaries and staff punch updates delivered straight to directors, managers, and team leads on WhatsApp. Skip the endless phone follow-ups and manual report spreadsheets.
               </p>
               <div className="mt-6">
                 <Link
@@ -1317,7 +1399,7 @@ export default function HomePage() {
                   className="group inline-flex items-center gap-1.5 font-bold text-[#12B5A5] hover:text-[#0E7A6E] text-base transition-colors"
                 >
                   <span className="text-hover-lux">Explore WhatsApp Updates</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
                 </Link>
               </div>
             </div>
