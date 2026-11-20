@@ -71,19 +71,19 @@ h1, h2, h3, h4, h5, h6 {
 .attendo-card {
   background-color: #FFFFFF;
   border: 1px solid rgba(229, 242, 240, 0.95);
-  border-radius: 1.25rem;
-  box-shadow: 0 4px 20px -2px rgba(18, 181, 165, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px -2px rgba(18, 181, 165, 0.07), 0 1px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .attendo-card-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .attendo-card-hover:hover {
-  transform: translateY(-4px);
-  border-color: rgba(18, 181, 165, 0.65);
-  box-shadow: 0 20px 40px -10px rgba(18, 181, 165, 0.16), 0 8px 16px -4px rgba(0, 0, 0, 0.04);
+  transform: translateY(-5px);
+  border-color: rgba(18, 181, 165, 0.7);
+  box-shadow: 0 22px 45px -10px rgba(18, 181, 165, 0.2), 0 8px 18px -4px rgba(0, 0, 0, 0.04);
 }
 
 .attendo-card-sheen {
@@ -97,8 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #12B5A5, transparent);
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, #12B5A5, #8FE8DC, transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -107,23 +107,56 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-/* AttendoHR-Inspired Icon Containers */
+/* AttendoHR-Inspired Luxury Icon Containers (High-Contrast & No White-on-White) */
 .attendo-icon-box {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  background: linear-gradient(135deg, #F0FDFB 0%, #E6FAF7 100%);
-  border: 1px solid rgba(18, 181, 165, 0.2);
-  color: #12B5A5;
+  background-color: #E8FAF7;
+  border: 1.5px solid #B4EFE7;
+  color: #0E7A6E;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px -1px rgba(18, 181, 165, 0.12);
 }
 
-.group:hover .attendo-icon-box {
-  transform: scale(1.08) rotate(1deg);
-  background: linear-gradient(135deg, #12B5A5 0%, #0E9486 100%);
-  color: #FFFFFF;
-  box-shadow: 0 8px 20px -4px rgba(18, 181, 165, 0.35);
+.attendo-icon-box svg {
+  stroke-width: 2.2px;
+  color: #0E7A6E;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.group:hover .attendo-icon-box,
+.attendo-icon-box:hover {
+  transform: scale(1.08) translateY(-1px);
+  background: linear-gradient(135deg, #12B5A5 0%, #0E9486 100%) !important;
+  border-color: #12B5A5 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 24px -4px rgba(18, 181, 165, 0.45) !important;
+}
+
+.group:hover .attendo-icon-box svg,
+.attendo-icon-box:hover svg {
+  color: #FFFFFF !important;
+}
+
+/* Luxury Text Hover Animations */
+.text-hover-lux {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .text-hover-lux {
+  color: #0E7A6E;
+  transform: translateX(2px);
+}
+
+.arrow-hover-lux {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .arrow-hover-lux {
+  transform: translateX(4px);
+  color: #0E7A6E;
 }
 
 /* Attendo Badge */

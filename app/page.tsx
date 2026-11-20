@@ -467,42 +467,42 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="rounded-3xl border border-teal-100/70 bg-gradient-to-r from-white via-[#F0FDFB] to-white p-6 shadow-sm">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="card-interactive group flex items-start gap-3.5 p-4 rounded-2xl border border-teal-100/60 bg-white shadow-xs hover:border-[#12B5A5]/60">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100/80 group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300">
+            <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4 bg-white">
+              <div className="attendo-icon-box h-11 w-11 shrink-0">
                 <Receipt className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">Indian Payroll</h4>
+                <h4 className="text-sm font-bold text-slate-900 text-hover-lux">Indian Payroll</h4>
                 <p className="text-xs text-slate-500 mt-0.5">PF, ESI, Professional Tax, TDS</p>
               </div>
             </div>
 
-            <div className="card-interactive group flex items-start gap-3.5 p-4 rounded-2xl border border-teal-100/60 bg-white shadow-xs hover:border-[#12B5A5]/60">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100/80 group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300">
+            <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4 bg-white">
+              <div className="attendo-icon-box h-11 w-11 shrink-0">
                 <Smartphone className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">Universal Access</h4>
+                <h4 className="text-sm font-bold text-slate-900 text-hover-lux">Universal Access</h4>
                 <p className="text-xs text-slate-500 mt-0.5">Works on any phone, tablet or laptop</p>
               </div>
             </div>
 
-            <div className="card-interactive group flex items-start gap-3.5 p-4 rounded-2xl border border-teal-100/60 bg-white shadow-xs hover:border-[#12B5A5]/60">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100/80 group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300">
+            <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4 bg-white">
+              <div className="attendo-icon-box h-11 w-11 shrink-0">
                 <Building className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">Isolated Data</h4>
+                <h4 className="text-sm font-bold text-slate-900 text-hover-lux">Isolated Data</h4>
                 <p className="text-xs text-slate-500 mt-0.5">Each organisation kept completely separate</p>
               </div>
             </div>
 
-            <div className="card-interactive group flex items-start gap-3.5 p-4 rounded-2xl border border-teal-100/60 bg-white shadow-xs hover:border-[#12B5A5]/60">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100/80 group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300">
+            <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4 bg-white">
+              <div className="attendo-icon-box h-11 w-11 shrink-0">
                 <ShieldCheck className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">Audit Logged</h4>
+                <h4 className="text-sm font-bold text-slate-900 text-hover-lux">Audit Logged</h4>
                 <p className="text-xs text-slate-500 mt-0.5">Every punch, edit and approval tracked</p>
               </div>
             </div>
@@ -555,17 +555,19 @@ export default function HomePage() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="card-interactive group rounded-3xl border border-teal-100/80 bg-white p-7 shadow-card hover:shadow-card-hover hover:border-teal-300/80"
+              className="attendo-card attendo-card-hover group p-7 flex flex-col justify-between"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-50 to-pink-50 text-rose-500 border border-rose-100/80 group-hover:scale-105 transition-transform duration-300">
-                <XCircle className="h-5 w-5" />
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 border border-rose-200/80 group-hover:bg-rose-500 group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-xs">
+                  <XCircle className="h-6 w-6 stroke-[2.2]" />
+                </div>
+                <h3 className="mt-5 font-display text-lg font-bold text-slate-900 text-hover-lux group-hover:text-rose-600">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
+                  {item.text}
+                </p>
               </div>
-              <h3 className="mt-4 font-display text-lg font-bold text-slate-900 group-hover:text-rose-600 transition-colors">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
-                {item.text}
-              </p>
             </div>
           ))}
         </div>
@@ -600,12 +602,12 @@ export default function HomePage() {
             ].map((step, idx) => (
               <div
                 key={idx}
-                className="card-interactive group flex flex-col items-center text-center p-3.5 rounded-2xl bg-white border border-teal-100 shadow-xs hover:border-[#12B5A5]"
+                className="attendo-card attendo-card-hover group flex flex-col items-center text-center p-3.5 bg-white"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300 mb-2">
-                  <step.icon className="h-5 w-5" />
+                <div className="attendo-icon-box h-11 w-11 mb-2 shrink-0">
+                  <step.icon className="h-5 w-5 stroke-[2.2]" />
                 </div>
-                <span className="text-xs font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">{step.label}</span>
+                <span className="text-xs font-bold text-slate-900 text-hover-lux">{step.label}</span>
                 <span className="text-[11px] text-slate-500 mt-0.5">{step.sub}</span>
               </div>
             ))}
@@ -768,17 +770,19 @@ export default function HomePage() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="card-interactive group rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:border-[#12B5A5]"
+                className="attendo-card attendo-card-hover group p-6 flex flex-col justify-between"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-xs mb-3.5">
-                  <CheckCircle2 className="h-5 w-5" />
+                <div>
+                  <div className="attendo-icon-box h-11 w-11 shrink-0 mb-4">
+                    <CheckCircle2 className="h-5 w-5 stroke-[2.2]" />
+                  </div>
+                  <h4 className="font-display font-bold text-slate-900 text-base text-hover-lux">
+                    {item.title}
+                  </h4>
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
+                    {item.desc}
+                  </p>
                 </div>
-                <h4 className="font-display font-bold text-slate-900 text-sm group-hover:text-[#12B5A5] transition-colors">
-                  {item.title}
-                </h4>
-                <p className="mt-2 text-xs leading-relaxed text-slate-600">
-                  {item.desc}
-                </p>
               </div>
             ))}
           </div>
@@ -806,21 +810,22 @@ export default function HomePage() {
             <Link
               key={sol.slug}
               href={`/solutions/${sol.slug}`}
-              className="card-interactive group rounded-3xl border border-teal-100/80 bg-white p-7 shadow-card hover:shadow-card-hover hover:border-[#12B5A5] transition-all duration-300 flex flex-col justify-between"
+              className="attendo-card attendo-card-hover group p-7 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
             >
               <div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-xs">
-                  <FeatureIcon slug={sol.slug} className="h-6 w-6" />
+                <div className="attendo-icon-box h-12 w-12 shrink-0">
+                  <FeatureIcon slug={sol.slug} className="h-6 w-6 stroke-[2.2]" />
                 </div>
-                <h3 className="mt-5 font-display text-lg font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
+                <h3 className="mt-5 font-display text-lg font-bold text-slate-900 text-hover-lux">
                   {sol.name}
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
                   {sol.short}
                 </p>
               </div>
-              <div className="mt-6 flex items-center gap-1.5 text-xs font-bold text-[#12B5A5] group-hover:underline">
-                Explore solution <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
+                <span className="text-hover-lux font-bold">Explore solution</span>
+                <ArrowRight className="h-4 w-4 arrow-hover-lux" />
               </div>
             </Link>
           ))}
@@ -843,69 +848,73 @@ export default function HomePage() {
 
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Experience 1: Admin */}
-            <div className="card-interactive rounded-3xl border border-teal-100/90 bg-white p-8 shadow-card hover:border-[#12B5A5]">
-              <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100 shadow-xs">
-                  <Building className="h-5 w-5" />
+            <div className="attendo-card attendo-card-hover group p-8 bg-white flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 border-b border-slate-100 pb-5">
+                  <div className="attendo-icon-box h-12 w-12 shrink-0">
+                    <Building className="h-6 w-6 stroke-[2.2]" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-base font-bold text-slate-900 text-hover-lux">
+                      For HR, Accounts and Management
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-0.5">Full administrative control</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-display text-base font-bold text-slate-900">
-                    For HR, Accounts and Management
-                  </h3>
-                  <p className="text-xs text-slate-500">Full administrative control</p>
-                </div>
+                <ul className="mt-5 space-y-3 text-xs sm:text-sm text-slate-700">
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
+                    <span>Bulk import employees from Excel with error checks</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
+                    <span>Lock attendance and run payroll in under five minutes</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
+                    <span>Generate bank salary transfer files in your bank&apos;s format</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
+                    <span>Complete audit log of every change, revision and sign-off</span>
+                  </li>
+                </ul>
               </div>
-              <ul className="mt-5 space-y-3 text-xs sm:text-sm text-slate-700">
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
-                  <span>Bulk import employees from Excel with error checks</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
-                  <span>Lock attendance and run payroll in under five minutes</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
-                  <span>Generate bank salary transfer files in your bank&apos;s format</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
-                  <span>Complete audit log of every change, revision and sign-off</span>
-                </li>
-              </ul>
             </div>
 
             {/* Experience 2: Employee */}
-            <div className="card-interactive rounded-3xl border border-teal-100/90 bg-white p-8 shadow-card hover:border-[#12B5A5]">
-              <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100 shadow-xs">
-                  <Smartphone className="h-5 w-5" />
+            <div className="attendo-card attendo-card-hover group p-8 bg-white flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 border-b border-slate-100 pb-5">
+                  <div className="attendo-icon-box h-12 w-12 shrink-0">
+                    <Smartphone className="h-6 w-6 stroke-[2.2]" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-base font-bold text-slate-900 text-hover-lux">
+                      For Employees & Staff
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-0.5">Mobile-first self-service portal</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-display text-base font-bold text-slate-900">
-                    For Employees & Staff
-                  </h3>
-                  <p className="text-xs text-slate-500">Mobile-first self-service portal</p>
-                </div>
+                <ul className="mt-5 space-y-3 text-xs sm:text-sm text-slate-700">
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
+                    <span>Instant sign-in with mobile OTP — no passwords to remember</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
+                    <span>Face check-in from their own phones with geofencing</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
+                    <span>Download salary payslips and view live leave balances</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
+                    <span>Submit leave applications and regularisation requests</span>
+                  </li>
+                </ul>
               </div>
-              <ul className="mt-5 space-y-3 text-xs sm:text-sm text-slate-700">
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
-                  <span>Instant sign-in with mobile OTP — no passwords to remember</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
-                  <span>Face check-in from their own phones with geofencing</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
-                  <span>Download salary payslips and view live leave balances</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
-                  <span>Submit leave applications and regularisation requests</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -956,17 +965,19 @@ export default function HomePage() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="card-interactive group rounded-3xl border border-teal-100/80 bg-white p-7 shadow-card hover:shadow-card-hover hover:border-[#12B5A5] transition-all"
+              className="attendo-card attendo-card-hover group p-7 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100 shadow-xs group-hover:scale-105 group-hover:bg-[#12B5A5] group-hover:text-white transition-all duration-300">
-                <ShieldCheck className="h-5 w-5" />
+              <div>
+                <div className="attendo-icon-box h-12 w-12 shrink-0">
+                  <ShieldCheck className="h-6 w-6 stroke-[2.2]" />
+                </div>
+                <h3 className="mt-5 font-display text-base font-bold text-slate-900 text-hover-lux">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
+                  {item.desc}
+                </p>
               </div>
-              <h3 className="mt-4 font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
-                {item.desc}
-              </p>
             </div>
           ))}
         </div>
@@ -1001,27 +1012,27 @@ export default function HomePage() {
             <Link
               key={tool.slug}
               href={`/free-tools/${tool.slug}`}
-              className="card-interactive group rounded-3xl border border-teal-100/80 bg-white p-7 shadow-card hover:shadow-card-hover hover:border-[#12B5A5] transition-all flex flex-col justify-between"
+              className="attendo-card attendo-card-hover group p-7 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-xs">
-                    <FeatureIcon slug={tool.slug} className="h-5 w-5" />
+                  <div className="attendo-icon-box h-12 w-12 shrink-0">
+                    <FeatureIcon slug={tool.slug} className="h-6 w-6 stroke-[2.2]" />
                   </div>
-                  <span className="rounded-full bg-teal-50 border border-teal-200/60 px-3 py-1 text-[11px] font-bold text-[#0E7A6E]">
+                  <span className="rounded-full bg-teal-50/80 border border-teal-200/80 px-3 py-1 text-[11px] font-bold text-[#0E7A6E] group-hover:bg-[#E8FAF7] group-hover:border-teal-300 transition-colors">
                     {tool.category}
                   </span>
                 </div>
-                <h3 className="mt-4 font-display text-base font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
+                <h3 className="mt-5 font-display text-base font-bold text-slate-900 text-hover-lux">
                   {tool.name}
                 </h3>
-                <p className="mt-2 text-xs text-slate-600 line-clamp-2">
+                <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2">
                   {tool.short}
                 </p>
               </div>
-              <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5]">
-                <span>Open calculator</span>
-                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
+                <span className="text-hover-lux font-bold">Open calculator</span>
+                <ArrowRight className="h-4 w-4 arrow-hover-lux" />
               </div>
             </Link>
           ))}
