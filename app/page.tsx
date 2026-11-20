@@ -36,6 +36,20 @@ import toolsData from "@/data/tools.json";
 export default function HomePage() {
   const [activeTabIdx, setActiveTabIdx] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [heroSimTab, setHeroSimTab] = useState<"face" | "geo" | "payroll">("face");
+  const [simPunchState, setSimPunchState] = useState<"idle" | "scanning" | "matched">("idle");
+  const [presentCount, setPresentCount] = useState<number>(68);
+
+  const triggerSimPunch = () => {
+    setSimPunchState("scanning");
+    setTimeout(() => {
+      setSimPunchState("matched");
+      setPresentCount((c) => (c === 68 ? 69 : 68));
+      setTimeout(() => {
+        setSimPunchState("idle");
+      }, 3500);
+    }, 450);
+  };
 
   const activeGroup = productGroups[activeTabIdx];
   const activeMeta = groupMeta[activeGroup.title];
@@ -148,13 +162,13 @@ export default function HomePage() {
             {/* Right Live Interactive Mockup Hero Card */}
             <div className="relative">
               {/* Floating Badge 1: Top-right face scan pill */}
-              <div className="animate-float absolute -top-5 -right-3 z-10 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
+              <div className="animate-float absolute -top-5 -right-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
                 <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-xs font-bold text-slate-800">Face Scan: 0.18s Match</span>
               </div>
 
               {/* Floating Badge 2: Bottom-left salary payout pill */}
-              <div className="animate-float-delayed absolute -bottom-5 -left-3 z-10 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
+              <div className="animate-float-delayed absolute -bottom-5 -left-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
                 <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-teal-50 text-[#12B5A5] font-bold text-xs">₹</span>
                 <span className="text-xs font-bold text-slate-800">Bank File Ready (HDFC CMS)</span>
               </div>
@@ -162,95 +176,290 @@ export default function HomePage() {
               {/* Soft teal glow */}
               <div className="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-[#12B5A5]/25 via-[#8FE8DC]/20 to-transparent blur-3xl pointer-events-none" />
 
-              <div className="rounded-3xl border border-teal-100/90 bg-white/95 p-6 sm:p-7 shadow-card hover:shadow-card-hover transition-all">
-                {/* Mockup Header */}
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-100/70 text-[#12B5A5]">
-                      <ScanFace className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-display font-bold text-slate-900 text-sm">
-                        Today&apos;s Attendance & Payroll
-                      </h4>
-                      <p className="text-xs text-slate-500">Live organisation snapshot</p>
-                    </div>
+              <div className="attendo-card p-5 sm:p-6 shadow-xl relative overflow-hidden">
+                {/* Simulator Mode Switcher Tabs */}
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
+                  <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-xl text-xs font-semibold">
+                    <button
+                      type="button"
+                      onClick={() => setHeroSimTab("face")}
+                      className={`rounded-lg px-2.5 py-1 transition-all ${
+                        heroSimTab === "face"
+                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs"
+                          : "text-slate-600 hover:text-slate-900"
+                      }`}
+                    >
+                      Face Kiosk
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setHeroSimTab("geo")}
+                      className={`rounded-lg px-2.5 py-1 transition-all ${
+                        heroSimTab === "geo"
+                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs"
+                          : "text-slate-600 hover:text-slate-900"
+                      }`}
+                    >
+                      Mobile Punch
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setHeroSimTab("payroll")}
+                      className={`rounded-lg px-2.5 py-1 transition-all ${
+                        heroSimTab === "payroll"
+                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs"
+                          : "text-slate-600 hover:text-slate-900"
+                      }`}
+                    >
+                      1-Click Payroll
+                    </button>
                   </div>
-                  <span className="rounded-full bg-[#E6F9F6] px-3 py-1 text-xs font-bold text-[#0E7A6E]">
-                    Payroll ready
+                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
+                    Live Preview
                   </span>
                 </div>
 
-                {/* Metrics Grid */}
-                <div className="mt-5 grid grid-cols-3 gap-3">
-                  <div className="rounded-2xl border border-teal-100/60 bg-[#F0FDFB] p-3 text-center">
-                    <span className="text-xs text-slate-500">Present</span>
-                    <div className="mt-1 font-display text-2xl font-extrabold text-[#12B5A5]">
-                      68
-                    </div>
-                  </div>
-                  <div className="rounded-2xl border border-amber-100/80 bg-amber-50/50 p-3 text-center">
-                    <span className="text-xs text-slate-500">Late</span>
-                    <div className="mt-1 font-display text-2xl font-extrabold text-amber-600">
-                      4
-                    </div>
-                  </div>
-                  <div className="rounded-2xl border border-slate-100 bg-slate-50 p-3 text-center">
-                    <span className="text-xs text-slate-500">On leave</span>
-                    <div className="mt-1 font-display text-2xl font-extrabold text-slate-700">
-                      3
-                    </div>
-                  </div>
-                </div>
+                {/* TAB 1: FACE KIOSK SIMULATOR */}
+                {heroSimTab === "face" && (
+                  <div className="mt-4 space-y-4 animate-in fade-in duration-200">
+                    {/* Live Scanner Viewfinder Box */}
+                    <div className="relative overflow-hidden rounded-2xl border border-teal-200/80 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 p-4 text-white">
+                      {/* Scanning beam */}
+                      <div className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-[#8FE8DC] to-transparent shadow-[0_0_12px_#12B5A5] animate-[bounce_2.5s_ease-in-out_infinite]" />
 
-                {/* Attendance Sparkline Visual */}
-                <div className="mt-5 rounded-2xl border border-slate-100 bg-white p-4">
-                  <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
-                    <span className="font-semibold text-slate-700">Attendance this week</span>
-                    <span className="text-[#12B5A5] font-bold">94% average</span>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span className="text-[11px] font-mono text-teal-300 font-semibold tracking-wider uppercase">
+                            Reception Tablet 01
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-slate-400 font-mono">0.18s Match</span>
+                      </div>
+
+                      <div className="my-4 flex items-center justify-center">
+                        <div className={`relative flex h-20 w-20 items-center justify-center rounded-2xl border-2 transition-all duration-300 ${
+                          simPunchState === "matched"
+                            ? "border-emerald-400 bg-emerald-500/20 shadow-[0_0_25px_rgba(16,185,129,0.5)]"
+                            : simPunchState === "scanning"
+                            ? "border-teal-400 bg-teal-500/20 animate-pulse"
+                            : "border-dashed border-teal-500/60 bg-teal-900/20"
+                        }`}>
+                          {simPunchState === "matched" ? (
+                            <CheckCircle2 className="h-10 w-10 text-emerald-400 animate-in zoom-in-75 duration-200" />
+                          ) : (
+                            <ScanFace className="h-9 w-9 text-teal-300" />
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Status indicator line */}
+                      <div className="text-center">
+                        {simPunchState === "matched" ? (
+                          <div className="animate-in fade-in duration-150">
+                            <span className="text-xs font-bold text-emerald-300">
+                              ✓ Arun Sharma (EMP-0142) · 99.8% Match
+                            </span>
+                            <p className="text-[10px] text-slate-300 mt-0.5">Punched IN at 09:02:14 AM</p>
+                          </div>
+                        ) : simPunchState === "scanning" ? (
+                          <span className="text-xs font-bold text-teal-300">
+                            Scanning AI facial vectors...
+                          </span>
+                        ) : (
+                          <span className="text-xs text-slate-300 font-medium">
+                            Ready for contactless check-in
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Interactive Button */}
+                      <div className="mt-3 text-center">
+                        <button
+                          type="button"
+                          onClick={triggerSimPunch}
+                          disabled={simPunchState !== "idle"}
+                          className="shimmer-pill w-full rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2 text-xs font-bold text-white shadow-md hover:from-[#0E9486] hover:to-[#0B7A6E] active:scale-95 transition-all disabled:opacity-70"
+                        >
+                          {simPunchState === "matched"
+                            ? "Punch Recorded!"
+                            : simPunchState === "scanning"
+                            ? "Scanning..."
+                            : "⚡ Simulate Live Face Punch (0.18s)"}
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Live Metrics Grid */}
+                    <div className="grid grid-cols-3 gap-2.5">
+                      <div className="rounded-xl border border-teal-100 bg-[#F0FDFB] p-2.5 text-center">
+                        <span className="text-[11px] text-slate-500 font-medium">Present</span>
+                        <div className="font-display text-xl font-extrabold text-[#12B5A5]">
+                          {presentCount}
+                        </div>
+                      </div>
+                      <div className="rounded-xl border border-amber-100/80 bg-amber-50/50 p-2.5 text-center">
+                        <span className="text-[11px] text-slate-500 font-medium">Late In</span>
+                        <div className="font-display text-xl font-extrabold text-amber-600">
+                          4
+                        </div>
+                      </div>
+                      <div className="rounded-xl border border-slate-100 bg-slate-50 p-2.5 text-center">
+                        <span className="text-[11px] text-slate-500 font-medium">On Leave</span>
+                        <div className="font-display text-xl font-extrabold text-slate-700">
+                          3
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-end gap-2 h-14 pt-2">
-                    {[62, 80, 71, 90, 84, 76, 95].map((val, idx) => (
-                      <div key={idx} className="flex-1 flex flex-col items-center gap-1">
-                        <div
-                          style={{ height: `${val}%` }}
-                          className={`w-full rounded-md transition-all ${
-                            idx === 6
-                              ? "bg-gradient-to-t from-[#12B5A5] to-[#0E9486]"
-                              : "bg-teal-100"
-                          }`}
-                        />
-                        <span className="text-[10px] text-slate-400">
-                          {["M", "T", "W", "T", "F", "S", "M"][idx]}
+                )}
+
+                {/* TAB 2: MOBILE GEO-PUNCH SIMULATOR */}
+                {heroSimTab === "geo" && (
+                  <div className="mt-4 space-y-3.5 animate-in fade-in duration-200">
+                    <div className="rounded-2xl border border-teal-100 bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                          <Smartphone className="h-4 w-4 text-[#12B5A5]" />
+                          Staff Mobile App Punch
+                        </span>
+                        <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5">
+                          Within Fence
                         </span>
                       </div>
-                    ))}
+                      <div className="mt-3 space-y-2 text-xs">
+                        <div className="flex justify-between py-1 border-b border-slate-100">
+                          <span className="text-slate-500">Target Geofence:</span>
+                          <span className="font-semibold text-slate-800">Head Office Campus (50m radius)</span>
+                        </div>
+                        <div className="flex justify-between py-1 border-b border-slate-100">
+                          <span className="text-slate-500">Live GPS Accuracy:</span>
+                          <span className="font-mono font-bold text-emerald-600">3.2m · Accurate</span>
+                        </div>
+                        <div className="flex justify-between py-1">
+                          <span className="text-slate-500">Selfie Anti-Spoof:</span>
+                          <span className="font-semibold text-teal-700">Liveness Verified (Pass)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 text-center text-xs text-slate-600">
+                      📱 Staff check in via any Android/iOS browser with instant OTP.
+                    </div>
                   </div>
-                </div>
+                )}
 
-                {/* Live Check-in Notice */}
-                <div className="mt-4 flex items-center justify-between rounded-xl bg-[#F0FDFB] px-4 py-3 border border-teal-100/60">
-                  <div className="flex items-center gap-2.5">
-                    <div className="h-2.5 w-2.5 rounded-full bg-[#12B5A5] animate-ping" />
-                    <span className="text-xs font-semibold text-slate-800">
-                      Good morning, Asha
-                    </span>
+                {/* TAB 3: 1-CLICK PAYROLL RUN */}
+                {heroSimTab === "payroll" && (
+                  <div className="mt-4 space-y-3.5 animate-in fade-in duration-200">
+                    <div className="rounded-2xl border border-teal-100 bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                          <Receipt className="h-4 w-4 text-[#12B5A5]" />
+                          October 2026 Salary Run
+                        </span>
+                        <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5">
+                          148 Staff Ready
+                        </span>
+                      </div>
+                      <div className="mt-3 space-y-2 text-xs">
+                        <div className="flex justify-between py-1 border-b border-slate-100">
+                          <span className="text-slate-500">Gross Earnings:</span>
+                          <span className="font-mono font-bold text-slate-900">₹69,82,400</span>
+                        </div>
+                        <div className="flex justify-between py-1 border-b border-slate-100">
+                          <span className="text-slate-500">Statutory Deductions (PF/ESI/PT):</span>
+                          <span className="font-mono text-rose-600">-₹5,53,950</span>
+                        </div>
+                        <div className="flex justify-between py-1">
+                          <span className="text-slate-700 font-semibold">Net Payout:</span>
+                          <span className="font-mono font-black text-teal-700 text-sm">₹64,28,450</span>
+                        </div>
+                      </div>
+                    </div>
+                    <Link
+                      href="/payroll"
+                      className="block text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2 text-xs font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E]"
+                    >
+                      Export HDFC CMS Direct Transfer File →
+                    </Link>
                   </div>
-                  <span className="text-xs font-bold text-[#0E7A6E]">
-                    Checked in 9:52 AM
-                  </span>
-                </div>
-
-                <div className="mt-3 text-center">
-                  <span className="text-[11px] text-slate-400 italic">
-                    Example view — live PayroleHR dashboard
-                  </span>
-                </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ============================================================ */}
+      {/* LIVE MARQUEE TICKER (AttendoHR Style Animation) */}
+      {/* ============================================================ */}
+      <div className="relative overflow-hidden border-y border-teal-100/80 bg-gradient-to-r from-teal-50/50 via-white to-emerald-50/50 py-3.5 shadow-xs">
+        <div className="animate-marquee flex items-center gap-8 whitespace-nowrap text-xs font-bold text-slate-700">
+          <span className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            150+ Indian Organisations Active
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            <ScanFace className="h-4 w-4 text-[#12B5A5]" />
+            0.18s AI Face Match Speed
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            🏦 1-Click Bank Payouts: HDFC CMS, ICICI, SBI, Axis
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            🛡️ 100% PF, ESIC, PT & TDS Compliant
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            📱 WhatsApp Payslip Delivery in 1 Click
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            📍 GPS Geofenced Mobile Punch with Anti-Spoof
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            ⚡ Zero Biometric Machine Maintenance
+          </span>
+          <span className="text-teal-300">•</span>
+
+          {/* Seamless duplicate for continuous loop */}
+          <span className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            150+ Indian Organisations Active
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            <ScanFace className="h-4 w-4 text-[#12B5A5]" />
+            0.18s AI Face Match Speed
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            🏦 1-Click Bank Payouts: HDFC CMS, ICICI, SBI, Axis
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            🛡️ 100% PF, ESIC, PT & TDS Compliant
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            📱 WhatsApp Payslip Delivery in 1 Click
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            📍 GPS Geofenced Mobile Punch with Anti-Spoof
+          </span>
+          <span className="text-teal-300">•</span>
+          <span className="flex items-center gap-1.5 text-slate-800">
+            ⚡ Zero Biometric Machine Maintenance
+          </span>
+          <span className="text-teal-300">•</span>
+        </div>
+      </div>
 
       {/* ============================================================ */}
       {/* 2. STATUTORY STRIP */}
@@ -427,10 +636,10 @@ export default function HomePage() {
               key={group.title}
               type="button"
               onClick={() => setActiveTabIdx(idx)}
-              className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
+              className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
                 activeTabIdx === idx
-                  ? "bg-gradient-to-r from-[#12B5A5] to-[#0E9486] text-white shadow-md shadow-teal-500/20"
-                  : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
+                  ? "shimmer-pill bg-gradient-to-r from-[#12B5A5] to-[#0E9486] text-white shadow-md shadow-teal-500/25 scale-105"
+                  : "bg-white text-slate-600 hover:bg-teal-50/70 hover:text-[#12B5A5] border border-slate-200/80"
               }`}
             >
               {group.title}
@@ -439,7 +648,7 @@ export default function HomePage() {
         </div>
 
         {/* Active Tab Content Card */}
-        <div className="mt-8 rounded-3xl border border-teal-100/90 bg-white p-6 sm:p-10 shadow-card">
+        <div key={activeGroup.title} className="mt-8 attendo-card p-6 sm:p-10 shadow-card animate-in fade-in zoom-in-98 duration-200">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             {/* Left points */}
             <div>
