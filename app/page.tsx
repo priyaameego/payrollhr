@@ -104,7 +104,7 @@ export default function HomePage() {
               <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
                 <Link
                   href="/book-a-demo"
-                  className="rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-teal-500/25 hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-xl transition-all active:scale-95 flex items-center gap-2"
+                  className="shimmer-pill rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-teal-500/25 hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-xl transition-all active:scale-95 flex items-center gap-2"
                 >
                   Book a demo
                   <ArrowRight className="h-4 w-4" />
@@ -124,7 +124,7 @@ export default function HomePage() {
                   href="/features"
                   className="rounded-full px-5 py-3.5 text-sm font-semibold text-slate-600 hover:text-[#12B5A5] transition-colors"
                 >
-                  Explore features
+                  Explore 34 features →
                 </Link>
               </div>
 
@@ -147,6 +147,18 @@ export default function HomePage() {
 
             {/* Right Live Interactive Mockup Hero Card */}
             <div className="relative">
+              {/* Floating Badge 1: Top-right face scan pill */}
+              <div className="animate-float absolute -top-5 -right-3 z-10 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
+                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-bold text-slate-800">Face Scan: 0.18s Match</span>
+              </div>
+
+              {/* Floating Badge 2: Bottom-left salary payout pill */}
+              <div className="animate-float-delayed absolute -bottom-5 -left-3 z-10 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
+                <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-teal-50 text-[#12B5A5] font-bold text-xs">₹</span>
+                <span className="text-xs font-bold text-slate-800">Bank File Ready (HDFC CMS)</span>
+              </div>
+
               {/* Soft teal glow */}
               <div className="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-[#12B5A5]/25 via-[#8FE8DC]/20 to-transparent blur-3xl pointer-events-none" />
 

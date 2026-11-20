@@ -116,14 +116,17 @@ export default async function FeatureDetailPage({
       </section>
 
       {/* 1. THE PROBLEM VS HOW PAYROLEHR SOLVES IT */}
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-2">
-        <div>
+      <section className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-2">
+        <div className="rounded-3xl border border-rose-100 bg-rose-50/25 p-7 sm:p-8 shadow-xs">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-100 px-3 py-1 text-xs font-bold text-rose-700 mb-4">
+            Common Bottlenecks
+          </div>
           <h2 className="font-display text-xl font-bold text-slate-950">
-            The problem
+            The problem with traditional systems
           </h2>
-          <ul className="mt-6 space-y-3">
+          <ul className="mt-6 space-y-3.5">
             {feat.problem?.map((p: string, idx: number) => (
-              <li key={idx} className="flex gap-3 text-sm text-slate-700">
+              <li key={idx} className="flex gap-3 text-sm text-slate-700 leading-relaxed">
                 <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-500" />
                 <span>{p}</span>
               </li>
@@ -131,11 +134,14 @@ export default async function FeatureDetailPage({
           </ul>
         </div>
 
-        <div>
+        <div className="rounded-3xl border border-teal-100 bg-teal-50/25 p-7 sm:p-8 shadow-xs">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-[#0E7A6E] mb-4">
+            PayroleHR Architecture
+          </div>
           <h2 className="font-display text-xl font-bold text-slate-950">
-            How PayroleHR solves it
+            How PayroleHR solves it automatically
           </h2>
-          <p className="mt-6 text-sm md:text-base leading-relaxed text-slate-600">
+          <p className="mt-6 text-sm md:text-base leading-relaxed text-slate-700">
             {feat.solution}
           </p>
         </div>
@@ -145,20 +151,27 @@ export default async function FeatureDetailPage({
       {feat.capabilities && feat.capabilities.length > 0 && (
         <section className="bg-slate-50/60 border-y border-teal-100/50 py-16">
           <div className="mx-auto max-w-6xl px-6">
-            <h2 className="font-display text-2xl font-bold text-slate-950">
-              Key capabilities
-            </h2>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="max-w-2xl mb-8">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+                Built-in Features
+              </span>
+              <h2 className="font-display text-2xl font-bold text-slate-950 mt-1">
+                Key capabilities
+              </h2>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {feat.capabilities.map((cap: any, idx: number) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-teal-100/80 bg-white p-5 shadow-sm hover:shadow-card transition-all"
+                  className="card-interactive rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:shadow-card-hover hover:border-[#12B5A5]"
                 >
-                  <CheckCircle2 className="h-5 w-5 text-[#12B5A5]" />
-                  <h3 className="mt-3 font-display font-semibold text-slate-900">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100">
+                    <CheckCircle2 className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 font-display font-bold text-slate-900">
                     {cap.title}
                   </h3>
-                  <p className="mt-1 text-sm text-slate-600 leading-relaxed">
+                  <p className="mt-2 text-xs text-slate-600 leading-relaxed">
                     {cap.text}
                   </p>
                 </div>
@@ -171,19 +184,24 @@ export default async function FeatureDetailPage({
       {/* 3. HOW IT WORKS */}
       {feat.steps && feat.steps.length > 0 && (
         <section className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="font-display text-2xl font-bold text-slate-950">
-            How it works
-          </h2>
-          <ol className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="max-w-2xl mb-8">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+              Workflow Flowchart
+            </span>
+            <h2 className="font-display text-2xl font-bold text-slate-950 mt-1">
+              How it works
+            </h2>
+          </div>
+          <ol className="grid gap-4 md:grid-cols-3">
             {feat.steps.map((step: string, idx: number) => (
               <li
                 key={idx}
-                className="rounded-2xl border border-teal-100/80 bg-white p-5 shadow-sm"
+                className="card-interactive rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] font-display font-bold text-white text-sm">
+                <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] font-display font-black text-white text-sm shadow-sm">
                   {idx + 1}
                 </span>
-                <p className="mt-3 text-sm text-slate-700 leading-relaxed font-medium">
+                <p className="mt-4 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
                   {step}
                 </p>
               </li>
@@ -204,10 +222,12 @@ export default async function FeatureDetailPage({
                 <Link
                   key={rf.slug}
                   href={`/features/${rf.slug}`}
-                  className="group rounded-2xl border border-teal-100/80 bg-white p-5 shadow-sm hover:shadow-card hover:border-[#12B5A5] transition-all"
+                  className="card-interactive group rounded-3xl border border-teal-100/80 bg-white p-6 shadow-card hover:shadow-card-hover hover:border-[#12B5A5] transition-all"
                 >
-                  <FeatureIcon slug={rf.slug} className="h-5 w-5 text-[#12B5A5]" />
-                  <h3 className="mt-2 font-display font-semibold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all">
+                    <FeatureIcon slug={rf.slug} className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-3.5 font-display font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors">
                     {rf.name}
                   </h3>
                   <p className="mt-1 text-xs text-slate-600 line-clamp-2">

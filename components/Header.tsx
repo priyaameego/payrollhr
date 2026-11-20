@@ -12,10 +12,10 @@ import {
   Sparkles,
   Phone,
   MessageCircle,
+  ExternalLink,
 } from "lucide-react";
 import {
   productGroups,
-  groupMeta,
   resourceLinks,
   companyLinks,
   contactDetails,
@@ -27,7 +27,6 @@ import toolsData from "@/data/tools.json";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [activeProductTab, setActiveProductTab] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>("product");
   const [mobileProductGroup, setMobileProductGroup] = useState<number | null>(0);
@@ -60,11 +59,8 @@ export default function Header() {
   const handleMouseLeave = () => {
     hoverTimeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-    }, 200);
+    }, 220);
   };
-
-  const currentGroup = productGroups[activeProductTab] || productGroups[0];
-  const currentMeta = groupMeta[currentGroup.title] || groupMeta["Core HR"];
 
   // Helper to find feature by slug
   const findFeature = (slug: string) => featuresData.find((f: any) => f.slug === slug);
@@ -75,7 +71,7 @@ export default function Header() {
       onMouseLeave={handleMouseLeave}
       className="sticky top-0 z-50 px-3 pt-3"
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 rounded-2xl border border-teal-100/80 bg-white/90 px-4 sm:px-6 shadow-card backdrop-blur-md transition-all">
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 rounded-2xl border border-teal-100/90 bg-white/95 px-4 sm:px-6 shadow-card backdrop-blur-xl transition-all">
         {/* Brand Logo */}
         <Link href="/" className="flex shrink-0 items-center gap-2.5">
           <div className="relative h-9 w-9 overflow-hidden rounded-xl bg-gradient-to-br from-[#12B5A5] to-[#0E9486] p-0.5 shadow-sm">
@@ -104,16 +100,16 @@ export default function Header() {
               type="button"
               aria-expanded={activeMenu === "product"}
               onClick={() => setActiveMenu(activeMenu === "product" ? null : "product")}
-              className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-1 rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
                 activeMenu === "product"
                   ? "bg-teal-50 text-[#0E7A6E]"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  : "text-slate-700 hover:bg-slate-50 hover:text-[#12B5A5]"
               }`}
             >
               Product
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  activeMenu === "product" ? "rotate-180 text-[#12B5A5]" : ""
+                  activeMenu === "product" ? "rotate-180 text-[#12B5A5]" : "text-slate-400"
                 }`}
               />
             </button>
@@ -128,16 +124,16 @@ export default function Header() {
               type="button"
               aria-expanded={activeMenu === "solutions"}
               onClick={() => setActiveMenu(activeMenu === "solutions" ? null : "solutions")}
-              className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-1 rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
                 activeMenu === "solutions"
                   ? "bg-teal-50 text-[#0E7A6E]"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  : "text-slate-700 hover:bg-slate-50 hover:text-[#12B5A5]"
               }`}
             >
               Solutions
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  activeMenu === "solutions" ? "rotate-180 text-[#12B5A5]" : ""
+                  activeMenu === "solutions" ? "rotate-180 text-[#12B5A5]" : "text-slate-400"
                 }`}
               />
             </button>
@@ -152,22 +148,30 @@ export default function Header() {
               type="button"
               aria-expanded={activeMenu === "tools"}
               onClick={() => setActiveMenu(activeMenu === "tools" ? null : "tools")}
-              className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-1 rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
                 activeMenu === "tools"
                   ? "bg-teal-50 text-[#0E7A6E]"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  : "text-slate-700 hover:bg-slate-50 hover:text-[#12B5A5]"
               }`}
             >
               Free Tools
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  activeMenu === "tools" ? "rotate-180 text-[#12B5A5]" : ""
+                  activeMenu === "tools" ? "rotate-180 text-[#12B5A5]" : "text-slate-400"
                 }`}
               />
             </button>
           </div>
 
-          {/* 4. RESOURCES MENU BUTTON */}
+          {/* 4. PRICING LINK */}
+          <Link
+            href="/pricing"
+            className="rounded-xl px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#12B5A5] transition-all"
+          >
+            Pricing
+          </Link>
+
+          {/* 5. RESOURCES MENU BUTTON */}
           <div
             className="relative"
             onMouseEnter={() => handleMouseEnter("resources")}
@@ -176,22 +180,22 @@ export default function Header() {
               type="button"
               aria-expanded={activeMenu === "resources"}
               onClick={() => setActiveMenu(activeMenu === "resources" ? null : "resources")}
-              className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-1 rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
                 activeMenu === "resources"
                   ? "bg-teal-50 text-[#0E7A6E]"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  : "text-slate-700 hover:bg-slate-50 hover:text-[#12B5A5]"
               }`}
             >
               Resources
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  activeMenu === "resources" ? "rotate-180 text-[#12B5A5]" : ""
+                  activeMenu === "resources" ? "rotate-180 text-[#12B5A5]" : "text-slate-400"
                 }`}
               />
             </button>
           </div>
 
-          {/* 5. COMPANY MENU BUTTON */}
+          {/* 6. COMPANY MENU BUTTON */}
           <div
             className="relative"
             onMouseEnter={() => handleMouseEnter("company")}
@@ -200,16 +204,16 @@ export default function Header() {
               type="button"
               aria-expanded={activeMenu === "company"}
               onClick={() => setActiveMenu(activeMenu === "company" ? null : "company")}
-              className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-1 rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
                 activeMenu === "company"
                   ? "bg-teal-50 text-[#0E7A6E]"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  : "text-slate-700 hover:bg-slate-50 hover:text-[#12B5A5]"
               }`}
             >
               Company
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  activeMenu === "company" ? "rotate-180 text-[#12B5A5]" : ""
+                  activeMenu === "company" ? "rotate-180 text-[#12B5A5]" : "text-slate-400"
                 }`}
               />
             </button>
@@ -217,16 +221,16 @@ export default function Header() {
         </nav>
 
         {/* Right CTA / Login */}
-        <div className="ml-auto hidden items-center gap-2 lg:flex">
+        <div className="ml-auto hidden items-center gap-3 lg:flex">
           <Link
             href="/auth/sign-in"
-            className="inline-flex items-center justify-center rounded-md px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100 transition-colors"
+            className="inline-flex items-center justify-center rounded-xl px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-[#12B5A5] transition-colors"
           >
             Login
           </Link>
           <Link
             href="/book-a-demo"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-4 py-2 text-sm font-medium text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
+            className="shimmer-pill inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-5 py-2 text-xs font-bold text-white shadow-md shadow-teal-500/20 hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
           >
             Book a demo
           </Link>
@@ -237,7 +241,7 @@ export default function Header() {
           type="button"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="ml-auto rounded-md p-2 text-slate-700 hover:bg-teal-50 lg:hidden"
+          className="ml-auto rounded-xl p-2 text-slate-700 hover:bg-teal-50 lg:hidden"
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -251,143 +255,117 @@ export default function Header() {
           onMouseEnter={() => {
             if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
           }}
-          className="mx-auto mt-2 max-w-6xl animate-in fade-in slide-in-from-top-1 duration-150"
+          className="mx-auto mt-2 max-w-7xl animate-in fade-in slide-in-from-top-1 duration-200"
         >
-          {/* 1. PRODUCT MEGA MENU */}
+          {/* 1. PRODUCT MEGA MENU: 5-COLUMN COMPLETE GRID MATCHING USER SCREENSHOT */}
           {activeMenu === "product" && (
-            <div className="overflow-hidden rounded-2xl border border-teal-100/90 bg-white shadow-xl">
-              <div className="grid lg:grid-cols-[230px_1fr]">
-                {/* Left product groups tablist */}
-                <div
-                  className="flex gap-1 overflow-x-auto border-b p-3 lg:flex-col lg:border-b-0 lg:border-r border-slate-100 bg-[#F8FCFB]"
-                  role="tablist"
-                  aria-label="Product groups"
-                >
-                  {productGroups.map((group, r) => (
-                    <button
-                      key={group.title}
-                      type="button"
-                      role="tab"
-                      aria-selected={r === activeProductTab}
-                      onMouseEnter={() => setActiveProductTab(r)}
-                      onFocus={() => setActiveProductTab(r)}
-                      onClick={() => setActiveProductTab(r)}
-                      className={`whitespace-nowrap rounded-lg px-3 py-2.5 text-left text-sm font-semibold transition-colors ${
-                        r === activeProductTab
-                          ? "bg-teal-100/60 text-[#0E7A6E] font-bold"
-                          : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
-                      }`}
-                    >
-                      {group.title}
-                    </button>
+            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 shadow-2xl backdrop-blur-2xl">
+              <div className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                  {productGroups.map((group) => (
+                    <div key={group.title} className="space-y-1">
+                      {/* Column Header */}
+                      <h4 className="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-3 px-2 flex items-center gap-1.5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" />
+                        {group.title}
+                      </h4>
+
+                      {/* Items in Column */}
+                      <div className="space-y-1">
+                        {group.items.map((slug) => {
+                          const feat = findFeature(slug);
+                          if (!feat) return null;
+
+                          return (
+                            <Link
+                              key={slug}
+                              href={`/features/${slug}`}
+                              onClick={() => setActiveMenu(null)}
+                              className="group flex items-start gap-2.5 rounded-xl p-2 transition-all duration-150 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100/60"
+                            >
+                              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-[#12B5A5] border border-teal-100/70 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
+                                <FeatureIcon slug={slug} className="h-3.5 w-3.5" />
+                              </span>
+                              <span className="min-w-0">
+                                <span className="block text-xs font-bold text-slate-900 group-hover:text-[#12B5A5] transition-colors leading-snug">
+                                  {feat.name}
+                                </span>
+                                <span className="block text-[11px] text-slate-500 leading-snug line-clamp-2 mt-0.5 group-hover:text-slate-600">
+                                  {feat.short}
+                                </span>
+                              </span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
                   ))}
-                </div>
-
-                {/* Right items pane */}
-                <div className="p-4 bg-white">
-                  {currentMeta && (
-                    <p className="mb-3 px-2 text-sm text-slate-500">
-                      {currentMeta.headline}
-                    </p>
-                  )}
-
-                  <div className="grid gap-1 sm:grid-cols-2">
-                    {currentGroup.items.map((slug) => {
-                      const feat = findFeature(slug);
-                      if (!feat) return null;
-                      const isHighlighted = currentMeta?.highlight.includes(slug);
-
-                      if (isHighlighted) {
-                        return (
-                          <Link
-                            key={slug}
-                            href={`/features/${slug}`}
-                            onClick={() => setActiveMenu(null)}
-                            className="group flex gap-3 rounded-lg p-2.5 outline-none transition-colors hover:bg-slate-50 focus-visible:bg-slate-50 border border-transparent hover:border-teal-100"
-                          >
-                            <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-teal-100/70 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
-                              <FeatureIcon slug={slug} className="h-4 w-4" />
-                            </span>
-                            <span className="min-w-0">
-                              <span className="flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:text-[#12B5A5]">
-                                {feat.name}
-                              </span>
-                              <span className="mt-0.5 block text-xs leading-snug text-slate-500 line-clamp-2">
-                                {feat.short}
-                              </span>
-                            </span>
-                          </Link>
-                        );
-                      }
-
-                      return (
-                        <Link
-                          key={slug}
-                          href={`/features/${slug}`}
-                          onClick={() => setActiveMenu(null)}
-                          className="flex items-center gap-3 rounded-lg px-2.5 py-2 text-sm font-medium outline-none hover:bg-slate-50 text-slate-700 hover:text-[#12B5A5] transition-colors"
-                        >
-                          <FeatureIcon slug={slug} className="h-4 w-4 text-[#12B5A5] shrink-0" />
-                          <span>{feat.name}</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
                 </div>
               </div>
 
-              {/* Bottom bar */}
-              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 bg-slate-50/70 px-5 py-3 text-sm">
-                <Link
-                  href="/features"
-                  onClick={() => setActiveMenu(null)}
-                  className="font-semibold text-[#12B5A5] hover:underline"
-                >
-                  See all features →
-                </Link>
-                <Link
-                  href="/book-a-demo"
-                  onClick={() => setActiveMenu(null)}
-                  className="font-semibold text-slate-700 hover:text-[#12B5A5]"
-                >
-                  Book a demo →
-                </Link>
+              {/* Bottom Footer Action Bar */}
+              <div className="flex flex-wrap items-center justify-between border-t border-teal-100/70 bg-gradient-to-r from-teal-50/60 via-slate-50/80 to-emerald-50/50 px-6 py-3.5 text-xs">
+                <div className="flex items-center gap-2 text-slate-600 font-medium">
+                  <Sparkles className="h-4 w-4 text-[#12B5A5]" />
+                  <span>
+                    Need custom enterprise setup? We configure multi-branch shifts, custom overtime & bank files.
+                  </span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Link
+                    href="/features"
+                    onClick={() => setActiveMenu(null)}
+                    className="font-bold text-[#12B5A5] hover:text-[#0E9486] transition-colors"
+                  >
+                    See all 34 features →
+                  </Link>
+                  <Link
+                    href="/book-a-demo"
+                    onClick={() => setActiveMenu(null)}
+                    className="rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-4 py-1.5 font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
+                  >
+                    Book a demo →
+                  </Link>
+                </div>
               </div>
             </div>
           )}
 
           {/* 2. SOLUTIONS MEGA MENU */}
           {activeMenu === "solutions" && (
-            <div className="overflow-hidden rounded-2xl border border-teal-100/90 bg-white p-6 shadow-xl">
-              <div className="grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 p-6 shadow-2xl backdrop-blur-xl">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {solutionsData.map((sol: any) => (
                   <Link
                     key={sol.slug}
                     href={`/solutions/${sol.slug}`}
                     onClick={() => setActiveMenu(null)}
-                    className="group flex gap-3 rounded-lg p-2.5 outline-none transition-colors hover:bg-slate-50 focus-visible:bg-slate-50"
+                    className="group flex gap-3.5 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
                   >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-teal-100/70 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
                       <FeatureIcon slug={sol.slug} className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:text-[#12B5A5]">
+                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#12B5A5]">
                         {sol.name}
                       </span>
-                      <span className="mt-0.5 block text-xs leading-snug text-slate-500 line-clamp-2">
+                      <span className="mt-0.5 block text-[11px] leading-snug text-slate-500 line-clamp-2">
                         {sol.short}
                       </span>
                     </span>
                   </Link>
                 ))}
               </div>
-              <div className="mt-4 border-t border-slate-100 pt-3">
+              <div className="mt-5 border-t border-slate-100 pt-3.5 flex items-center justify-between text-xs">
+                <span className="text-slate-500 font-medium">
+                  Tailored workflows for Indian educational institutions, factories & corporate firms.
+                </span>
                 <Link
                   href="/solutions"
                   onClick={() => setActiveMenu(null)}
-                  className="font-semibold text-sm text-[#12B5A5] hover:underline"
+                  className="font-bold text-[#12B5A5] hover:underline"
                 >
-                  All solutions →
+                  All 6 industry solutions →
                 </Link>
               </div>
             </div>
@@ -395,36 +373,39 @@ export default function Header() {
 
           {/* 3. FREE TOOLS MEGA MENU */}
           {activeMenu === "tools" && (
-            <div className="overflow-hidden rounded-2xl border border-teal-100/90 bg-white p-6 shadow-xl">
-              <div className="grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 p-6 shadow-2xl backdrop-blur-xl">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {toolsData.map((tool: any) => (
                   <Link
                     key={tool.slug}
                     href={`/free-tools/${tool.slug}`}
                     onClick={() => setActiveMenu(null)}
-                    className="group flex gap-3 rounded-lg p-2.5 outline-none transition-colors hover:bg-slate-50 focus-visible:bg-slate-50"
+                    className="group flex gap-3.5 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
                   >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-teal-100/70 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
                       <FeatureIcon slug={tool.slug} className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:text-[#12B5A5]">
+                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#12B5A5]">
                         {tool.name}
                       </span>
-                      <span className="mt-0.5 block text-xs leading-snug text-slate-500 line-clamp-2">
+                      <span className="mt-0.5 block text-[11px] leading-snug text-slate-500 line-clamp-2">
                         {tool.short}
                       </span>
                     </span>
                   </Link>
                 ))}
               </div>
-              <div className="mt-4 border-t border-slate-100 pt-3">
+              <div className="mt-5 border-t border-slate-100 pt-3.5 flex items-center justify-between text-xs">
+                <span className="text-slate-500 font-medium">
+                  100% Free, reactive math engines matching Indian Labour Law formulas.
+                </span>
                 <Link
                   href="/free-tools"
                   onClick={() => setActiveMenu(null)}
-                  className="font-semibold text-sm text-[#12B5A5] hover:underline"
+                  className="font-bold text-[#12B5A5] hover:underline"
                 >
-                  See all tools →
+                  All 9 calculators →
                 </Link>
               </div>
             </div>
@@ -432,23 +413,23 @@ export default function Header() {
 
           {/* 4. RESOURCES MENU */}
           {activeMenu === "resources" && (
-            <div className="overflow-hidden rounded-2xl border border-teal-100/90 bg-white p-5 shadow-xl">
-              <div className="grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 p-6 shadow-2xl backdrop-blur-xl">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {resourceLinks.map((item) => (
                   <Link
                     key={item.to}
                     href={item.to}
                     onClick={() => setActiveMenu(null)}
-                    className="group flex gap-3 rounded-lg p-2.5 outline-none transition-colors hover:bg-slate-50 focus-visible:bg-slate-50"
+                    className="group flex gap-3 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
                   >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-teal-100/70 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
                       <FeatureIcon slug={item.to.split("/").pop() || "guides"} className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:text-[#12B5A5]">
+                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#12B5A5]">
                         {item.name}
                       </span>
-                      <span className="mt-0.5 block text-xs leading-snug text-slate-500">
+                      <span className="mt-0.5 block text-[11px] leading-snug text-slate-500">
                         {item.short}
                       </span>
                     </span>
@@ -460,23 +441,23 @@ export default function Header() {
 
           {/* 5. COMPANY MENU */}
           {activeMenu === "company" && (
-            <div className="overflow-hidden rounded-2xl border border-teal-100/90 bg-white p-5 shadow-xl">
-              <div className="grid gap-2 sm:grid-cols-3">
+            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 p-6 shadow-2xl backdrop-blur-xl">
+              <div className="grid gap-3 sm:grid-cols-3">
                 {companyLinks.map((item) => (
                   <Link
                     key={item.to}
                     href={item.to}
                     onClick={() => setActiveMenu(null)}
-                    className="group flex gap-3 rounded-lg p-2.5 outline-none transition-colors hover:bg-slate-50 focus-visible:bg-slate-50"
+                    className="group flex gap-3 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
                   >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-teal-100/70 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100 group-hover:bg-[#12B5A5] group-hover:text-white transition-all shadow-xs">
                       <Sparkles className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:text-[#12B5A5]">
+                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#12B5A5]">
                         {item.name}
                       </span>
-                      <span className="mt-0.5 block text-xs leading-snug text-slate-500">
+                      <span className="mt-0.5 block text-[11px] leading-snug text-slate-500">
                         {item.short}
                       </span>
                     </span>
@@ -503,64 +484,49 @@ export default function Header() {
                     mobileExpandedSection === "product" ? null : "product"
                   )
                 }
-                className="flex w-full items-center justify-between py-2 text-base font-bold text-slate-900"
+                className="flex w-full items-center justify-between py-2 text-sm font-bold text-slate-900"
               >
-                <span>Product</span>
+                <span>Product (34 Features)</span>
                 <ChevronDown
                   className={`h-4 w-4 transition-transform ${
                     mobileExpandedSection === "product" ? "rotate-180 text-[#12B5A5]" : ""
                   }`}
                 />
               </button>
+
               {mobileExpandedSection === "product" && (
                 <div className="mt-2 space-y-4 pl-2">
-                  {/* Group switcher buttons */}
-                  <div className="flex flex-wrap gap-1.5 pb-2 border-b border-slate-100">
-                    {productGroups.map((g, gIdx) => (
-                      <button
-                        key={g.title}
-                        type="button"
-                        onClick={() => setMobileProductGroup(gIdx)}
-                        className={`rounded-lg px-2.5 py-1 text-xs font-semibold ${
-                          mobileProductGroup === gIdx
-                            ? "bg-[#12B5A5] text-white"
-                            : "bg-slate-100 text-slate-600"
-                        }`}
-                      >
-                        {g.title}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Items for selected mobile group */}
-                  {mobileProductGroup !== null && (
-                    <div className="space-y-1">
-                      {productGroups[mobileProductGroup].items.map((slug) => {
-                        const feat = findFeature(slug);
-                        return (
-                          <Link
-                            key={slug}
-                            href={`/features/${slug}`}
-                            onClick={() => setMobileOpen(false)}
-                            className="flex items-center gap-2 py-1.5 text-xs text-slate-700 hover:text-[#12B5A5]"
-                          >
-                            <FeatureIcon slug={slug} className="h-3.5 w-3.5 text-[#12B5A5]" />
-                            <span>{feat?.name || slug}</span>
-                          </Link>
-                        );
-                      })}
+                  {productGroups.map((group) => (
+                    <div key={group.title} className="space-y-1">
+                      <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+                        {group.title}
+                      </p>
+                      <div className="grid gap-1">
+                        {group.items.map((slug) => {
+                          const f = findFeature(slug);
+                          if (!f) return null;
+                          return (
+                            <Link
+                              key={slug}
+                              href={`/features/${slug}`}
+                              onClick={() => setMobileOpen(false)}
+                              className="flex items-center gap-2 py-1.5 text-xs text-slate-700 hover:text-[#12B5A5]"
+                            >
+                              <FeatureIcon slug={slug} className="h-3.5 w-3.5 text-[#12B5A5] shrink-0" />
+                              <span className="font-medium">{f.name}</span>
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </div>
-                  )}
-
-                  <div className="pt-2">
-                    <Link
-                      href="/features"
-                      onClick={() => setMobileOpen(false)}
-                      className="font-bold text-xs text-[#12B5A5] hover:underline"
-                    >
-                      See all features →
-                    </Link>
-                  </div>
+                  ))}
+                  <Link
+                    href="/features"
+                    onClick={() => setMobileOpen(false)}
+                    className="block pt-2 font-bold text-xs text-[#12B5A5]"
+                  >
+                    See all features overview →
+                  </Link>
                 </div>
               )}
             </div>
@@ -574,7 +540,7 @@ export default function Header() {
                     mobileExpandedSection === "solutions" ? null : "solutions"
                   )
                 }
-                className="flex w-full items-center justify-between py-2 text-base font-bold text-slate-900"
+                className="flex w-full items-center justify-between py-2 text-sm font-bold text-slate-900"
               >
                 <span>Solutions</span>
                 <ChevronDown
@@ -584,7 +550,7 @@ export default function Header() {
                 />
               </button>
               {mobileExpandedSection === "solutions" && (
-                <div className="mt-2 space-y-1 pl-2">
+                <div className="mt-1 space-y-1 pl-2">
                   {solutionsData.map((sol: any) => (
                     <Link
                       key={sol.slug}
@@ -615,7 +581,7 @@ export default function Header() {
                     mobileExpandedSection === "tools" ? null : "tools"
                   )
                 }
-                className="flex w-full items-center justify-between py-2 text-base font-bold text-slate-900"
+                className="flex w-full items-center justify-between py-2 text-sm font-bold text-slate-900"
               >
                 <span>Free Tools</span>
                 <ChevronDown
@@ -625,7 +591,7 @@ export default function Header() {
                 />
               </button>
               {mobileExpandedSection === "tools" && (
-                <div className="mt-2 space-y-1 pl-2">
+                <div className="mt-1 space-y-1 pl-2">
                   {toolsData.map((t: any) => (
                     <Link
                       key={t.slug}
@@ -647,7 +613,16 @@ export default function Header() {
               )}
             </div>
 
-            {/* 4. Resources Accordion */}
+            {/* 4. Pricing Link */}
+            <Link
+              href="/pricing"
+              onClick={() => setMobileOpen(false)}
+              className="py-2 text-sm font-bold text-slate-900 border-b border-slate-100"
+            >
+              Pricing
+            </Link>
+
+            {/* 5. Resources Accordion */}
             <div className="border-b border-slate-100 pb-2">
               <button
                 type="button"
@@ -656,7 +631,7 @@ export default function Header() {
                     mobileExpandedSection === "resources" ? null : "resources"
                   )
                 }
-                className="flex w-full items-center justify-between py-2 text-base font-bold text-slate-900"
+                className="flex w-full items-center justify-between py-2 text-sm font-bold text-slate-900"
               >
                 <span>Resources</span>
                 <ChevronDown
@@ -666,7 +641,7 @@ export default function Header() {
                 />
               </button>
               {mobileExpandedSection === "resources" && (
-                <div className="mt-2 space-y-1 pl-2">
+                <div className="mt-1 space-y-1 pl-2">
                   {resourceLinks.map((r) => (
                     <Link
                       key={r.to}
@@ -681,7 +656,7 @@ export default function Header() {
               )}
             </div>
 
-            {/* 5. Company Accordion */}
+            {/* 6. Company Accordion */}
             <div className="border-b border-slate-100 pb-2">
               <button
                 type="button"
@@ -690,7 +665,7 @@ export default function Header() {
                     mobileExpandedSection === "company" ? null : "company"
                   )
                 }
-                className="flex w-full items-center justify-between py-2 text-base font-bold text-slate-900"
+                className="flex w-full items-center justify-between py-2 text-sm font-bold text-slate-900"
               >
                 <span>Company</span>
                 <ChevronDown
@@ -700,7 +675,7 @@ export default function Header() {
                 />
               </button>
               {mobileExpandedSection === "company" && (
-                <div className="mt-2 space-y-1 pl-2">
+                <div className="mt-1 space-y-1 pl-2">
                   {companyLinks.map((c) => (
                     <Link
                       key={c.to}
@@ -715,19 +690,19 @@ export default function Header() {
               )}
             </div>
 
-            {/* Actions */}
+            {/* Mobile Actions */}
             <div className="pt-4 flex flex-col gap-2.5">
               <Link
                 href="/book-a-demo"
                 onClick={() => setMobileOpen(false)}
-                className="w-full text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-3 text-sm font-semibold text-white shadow-md shadow-teal-500/20"
+                className="w-full text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-3 text-xs font-bold text-white shadow-md shadow-teal-500/20"
               >
                 Book a demo
               </Link>
               <Link
                 href="/auth/sign-in"
                 onClick={() => setMobileOpen(false)}
-                className="w-full text-center rounded-xl border border-slate-200 py-2.5 text-sm font-semibold text-slate-800"
+                className="w-full text-center rounded-xl border border-slate-200 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50"
               >
                 Login
               </Link>
