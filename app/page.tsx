@@ -91,84 +91,90 @@ export default function HomePage() {
         {/* Soft background cyan/mint gradient mesh */}
         <div
           aria-hidden="true"
-          className="absolute -top-40 left-1/2 -z-10 h-[600px] w-full max-w-7xl -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#8FE8DC]/30 via-[#12B5A5]/15 to-transparent blur-3xl"
+          className="animate-hero-mesh absolute -top-40 left-1/2 -z-10 h-[620px] w-full max-w-7xl -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#8FE8DC]/30 via-[#12B5A5]/18 to-transparent blur-3xl pointer-events-none"
         />
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             {/* Left Hero Text */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#8FE8DC]/80 bg-[#E8FAF7] px-4 py-1.5 text-xs font-bold text-[#0E7A6E] shadow-sm">
-                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
-                HR, Payroll & Face Attendance
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#8FE8DC]/80 bg-[#E8FAF7] px-4 py-1.5 text-xs font-bold text-[#0E7A6E] shadow-xs hover:border-teal-300 hover:shadow-sm transition-all duration-300 cursor-default animate-fade-up">
+                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5] animate-pulse" />
+                <span>HR, Payroll & Face Attendance</span>
               </div>
 
               <h1 className="mt-5 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.1]">
-                From morning check-in to{" "}
-                <span className="bg-gradient-to-r from-[#12B5A5] to-[#0E9486] bg-clip-text text-transparent">
-                  month-end bank file
+                <span className="hero-word-reveal [animation-delay:100ms]">From</span>{" "}
+                <span className="hero-word-reveal [animation-delay:180ms]">morning</span>{" "}
+                <span className="hero-word-reveal [animation-delay:260ms]">check-in</span>{" "}
+                <span className="hero-word-reveal [animation-delay:340ms]">to</span>{" "}
+                <span className="hero-word-reveal [animation-delay:420ms] inline-block">
+                  <span className="bg-gradient-to-r from-[#12B5A5] via-[#2DD4BF] to-[#0E9486] bg-clip-text text-transparent animate-hero-gradient font-black">
+                    month-end bank file
+                  </span>
                 </span>
               </h1>
 
-              <p className="mt-5 text-base sm:text-lg leading-relaxed text-slate-600 max-w-xl mx-auto lg:mx-0">
+              <p className="mt-5 text-base sm:text-lg leading-relaxed text-slate-600 max-w-xl mx-auto lg:mx-0 animate-fade-up [animation-delay:500ms]">
                 Face check-in at the door or on the phone, leave and overtime calculated automatically, your own salary structures, and bank transfer files generated in one click.
               </p>
 
               {/* CTAs */}
-              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
+              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3.5 animate-fade-up [animation-delay:600ms]">
                 <Link
                   href="/book-a-demo"
-                  className="shimmer-pill rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-teal-500/25 hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-xl transition-all active:scale-95 flex items-center gap-2"
+                  className="shimmer-pill group rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-teal-500/25 hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-xl hover:shadow-teal-500/35 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-300 flex items-center gap-2"
                 >
-                  Book a demo
-                  <ArrowRight className="h-4 w-4" />
+                  <span>Book a demo</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
 
                 <a
                   href={contactDetails.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-teal-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:border-teal-300 hover:bg-teal-50/50 hover:text-[#12B5A5] transition-all flex items-center gap-2"
+                  className="group rounded-full border border-teal-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:border-teal-300 hover:bg-teal-50/60 hover:text-[#0E7A6E] hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 flex items-center gap-2"
                 >
-                  <MessageCircle className="h-4 w-4 text-[#12B5A5]" />
-                  WhatsApp us
+                  <MessageCircle className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
+                  <span>WhatsApp us</span>
                 </a>
 
                 <Link
                   href="/features"
-                  className="rounded-full px-5 py-3.5 text-sm font-semibold text-slate-600 hover:text-[#12B5A5] transition-colors"
+                  className="group rounded-full px-5 py-3.5 text-sm font-semibold text-slate-600 hover:text-[#0E7A6E] hover:bg-teal-50/50 transition-all duration-300 flex items-center gap-1.5"
                 >
-                  Explore 34 features →
+                  <span className="text-hover-lux">Explore 34 features</span>
+                  <span className="arrow-hover-lux transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </Link>
               </div>
 
               {/* Trust Indicators */}
-              <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-6">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
+              <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-6 animate-fade-up [animation-delay:700ms]">
+                <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
                   <span>Indian statutory compliant</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
+                <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
                   <span>No proprietary biometric devices</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
+                <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
                   <span>Self-service mobile portal</span>
                 </div>
               </div>
             </div>
 
             {/* Right Live Interactive Mockup Hero Card */}
-            <div className="relative">
+            <div className="relative animate-hero-card">
               {/* Floating Badge 1: Top-right face scan pill */}
-              <div className="animate-float absolute -top-5 -right-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
+              <div className="animate-float absolute -top-5 -right-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md hover:scale-105 hover:border-teal-300 transition-all duration-300 cursor-default">
                 <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-xs font-bold text-slate-800">Face Scan: 0.18s Match</span>
               </div>
 
               {/* Floating Badge 2: Bottom-left salary payout pill */}
-              <div className="animate-float-delayed absolute -bottom-5 -left-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md">
+              <div className="animate-float-delayed absolute -bottom-5 -left-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md hover:scale-105 hover:border-teal-300 transition-all duration-300 cursor-default">
                 <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-teal-50 text-[#12B5A5] font-bold text-xs">₹</span>
                 <span className="text-xs font-bold text-slate-800">Bank File Ready (HDFC CMS)</span>
               </div>
@@ -181,17 +187,17 @@ export default function HomePage() {
               {/* Soft teal glow */}
               <div className="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-[#12B5A5]/25 via-[#8FE8DC]/20 to-transparent blur-3xl pointer-events-none" />
 
-              <div className="attendo-card p-5 sm:p-6 shadow-xl relative overflow-hidden bg-white/98 rounded-3xl border border-teal-100/90">
+              <div className="attendo-card p-5 sm:p-6 shadow-xl relative overflow-hidden bg-white/98 rounded-3xl border border-teal-100/90 hover:shadow-2xl hover:border-teal-200 transition-all duration-300">
                 {/* Simulator Mode Switcher Tabs */}
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
                   <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-xl text-xs font-semibold">
                     <button
                       type="button"
                       onClick={() => setHeroSimTab("face")}
-                      className={`rounded-lg px-2.5 py-1 transition-all ${
+                      className={`rounded-lg px-2.5 py-1 transition-all duration-200 ${
                         heroSimTab === "face"
-                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs"
-                          : "text-slate-600 hover:text-slate-900"
+                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs scale-[1.02]"
+                          : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
                       }`}
                     >
                       Face Kiosk
@@ -199,10 +205,10 @@ export default function HomePage() {
                     <button
                       type="button"
                       onClick={() => setHeroSimTab("geo")}
-                      className={`rounded-lg px-2.5 py-1 transition-all ${
+                      className={`rounded-lg px-2.5 py-1 transition-all duration-200 ${
                         heroSimTab === "geo"
-                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs"
-                          : "text-slate-600 hover:text-slate-900"
+                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs scale-[1.02]"
+                          : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
                       }`}
                     >
                       Mobile Punch
@@ -210,16 +216,16 @@ export default function HomePage() {
                     <button
                       type="button"
                       onClick={() => setHeroSimTab("payroll")}
-                      className={`rounded-lg px-2.5 py-1 transition-all ${
+                      className={`rounded-lg px-2.5 py-1 transition-all duration-200 ${
                         heroSimTab === "payroll"
-                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs"
-                          : "text-slate-600 hover:text-slate-900"
+                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs scale-[1.02]"
+                          : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
                       }`}
                     >
                       1-Click Payroll
                     </button>
                   </div>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
                     Live Preview
                   </span>
@@ -285,7 +291,7 @@ export default function HomePage() {
                           type="button"
                           onClick={triggerSimPunch}
                           disabled={simPunchState !== "idle"}
-                          className="shimmer-pill w-full rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2 text-xs font-bold text-white shadow-md hover:from-[#0E9486] hover:to-[#0B7A6E] active:scale-95 transition-all disabled:opacity-70"
+                          className="shimmer-pill w-full rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2.5 text-xs font-bold text-white shadow-md hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-teal-500/30 hover:scale-[1.01] active:scale-98 transition-all disabled:opacity-70 disabled:hover:scale-100"
                         >
                           {simPunchState === "matched"
                             ? "Punch Recorded!"
@@ -298,19 +304,19 @@ export default function HomePage() {
 
                     {/* Live Metrics Grid */}
                     <div className="grid grid-cols-3 gap-2.5">
-                      <div className="rounded-xl border border-teal-100 bg-[#F0FDFB] p-2.5 text-center">
+                      <div className="rounded-xl border border-teal-100 bg-[#F0FDFB] p-2.5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs hover:border-teal-200 cursor-default">
                         <span className="text-[11px] text-slate-500 font-medium">Present</span>
                         <div className="font-display text-xl font-extrabold text-[#12B5A5]">
                           {presentCount}
                         </div>
                       </div>
-                      <div className="rounded-xl border border-amber-100/80 bg-amber-50/50 p-2.5 text-center">
+                      <div className="rounded-xl border border-amber-100/80 bg-amber-50/50 p-2.5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs hover:border-amber-200 cursor-default">
                         <span className="text-[11px] text-slate-500 font-medium">Late In</span>
                         <div className="font-display text-xl font-extrabold text-amber-600">
                           4
                         </div>
                       </div>
-                      <div className="rounded-xl border border-slate-100 bg-slate-50 p-2.5 text-center">
+                      <div className="rounded-xl border border-slate-100 bg-slate-50 p-2.5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs hover:border-slate-200 cursor-default">
                         <span className="text-[11px] text-slate-500 font-medium">On Leave</span>
                         <div className="font-display text-xl font-extrabold text-slate-700">
                           3
@@ -384,7 +390,7 @@ export default function HomePage() {
                     </div>
                     <Link
                       href="/payroll"
-                      className="block text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2 text-xs font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E]"
+                      className="shimmer-pill block text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2.5 text-xs font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-teal-500/25 hover:scale-[1.01] active:scale-98 transition-all"
                     >
                       Export HDFC CMS Direct Transfer File →
                     </Link>

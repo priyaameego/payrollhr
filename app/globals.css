@@ -319,3 +319,81 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: #12B5A5;
 }
+
+/* ============================================================ */
+/* HERO LUXURY ANIMATIONS (AttendoHR / BambooHR Refined Polish) */
+/* ============================================================ */
+@keyframes heroGradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes heroWordReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes heroMeshGlow {
+  0%, 100% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate(-50%, -12px) scale(1.05);
+    opacity: 0.55;
+  }
+}
+
+@keyframes heroCardGentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-hero-gradient {
+  background-size: 200% auto;
+  animation: heroGradientShift 6s ease infinite;
+}
+
+.animate-hero-mesh {
+  animation: heroMeshGlow 14s ease-in-out infinite alternate;
+}
+
+.animate-hero-card {
+  animation: heroCardGentleFloat 7s ease-in-out infinite;
+}
+
+.hero-word-reveal {
+  display: inline-block;
+  animation: heroWordReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-gradient,
+  .animate-hero-mesh,
+  .animate-hero-card,
+  .hero-word-reveal,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-marquee {
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
