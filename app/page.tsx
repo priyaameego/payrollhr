@@ -33,6 +33,10 @@ import {
   CloudUpload,
   Settings2,
   Send,
+  MapPin,
+  Laptop,
+  Check,
+  TrendingUp,
 } from "lucide-react";
 import { productGroups, groupMeta, contactDetails } from "@/data/navigation";
 import { FeatureIcon } from "@/components/IconHelper";
@@ -176,6 +180,8 @@ export default function HomePage() {
     pooja: "approved",
     manish: "pending",
   });
+  const [demoRole, setDemoRole] = useState("Human Resources");
+  const [demoSubmitted, setDemoSubmitted] = useState(false);
 
   const triggerSimPunch = () => {
     setSimPunchState("scanning");
@@ -830,6 +836,66 @@ export default function HomePage() {
             })}
           </div>
         </div>
+
+        {/* The 6 Problem Cards from PayroleHR (Preserved completely) */}
+        <div className="mt-14 border-t border-slate-200/60 pt-10">
+          <div className="text-center mb-8">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+              Everyday Operational Friction
+            </span>
+            <h3 className="mt-1 font-display text-2xl font-bold text-slate-900">
+              The 6 hidden payroll leaks PayroleHR eliminates
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
+              If any of these sound familiar, they are exactly what PayroleHR is built to remove.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Registers and Excel",
+                text: "Attendance in a physical book, salaries in an Excel sheet, and days spent typing and adding them up every month.",
+              },
+              {
+                title: "Payroll mistakes",
+                text: "One broken Excel formula or a missed leave day discovered only after salaries have already been transferred.",
+              },
+              {
+                title: "Rules applied unevenly",
+                text: "Late marks, half days, grace minutes and overtime decided differently by different supervisors each time.",
+              },
+              {
+                title: "Endless staff questions",
+                text: '"How much leave do I have left?" "Where is my salary slip?" — answering the same questions every single week.',
+              },
+              {
+                title: "Typing bank files",
+                text: "Manually copying hundreds of account numbers and net pay amounts into your bank portal\'s bulk transfer template.",
+              },
+              {
+                title: "Software that doesn't fit",
+                text: "Rigid software that forces standard corporate structures onto schools, factories, hospitals and local businesses.",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="attendo-card attendo-card-hover group p-6 flex flex-col justify-between bg-white"
+              >
+                <div>
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 border border-rose-200/80 group-hover:bg-rose-500 group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-2xs">
+                    <XCircle className="h-5 w-5 stroke-[2.2]" />
+                  </div>
+                  <h4 className="mt-4 font-display text-base font-bold text-slate-900 group-hover:text-rose-600 transition-colors">
+                    {item.title}
+                  </h4>
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ============================================================ */}
@@ -904,6 +970,138 @@ export default function HomePage() {
                 )}
               </React.Fragment>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 4.5 CHOOSE A DEVICE THAT FITS YOUR BUSINESS (Hardware & Check-in) */}
+      {/* ============================================================ */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-50 border border-teal-200/70 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0E7A6E] shadow-2xs">
+            <Fingerprint className="h-3 w-3 text-[#12B5A5]" /> Tailored Hardware & Mobile Options
+          </span>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+            Choose a Setup{" "}
+            <span className="bg-gradient-to-r from-[#12B5A5] via-[#2DD4BF] to-[#0E9486] bg-clip-text text-transparent block sm:inline">
+              That Fits Your Business
+            </span>
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+            Not just an attendance machine, it's the real-time entry point of your entire payroll. A factory floor, a corporate office, and a salon chair do not work the same way, so the rules are set differently for each workplace.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Card 1: Biometric Pro */}
+          <div className="group rounded-3xl border border-slate-200/80 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-200 hover:shadow-xl flex flex-col justify-between">
+            <div>
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-slate-50 to-teal-50/40 p-4 flex items-center justify-center border border-slate-100">
+                <Image
+                  src="/images/attendance-hardware-devices.jpg"
+                  alt="Biometric Pro Attendance Terminal"
+                  width={340}
+                  height={240}
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute top-3 left-3 rounded-full bg-slate-900/80 backdrop-blur-xs px-2.5 py-1 text-[10px] font-bold text-white">
+                  Heavy-Duty Optical Sensor
+                </span>
+              </div>
+              <h3 className="mt-6 font-display text-xl font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
+                Biometric Pro
+              </h3>
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Rugged optical fingerprint device with Wi-Fi, LAN, and 4G SIM sync. Holds 50,000 punches offline so factory and warehouse gates never halt.
+              </p>
+              <ul className="mt-4 space-y-2 text-xs font-semibold text-slate-700">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
+                  <span>Works with existing eSSL, Matrix & Realtime hardware</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
+                  <span>Instant cloud push with zero manual USB pen-drive downloads</span>
+                </li>
+              </ul>
+            </div>
+            <div className="mt-6 pt-4 border-t border-slate-100">
+              <span className="text-xs font-bold text-[#12B5A5]">Ideal for: Factories, Warehouses & Retail Stores</span>
+            </div>
+          </div>
+
+          {/* Card 2: Face Scanner */}
+          <div className="group rounded-3xl border border-teal-200/80 bg-gradient-to-b from-white via-teal-50/20 to-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-[#12B5A5] hover:shadow-xl flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute top-0 right-0 rounded-bl-2xl bg-[#12B5A5] px-3 py-1 text-[10px] font-bold text-white shadow-xs">
+              Most Popular
+            </div>
+            <div>
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-teal-50/60 to-emerald-50/40 p-4 flex items-center justify-center border border-teal-100">
+                <Image
+                  src="/images/attendance-hardware-devices.jpg"
+                  alt="Contactless Face Scanner Terminal"
+                  width={340}
+                  height={240}
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute top-3 left-3 rounded-full bg-emerald-700 px-2.5 py-1 text-[10px] font-bold text-white">
+                  0.18s AI Face Match
+                </span>
+              </div>
+              <h3 className="mt-6 font-display text-xl font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
+                Face Scanner
+              </h3>
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Contactless AI face verification terminal with anti-spoof liveness detection. Converts any iPad, tablet or dedicated terminal into a zero-touch kiosk.
+              </p>
+              <ul className="mt-4 space-y-2 text-xs font-semibold text-slate-700">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
+                  <span>Dual camera sensor prevents photo/video spoofing</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
+                  <span>100% hygienic walk-by contactless punch</span>
+                </li>
+              </ul>
+            </div>
+            <div className="mt-6 pt-4 border-t border-slate-100">
+              <span className="text-xs font-bold text-[#12B5A5]">Ideal for: Corporate Offices, Hospitals & Schools</span>
+            </div>
+          </div>
+
+          {/* Card 3: Mobile GPS Punch */}
+          <div className="group rounded-3xl border border-slate-200/80 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-200 hover:shadow-xl flex flex-col justify-between md:col-span-2 lg:col-span-1">
+            <div>
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-sky-50 to-indigo-50/40 p-4 flex flex-col items-center justify-center border border-slate-100 text-center">
+                <div className="h-16 w-16 rounded-2xl bg-white shadow-md flex items-center justify-center text-[#12B5A5] mb-2 border border-teal-100">
+                  <Smartphone className="h-8 w-8 stroke-[1.8]" />
+                </div>
+                <span className="rounded-full bg-indigo-900/80 px-2.5 py-1 text-[10px] font-bold text-white">
+                  iOS & Android App
+                </span>
+              </div>
+              <h3 className="mt-6 font-display text-xl font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
+                Mobile GPS & Selfie
+              </h3>
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Employees mark check-in directly from their smartphones within pre-set geo-fenced office radius or client coordinates with selfie verification.
+              </p>
+              <ul className="mt-4 space-y-2 text-xs font-semibold text-slate-700">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
+                  <span>Geo-fenced 50m radius prevents mock location fraud</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
+                  <span>Real-time location stamping for client site visits</span>
+                </li>
+              </ul>
+            </div>
+            <div className="mt-6 pt-4 border-t border-slate-100">
+              <span className="text-xs font-bold text-[#12B5A5]">Ideal for: Field Sales, Remote Teams & Site Engineers</span>
+            </div>
           </div>
         </div>
       </section>
@@ -1507,6 +1705,188 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
+      {/* BUILT FOR BOTH SIDES (Owner & Employee Breakdown) */}
+      {/* ============================================================ */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-50 border border-teal-200/70 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0E7A6E] shadow-2xs">
+            <Users className="h-3 w-3 text-[#12B5A5]" /> Dual Perspective Architecture
+          </span>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+            Built For{" "}
+            <span className="bg-gradient-to-r from-[#12B5A5] via-[#2DD4BF] to-[#0E9486] bg-clip-text text-transparent">
+              Both Sides
+            </span>
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-slate-600 font-medium">
+            Control for the owner. Clarity for the employees.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          {/* Card 1: For Owner */}
+          <div className="rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card transition-all duration-300 hover:shadow-xl flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#12B5A5]">
+                    Employer Command Center
+                  </span>
+                  <h3 className="font-display text-2xl font-bold text-slate-950 mt-1">
+                    For Owner
+                  </h3>
+                </div>
+                <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-50 text-[#12B5A5] border border-teal-100 shadow-2xs font-bold text-lg">
+                  👔
+                </span>
+              </div>
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                The owner sees everything on web and mobile dashboards easily.
+              </p>
+
+              <div className="mt-6 grid sm:grid-cols-[1.1fr_0.9fr] gap-6 items-center">
+                <div className="space-y-4">
+                  {[
+                    {
+                      icon: Users,
+                      color: "text-[#12B5A5] bg-[#E8FAF7] border-teal-200/70",
+                      title: "Daily attendance status of employees",
+                      desc: "Instant headcount, on-time, late-ins and absenteeism across all branch locations.",
+                    },
+                    {
+                      icon: CheckCircle2,
+                      color: "text-emerald-600 bg-emerald-50 border-emerald-200/70",
+                      title: "Leave status and pending approvals",
+                      desc: "Approve or reject leave requests and shift swaps in 1 tap with leave balance checks.",
+                    },
+                    {
+                      icon: Building,
+                      color: "text-sky-600 bg-sky-50 border-sky-200/70",
+                      title: "Multi-location payroll in one view",
+                      desc: "Manage factory units, corporate headquarters and retail stores under one login.",
+                    },
+                    {
+                      icon: TrendingUp,
+                      color: "text-indigo-600 bg-indigo-50 border-indigo-200/70",
+                      title: "Reports available for analysis",
+                      desc: "Download Indian statutory reports (PF, ESI, PT, Form 16) and bank transfer files instantly.",
+                    },
+                  ].map((item, idx) => {
+                    const IconComp = item.icon;
+                    return (
+                      <div key={idx} className="flex items-start gap-3">
+                        <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border shadow-2xs ${item.color}`}>
+                          <IconComp className="h-4 w-4" />
+                        </div>
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                            {item.title}
+                          </h4>
+                          <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="relative aspect-square w-full rounded-2xl bg-gradient-to-b from-teal-50/70 to-emerald-50/40 p-2 flex items-center justify-center border border-teal-100 overflow-hidden shadow-inner">
+                  <Image
+                    src="/images/for-owner-management.jpg"
+                    alt="Management dashboard and control"
+                    width={320}
+                    height={320}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: For Employee */}
+          <div className="rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card transition-all duration-300 hover:shadow-xl flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#0E7A6E]">
+                    Staff Self-Service
+                  </span>
+                  <h3 className="font-display text-2xl font-bold text-slate-950 mt-1">
+                    For Employee
+                  </h3>
+                </div>
+                <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 shadow-2xs font-bold text-lg">
+                  📱
+                </span>
+              </div>
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                Employees check their own data through a self-service app.
+              </p>
+
+              <div className="mt-6 grid sm:grid-cols-[1.1fr_0.9fr] gap-6 items-center">
+                <div className="space-y-4">
+                  {[
+                    {
+                      icon: CalendarCheck,
+                      color: "text-[#12B5A5] bg-[#E8FAF7] border-teal-200/70",
+                      title: "Personal attendance record",
+                      desc: "Staff verify daily check-in, check-out times, late minutes and overtime accrued.",
+                    },
+                    {
+                      icon: Sparkles,
+                      color: "text-amber-600 bg-amber-50 border-amber-200/70",
+                      title: "Check leave balance",
+                      desc: "Real-time visibility of paid, casual, sick and compensatory off leaves without asking HR.",
+                    },
+                    {
+                      icon: Receipt,
+                      color: "text-emerald-600 bg-emerald-50 border-emerald-200/70",
+                      title: "Salary breakdown",
+                      desc: "Download PDF payslips, tax calculations and bank transfer confirmations on phone.",
+                    },
+                    {
+                      icon: Smartphone,
+                      color: "text-sky-600 bg-sky-50 border-sky-200/70",
+                      title: "Request leave via mobile app",
+                      desc: "Apply for leaves or missed punches directly with optional doctor notes or attachments.",
+                    },
+                  ].map((item, idx) => {
+                    const IconComp = item.icon;
+                    return (
+                      <div key={idx} className="flex items-start gap-3">
+                        <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border shadow-2xs ${item.color}`}>
+                          <IconComp className="h-4 w-4" />
+                        </div>
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                            {item.title}
+                          </h4>
+                          <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="relative aspect-square w-full rounded-2xl bg-gradient-to-b from-emerald-50/70 to-teal-50/40 p-2 flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
+                  <Image
+                    src="/images/for-employee-app.jpg"
+                    alt="Employee self-service app"
+                    width={320}
+                    height={320}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* 6. CONFIGURABLE RULES */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -1810,6 +2190,206 @@ export default function HomePage() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 10.5 BOOK A FREE DEMO (Interactive Form & Specialist Section) */}
+      {/* ============================================================ */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="overflow-hidden rounded-3xl border border-teal-200/80 bg-gradient-to-br from-white via-[#F8FCFB] to-[#E8FAF7]/50 p-8 sm:p-12 lg:p-14 shadow-card">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            {/* Left: Interactive Booking Form */}
+            <div className="lg:col-span-7">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-50 border border-teal-200 px-3.5 py-1 text-xs font-bold text-[#0E7A6E]">
+                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" /> Fast &amp; Tailored Walkthrough
+              </span>
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight leading-tight">
+                Book a Free Demo
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-slate-600">
+                10 minutes. No commitment. We&apos;ll show you PayroleHR on your own workflows.
+              </p>
+
+              {demoSubmitted ? (
+                <div className="mt-8 rounded-2xl bg-emerald-50 border border-emerald-200 p-8 text-center animate-fade-up">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white font-bold text-2xl shadow-md">
+                    ✓
+                  </div>
+                  <h3 className="mt-4 font-display text-xl font-bold text-emerald-950">
+                    Demo Request Received!
+                  </h3>
+                  <p className="mt-2 text-xs sm:text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
+                    Our payroll and attendance specialist will contact you within 30 minutes via WhatsApp / Phone to schedule your personalized live demo.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setDemoSubmitted(false)}
+                    className="mt-5 inline-block text-xs font-bold text-[#0E7A6E] hover:underline"
+                  >
+                    ← Submit another inquiry
+                  </button>
+                </div>
+              ) : (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setDemoSubmitted(true);
+                  }}
+                  className="mt-8 space-y-4"
+                >
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700">
+                        Your name<span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Rahul Sharma"
+                        className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-hidden focus:ring-2 focus:ring-[#12B5A5]/20 shadow-2xs"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700">
+                        Work email<span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="rahul@company.com"
+                        className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-hidden focus:ring-2 focus:ring-[#12B5A5]/20 shadow-2xs"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700">
+                        Phone number<span className="text-rose-500">*</span>
+                      </label>
+                      <div className="mt-1.5 flex rounded-xl border border-slate-200 bg-white overflow-hidden focus-within:border-[#12B5A5] focus-within:ring-2 focus-within:ring-[#12B5A5]/20 shadow-2xs">
+                        <span className="bg-slate-50 px-3 py-2.5 text-xs font-bold text-slate-600 border-r border-slate-200 flex items-center gap-1">
+                          India (+91)
+                        </span>
+                        <input
+                          type="tel"
+                          required
+                          placeholder="98765 43210"
+                          className="w-full px-3 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-hidden"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700">
+                        Business name<span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Acme Technologies Pvt Ltd"
+                        className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-hidden focus:ring-2 focus:ring-[#12B5A5]/20 shadow-2xs"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700">
+                      City<span className="text-rose-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Start typing to search for your city (e.g. Bangalore, Mumbai, Delhi, Pune)"
+                      className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-hidden focus:ring-2 focus:ring-[#12B5A5]/20 shadow-2xs"
+                    />
+                  </div>
+
+                  {/* What is your Job Role pills */}
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-2">
+                      What is your Job Role?<span className="text-rose-500">*</span>
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        "Human Resources",
+                        "Business Owner",
+                        "Admin / Accounts",
+                        "Team Leader / Manager",
+                        "Others",
+                      ].map((role) => (
+                        <button
+                          key={role}
+                          type="button"
+                          onClick={() => setDemoRole(role)}
+                          className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
+                            demoRole === role
+                              ? "bg-gradient-to-r from-[#12B5A5] to-[#0E9486] text-white shadow-xs"
+                              : "bg-white border border-slate-200 text-slate-700 hover:border-teal-200 hover:bg-teal-50/50"
+                          }`}
+                        >
+                          {role}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-3.5 text-sm font-extrabold text-white shadow-lg shadow-teal-500/20 hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all transform hover:-translate-y-0.5"
+                  >
+                    ⚡ Book My Free Demo
+                  </button>
+
+                  <div className="flex flex-wrap items-center justify-center gap-4 pt-2 text-[11px] font-medium text-slate-500">
+                    <span className="flex items-center gap-1">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5]" /> 10 minutes. No commitment
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5]" /> Tailored on your shift rules
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5]" /> Free 14-day assisted setup
+                    </span>
+                  </div>
+                </form>
+              )}
+            </div>
+
+            {/* Right: Specialist Illustration & Support Callout */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center">
+              <div className="relative w-full max-w-sm rounded-3xl bg-white border border-teal-100 p-6 shadow-xl shadow-teal-900/5 text-center">
+                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-gradient-to-b from-teal-50/70 via-sky-50/30 to-white flex items-center justify-center border border-teal-100/60 shadow-inner">
+                  <Image
+                    src="/images/book-demo-specialist.jpg"
+                    alt="PayroleHR Dedicated Onboarding Specialist"
+                    width={360}
+                    height={360}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="mt-5 text-left">
+                  <h4 className="font-display text-sm font-bold text-slate-900">
+                    Meet Our Indian Payroll Specialists
+                  </h4>
+                  <p className="mt-1 text-xs text-slate-600 leading-relaxed">
+                    Have questions about statutory compliance, shift rostering, or biometric integration? Our team will walk you through your exact setup.
+                  </p>
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold">
+                    <span className="text-slate-500">Need instant help?</span>
+                    <a
+                      href="https://wa.me/919876543210"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-[#12B5A5] hover:underline"
+                    >
+                      WhatsApp us directly →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
