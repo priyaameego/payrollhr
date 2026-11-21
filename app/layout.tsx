@@ -50,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${jakarta.variable} ${dmSans.variable}`}>
-      <body className="min-h-screen bg-[#F8FCFB] text-slate-800 antialiased flex flex-col selection:bg-teal-100 selection:text-teal-900">
+      <body className="min-h-screen bg-[#FAFCFE] text-slate-800 antialiased flex flex-col selection:bg-teal-100 selection:text-teal-900">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

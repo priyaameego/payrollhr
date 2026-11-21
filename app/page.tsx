@@ -229,23 +229,23 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* 1. HERO SECTION */}
       {/* ============================================================ */}
-      <section className="relative pt-6 sm:pt-12 pb-16 overflow-hidden">
-        {/* Soft background cyan/mint gradient mesh */}
+      <section className="relative pt-6 sm:pt-10 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-[#F0F6FE]/90 via-[#F8FBFE]/60 to-transparent">
+        {/* Soft background clean SaaS sky/teal gradient mesh */}
         <div
           aria-hidden="true"
-          className="animate-hero-mesh absolute -top-40 left-1/2 -z-10 h-[620px] w-full max-w-7xl -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#8FE8DC]/30 via-[#12B5A5]/18 to-transparent blur-3xl pointer-events-none"
+          className="animate-hero-mesh absolute -top-40 left-1/2 -z-10 h-[620px] w-full max-w-7xl -translate-x-1/2 rounded-full bg-gradient-to-tr from-sky-200/30 via-teal-100/15 to-transparent blur-3xl pointer-events-none"
         />
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:items-center">
+          <div className="grid gap-10 lg:gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:items-start lg:pt-1">
             {/* Left Hero Text (BambooHR + AttendoHR Clean Structure) */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#8FE8DC]/80 bg-[#E8FAF7] px-4 py-1.5 text-xs font-bold text-[#0E7A6E] shadow-xs hover:border-teal-300 hover:shadow-sm transition-all duration-300 cursor-default animate-fade-up">
+              <div className="inline-flex items-center gap-2 rounded-full border border-teal-200/80 bg-teal-50/70 px-4 py-1.5 text-xs font-bold text-[#0E7A6E] shadow-2xs hover:border-teal-300 hover:shadow-xs transition-all duration-300 cursor-default animate-fade-up">
                 <Sparkles className="h-3.5 w-3.5 text-[#12B5A5] animate-pulse" />
                 <span>HR, Payroll & Face Attendance</span>
               </div>
 
-              <h1 className="mt-5 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-[54px] leading-[1.12]">
+              <h1 className="mt-4 sm:mt-5 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-[54px] leading-[1.12]">
                 <span className="hero-word-reveal [animation-delay:100ms]">From</span>{" "}
                 <span className="hero-word-reveal [animation-delay:180ms]">morning</span>{" "}
                 <span className="hero-word-reveal [animation-delay:260ms]">check-in</span>{" "}
@@ -262,7 +262,7 @@ export default function HomePage() {
               </p>
 
               {/* 3 Green Checkmark Benefit List (BambooHR Signature Pattern) */}
-              <div className="mt-6 space-y-3 text-left max-w-lg mx-auto lg:mx-0 animate-fade-up [animation-delay:520ms]">
+              <div className="mt-5 space-y-2.5 text-left max-w-lg mx-auto lg:mx-0 animate-fade-up [animation-delay:520ms]">
                 <div className="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-800">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xs">
                     <CheckCircle2 className="h-3.5 w-3.5 stroke-[3]" />
@@ -284,7 +284,7 @@ export default function HomePage() {
               </div>
 
               {/* CTAs (AttendoHR Premium Button Styling) */}
-              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-fade-up [animation-delay:550ms]">
+              <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-fade-up [animation-delay:550ms]">
                 <Link
                   href="/book-a-demo"
                   className="btn-attendo-primary group rounded-2xl px-7 py-3.5 text-sm font-bold text-white flex items-center gap-2.5 shadow-md shadow-teal-500/20"
@@ -313,7 +313,7 @@ export default function HomePage() {
               </div>
 
               {/* Review Stars & Social Proof (AttendoHR / BambooHR Rating Bar) */}
-              <div className="mt-7 flex items-center justify-center lg:justify-start gap-3 text-xs font-semibold text-slate-700 animate-fade-up [animation-delay:650ms]">
+              <div className="mt-6 flex items-center justify-center lg:justify-start gap-3 text-xs font-semibold text-slate-700 animate-fade-up [animation-delay:650ms]">
                 <div className="flex items-center gap-1.5">
                   <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white border border-slate-200 shadow-2xs font-black text-rose-500 text-[10px]">
                     G
@@ -334,7 +334,7 @@ export default function HomePage() {
               </div>
 
               {/* Trust Indicators */}
-              <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-4 animate-fade-up [animation-delay:720ms]">
+              <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-4 animate-fade-up [animation-delay:720ms]">
                 <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
                   <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
                   <span>Indian statutory compliant</span>
@@ -351,9 +351,9 @@ export default function HomePage() {
             </div>
 
             {/* Right Live Interactive Mockup Hero Showcase (BambooHR Signature Layered Cards) */}
-            <div className="relative pt-6 pb-8 lg:py-6">
+            <div className="relative pt-6 pb-6 lg:pt-0 lg:pb-3">
               {/* Playful BambooHR 4-point sparkle stars in background */}
-              <svg className="absolute -top-2 left-6 w-5 h-5 text-teal-400/70 animate-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="absolute -top-3 left-6 w-5 h-5 text-teal-400/70 animate-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
               </svg>
               <svg className="absolute top-1/2 -right-4 w-6 h-6 text-amber-300/80 animate-pulse [animation-delay:1.2s] pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
@@ -361,7 +361,7 @@ export default function HomePage() {
               </svg>
 
               {/* Ambient backdrop glow */}
-              <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-tr from-teal-200/35 via-emerald-100/30 to-sky-100/30 blur-2xl pointer-events-none" />
+              <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-tr from-sky-100/40 via-teal-100/25 to-blue-50/20 blur-2xl pointer-events-none" />
 
               {/* ======================================================== */}
               {/* MAIN CENTRAL DASHBOARD WINDOW (BambooHR Style) */}
@@ -475,7 +475,7 @@ export default function HomePage() {
               {/* ======================================================== */}
               {/* FLOATING CARD 1: BENEFITS & STATUTORY (Top-Right) */}
               {/* ======================================================== */}
-              <div className="animate-float absolute -top-5 right-1 sm:-right-4 z-20 w-44 sm:w-52 rounded-2xl bg-white border border-indigo-100 p-3 shadow-xl shadow-indigo-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+              <div className="animate-float absolute -top-4 right-1 sm:-right-3 z-20 w-44 sm:w-50 rounded-2xl bg-white border border-indigo-100 p-3 shadow-xl shadow-indigo-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-center justify-between pb-1.5 border-b border-slate-100">
                   <span className="font-display text-[11px] font-bold text-slate-900">
                     Statutory & Benefits
@@ -503,7 +503,7 @@ export default function HomePage() {
               {/* ======================================================== */}
               {/* FLOATING CARD 2: VACATION & LEAVES (Bottom-Left) */}
               {/* ======================================================== */}
-              <div className="animate-float-delayed absolute -bottom-5 -left-2 sm:-left-6 z-20 w-52 sm:w-60 rounded-2xl bg-white border border-teal-100 p-3.5 shadow-xl shadow-teal-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+              <div className="animate-float-delayed absolute -bottom-3 -left-2 sm:-left-5 z-20 w-52 sm:w-60 rounded-2xl bg-white border border-teal-100 p-3 shadow-xl shadow-teal-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                   <span className="font-display text-[11px] font-bold text-slate-900 flex items-center gap-1.5">
                     <Calendar className="h-3 w-3 text-[#12B5A5]" />
@@ -543,7 +543,7 @@ export default function HomePage() {
               {/* ======================================================== */}
               {/* FLOATING CARD 3: START PAYROLL (Bottom-Right with Arrow) */}
               {/* ======================================================== */}
-              <div className="animate-float absolute -bottom-6 -right-2 sm:-right-6 z-20 w-48 sm:w-56 rounded-2xl bg-white border border-emerald-100 p-3.5 shadow-xl shadow-emerald-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+              <div className="animate-float absolute -bottom-3 -right-2 sm:-right-5 z-20 w-48 sm:w-56 rounded-2xl bg-white border border-emerald-100 p-3 shadow-xl shadow-emerald-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
                 <Link
                   href="/payroll"
                   className="block w-full text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2 text-[11px] font-extrabold text-white shadow-md shadow-teal-500/20 hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
@@ -569,7 +569,7 @@ export default function HomePage() {
 
               {/* Playful BambooHR Hand-drawn Curved Arrow pointing to Start Payroll */}
               <svg
-                className="absolute -bottom-10 right-28 sm:right-36 w-16 h-16 text-[#12B5A5] pointer-events-none hidden md:block"
+                className="absolute -bottom-8 right-24 sm:right-32 w-14 h-14 text-[#12B5A5]/80 pointer-events-none hidden lg:block"
                 viewBox="0 0 100 100"
                 fill="none"
               >
