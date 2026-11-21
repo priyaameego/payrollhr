@@ -76,7 +76,7 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
                 autoComplete="name"
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#12B5A5] focus-visible:border-[#12B5A5]"
               />
             </div>
 
@@ -91,7 +91,7 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
                 autoComplete="email"
                 value={formData.workEmail}
                 onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
-                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#12B5A5] focus-visible:border-[#12B5A5]"
               />
             </div>
 
@@ -107,7 +107,7 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
                 placeholder="98765 43210"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#12B5A5] focus-visible:border-[#12B5A5]"
               />
             </div>
 
@@ -122,7 +122,7 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
                 autoComplete="organization"
                 value={formData.orgName}
                 onChange={(e) => setFormData({ ...formData, orgName: e.target.value })}
-                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#12B5A5] focus-visible:border-[#12B5A5]"
               />
             </div>
 
@@ -135,7 +135,7 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
                 required
                 value={formData.industry}
                 onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                className="h-10 w-full rounded-md border border-slate-200 bg-white px-3 text-sm text-slate-900 shadow-2xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+                className="h-10 w-full rounded-md border border-slate-200 bg-white px-3 text-sm text-slate-900 shadow-2xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#12B5A5] focus-visible:border-[#12B5A5]"
               >
                 <option value="">Choose…</option>
                 <option>Education</option>
@@ -157,7 +157,7 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
                 required
                 value={formData.employees}
                 onChange={(e) => setFormData({ ...formData, employees: e.target.value })}
-                className="h-10 w-full rounded-md border border-slate-200 bg-white px-3 text-sm text-slate-900 shadow-2xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+                className="h-10 w-full rounded-md border border-slate-200 bg-white px-3 text-sm text-slate-900 shadow-2xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#12B5A5] focus-visible:border-[#12B5A5]"
               >
                 <option value="">Choose…</option>
                 <option>1–25</option>
@@ -179,7 +179,7 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
                 placeholder="What would you like to see? Any special rules?"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="flex min-h-[90px] w-full rounded-md border border-slate-200 bg-transparent px-3 py-2 text-sm shadow-2xs placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+                className="flex min-h-[90px] w-full rounded-md border border-slate-200 bg-transparent px-3 py-2 text-sm shadow-2xs placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#12B5A5] focus-visible:border-[#12B5A5]"
               />
             </div>
 
@@ -190,7 +190,7 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
                   required
                   checked={formData.agreed}
                   onChange={(e) => setFormData({ ...formData, agreed: e.target.checked })}
-                  className="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#0284c7] focus:ring-[#0284c7]"
+                  className="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#12B5A5] accent-[#12B5A5] focus:ring-[#12B5A5]"
                 />
                 <span>I agree to PayroleHR contacting me about this request. My details won&apos;t be shared.</span>
               </label>
@@ -200,7 +200,7 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semibold cursor-pointer transition-colors bg-[#0284c7] hover:bg-[#0369a1] text-white shadow-sm hover:shadow h-10 rounded-md px-8 disabled:opacity-70"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-bold cursor-pointer transition-all bg-gradient-to-r from-[#12B5A5] to-[#0E9486] hover:from-[#0E9486] hover:to-[#0B7A6E] text-white shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 h-10 rounded-xl px-8 disabled:opacity-70 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 {loading ? (
                   <>
