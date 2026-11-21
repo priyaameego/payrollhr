@@ -1107,6 +1107,46 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
+      {/* ONE CONNECTED FLOW, NO RE-TYPING (PayroleHR Workflow Chain) */}
+      {/* ============================================================ */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+            One connected flow, no re-typing
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            Each step feeds the next: shifts decide attendance status, attendance and leave decide paid days, and payroll turns them into payslips and the bank file.
+          </p>
+        </div>
+
+        {/* Responsive Connected Chain Pills */}
+        <div className="mt-10 overflow-x-auto pb-4 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none">
+          <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 min-w-max mx-auto">
+            {[
+              "Staff records",
+              "Shifts",
+              "Face attendance",
+              "Leave",
+              "Payroll",
+              "Payslips & bank file",
+              "Reports",
+            ].map((step, idx) => (
+              <React.Fragment key={step}>
+                <div className="rounded-full border border-slate-200/90 bg-white px-5 py-2.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs transition-all duration-300 hover:border-[#12B5A5] hover:text-[#0E7A6E] hover:shadow-xs hover:-translate-y-0.5 cursor-default select-none whitespace-nowrap">
+                  {step}
+                </div>
+                {idx < 6 && (
+                  <span className="text-slate-400 font-bold text-sm sm:text-base px-0.5 select-none" aria-hidden="true">
+                    →
+                  </span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* 5. COMPLETE PRODUCT SUITE - 5-PART ALTERNATING ATTENDOHR SHOWCASE */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
