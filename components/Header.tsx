@@ -13,6 +13,17 @@ import {
   Phone,
   MessageCircle,
   ExternalLink,
+  Clock,
+  Calendar,
+  Receipt,
+  Users,
+  MapPin,
+  BarChart3,
+  Smartphone,
+  ScanFace,
+  Cloud,
+  IndianRupee,
+  LayoutGrid,
 } from "lucide-react";
 import {
   productGroups,
@@ -257,75 +268,217 @@ export default function Header() {
           }}
           className="mx-auto mt-2 max-w-7xl animate-in fade-in slide-in-from-top-1 duration-200"
         >
-          {/* 1. PRODUCT MEGA MENU: 5-COLUMN COMPLETE GRID MATCHING USER SCREENSHOT */}
+          {/* 1. PRODUCT MEGA MENU: 3-COLUMN STRUCTURE (Exact Screenshot 1 Match) */}
           {activeMenu === "product" && (
-            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 shadow-2xl backdrop-blur-2xl">
-              <div className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-                  {productGroups.map((group) => (
-                    <div key={group.title} className="space-y-1">
-                      {/* Column Header */}
-                      <h4 className="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-3 px-2 flex items-center gap-1.5">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" />
-                        {group.title}
+            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 shadow-2xl backdrop-blur-2xl p-6 sm:p-7">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+                {/* COLUMN 1: PAYROLEHR'S FEATURES (6 Core Links + View All Features) */}
+                <div className="lg:col-span-5 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-100 pb-6 lg:pb-0 lg:pr-6">
+                  <div>
+                    {/* Header with blue underline */}
+                    <div className="pb-2 border-b-2 border-[#12B5A5] mb-3 inline-block">
+                      <h4 className="text-xs font-black uppercase tracking-wider text-slate-900">
+                        PAYROLEHR'S FEATURES
                       </h4>
+                    </div>
 
-                      {/* Items in Column */}
-                      <div className="space-y-1">
-                        {group.items.map((slug) => {
-                          const feat = findFeature(slug);
-                          if (!feat) return null;
-
-                          return (
-                            <Link
-                              key={slug}
-                              href={`/features/${slug}`}
-                              onClick={() => setActiveMenu(null)}
-                              className="group flex items-start gap-2.5 rounded-2xl p-2.5 transition-all duration-200 hover:bg-gradient-to-r hover:from-teal-50/90 hover:to-emerald-50/40 hover:shadow-xs border border-transparent hover:border-teal-200/60"
+                    {/* 6 Feature Rows */}
+                    <div className="space-y-1">
+                      {[
+                        {
+                          name: "Time & Attendance",
+                          desc: "Real-time punches from face devices and mobile",
+                          icon: Clock,
+                          iconBg: "bg-sky-50 text-sky-600 border-sky-100",
+                          href: "/features/attendance-management",
+                        },
+                        {
+                          name: "Payroll & Payout",
+                          desc: "Salaries computed and paid out automatically",
+                          icon: IndianRupee,
+                          iconBg: "bg-teal-50 text-[#0E7A6E] border-teal-100",
+                          href: "/features/payroll-management",
+                        },
+                        {
+                          name: "Leave & Holidays",
+                          desc: "Requests, approvals and balances in one place",
+                          icon: Calendar,
+                          iconBg: "bg-emerald-50 text-emerald-600 border-emerald-100",
+                          href: "/features/leave-management",
+                        },
+                        {
+                          name: "Shifts & Roster",
+                          desc: "Plan shifts and rosters without spreadsheets",
+                          icon: Users,
+                          iconBg: "bg-indigo-50 text-indigo-600 border-indigo-100",
+                          href: "/features/shift-management",
+                        },
+                        {
+                          name: "Geo Track",
+                          desc: "Field staff attendance with location proof",
+                          icon: MapPin,
+                          iconBg: "bg-amber-50 text-amber-600 border-amber-100",
+                          href: "/features/geo-fencing-attendance",
+                        },
+                        {
+                          name: "Reports",
+                          desc: "Every register and report, one click away",
+                          icon: BarChart3,
+                          iconBg: "bg-purple-50 text-purple-600 border-purple-100",
+                          href: "/features/reports-analytics",
+                        },
+                      ].map((item) => {
+                        const Icon = item.icon;
+                        return (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            onClick={() => setActiveMenu(null)}
+                            className="group flex items-start gap-3 rounded-2xl p-2 transition-all duration-200 hover:bg-teal-50/60 border border-transparent hover:border-teal-100"
+                          >
+                            <span
+                              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border shadow-2xs transition-transform duration-200 group-hover:scale-105 ${item.iconBg}`}
                             >
-                              <span className="attendo-icon-box h-8 w-8 shrink-0 mt-0.5">
-                                <FeatureIcon slug={slug} className="h-4 w-4 stroke-[2.2]" />
+                              <Icon className="h-4 w-4" />
+                            </span>
+                            <span className="min-w-0">
+                              <span className="block text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-tight">
+                                {item.name}
                               </span>
-                              <span className="min-w-0">
-                                <span className="block text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-tight text-hover-lux">
-                                  {feat.name}
-                                </span>
-                                <span className="block text-[11px] text-slate-500 leading-snug line-clamp-2 mt-0.5 group-hover:text-slate-600">
-                                  {feat.short}
-                                </span>
+                              <span className="block text-[11px] text-slate-500 leading-snug mt-0.5 group-hover:text-slate-600">
+                                {item.desc}
                               </span>
-                            </Link>
-                          );
-                        })}
+                            </span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* View All Features Button */}
+                  <div className="mt-4 pt-3 border-t border-slate-100">
+                    <Link
+                      href="/features"
+                      onClick={() => setActiveMenu(null)}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal-50/80 hover:bg-teal-100/80 px-4 py-2.5 text-xs font-bold text-[#0E7A6E] transition-colors"
+                    >
+                      <LayoutGrid className="h-3.5 w-3.5 text-[#12B5A5]" />
+                      <span>View All Features →</span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* COLUMN 2: HARDWARE & ATTENDANCE (Mobile GPS & Face Scanner) */}
+                <div className="lg:col-span-4 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-100 pb-6 lg:pb-0 lg:pr-6">
+                  <div>
+                    {/* Header with blue underline */}
+                    <div className="pb-2 border-b-2 border-[#12B5A5] mb-3 inline-block">
+                      <h4 className="text-xs font-black uppercase tracking-wider text-slate-900">
+                        ATTENDANCE & HARDWARE
+                      </h4>
+                    </div>
+
+                    <div className="space-y-3">
+                      {/* Card 1: Mobile GPS & Selfie (Replaced Biometric Pro as requested) */}
+                      <Link
+                        href="/features/geo-fencing-attendance"
+                        onClick={() => setActiveMenu(null)}
+                        className="group flex gap-3.5 rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-2xs hover:border-[#12B5A5] hover:shadow-md transition-all duration-200"
+                      >
+                        <div className="flex h-16 w-14 shrink-0 flex-col items-center justify-center rounded-xl bg-gradient-to-b from-teal-50 to-emerald-50 border border-teal-100 text-[#12B5A5] group-hover:scale-105 transition-transform">
+                          <Smartphone className="h-7 w-7" />
+                        </div>
+                        <div>
+                          <h5 className="font-display text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
+                            Mobile GPS & Selfie
+                          </h5>
+                          <p className="mt-1 text-[11px] text-slate-500 leading-snug">
+                            Mobile attendance with 50m geofence coordinates & anti-spoof selfie
+                          </p>
+                          <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-[#12B5A5] group-hover:text-[#0E7A6E]">
+                            <span>View Details</span>
+                            <ArrowRight className="h-3 w-3" />
+                          </span>
+                        </div>
+                      </Link>
+
+                      {/* Card 2: Face Scanner */}
+                      <Link
+                        href="/features/face-attendance"
+                        onClick={() => setActiveMenu(null)}
+                        className="group flex gap-3.5 rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-2xs hover:border-[#12B5A5] hover:shadow-md transition-all duration-200"
+                      >
+                        <div className="flex h-16 w-14 shrink-0 flex-col items-center justify-center rounded-xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 text-teal-400 group-hover:scale-105 transition-transform">
+                          <ScanFace className="h-7 w-7" />
+                        </div>
+                        <div>
+                          <h5 className="font-display text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
+                            Face Scanner
+                          </h5>
+                          <p className="mt-1 text-[11px] text-slate-500 leading-snug">
+                            AI-powered 0.18s contactless facial recognition attendance kiosk
+                          </p>
+                          <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-[#12B5A5] group-hover:text-[#0E7A6E]">
+                            <span>View Details</span>
+                            <ArrowRight className="h-3 w-3" />
+                          </span>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* View All Hardware & Attendance Button */}
+                  <div className="mt-4 pt-3 border-t border-slate-100">
+                    <Link
+                      href="/features"
+                      onClick={() => setActiveMenu(null)}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-50 hover:bg-teal-50 px-4 py-2.5 text-xs font-bold text-slate-700 hover:text-[#0E7A6E] transition-colors"
+                    >
+                      <Smartphone className="h-3.5 w-3.5 text-[#12B5A5]" />
+                      <span>View All Check-in Options →</span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* COLUMN 3: ONE CONNECTED SYSTEM (Punch to Payslip + Book Demo CTA) */}
+                <div className="lg:col-span-3 flex flex-col justify-between rounded-2xl border border-teal-100/90 bg-gradient-to-b from-teal-50/50 via-sky-50/30 to-white p-5 shadow-xs">
+                  <div>
+                    <h4 className="font-display text-base font-extrabold text-[#0E7A6E] leading-tight">
+                      One Connected System
+                    </h4>
+                    <p className="mt-1 text-xs text-slate-600 font-medium">
+                      From punch to payslip.
+                    </p>
+
+                    {/* 3 Step Icons Flow */}
+                    <div className="mt-6 flex items-center justify-between gap-1.5 px-1">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white border border-teal-100 text-[#12B5A5] shadow-xs">
+                        <ScanFace className="h-5 w-5" />
+                      </div>
+                      <span className="text-slate-400 font-bold text-xs">→</span>
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white border border-teal-100 text-[#12B5A5] shadow-xs">
+                        <Cloud className="h-5 w-5" />
+                      </div>
+                      <span className="text-slate-400 font-bold text-xs">→</span>
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white border border-teal-100 text-[#12B5A5] shadow-xs">
+                        <IndianRupee className="h-5 w-5" />
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
 
-              {/* Bottom Footer Action Bar */}
-              <div className="flex flex-wrap items-center justify-between border-t border-teal-100/70 bg-gradient-to-r from-teal-50/60 via-slate-50/80 to-emerald-50/50 px-6 py-3.5 text-xs">
-                <div className="flex items-center gap-2 text-slate-600 font-medium">
-                  <Sparkles className="h-4 w-4 text-[#12B5A5]" />
-                  <span>
-                    Need custom enterprise setup? We configure multi-branch shifts, custom overtime & bank files.
-                  </span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Link
-                    href="/features"
-                    onClick={() => setActiveMenu(null)}
-                    className="font-bold text-[#12B5A5] hover:text-[#0E9486] transition-colors"
-                  >
-                    See all 34 features →
-                  </Link>
-                  <Link
-                    href="/book-a-demo"
-                    onClick={() => setActiveMenu(null)}
-                    className="rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-4 py-1.5 font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
-                  >
-                    Book a demo →
-                  </Link>
+                    <p className="mt-5 text-xs text-slate-500 leading-relaxed font-normal">
+                      Our system. Our payroll. One system. No re-typing across multiple disconnected software.
+                    </p>
+                  </div>
+
+                  <div className="mt-6">
+                    <Link
+                      href="/book-a-demo"
+                      onClick={() => setActiveMenu(null)}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-teal-500/20 hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
+                    >
+                      <span>Book a Free Demo →</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
