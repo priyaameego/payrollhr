@@ -44,6 +44,7 @@ import featuresData from "@/data/features.json";
 import solutionsData from "@/data/solutions.json";
 import toolsData from "@/data/tools.json";
 import DemoForm from "@/components/DemoForm";
+import ConnectedFlowFaceKiosk from "@/components/ConnectedFlowFaceKiosk";
 
 // 3D Visual Badges inspired by AttendoHR Showcase Design
 function Calendar3DBadge({ className = "" }: { className?: string }) {
@@ -1108,6 +1109,9 @@ export default function HomePage() {
             </li>
           ))}
         </ol>
+
+        {/* Interactive Live Face Terminal with 8 Connected Automation Rules */}
+        <ConnectedFlowFaceKiosk />
       </section>
 
       {/* ============================================================ */}
