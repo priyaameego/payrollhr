@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   CheckCircle2,
   Clock,
@@ -201,12 +202,12 @@ export default function ConnectedFlowFaceKiosk() {
         </div>
 
         {/* ======================================================== */}
-        {/* CENTER REAL HARDWARE FACE TERMINAL KIOSK */}
+        {/* CENTER REAL HARDWARE FACE TERMINAL KIOSK (100% Copyright-Free) */}
         {/* ======================================================== */}
         <div className="flex flex-col items-center justify-center order-1 lg:order-2 py-2">
           {/* Hardware Device Chassis */}
           <div className="relative w-[260px] sm:w-[285px] rounded-[36px] bg-[#0c1017] border-[4px] border-slate-800 p-3.5 shadow-2xl ring-1 ring-white/10">
-            {/* Top Indicator Light (PagarBook green glow) */}
+            {/* Top Indicator Light (Live biometric green glow) */}
             <div className="h-1.5 w-14 rounded-full bg-emerald-400 mx-auto mb-2.5 shadow-[0_0_14px_#34d399] animate-pulse" />
 
             {/* Camera & Dual IR Sensor Notch */}
@@ -215,29 +216,33 @@ export default function ConnectedFlowFaceKiosk() {
               <span className="h-1.5 w-1.5 rounded-full bg-rose-500/80 shadow-[0_0_6px_#f43f5e]" />
             </div>
 
-            {/* Terminal Screen with REAL Video & Dynamic HUD */}
+            {/* Terminal Screen with REAL Photography & Dynamic Biometric HUD */}
             <div className="relative aspect-[9/14] w-full rounded-2xl bg-black overflow-hidden border border-slate-800/90 shadow-inner flex flex-col justify-between">
-              {/* REAL Video of worker at gate */}
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster="/images/face-kiosk-hero.jpg"
-                className="absolute inset-0 h-full w-full object-cover"
-              >
-                <source src="/images/face-kiosk-hero.mp4" type="video/mp4" />
-              </video>
+              {/* REAL Photo of worker at gate (100% Royalty-Free Commercial License) */}
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/kiosk-face-real.jpg"
+                  alt="Real-time Face Verification at Attendance Gate"
+                  fill
+                  priority
+                  className="object-cover object-center scale-105 transition-transform duration-1000"
+                />
+                {/* Subtle vignette shadow to blend with hardware frame */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-slate-950/45 pointer-events-none" />
+              </div>
 
               {/* Realistic AI Face Recognition Bounding Box & HUD overlay */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="relative w-36 h-48 rounded-2xl border-2 border-emerald-400/80 shadow-[0_0_16px_rgba(52,211,153,0.35)] animate-pulse">
+                <div className="relative w-36 h-48 rounded-2xl border-2 border-emerald-400/85 shadow-[0_0_16px_rgba(52,211,153,0.35)] animate-pulse">
                   {/* Corner targeting brackets */}
                   <span className="absolute -top-1 -left-1 h-3.5 w-3.5 border-t-2 border-l-2 border-emerald-300" />
                   <span className="absolute -top-1 -right-1 h-3.5 w-3.5 border-t-2 border-r-2 border-emerald-300" />
                   <span className="absolute -bottom-1 -left-1 h-3.5 w-3.5 border-b-2 border-l-2 border-emerald-300" />
                   <span className="absolute -bottom-1 -right-1 h-3.5 w-3.5 border-b-2 border-r-2 border-emerald-300" />
+
+                  {/* Facial landmark reticles on eyes */}
+                  <span className="absolute top-12 left-7 h-2 w-2 rounded-full border border-emerald-300/80 bg-emerald-400/30 animate-ping [animation-duration:3s]" />
+                  <span className="absolute top-12 right-7 h-2 w-2 rounded-full border border-emerald-300/80 bg-emerald-400/30 animate-ping [animation-duration:3s]" />
 
                   {/* Laser scanning beam */}
                   <div className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#34d399] animate-[bounce_3s_ease-in-out_infinite]" />
@@ -287,7 +292,7 @@ export default function ConnectedFlowFaceKiosk() {
             </div>
           </div>
 
-          {/* Bottom Action Pill & Subtext (PagarBook Style) */}
+          {/* Bottom Action Pill & Subtext */}
           <div className="mt-4 flex flex-col items-center">
             <button
               type="button"
