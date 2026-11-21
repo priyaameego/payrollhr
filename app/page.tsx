@@ -332,26 +332,10 @@ export default function HomePage() {
                 <span className="text-slate-800 font-bold">4.9</span>
                 <span className="text-slate-500 font-normal">from 150+ Indian Organisations</span>
               </div>
-
-              {/* Trust Indicators */}
-              <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-4 animate-fade-up [animation-delay:720ms]">
-                <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
-                  <span>Indian statutory compliant</span>
-                </div>
-                <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
-                  <span>No proprietary biometric devices</span>
-                </div>
-                <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
-                  <span>Self-service mobile portal</span>
-                </div>
-              </div>
             </div>
 
             {/* Right Live Interactive Mockup Hero Showcase (BambooHR Signature Layered Cards) */}
-            <div className="relative py-6 lg:py-2 w-full">
+            <div className="relative py-4 lg:py-0 w-full">
               {/* Playful BambooHR 4-point sparkle stars in background */}
               <svg className="absolute -top-3 left-6 w-5 h-5 text-teal-400/70 animate-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
@@ -588,6 +572,22 @@ export default function HomePage() {
                   strokeLinejoin="round"
                 />
               </svg>
+            </div>
+          </div>
+
+          {/* Trust Indicators Bar (Clean full-width below hero columns) */}
+          <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-medium text-slate-500 border-t border-slate-200/70 pt-5">
+            <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
+              <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
+              <span>Indian statutory compliant</span>
+            </div>
+            <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
+              <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
+              <span>No proprietary biometric devices</span>
+            </div>
+            <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
+              <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
+              <span>Self-service mobile portal</span>
             </div>
           </div>
         </div>
