@@ -237,7 +237,7 @@ export default function HomePage() {
         />
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid gap-10 lg:gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:items-start lg:pt-1">
+          <div className="grid gap-10 lg:gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:items-center">
             {/* Left Hero Text (BambooHR + AttendoHR Clean Structure) */}
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-full border border-teal-200/80 bg-teal-50/70 px-4 py-1.5 text-xs font-bold text-[#0E7A6E] shadow-2xs hover:border-teal-300 hover:shadow-xs transition-all duration-300 cursor-default animate-fade-up">
@@ -351,7 +351,7 @@ export default function HomePage() {
             </div>
 
             {/* Right Live Interactive Mockup Hero Showcase (BambooHR Signature Layered Cards) */}
-            <div className="relative pt-6 pb-6 lg:pt-0 lg:pb-3">
+            <div className="relative py-6 lg:py-2 w-full">
               {/* Playful BambooHR 4-point sparkle stars in background */}
               <svg className="absolute -top-3 left-6 w-5 h-5 text-teal-400/70 animate-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
