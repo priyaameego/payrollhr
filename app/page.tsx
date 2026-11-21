@@ -595,72 +595,34 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* LIVE MARQUEE TICKER (AttendoHR Style Animation) */}
+      {/* LIVE MARQUEE TICKER (PagarBook Clean SaaS Style) */}
       {/* ============================================================ */}
-      <div className="relative overflow-hidden border-y border-teal-100/80 bg-gradient-to-r from-teal-50/50 via-white to-emerald-50/50 py-3.5 shadow-xs">
-        <div className="animate-marquee flex items-center gap-8 whitespace-nowrap text-xs font-bold text-slate-700">
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            150+ Indian Organisations Active
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            <ScanFace className="h-4 w-4 text-[#12B5A5]" />
-            0.18s AI Face Match Speed
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            🏦 1-Click Bank Payouts: HDFC CMS, ICICI, SBI, Axis
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            🛡️ 100% PF, ESIC, PT & TDS Compliant
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            📱 WhatsApp Payslip Delivery in 1 Click
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            📍 GPS Geofenced Mobile Punch with Anti-Spoof
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            ⚡ Zero Biometric Machine Maintenance
-          </span>
-          <span className="text-teal-300">•</span>
-
-          {/* Seamless duplicate for continuous loop */}
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            150+ Indian Organisations Active
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            <ScanFace className="h-4 w-4 text-[#12B5A5]" />
-            0.18s AI Face Match Speed
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            🏦 1-Click Bank Payouts: HDFC CMS, ICICI, SBI, Axis
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            🛡️ 100% PF, ESIC, PT & TDS Compliant
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            📱 WhatsApp Payslip Delivery in 1 Click
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            📍 GPS Geofenced Mobile Punch with Anti-Spoof
-          </span>
-          <span className="text-teal-300">•</span>
-          <span className="flex items-center gap-1.5 text-slate-800">
-            ⚡ Zero Biometric Machine Maintenance
-          </span>
-          <span className="text-teal-300">•</span>
+      <div className="relative overflow-hidden border-y border-[#C8EFE6] bg-[#F3FAF8] py-3.5 shadow-2xs">
+        <div className="animate-marquee flex items-center whitespace-nowrap text-xs sm:text-[13px] font-semibold text-slate-800">
+          {[1, 2, 3].map((loop) => (
+            <React.Fragment key={loop}>
+              <span className="flex items-center gap-2">
+                <span>🛡️</span>
+                <span>100% PF, ESIC, PT & TDS Compliant</span>
+              </span>
+              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
+              <span className="flex items-center gap-2">
+                <span>🧾</span>
+                <span>WhatsApp Payslip Delivery in 1 Click</span>
+              </span>
+              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
+              <span className="flex items-center gap-2">
+                <span>📍</span>
+                <span>GPS Geofenced Mobile Punch with Anti-Spoof</span>
+              </span>
+              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
+              <span className="flex items-center gap-2">
+                <span>⚡</span>
+                <span>Zero Biometric Machine Maintenance</span>
+              </span>
+              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
+            </React.Fragment>
+          ))}
         </div>
       </div>
 
@@ -1113,6 +1075,38 @@ export default function HomePage() {
         {/* Interactive Live Face Terminal with 8 Connected Automation Rules */}
         <ConnectedFlowFaceKiosk />
       </section>
+
+      {/* ============================================================ */}
+      {/* PAGARBOOK STYLE USP TICKER BAR */}
+      {/* ============================================================ */}
+      <div className="relative overflow-hidden border-y border-[#C8EFE6] bg-[#F3FAF8] py-3.5 shadow-2xs">
+        <div className="animate-marquee flex items-center whitespace-nowrap text-xs sm:text-[13px] font-semibold text-slate-800">
+          {[1, 2, 3].map((loop) => (
+            <React.Fragment key={loop}>
+              <span className="flex items-center gap-2">
+                <span>🛡️</span>
+                <span>100% PF, ESIC, PT & TDS Compliant</span>
+              </span>
+              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
+              <span className="flex items-center gap-2">
+                <span>🧾</span>
+                <span>WhatsApp Payslip Delivery in 1 Click</span>
+              </span>
+              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
+              <span className="flex items-center gap-2">
+                <span>📍</span>
+                <span>GPS Geofenced Mobile Punch with Anti-Spoof</span>
+              </span>
+              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
+              <span className="flex items-center gap-2">
+                <span>⚡</span>
+                <span>Zero Biometric Machine Maintenance</span>
+              </span>
+              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
 
       {/* ============================================================ */}
       {/* 5. COMPLETE PRODUCT SUITE - 5-PART ALTERNATING ATTENDOHR SHOWCASE */}
