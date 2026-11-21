@@ -82,7 +82,7 @@ export default function Header() {
       onMouseLeave={handleMouseLeave}
       className="sticky top-0 z-50 px-3 pt-3"
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 rounded-2xl border border-teal-100/90 bg-white/95 px-4 sm:px-6 shadow-card backdrop-blur-xl transition-all">
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 rounded-2xl border border-teal-100/90 bg-white px-4 sm:px-6 shadow-card transition-all">
         {/* Brand Logo */}
         <Link href="/" className="flex shrink-0 items-center gap-2.5">
           <div className="relative h-9 w-9 overflow-hidden rounded-xl bg-gradient-to-br from-[#12B5A5] to-[#0E9486] p-0.5 shadow-sm">
@@ -266,11 +266,11 @@ export default function Header() {
           onMouseEnter={() => {
             if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
           }}
-          className="mx-auto mt-2 max-w-7xl animate-in fade-in slide-in-from-top-1 duration-200"
+          className="relative z-50 mx-auto mt-2 max-w-7xl animate-in fade-in slide-in-from-top-1 duration-200"
         >
           {/* 1. PRODUCT MEGA MENU: 3-COLUMN STRUCTURE (Exact Screenshot 1 Match) */}
           {activeMenu === "product" && (
-            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 shadow-2xl backdrop-blur-2xl p-6 sm:p-7">
+            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white shadow-2xl ring-1 ring-slate-900/5 p-6 sm:p-7">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
                 {/* COLUMN 1: PAYROLEHR'S FEATURES (6 Core Links + View All Features) */}
                 <div className="lg:col-span-5 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-100 pb-6 lg:pb-0 lg:pr-6">
@@ -486,7 +486,7 @@ export default function Header() {
 
           {/* 2. SOLUTIONS MEGA MENU */}
           {activeMenu === "solutions" && (
-            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 p-6 shadow-2xl backdrop-blur-xl">
+            <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-2xl ring-1 ring-slate-900/5">
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {solutionsData.map((sol: any) => (
                   <Link
@@ -526,7 +526,7 @@ export default function Header() {
 
           {/* 3. FREE TOOLS MEGA MENU */}
           {activeMenu === "tools" && (
-            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 p-6 shadow-2xl backdrop-blur-xl">
+            <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-2xl ring-1 ring-slate-900/5">
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {toolsData.map((tool: any) => (
                   <Link
@@ -566,7 +566,7 @@ export default function Header() {
 
           {/* 4. RESOURCES MENU */}
           {activeMenu === "resources" && (
-            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 p-6 shadow-2xl backdrop-blur-xl">
+            <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-2xl ring-1 ring-slate-900/5">
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {resourceLinks.map((item) => (
                   <Link
@@ -594,7 +594,7 @@ export default function Header() {
 
           {/* 5. COMPANY MENU */}
           {activeMenu === "company" && (
-            <div className="overflow-hidden rounded-3xl border border-teal-100/90 bg-white/98 p-6 shadow-2xl backdrop-blur-xl">
+            <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-2xl ring-1 ring-slate-900/5">
               <div className="grid gap-3 sm:grid-cols-3">
                 {companyLinks.map((item) => (
                   <Link
