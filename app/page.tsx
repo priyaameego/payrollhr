@@ -43,6 +43,7 @@ import { FeatureIcon } from "@/components/IconHelper";
 import featuresData from "@/data/features.json";
 import solutionsData from "@/data/solutions.json";
 import toolsData from "@/data/tools.json";
+import DemoForm from "@/components/DemoForm";
 
 // 3D Visual Badges inspired by AttendoHR Showcase Design
 function Calendar3DBadge({ className = "" }: { className?: string }) {
@@ -180,8 +181,6 @@ export default function HomePage() {
     pooja: "approved",
     manish: "pending",
   });
-  const [demoRole, setDemoRole] = useState("Human Resources");
-  const [demoSubmitted, setDemoSubmitted] = useState(false);
 
   const triggerSimPunch = () => {
     setSimPunchState("scanning");
@@ -2236,203 +2235,18 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 10.5 BOOK A FREE DEMO (Interactive Form & Specialist Section) */}
+      {/* 10.5 BOOK A DEMO SECTION (Matching payrolehr.com/book-a-demo) */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="overflow-hidden rounded-3xl border border-teal-200/80 bg-gradient-to-br from-white via-[#F8FCFB] to-[#E8FAF7]/50 p-8 sm:p-12 lg:p-14 shadow-card">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            {/* Left: Interactive Booking Form */}
-            <div className="lg:col-span-7">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-50 border border-teal-200 px-3.5 py-1 text-xs font-bold text-[#0E7A6E]">
-                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" /> Fast &amp; Tailored Walkthrough
-              </span>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight leading-tight">
-                Book a Free Demo
-              </h2>
-              <p className="mt-2 text-sm sm:text-base text-slate-600">
-                10 minutes. No commitment. We&apos;ll show you PayroleHR on your own workflows.
-              </p>
-
-              {demoSubmitted ? (
-                <div className="mt-8 rounded-2xl bg-emerald-50 border border-emerald-200 p-8 text-center animate-fade-up">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white font-bold text-2xl shadow-md">
-                    ✓
-                  </div>
-                  <h3 className="mt-4 font-display text-xl font-bold text-emerald-950">
-                    Demo Request Received!
-                  </h3>
-                  <p className="mt-2 text-xs sm:text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
-                    Our payroll and attendance specialist will contact you within 30 minutes via WhatsApp / Phone to schedule your personalized live demo.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setDemoSubmitted(false)}
-                    className="mt-5 inline-block text-xs font-bold text-[#0E7A6E] hover:underline"
-                  >
-                    ← Submit another inquiry
-                  </button>
-                </div>
-              ) : (
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setDemoSubmitted(true);
-                  }}
-                  className="mt-8 space-y-4"
-                >
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        Your name<span className="text-rose-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Rahul Sharma"
-                        className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-hidden focus:ring-2 focus:ring-[#12B5A5]/20 shadow-2xs"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        Work email<span className="text-rose-500">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="rahul@company.com"
-                        className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-hidden focus:ring-2 focus:ring-[#12B5A5]/20 shadow-2xs"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        Phone number<span className="text-rose-500">*</span>
-                      </label>
-                      <div className="mt-1.5 flex rounded-xl border border-slate-200 bg-white overflow-hidden focus-within:border-[#12B5A5] focus-within:ring-2 focus-within:ring-[#12B5A5]/20 shadow-2xs">
-                        <span className="bg-slate-50 px-3 py-2.5 text-xs font-bold text-slate-600 border-r border-slate-200 flex items-center gap-1">
-                          India (+91)
-                        </span>
-                        <input
-                          type="tel"
-                          required
-                          placeholder="98765 43210"
-                          className="w-full px-3 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-hidden"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        Business name<span className="text-rose-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Acme Technologies Pvt Ltd"
-                        className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-hidden focus:ring-2 focus:ring-[#12B5A5]/20 shadow-2xs"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700">
-                      City<span className="text-rose-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Start typing to search for your city (e.g. Bangalore, Mumbai, Delhi, Pune)"
-                      className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-hidden focus:ring-2 focus:ring-[#12B5A5]/20 shadow-2xs"
-                    />
-                  </div>
-
-                  {/* What is your Job Role pills */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-2">
-                      What is your Job Role?<span className="text-rose-500">*</span>
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {[
-                        "Human Resources",
-                        "Business Owner",
-                        "Admin / Accounts",
-                        "Team Leader / Manager",
-                        "Others",
-                      ].map((role) => (
-                        <button
-                          key={role}
-                          type="button"
-                          onClick={() => setDemoRole(role)}
-                          className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
-                            demoRole === role
-                              ? "bg-gradient-to-r from-[#12B5A5] to-[#0E9486] text-white shadow-xs"
-                              : "bg-white border border-slate-200 text-slate-700 hover:border-teal-200 hover:bg-teal-50/50"
-                          }`}
-                        >
-                          {role}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-3.5 text-sm font-extrabold text-white shadow-lg shadow-teal-500/20 hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all transform hover:-translate-y-0.5"
-                  >
-                    ⚡ Book My Free Demo
-                  </button>
-
-                  <div className="flex flex-wrap items-center justify-center gap-4 pt-2 text-[11px] font-medium text-slate-500">
-                    <span className="flex items-center gap-1">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5]" /> 10 minutes. No commitment
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5]" /> Tailored on your shift rules
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5]" /> Free 14-day assisted setup
-                    </span>
-                  </div>
-                </form>
-              )}
-            </div>
-
-            {/* Right: Specialist Illustration & Support Callout */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="relative w-full max-w-sm rounded-3xl bg-white border border-teal-100 p-6 shadow-xl shadow-teal-900/5 text-center">
-                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-gradient-to-b from-teal-50/70 via-sky-50/30 to-white flex items-center justify-center border border-teal-100/60 shadow-inner">
-                  <Image
-                    src="/images/book-demo-specialist.jpg"
-                    alt="PayroleHR Dedicated Onboarding Specialist"
-                    width={360}
-                    height={360}
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-                <div className="mt-5 text-left">
-                  <h4 className="font-display text-sm font-bold text-slate-900">
-                    Meet Our Indian Payroll Specialists
-                  </h4>
-                  <p className="mt-1 text-xs text-slate-600 leading-relaxed">
-                    Have questions about statutory compliance, shift rostering, or biometric integration? Our team will walk you through your exact setup.
-                  </p>
-                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold">
-                    <span className="text-slate-500">Need instant help?</span>
-                    <a
-                      href="https://wa.me/919876543210"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold text-[#12B5A5] hover:underline"
-                    >
-                      WhatsApp us directly →
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-2">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+            Book a demo
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            Tell us a little about your organisation. We&apos;ll contact you to arrange a walkthrough with your own rules and examples.
+          </p>
         </div>
+        <DemoForm from="homepage" />
       </section>
 
       {/* ============================================================ */}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle2, Loader2, Sparkles, Send, ShieldCheck } from "lucide-react";
+import { MessageCircle, Loader2 } from "lucide-react";
 
 export default function DemoForm({ from = "website" }: { from?: string }) {
   const [formData, setFormData] = useState({
@@ -9,45 +9,14 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
     workEmail: "",
     phone: "",
     orgName: "",
-    industry: "Education",
-    staffCount: "26–100",
-    features: ["Face attendance", "Payroll processing"],
-    notes: "",
+    industry: "",
+    employees: "",
+    message: "",
+    agreed: true,
   });
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  const industries = [
-    "Education",
-    "Corporate office",
-    "Manufacturing",
-    "Healthcare",
-    "Retail & hospitality",
-    "Small business",
-    "Other",
-  ];
-
-  const staffSizes = ["1–25", "26–100", "101–500", "501–1000", "1000+"];
-
-  const featureOptions = [
-    "Face attendance",
-    "Payroll processing",
-    "Salary structures",
-    "Leave management",
-    "Mobile self-service",
-    "Shifts & rosters",
-    "Reports & Excel export",
-  ];
-
-  const handleFeatureToggle = (f: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      features: prev.features.includes(f)
-        ? prev.features.filter((item) => item !== f)
-        : [...prev.features, f],
-    }));
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,218 +24,224 @@ export default function DemoForm({ from = "website" }: { from?: string }) {
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 900);
+    }, 600);
   };
 
-  if (submitted) {
-    return (
-      <div className="rounded-3xl border border-teal-100 bg-[#F0FDFB] p-8 text-center sm:p-12 shadow-card">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#12B5A5] text-white shadow-lg shadow-teal-500/30">
-          <CheckCircle2 className="h-8 w-8" />
-        </div>
-        <h3 className="mt-5 font-display text-2xl font-bold text-slate-900">
-          Demo request received!
-        </h3>
-        <p className="mt-2 text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-          Thank you, <span className="font-semibold text-slate-900">{formData.fullName}</span>. Our solutions team will contact you at{" "}
-          <span className="font-semibold text-slate-900">{formData.phone}</span> /{" "}
-          <span className="font-semibold text-slate-900">{formData.workEmail}</span> shortly with a customised walkthrough for {formData.orgName}.
-        </p>
-        <button
-          type="button"
-          onClick={() => {
-            setSubmitted(false);
-            setFormData({
-              fullName: "",
-              workEmail: "",
-              phone: "",
-              orgName: "",
-              industry: "Education",
-              staffCount: "26–100",
-              features: ["Face attendance", "Payroll processing"],
-              notes: "",
-            });
-          }}
-          className="mt-6 rounded-full border border-teal-200 bg-white px-6 py-2.5 text-xs font-bold text-[#0E7A6E] hover:bg-teal-50 transition-colors shadow-sm"
-        >
-          Submit another request
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 rounded-3xl border border-teal-100/90 bg-white p-6 sm:p-10 shadow-card">
-      <div className="grid gap-6 sm:grid-cols-2">
-        {/* Full Name */}
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-            Full name <span className="text-rose-500">*</span>
-          </label>
-          <input
-            type="text"
-            required
-            value={formData.fullName}
-            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-            placeholder="Asha Sharma"
-            className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:ring-1 focus:ring-[#12B5A5] outline-none"
-          />
-        </div>
-
-        {/* Work Email */}
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-            Work email <span className="text-rose-500">*</span>
-          </label>
-          <input
-            type="email"
-            required
-            value={formData.workEmail}
-            onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
-            placeholder="asha@example.edu.in"
-            className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:ring-1 focus:ring-[#12B5A5] outline-none"
-          />
-        </div>
-
-        {/* Phone */}
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-            Phone / WhatsApp <span className="text-rose-500">*</span>
-          </label>
-          <input
-            type="tel"
-            required
-            pattern="[0-9+ -]{10,15}"
-            value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            placeholder="+91 98765 43210"
-            className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:ring-1 focus:ring-[#12B5A5] outline-none"
-          />
-        </div>
-
-        {/* Organization Name */}
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-            Organisation name <span className="text-rose-500">*</span>
-          </label>
-          <input
-            type="text"
-            required
-            value={formData.orgName}
-            onChange={(e) => setFormData({ ...formData, orgName: e.target.value })}
-            placeholder="Delhi Public Academy"
-            className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:ring-1 focus:ring-[#12B5A5] outline-none"
-          />
-        </div>
-
-        {/* Industry */}
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-            Industry / Type
-          </label>
-          <select
-            value={formData.industry}
-            onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-            className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-[#12B5A5] outline-none"
-          >
-            {industries.map((ind) => (
-              <option key={ind} value={ind}>
-                {ind}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Staff Size */}
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-            Staff headcount
-          </label>
-          <select
-            value={formData.staffCount}
-            onChange={(e) => setFormData({ ...formData, staffCount: e.target.value })}
-            className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-[#12B5A5] outline-none"
-          >
-            {staffSizes.map((size) => (
-              <option key={size} value={size}>
-                {size} employees
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      {/* Features of interest */}
-      <div>
-        <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-          Features of interest (select all that apply)
-        </label>
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-          {featureOptions.map((feat) => {
-            const checked = formData.features.includes(feat);
-            return (
-              <label
-                key={feat}
-                onClick={() => handleFeatureToggle(feat)}
-                className={`flex items-center gap-2 rounded-xl border p-2.5 text-xs font-medium cursor-pointer transition-all ${
-                  checked
-                    ? "border-[#12B5A5] bg-[#E6F9F6] text-[#0E7A6E]"
-                    : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
-                }`}
-              >
-                <div
-                  className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
-                    checked
-                      ? "border-[#12B5A5] bg-[#12B5A5] text-white"
-                      : "border-slate-300 bg-white"
-                  }`}
-                >
-                  {checked && <CheckCircle2 className="h-3 w-3" />}
-                </div>
-                <span>{feat}</span>
+    <div className="mx-auto grid max-w-6xl gap-8 lg:gap-10 px-4 py-8 lg:grid-cols-3">
+      {/* Left: Main Form Card */}
+      <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-card lg:col-span-2">
+        {submitted ? (
+          <div className="py-12 text-center animate-fade-up">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white font-bold text-2xl shadow-md">
+              ✓
+            </div>
+            <h3 className="mt-4 font-display text-2xl font-bold text-slate-900">
+              Demo request received!
+            </h3>
+            <p className="mt-2 text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+              Thank you, <span className="font-semibold text-slate-900">{formData.fullName || "there"}</span>. We&apos;ll contact you shortly at{" "}
+              <span className="font-semibold text-slate-900">{formData.phone || formData.workEmail}</span> to arrange a walkthrough with your own rules and examples.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSubmitted(false);
+                setFormData({
+                  fullName: "",
+                  workEmail: "",
+                  phone: "",
+                  orgName: "",
+                  industry: "",
+                  employees: "",
+                  message: "",
+                  agreed: true,
+                });
+              }}
+              className="mt-6 inline-block rounded-xl border border-slate-200 bg-slate-50 px-5 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors shadow-2xs"
+            >
+              Submit another response
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium leading-none text-slate-800" htmlFor="fn">
+                Full name *
               </label>
-            );
-          })}
+              <input
+                id="fn"
+                type="text"
+                required
+                autoComplete="name"
+                value={formData.fullName}
+                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium leading-none text-slate-800" htmlFor="em">
+                Work email *
+              </label>
+              <input
+                id="em"
+                type="email"
+                required
+                autoComplete="email"
+                value={formData.workEmail}
+                onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
+                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium leading-none text-slate-800" htmlFor="ph">
+                Phone number *
+              </label>
+              <input
+                id="ph"
+                type="tel"
+                required
+                autoComplete="tel"
+                placeholder="98765 43210"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium leading-none text-slate-800" htmlFor="org">
+                Organisation name *
+              </label>
+              <input
+                id="org"
+                type="text"
+                required
+                autoComplete="organization"
+                value={formData.orgName}
+                onChange={(e) => setFormData({ ...formData, orgName: e.target.value })}
+                className="flex h-10 w-full rounded-md border border-slate-200 bg-transparent px-3 py-1 text-sm shadow-2xs transition-colors placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium leading-none text-slate-800" htmlFor="ind">
+                Industry *
+              </label>
+              <select
+                id="ind"
+                required
+                value={formData.industry}
+                onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                className="h-10 w-full rounded-md border border-slate-200 bg-white px-3 text-sm text-slate-900 shadow-2xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+              >
+                <option value="">Choose…</option>
+                <option>Education</option>
+                <option>Corporate office</option>
+                <option>Manufacturing</option>
+                <option>Healthcare</option>
+                <option>Retail &amp; hospitality</option>
+                <option>Small business</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium leading-none text-slate-800" htmlFor="ec">
+                Number of employees *
+              </label>
+              <select
+                id="ec"
+                required
+                value={formData.employees}
+                onChange={(e) => setFormData({ ...formData, employees: e.target.value })}
+                className="h-10 w-full rounded-md border border-slate-200 bg-white px-3 text-sm text-slate-900 shadow-2xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+              >
+                <option value="">Choose…</option>
+                <option>1–25</option>
+                <option>26–100</option>
+                <option>101–500</option>
+                <option>501–1000</option>
+                <option>1000+</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5 sm:col-span-2">
+              <label className="text-sm font-medium leading-none text-slate-800" htmlFor="msg">
+                Message
+              </label>
+              <textarea
+                id="msg"
+                rows={4}
+                maxLength={1000}
+                placeholder="What would you like to see? Any special rules?"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="flex min-h-[90px] w-full rounded-md border border-slate-200 bg-transparent px-3 py-2 text-sm shadow-2xs placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] focus-visible:border-[#0284c7]"
+              />
+            </div>
+
+            <div className="sm:col-span-2 pt-1">
+              <label className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  required
+                  checked={formData.agreed}
+                  onChange={(e) => setFormData({ ...formData, agreed: e.target.checked })}
+                  className="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#0284c7] focus:ring-[#0284c7]"
+                />
+                <span>I agree to PayroleHR contacting me about this request. My details won&apos;t be shared.</span>
+              </label>
+            </div>
+
+            <div className="sm:col-span-2 pt-2">
+              <button
+                type="submit"
+                disabled={loading}
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semibold cursor-pointer transition-colors bg-[#0284c7] hover:bg-[#0369a1] text-white shadow-sm hover:shadow h-10 rounded-md px-8 disabled:opacity-70"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <span>Submitting...</span>
+                  </>
+                ) : (
+                  <span>Request a demo</span>
+                )}
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+
+      {/* Right Aside: 2 Separate Cards */}
+      <aside className="space-y-4">
+        {/* Card 1: What happens next */}
+        <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-card">
+          <h2 className="font-display font-bold text-base text-slate-900">What happens next</h2>
+          <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-600">
+            <li>We call to understand how you work today.</li>
+            <li>We show PayroleHR set up with rules like yours.</li>
+            <li>We help you import staff and go live.</li>
+          </ol>
         </div>
-      </div>
 
-      {/* Notes / Special requirements */}
-      <div>
-        <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-          Specific rules or requirements (optional)
-        </label>
-        <textarea
-          rows={3}
-          value={formData.notes}
-          onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-          placeholder="e.g. We have rotational night shifts, two weekly offs and biometric attendance to replace."
-          className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#12B5A5] focus:ring-1 focus:ring-[#12B5A5] outline-none"
-        />
-      </div>
-
-      {/* Submit button */}
-      <div>
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-3.5 text-sm font-bold text-white shadow-md shadow-teal-500/25 hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-lg transition-all active:scale-95 disabled:opacity-70"
-        >
-          {loading ? (
-            <>
-              <Loader2 className="h-4 w-4 animate-spin" />
-              Scheduling your demo...
-            </>
-          ) : (
-            <>
-              <Send className="h-4 w-4" />
-              Request a demo
-            </>
-          )}
-        </button>
-        <p className="mt-2.5 text-center text-xs text-slate-500">
-          No credit card required. We will respect your privacy and never share your data.
-        </p>
-      </div>
-    </form>
+        {/* Card 2: Prefer to chat now? */}
+        <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-card">
+          <h2 className="font-display font-bold text-base text-slate-900">Prefer to chat now?</h2>
+          <a
+            href="https://wa.me/917007901057?text=Hi%2C%20I%27d%20like%20a%20demo%20of%20PayroleHR."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-slate-200 bg-slate-50 hover:bg-slate-100 h-9 px-4 py-2 mt-3 w-full text-slate-800 shadow-2xs group"
+          >
+            <MessageCircle className="h-4 w-4 text-emerald-600 transition-transform group-hover:scale-110" />
+            <span>WhatsApp +91 70079 01057</span>
+          </a>
+        </div>
+      </aside>
+    </div>
   );
 }
