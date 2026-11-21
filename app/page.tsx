@@ -992,45 +992,8 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {/* Card 1: Biometric Pro */}
-          <div className="group rounded-3xl border border-slate-200/80 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-200 hover:shadow-xl flex flex-col justify-between">
-            <div>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-slate-50 to-teal-50/40 p-4 flex items-center justify-center border border-slate-100">
-                <Image
-                  src="/images/attendance-hardware-devices.jpg"
-                  alt="Biometric Pro Attendance Terminal"
-                  width={340}
-                  height={240}
-                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute top-3 left-3 rounded-full bg-slate-900/80 backdrop-blur-xs px-2.5 py-1 text-[10px] font-bold text-white">
-                  Heavy-Duty Optical Sensor
-                </span>
-              </div>
-              <h3 className="mt-6 font-display text-xl font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
-                Biometric Pro
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Rugged optical fingerprint device with Wi-Fi, LAN, and 4G SIM sync. Holds 50,000 punches offline so factory and warehouse gates never halt.
-              </p>
-              <ul className="mt-4 space-y-2 text-xs font-semibold text-slate-700">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
-                  <span>Works with existing eSSL, Matrix & Realtime hardware</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5]" />
-                  <span>Instant cloud push with zero manual USB pen-drive downloads</span>
-                </li>
-              </ul>
-            </div>
-            <div className="mt-6 pt-4 border-t border-slate-100">
-              <span className="text-xs font-bold text-[#12B5A5]">Ideal for: Factories, Warehouses & Retail Stores</span>
-            </div>
-          </div>
-
-          {/* Card 2: Face Scanner */}
+        <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+          {/* Card 1: Face Scanner */}
           <div className="group rounded-3xl border border-teal-200/80 bg-gradient-to-b from-white via-teal-50/20 to-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-[#12B5A5] hover:shadow-xl flex flex-col justify-between relative overflow-hidden">
             <div className="absolute top-0 right-0 rounded-bl-2xl bg-[#12B5A5] px-3 py-1 text-[10px] font-bold text-white shadow-xs">
               Most Popular
@@ -1070,8 +1033,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Card 3: Mobile GPS Punch */}
-          <div className="group rounded-3xl border border-slate-200/80 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-200 hover:shadow-xl flex flex-col justify-between md:col-span-2 lg:col-span-1">
+          {/* Card 2: Mobile GPS Punch */}
+          <div className="group rounded-3xl border border-slate-200/80 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-200 hover:shadow-xl flex flex-col justify-between">
             <div>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-sky-50 to-indigo-50/40 p-4 flex flex-col items-center justify-center border border-slate-100 text-center">
                 <div className="h-16 w-16 rounded-2xl bg-white shadow-md flex items-center justify-center text-[#12B5A5] mb-2 border border-teal-100">
