@@ -957,7 +957,10 @@ export default function HomePage() {
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
           {/* Card 1: Face Scanner */}
-          <div className="group rounded-3xl border border-teal-200/80 bg-gradient-to-b from-white via-teal-50/20 to-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-[#12B5A5] hover:shadow-xl flex flex-col justify-between relative overflow-hidden">
+          <Link
+            href="/devices/face-scanner"
+            className="group rounded-3xl border border-teal-200/80 bg-gradient-to-b from-white via-teal-50/20 to-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-[#12B5A5] hover:shadow-xl flex flex-col justify-between relative overflow-hidden cursor-pointer"
+          >
             <div className="absolute top-0 right-0 rounded-bl-2xl bg-[#12B5A5] px-3 py-1 text-[10px] font-bold text-white shadow-xs">
               Most Popular
             </div>
@@ -977,7 +980,7 @@ export default function HomePage() {
               <h3 className="mt-6 font-display text-xl font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
                 Face Scanner
               </h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 Contactless AI face verification terminal with anti-spoof liveness detection. Converts any iPad, tablet or dedicated terminal into a zero-touch kiosk.
               </p>
               <ul className="mt-4 space-y-2 text-xs font-semibold text-slate-700">
@@ -991,13 +994,20 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
-            <div className="mt-6 pt-4 border-t border-slate-100">
-              <span className="text-xs font-bold text-[#12B5A5]">Ideal for: Corporate Offices, Hospitals & Schools</span>
+            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5]">
+              <span>Ideal for: Corporate, Hospitals & Factories</span>
+              <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <span>View Details</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </div>
-          </div>
+          </Link>
 
           {/* Card 2: Mobile GPS Punch */}
-          <div className="group rounded-3xl border border-slate-200/80 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-200 hover:shadow-xl flex flex-col justify-between">
+          <Link
+            href="/devices/mobile-gps"
+            className="group rounded-3xl border border-slate-200/80 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-200 hover:shadow-xl flex flex-col justify-between cursor-pointer"
+          >
             <div>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-sky-50 to-indigo-50/40 p-4 flex flex-col items-center justify-center border border-slate-100 text-center">
                 <div className="h-16 w-16 rounded-2xl bg-white shadow-md flex items-center justify-center text-[#12B5A5] mb-2 border border-teal-100">
@@ -1010,7 +1020,7 @@ export default function HomePage() {
               <h3 className="mt-6 font-display text-xl font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
                 Mobile GPS & Selfie
               </h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 Employees mark check-in directly from their smartphones within pre-set geo-fenced office radius or client coordinates with selfie verification.
               </p>
               <ul className="mt-4 space-y-2 text-xs font-semibold text-slate-700">
@@ -1024,10 +1034,14 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
-            <div className="mt-6 pt-4 border-t border-slate-100">
-              <span className="text-xs font-bold text-[#12B5A5]">Ideal for: Field Sales, Remote Teams & Site Engineers</span>
+            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5]">
+              <span>Ideal for: Field Sales, Remote Teams & Site Engineers</span>
+              <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <span>View Details</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 

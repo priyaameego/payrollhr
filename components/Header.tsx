@@ -381,7 +381,7 @@ export default function Header() {
                     <div className="space-y-3">
                       {/* Card 1: Mobile GPS & Selfie (Replaced Biometric Pro as requested) */}
                       <Link
-                        href="/features/geo-fencing-attendance"
+                        href="/devices/mobile-gps"
                         onClick={() => setActiveMenu(null)}
                         className="group flex gap-3.5 rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-2xs hover:border-[#12B5A5] hover:shadow-md transition-all duration-200"
                       >
@@ -404,7 +404,7 @@ export default function Header() {
 
                       {/* Card 2: Face Scanner */}
                       <Link
-                        href="/features/face-attendance"
+                        href="/devices/face-scanner"
                         onClick={() => setActiveMenu(null)}
                         className="group flex gap-3.5 rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-2xs hover:border-[#12B5A5] hover:shadow-md transition-all duration-200"
                       >
@@ -430,7 +430,7 @@ export default function Header() {
                   {/* View All Hardware & Attendance Button */}
                   <div className="mt-4 pt-3 border-t border-slate-100">
                     <Link
-                      href="/features"
+                      href="/devices"
                       onClick={() => setActiveMenu(null)}
                       className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-50 hover:bg-teal-50 px-4 py-2.5 text-xs font-bold text-slate-700 hover:text-[#0E7A6E] transition-colors"
                     >

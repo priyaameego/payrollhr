@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
 }
 
-/* AttendoHR & RonHR Visual Theme Utilities */
+/* PayroleHR Visual Theme Utilities */
 .bg-gradient-mesh {
   background: radial-gradient(at 0% 0%, rgba(143, 232, 220, 0.3) 0px, transparent 55%),
               radial-gradient(at 100% 0%, rgba(18, 181, 165, 0.2) 0px, transparent 55%),
@@ -67,7 +67,8 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
 }
 
-/* AttendoHR-Inspired Card Design System */
+/* PayroleHR Card Design System */
+.payrole-card,
 .attendo-card {
   background-color: #FFFFFF;
   border: 1px solid rgba(229, 242, 240, 0.95);
@@ -76,21 +77,25 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.payrole-card-hover,
 .attendo-card-hover {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.payrole-card-hover:hover,
 .attendo-card-hover:hover {
   transform: translateY(-5px);
   border-color: rgba(18, 181, 165, 0.7);
   box-shadow: 0 22px 45px -10px rgba(18, 181, 165, 0.2), 0 8px 18px -4px rgba(0, 0, 0, 0.04);
 }
 
+.payrole-card-sheen,
 .attendo-card-sheen {
   position: relative;
   overflow: hidden;
 }
 
+.payrole-card-sheen::before,
 .attendo-card-sheen::before {
   content: '';
   position: absolute;
