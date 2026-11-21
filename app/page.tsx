@@ -739,7 +739,7 @@ export default function HomePage() {
             <div className="absolute -inset-4 sm:-inset-8 -z-10 rounded-full bg-gradient-to-tr from-teal-100/60 via-sky-100/40 to-emerald-100/30 blur-2xl pointer-events-none" />
 
             {/* Main Illustration Container */}
-            <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-teal-100/80 bg-gradient-to-b from-white via-[#F8FCFB] to-[#E8FAF7]/50 p-6 sm:p-8 shadow-xl shadow-teal-900/5">
+            <div className="relative w-full max-w-md rounded-3xl border border-teal-100/80 bg-gradient-to-b from-white via-[#F8FCFB] to-[#E8FAF7]/50 p-6 sm:p-8 shadow-xl shadow-teal-900/5">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white shadow-inner flex items-center justify-center">
                 <Image
                   src="/images/manual-payroll-chaos.jpg"
@@ -752,7 +752,7 @@ export default function HomePage() {
               </div>
 
               {/* Floating Error Chip 1 (Top-Left) */}
-              <div className="animate-float absolute -top-3 -left-2 sm:-left-4 z-10 flex items-center gap-2 rounded-xl border border-rose-200/90 bg-white/95 px-3 py-1.5 shadow-lg shadow-rose-900/5 text-xs font-bold text-rose-700 backdrop-blur-sm">
+              <div className="animate-float absolute -top-3.5 -left-2 sm:-left-4 z-20 flex items-center gap-2 rounded-xl border border-rose-200/90 bg-white px-3 py-1.5 shadow-lg shadow-rose-900/10 text-xs font-bold text-rose-700 whitespace-nowrap">
                 <span className="flex h-5 w-5 items-center justify-center rounded-md bg-rose-100 text-rose-600 font-black text-[11px]">
                   ✕
                 </span>
@@ -760,7 +760,7 @@ export default function HomePage() {
               </div>
 
               {/* Floating Error Chip 2 (Bottom-Left) */}
-              <div className="animate-float-delayed absolute -bottom-3 -left-1 sm:-left-3 z-10 flex items-center gap-2 rounded-xl border border-amber-200/90 bg-white/95 px-3 py-1.5 shadow-lg shadow-amber-900/5 text-xs font-bold text-amber-800 backdrop-blur-sm">
+              <div className="animate-float-delayed absolute -bottom-3.5 -left-1 sm:-left-3 z-20 flex items-center gap-2 rounded-xl border border-amber-200/90 bg-white px-3 py-1.5 shadow-lg shadow-amber-900/10 text-xs font-bold text-amber-800 whitespace-nowrap">
                 <span className="flex h-5 w-5 items-center justify-center rounded-md bg-amber-100 text-amber-600 text-[11px]">
                   ⚠️
                 </span>
@@ -768,7 +768,7 @@ export default function HomePage() {
               </div>
 
               {/* Floating Error Chip 3 (Bottom-Right) */}
-              <div className="animate-float absolute -bottom-4 -right-1 sm:-right-3 z-10 flex items-center gap-2 rounded-xl border border-teal-200/90 bg-white/95 px-3 py-1.5 shadow-lg shadow-teal-900/5 text-xs font-bold text-[#0E7A6E] backdrop-blur-sm">
+              <div className="animate-float absolute -bottom-3.5 -right-1 sm:-right-3 z-20 flex items-center gap-2 rounded-xl border border-teal-200/90 bg-white px-3 py-1.5 shadow-lg shadow-teal-900/10 text-xs font-bold text-[#0E7A6E] whitespace-nowrap">
                 <span className="flex h-5 w-5 items-center justify-center rounded-md bg-teal-100 text-[#12B5A5] text-[11px]">
                   ⏱️
                 </span>
