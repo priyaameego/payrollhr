@@ -708,65 +708,127 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 3. THE PROBLEMS WE REMOVE */}
+      {/* 3. IS THIS HOW YOUR PAYROLL RUNS TODAY? (AttendoHR Problem Breakdown) */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-            Why Switch to PayroleHR
-          </span>
-          <h2 className="mt-2 font-display text-3xl font-extrabold text-slate-950 sm:text-4xl">
-            The problems HR teams tell us about
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 rounded-full border border-teal-200/80 bg-teal-50/80 px-4 py-1.5 text-xs font-bold text-[#0E7A6E] mb-3">
+            <span className="h-2 w-2 rounded-full bg-[#12B5A5] animate-pulse" />
+            <span>The Reality of Manual Payroll</span>
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-[1.15]">
+            Is This How Your{" "}
+            <span className="bg-gradient-to-r from-[#12B5A5] via-[#2DD4BF] to-[#0E9486] bg-clip-text text-transparent">
+              Payroll Runs Today?
+            </span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600">
-            If any of these sound familiar, they are exactly what PayroleHR is built to remove.
+          <p className="mt-4 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed">
+            If two or three of these feel familiar, they are quietly costing your organisation hours and money every month.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Registers and Excel",
-              text: "Attendance in a physical book, salaries in an Excel sheet, and days spent typing and adding them up every month.",
-            },
-            {
-              title: "Payroll mistakes",
-              text: "One broken Excel formula or a missed leave day discovered only after salaries have already been transferred.",
-            },
-            {
-              title: "Rules applied unevenly",
-              text: "Late marks, half days, grace minutes and overtime decided differently by different supervisors each time.",
-            },
-            {
-              title: "Endless staff questions",
-              text: '"How much leave do I have left?" "Where is my salary slip?" — answering the same questions every single week.',
-            },
-            {
-              title: "Typing bank files",
-              text: "Manually copying hundreds of account numbers and net pay amounts into your bank portal's bulk transfer template.",
-            },
-            {
-              title: "Software that doesn't fit",
-              text: "Rigid software that forces standard corporate structures onto schools, factories, hospitals and local businesses.",
-            },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className="attendo-card attendo-card-hover group p-7 flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 border border-rose-200/80 group-hover:bg-rose-500 group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-xs">
-                  <XCircle className="h-6 w-6 stroke-[2.2]" />
-                </div>
-                <h3 className="mt-5 font-display text-lg font-bold text-slate-900 text-hover-lux group-hover:text-rose-600">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
-                  {item.text}
-                </p>
+        <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:items-center">
+          {/* Left Column: Visual Illustration with Floating Error Chips */}
+          <div className="lg:col-span-5 relative flex items-center justify-center">
+            {/* Soft backdrop circular glow matching the image */}
+            <div className="absolute -inset-4 sm:-inset-8 -z-10 rounded-full bg-gradient-to-tr from-teal-100/60 via-sky-100/40 to-emerald-100/30 blur-2xl pointer-events-none" />
+
+            {/* Main Illustration Container */}
+            <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-teal-100/80 bg-gradient-to-b from-white via-[#F8FCFB] to-[#E8FAF7]/50 p-6 sm:p-8 shadow-xl shadow-teal-900/5">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white shadow-inner flex items-center justify-center">
+                <Image
+                  src="/images/manual-payroll-chaos.jpg"
+                  alt="Manual payroll struggles and spreadsheet errors"
+                  width={480}
+                  height={360}
+                  className="h-full w-full object-contain transition-transform duration-500 hover:scale-105"
+                  priority
+                />
+              </div>
+
+              {/* Floating Error Chip 1 (Top-Left) */}
+              <div className="animate-float absolute -top-3 -left-2 sm:-left-4 z-10 flex items-center gap-2 rounded-xl border border-rose-200/90 bg-white/95 px-3 py-1.5 shadow-lg shadow-rose-900/5 text-xs font-bold text-rose-700 backdrop-blur-sm">
+                <span className="flex h-5 w-5 items-center justify-center rounded-md bg-rose-100 text-rose-600 font-black text-[11px]">
+                  ✕
+                </span>
+                <span>Formula #REF! in Excel</span>
+              </div>
+
+              {/* Floating Error Chip 2 (Bottom-Left) */}
+              <div className="animate-float-delayed absolute -bottom-3 -left-1 sm:-left-3 z-10 flex items-center gap-2 rounded-xl border border-amber-200/90 bg-white/95 px-3 py-1.5 shadow-lg shadow-amber-900/5 text-xs font-bold text-amber-800 backdrop-blur-sm">
+                <span className="flex h-5 w-5 items-center justify-center rounded-md bg-amber-100 text-amber-600 text-[11px]">
+                  ⚠️
+                </span>
+                <span>18 Mismatched Punches</span>
+              </div>
+
+              {/* Floating Error Chip 3 (Bottom-Right) */}
+              <div className="animate-float absolute -bottom-4 -right-1 sm:-right-3 z-10 flex items-center gap-2 rounded-xl border border-teal-200/90 bg-white/95 px-3 py-1.5 shadow-lg shadow-teal-900/5 text-xs font-bold text-[#0E7A6E] backdrop-blur-sm">
+                <span className="flex h-5 w-5 items-center justify-center rounded-md bg-teal-100 text-[#12B5A5] text-[11px]">
+                  ⏱️
+                </span>
+                <span>4 Days Lost in Payout</span>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Right Column: Clean Vertical List of Relatable Pain Points */}
+          <div className="lg:col-span-7 space-y-4">
+            {[
+              {
+                icon: Fingerprint,
+                iconColor: "text-[#12B5A5] bg-[#E8FAF7] border-teal-200/80",
+                title: "Biometric machine installed, attendance still entered manually",
+                desc: "Fingerprint machine data doesn't sync with shifts, so HR still ends up exporting raw punch dumps and typing them into Excel registers.",
+              },
+              {
+                icon: Calculator,
+                iconColor: "text-sky-600 bg-sky-50 border-sky-200/80",
+                title: "Advances and deductions tracked in separate notebooks",
+                desc: "Salary advances, khata loans, canteen coupons, and loss-of-pay deductions scattered across notebooks, sticky notes, and WhatsApp messages.",
+              },
+              {
+                icon: FileSpreadsheet,
+                iconColor: "text-amber-600 bg-amber-50 border-amber-200/80",
+                title: "Salary errors found only after payslips go out",
+                desc: "A broken Excel formula, missed late deduction, or wrong PF calculation discovered by employees after salaries have already been transferred.",
+              },
+              {
+                icon: MessageCircle,
+                iconColor: "text-teal-600 bg-teal-50 border-teal-200/80",
+                title: '"Sir, please adjust this" every month-end from staff',
+                desc: "HR managers and accountants lose the first 5 to 7 days of every month handling disputed check-in times, leave balances, and overtime claims.",
+              },
+              {
+                icon: Building,
+                iconColor: "text-indigo-600 bg-indigo-50 border-indigo-200/80",
+                title: "Manually typing account numbers for bank transfer files",
+                desc: "Copy-pasting hundreds of IFSC and account numbers into HDFC CMS or ICICI bulk payout templates, hoping not a single digit is mistyped.",
+              },
+            ].map((item, idx) => {
+              const IconComp = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="group flex items-start gap-4 rounded-2xl border border-slate-200/70 bg-white p-4 sm:p-5 shadow-xs transition-all duration-300 hover:border-teal-200 hover:shadow-md hover:bg-teal-50/20"
+                >
+                  <div
+                    className={`flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl border shadow-2xs transition-transform duration-300 group-hover:scale-105 ${item.iconColor}`}
+                  >
+                    <IconComp className="h-5 w-5 sm:h-6 sm:w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-display text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
