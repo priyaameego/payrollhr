@@ -232,15 +232,15 @@ export default function HomePage() {
         />
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            {/* Left Hero Text */}
+          <div className="grid gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:items-center">
+            {/* Left Hero Text (BambooHR + AttendoHR Clean Structure) */}
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#8FE8DC]/80 bg-[#E8FAF7] px-4 py-1.5 text-xs font-bold text-[#0E7A6E] shadow-xs hover:border-teal-300 hover:shadow-sm transition-all duration-300 cursor-default animate-fade-up">
                 <Sparkles className="h-3.5 w-3.5 text-[#12B5A5] animate-pulse" />
                 <span>HR, Payroll & Face Attendance</span>
               </div>
 
-              <h1 className="mt-5 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.1]">
+              <h1 className="mt-5 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-[54px] leading-[1.12]">
                 <span className="hero-word-reveal [animation-delay:100ms]">From</span>{" "}
                 <span className="hero-word-reveal [animation-delay:180ms]">morning</span>{" "}
                 <span className="hero-word-reveal [animation-delay:260ms]">check-in</span>{" "}
@@ -252,15 +252,37 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              <p className="mt-5 text-base sm:text-lg leading-relaxed text-slate-600 max-w-xl mx-auto lg:mx-0 animate-fade-up [animation-delay:500ms]">
-                Face check-in at the door or on the phone, leave and overtime calculated automatically, your own salary structures, and bank transfer files generated in one click.
+              <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-600 max-w-xl mx-auto lg:mx-0 animate-fade-up [animation-delay:500ms]">
+                Simplify attendance, leaves, shift rostering, and statutory payroll with one award-winning platform built for Indian organisations.
               </p>
+
+              {/* 3 Green Checkmark Benefit List (BambooHR Signature Pattern) */}
+              <div className="mt-6 space-y-3 text-left max-w-lg mx-auto lg:mx-0 animate-fade-up [animation-delay:520ms]">
+                <div className="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-800">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xs">
+                    <CheckCircle2 className="h-3.5 w-3.5 stroke-[3]" />
+                  </span>
+                  <span>Contactless Face & Mobile GPS Attendance</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-800">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xs">
+                    <CheckCircle2 className="h-3.5 w-3.5 stroke-[3]" />
+                  </span>
+                  <span>Automated Leaves, Shifts & Indian Statutory Payroll</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-800">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xs">
+                    <CheckCircle2 className="h-3.5 w-3.5 stroke-[3]" />
+                  </span>
+                  <span>1-Click Bank CMS File (HDFC, ICICI, SBI) & WhatsApp Delivery</span>
+                </div>
+              </div>
 
               {/* CTAs (AttendoHR Premium Button Styling) */}
               <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-fade-up [animation-delay:550ms]">
                 <Link
                   href="/book-a-demo"
-                  className="btn-attendo-primary group rounded-2xl px-7 py-3.5 text-sm font-bold text-white flex items-center gap-2.5"
+                  className="btn-attendo-primary group rounded-2xl px-7 py-3.5 text-sm font-bold text-white flex items-center gap-2.5 shadow-md shadow-teal-500/20"
                 >
                   <Calendar className="h-4 w-4 text-teal-100 transition-transform duration-300 group-hover:scale-110" />
                   <span>Book a Free Demo</span>
@@ -285,7 +307,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Review Stars & Social Proof (AttendoHR Rating Bar) */}
+              {/* Review Stars & Social Proof (AttendoHR / BambooHR Rating Bar) */}
               <div className="mt-7 flex items-center justify-center lg:justify-start gap-3 text-xs font-semibold text-slate-700 animate-fade-up [animation-delay:650ms]">
                 <div className="flex items-center gap-1.5">
                   <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white border border-slate-200 shadow-2xs font-black text-rose-500 text-[10px]">
@@ -307,7 +329,7 @@ export default function HomePage() {
               </div>
 
               {/* Trust Indicators */}
-              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-5 animate-fade-up [animation-delay:720ms]">
+              <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-4 animate-fade-up [animation-delay:720ms]">
                 <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
                   <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
                   <span>Indian statutory compliant</span>
@@ -323,238 +345,244 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Live Interactive Mockup Hero Card */}
-            <div className="relative animate-hero-card">
-              {/* Floating Badge 1: Top-right face scan pill */}
-              <div className="animate-float absolute -top-5 -right-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md hover:scale-105 hover:border-teal-300 transition-all duration-300 cursor-default">
-                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-xs font-bold text-slate-800">Face Scan: 0.18s Match</span>
-              </div>
+            {/* Right Live Interactive Mockup Hero Showcase (BambooHR Signature Layered Cards) */}
+            <div className="relative pt-6 pb-8 lg:py-6">
+              {/* Playful BambooHR 4-point sparkle stars in background */}
+              <svg className="absolute -top-2 left-6 w-5 h-5 text-teal-400/70 animate-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+              </svg>
+              <svg className="absolute top-1/2 -right-4 w-6 h-6 text-amber-300/80 animate-pulse [animation-delay:1.2s] pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+              </svg>
 
-              {/* Floating Badge 2: Bottom-left salary payout pill */}
-              <div className="animate-float-delayed absolute -bottom-5 -left-3 z-20 hidden sm:flex items-center gap-2 rounded-2xl border border-teal-200/90 bg-white/95 px-3.5 py-2 shadow-lg shadow-teal-500/10 backdrop-blur-md hover:scale-105 hover:border-teal-300 transition-all duration-300 cursor-default">
-                <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-teal-50 text-[#12B5A5] font-bold text-xs">₹</span>
-                <span className="text-xs font-bold text-slate-800">Bank File Ready (HDFC CMS)</span>
-              </div>
+              {/* Ambient backdrop glow */}
+              <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-tr from-teal-200/35 via-emerald-100/30 to-sky-100/30 blur-2xl pointer-events-none" />
 
-              {/* BambooHR subtle layered card depth accent behind main card */}
-              <div
-                aria-hidden="true"
-                className="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-teal-200/30 via-emerald-100/40 to-teal-100/20 transform rotate-1 scale-[0.99] blur-[0.5px] pointer-events-none"
-              />
-              {/* Soft teal glow */}
-              <div className="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-[#12B5A5]/25 via-[#8FE8DC]/20 to-transparent blur-3xl pointer-events-none" />
-
-              <div className="attendo-card p-5 sm:p-6 shadow-xl relative overflow-hidden bg-white/98 rounded-3xl border border-teal-100/90 hover:shadow-2xl hover:border-teal-200 transition-all duration-300">
-                {/* Simulator Mode Switcher Tabs */}
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
-                  <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-xl text-xs font-semibold">
-                    <button
-                      type="button"
-                      onClick={() => setHeroSimTab("face")}
-                      className={`rounded-lg px-2.5 py-1 transition-all duration-200 ${
-                        heroSimTab === "face"
-                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs scale-[1.02]"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
-                      }`}
-                    >
-                      Face Kiosk
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setHeroSimTab("geo")}
-                      className={`rounded-lg px-2.5 py-1 transition-all duration-200 ${
-                        heroSimTab === "geo"
-                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs scale-[1.02]"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
-                      }`}
-                    >
-                      Mobile Punch
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setHeroSimTab("payroll")}
-                      className={`rounded-lg px-2.5 py-1 transition-all duration-200 ${
-                        heroSimTab === "payroll"
-                          ? "bg-white text-[#0E7A6E] font-bold shadow-xs scale-[1.02]"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
-                      }`}
-                    >
-                      1-Click Payroll
-                    </button>
+              {/* ======================================================== */}
+              {/* MAIN CENTRAL DASHBOARD WINDOW (BambooHR Style) */}
+              {/* ======================================================== */}
+              <div className="relative mx-auto w-full max-w-[480px] lg:max-w-[500px] overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-2xl shadow-slate-900/10">
+                {/* Browser/Window Header Bar with Mac-style dots */}
+                <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/90 px-4 py-2.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-rose-400/90" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-amber-400/90" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/90" />
                   </div>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
-                    Live Preview
+                  <div className="flex items-center gap-1 rounded-md bg-white border border-slate-200/70 px-2.5 py-0.5 text-[10px] font-mono text-slate-500">
+                    <Lock className="h-2.5 w-2.5 text-teal-600" />
+                    <span>payrolehr.com/app/people/EMP-0142</span>
+                  </div>
+                  <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                </div>
+
+                {/* Profile Header Banner (BambooHR Green/Teal style) */}
+                <div className="bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] p-4 text-white">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      {/* Avatar */}
+                      <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/20 border-2 border-white text-white font-bold text-lg shadow-sm">
+                        PS
+                        <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-400 border-2 border-[#12B5A5]" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-display text-base font-extrabold text-white">
+                            Priya Sharma
+                          </h3>
+                          <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-semibold text-white">
+                            Active
+                          </span>
+                        </div>
+                        <p className="text-xs text-teal-100 font-medium">
+                          Lead Software Engineer • Bangalore Campus
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Profile Sub-tabs (Personal, Job, Attendance, Time Off, Payroll) */}
+                  <div className="mt-3.5 flex items-center gap-1 overflow-x-auto text-[11px] font-semibold border-t border-white/15 pt-2.5">
+                    <span className="rounded-md px-2 py-0.5 text-white/70 hover:text-white cursor-pointer transition-colors">
+                      Personal
+                    </span>
+                    <span className="rounded-md bg-white text-[#0E7A6E] px-2.5 py-0.5 font-bold shadow-xs">
+                      Job Details
+                    </span>
+                    <span className="rounded-md px-2 py-0.5 text-white/70 hover:text-white cursor-pointer transition-colors">
+                      Attendance
+                    </span>
+                    <span className="rounded-md px-2 py-0.5 text-white/70 hover:text-white cursor-pointer transition-colors">
+                      Time Off
+                    </span>
+                    <span className="rounded-md px-2 py-0.5 text-white/70 hover:text-white cursor-pointer transition-colors">
+                      Payroll
+                    </span>
+                  </div>
+                </div>
+
+                {/* Profile Job Details Content */}
+                <div className="p-4 sm:p-5 text-xs">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 text-[11px] font-bold text-slate-800">
+                    <span>Job Information</span>
+                    <span className="font-normal text-slate-400">Effective: 01 Apr 2026</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-y-3 gap-x-4 pt-3 font-medium">
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
+                        Employment Status
+                      </span>
+                      <span className="text-slate-800 font-semibold">Full-Time In-Office</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
+                        Department
+                      </span>
+                      <span className="text-slate-800 font-semibold">Engineering & Tech</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
+                        Shift Schedule
+                      </span>
+                      <span className="text-slate-800 font-semibold">General (09:30 – 18:30)</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
+                        Reporting Lead
+                      </span>
+                      <span className="text-slate-800 font-semibold">Anand Verma (VP Tech)</span>
+                    </div>
+                  </div>
+
+                  {/* Quick Punch Status Bar */}
+                  <div className="mt-4 rounded-xl bg-teal-50/70 border border-teal-100 p-2.5 flex items-center justify-between text-[11px]">
+                    <div className="flex items-center gap-1.5 text-slate-700">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="font-semibold">Today's Check-In:</span>
+                      <span className="font-mono font-bold text-emerald-700">09:14 AM (Gate 01)</span>
+                    </div>
+                    <span className="text-[10px] font-bold text-[#0E7A6E]">On Time ✓</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* ======================================================== */}
+              {/* FLOATING CARD 1: BENEFITS & STATUTORY (Top-Right) */}
+              {/* ======================================================== */}
+              <div className="animate-float absolute -top-5 right-1 sm:-right-4 z-20 w-44 sm:w-52 rounded-2xl bg-white border border-indigo-100 p-3 shadow-xl shadow-indigo-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                <div className="flex items-center justify-between pb-1.5 border-b border-slate-100">
+                  <span className="font-display text-[11px] font-bold text-slate-900">
+                    Statutory & Benefits
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
+                </div>
+                <div className="py-2 space-y-1.5 text-[10px]">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-500">Medical Cover:</span>
+                    <span className="font-bold text-slate-800">₹5 Lakhs Active</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-500">EPF & ESIC:</span>
+                    <span className="font-bold text-emerald-600">Auto-Enrolled</span>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  className="w-full rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 py-1 text-[10px] font-bold text-white shadow-xs hover:opacity-95 transition-opacity"
+                >
+                  ✓ 100% Compliant
+                </button>
+              </div>
+
+              {/* ======================================================== */}
+              {/* FLOATING CARD 2: VACATION & LEAVES (Bottom-Left) */}
+              {/* ======================================================== */}
+              <div className="animate-float-delayed absolute -bottom-5 -left-2 sm:-left-6 z-20 w-52 sm:w-60 rounded-2xl bg-white border border-teal-100 p-3.5 shadow-xl shadow-teal-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                  <span className="font-display text-[11px] font-bold text-slate-900 flex items-center gap-1.5">
+                    <Calendar className="h-3 w-3 text-[#12B5A5]" />
+                    Leave Balance
+                  </span>
+                  <span className="text-[9px] font-semibold text-[#0E7A6E] bg-teal-50 px-1.5 py-0.5 rounded">
+                    FY 2026-27
                   </span>
                 </div>
 
-                {/* TAB 1: FACE KIOSK SIMULATOR */}
-                {heroSimTab === "face" && (
-                  <div className="mt-4 space-y-4 animate-in fade-in duration-200">
-                    {/* Live Scanner Viewfinder Box */}
-                    <div className="relative overflow-hidden rounded-2xl border border-teal-200/80 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 p-4 text-white">
-                      {/* Scanning beam */}
-                      <div className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-[#8FE8DC] to-transparent shadow-[0_0_12px_#12B5A5] animate-[bounce_2.5s_ease-in-out_infinite]" />
-
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                          <span className="text-[11px] font-mono text-teal-300 font-semibold tracking-wider uppercase">
-                            Reception Tablet 01
-                          </span>
-                        </div>
-                        <span className="text-[10px] text-slate-400 font-mono">0.18s Match</span>
-                      </div>
-
-                      <div className="my-4 flex items-center justify-center">
-                        <div className={`relative flex h-20 w-20 items-center justify-center rounded-2xl border-2 transition-all duration-300 ${
-                          simPunchState === "matched"
-                            ? "border-emerald-400 bg-emerald-500/20 shadow-[0_0_25px_rgba(16,185,129,0.5)]"
-                            : simPunchState === "scanning"
-                            ? "border-teal-400 bg-teal-500/20 animate-pulse"
-                            : "border-dashed border-teal-500/60 bg-teal-900/20"
-                        }`}>
-                          {simPunchState === "matched" ? (
-                            <CheckCircle2 className="h-10 w-10 text-emerald-400 animate-in zoom-in-75 duration-200" />
-                          ) : (
-                            <ScanFace className="h-9 w-9 text-teal-300" />
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Status indicator line */}
-                      <div className="text-center">
-                        {simPunchState === "matched" ? (
-                          <div className="animate-in fade-in duration-150">
-                            <span className="text-xs font-bold text-emerald-300">
-                              ✓ Arun Sharma (EMP-0142) · 99.8% Match
-                            </span>
-                            <p className="text-[10px] text-slate-300 mt-0.5">Punched IN at 09:02:14 AM</p>
-                          </div>
-                        ) : simPunchState === "scanning" ? (
-                          <span className="text-xs font-bold text-teal-300">
-                            Scanning AI facial vectors...
-                          </span>
-                        ) : (
-                          <span className="text-xs text-slate-300 font-medium">
-                            Ready for contactless check-in
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Interactive Button */}
-                      <div className="mt-3 text-center">
-                        <button
-                          type="button"
-                          onClick={triggerSimPunch}
-                          disabled={simPunchState !== "idle"}
-                          className="shimmer-pill w-full rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2.5 text-xs font-bold text-white shadow-md hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-teal-500/30 hover:scale-[1.01] active:scale-98 transition-all disabled:opacity-70 disabled:hover:scale-100"
-                        >
-                          {simPunchState === "matched"
-                            ? "Punch Recorded!"
-                            : simPunchState === "scanning"
-                            ? "Scanning..."
-                            : "⚡ Simulate Live Face Punch (0.18s)"}
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Live Metrics Grid */}
-                    <div className="grid grid-cols-3 gap-2.5">
-                      <div className="rounded-xl border border-teal-100 bg-[#F0FDFB] p-2.5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs hover:border-teal-200 cursor-default">
-                        <span className="text-[11px] text-slate-500 font-medium">Present</span>
-                        <div className="font-display text-xl font-extrabold text-[#12B5A5]">
-                          {presentCount}
-                        </div>
-                      </div>
-                      <div className="rounded-xl border border-amber-100/80 bg-amber-50/50 p-2.5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs hover:border-amber-200 cursor-default">
-                        <span className="text-[11px] text-slate-500 font-medium">Late In</span>
-                        <div className="font-display text-xl font-extrabold text-amber-600">
-                          4
-                        </div>
-                      </div>
-                      <div className="rounded-xl border border-slate-100 bg-slate-50 p-2.5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs hover:border-slate-200 cursor-default">
-                        <span className="text-[11px] text-slate-500 font-medium">On Leave</span>
-                        <div className="font-display text-xl font-extrabold text-slate-700">
-                          3
-                        </div>
-                      </div>
-                    </div>
+                <div className="grid grid-cols-2 gap-2 py-2 text-center">
+                  <div className="rounded-lg bg-emerald-50/70 p-1.5 border border-emerald-100">
+                    <span className="text-[9px] text-slate-500 block font-medium">Vacation</span>
+                    <span className="font-display text-sm font-extrabold text-emerald-700">14.5 d</span>
                   </div>
-                )}
-
-                {/* TAB 2: MOBILE GEO-PUNCH SIMULATOR */}
-                {heroSimTab === "geo" && (
-                  <div className="mt-4 space-y-3.5 animate-in fade-in duration-200">
-                    <div className="rounded-2xl border border-teal-100 bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                          <Smartphone className="h-4 w-4 text-[#12B5A5]" />
-                          Staff Mobile App Punch
-                        </span>
-                        <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5">
-                          Within Fence
-                        </span>
-                      </div>
-                      <div className="mt-3 space-y-2 text-xs">
-                        <div className="flex justify-between py-1 border-b border-slate-100">
-                          <span className="text-slate-500">Target Geofence:</span>
-                          <span className="font-semibold text-slate-800">Head Office Campus (50m radius)</span>
-                        </div>
-                        <div className="flex justify-between py-1 border-b border-slate-100">
-                          <span className="text-slate-500">Live GPS Accuracy:</span>
-                          <span className="font-mono font-bold text-emerald-600">3.2m · Accurate</span>
-                        </div>
-                        <div className="flex justify-between py-1">
-                          <span className="text-slate-500">Selfie Anti-Spoof:</span>
-                          <span className="font-semibold text-teal-700">Liveness Verified (Pass)</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 text-center text-xs text-slate-600">
-                      📱 Staff check in via any Android/iOS browser with instant OTP.
-                    </div>
+                  <div className="rounded-lg bg-teal-50/70 p-1.5 border border-teal-100">
+                    <span className="text-[9px] text-slate-500 block font-medium">Sick / Casual</span>
+                    <span className="font-display text-sm font-extrabold text-[#0E7A6E]">8.0 d</span>
                   </div>
-                )}
+                </div>
 
-                {/* TAB 3: 1-CLICK PAYROLL RUN */}
-                {heroSimTab === "payroll" && (
-                  <div className="mt-4 space-y-3.5 animate-in fade-in duration-200">
-                    <div className="rounded-2xl border border-teal-100 bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                          <Receipt className="h-4 w-4 text-[#12B5A5]" />
-                          October 2026 Salary Run
-                        </span>
-                        <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5">
-                          148 Staff Ready
-                        </span>
-                      </div>
-                      <div className="mt-3 space-y-2 text-xs">
-                        <div className="flex justify-between py-1 border-b border-slate-100">
-                          <span className="text-slate-500">Gross Earnings:</span>
-                          <span className="font-mono font-bold text-slate-900">₹69,82,400</span>
-                        </div>
-                        <div className="flex justify-between py-1 border-b border-slate-100">
-                          <span className="text-slate-500">Statutory Deductions (PF/ESI/PT):</span>
-                          <span className="font-mono text-rose-600">-₹5,53,950</span>
-                        </div>
-                        <div className="flex justify-between py-1">
-                          <span className="text-slate-700 font-semibold">Net Payout:</span>
-                          <span className="font-mono font-black text-teal-700 text-sm">₹64,28,450</span>
-                        </div>
-                      </div>
-                    </div>
-                    <Link
-                      href="/payroll"
-                      className="shimmer-pill block text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2.5 text-xs font-bold text-white shadow-sm hover:from-[#0E9486] hover:to-[#0B7A6E] hover:shadow-teal-500/25 hover:scale-[1.01] active:scale-98 transition-all"
-                    >
-                      Export HDFC CMS Direct Transfer File →
-                    </Link>
-                  </div>
-                )}
+                <button
+                  type="button"
+                  onClick={triggerSimPunch}
+                  className="w-full rounded-lg bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-1.5 text-[10px] font-bold text-white shadow-xs hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all flex items-center justify-center gap-1"
+                >
+                  {simPunchState === "matched" ? (
+                    <span>✓ Face Punch Matched (0.18s)</span>
+                  ) : simPunchState === "scanning" ? (
+                    <span>Scanning Face Kiosk...</span>
+                  ) : (
+                    <span>⚡ Test Live Face Punch (0.18s)</span>
+                  )}
+                </button>
               </div>
+
+              {/* ======================================================== */}
+              {/* FLOATING CARD 3: START PAYROLL (Bottom-Right with Arrow) */}
+              {/* ======================================================== */}
+              <div className="animate-float absolute -bottom-6 -right-2 sm:-right-6 z-20 w-48 sm:w-56 rounded-2xl bg-white border border-emerald-100 p-3.5 shadow-xl shadow-emerald-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                <Link
+                  href="/payroll"
+                  className="block w-full text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2 text-[11px] font-extrabold text-white shadow-md shadow-teal-500/20 hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
+                >
+                  ⚡ Start 1-Click Payroll
+                </Link>
+
+                <div className="mt-2.5 space-y-1 text-[10px]">
+                  <div className="flex justify-between items-center font-medium">
+                    <span className="text-slate-500">Employees:</span>
+                    <span className="font-bold text-slate-800">148 / 148 Processed</span>
+                  </div>
+                  <div className="flex justify-between items-center font-medium">
+                    <span className="text-slate-500">Pay Period:</span>
+                    <span className="font-semibold text-slate-700">Apr 30 – May 13</span>
+                  </div>
+                  <div className="flex justify-between items-center border-t border-slate-100 pt-1 font-bold">
+                    <span className="text-slate-600">Net Transfer:</span>
+                    <span className="font-mono text-emerald-700">HDFC CMS Ready</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Playful BambooHR Hand-drawn Curved Arrow pointing to Start Payroll */}
+              <svg
+                className="absolute -bottom-10 right-28 sm:right-36 w-16 h-16 text-[#12B5A5] pointer-events-none hidden md:block"
+                viewBox="0 0 100 100"
+                fill="none"
+              >
+                <path
+                  d="M15 20 C 15 65, 45 78, 72 72"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeDasharray="4 4"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M66 64 L 75 72 L 65 80"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
           </div>
         </div>
