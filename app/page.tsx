@@ -236,84 +236,42 @@ export default function HomePage() {
           className="animate-hero-mesh absolute -top-40 left-1/2 -z-10 h-[620px] w-full max-w-7xl -translate-x-1/2 rounded-full bg-gradient-to-tr from-sky-200/30 via-teal-100/15 to-transparent blur-3xl pointer-events-none"
         />
 
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid gap-10 lg:gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:items-center">
-            {/* Left Hero Text (BambooHR + AttendoHR Clean Structure) */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid gap-10 lg:gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+            {/* Left Hero Text (AttendoHR Clean Benchmark Layout) */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-teal-200/80 bg-teal-50/70 px-4 py-1.5 text-xs font-bold text-[#0E7A6E] shadow-2xs hover:border-teal-300 hover:shadow-xs transition-all duration-300 cursor-default animate-fade-up">
-                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5] animate-pulse" />
-                <span>HR, Payroll & Face Attendance</span>
-              </div>
-
-              <h1 className="mt-4 sm:mt-5 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-[54px] leading-[1.12]">
-                <span className="hero-word-reveal [animation-delay:100ms]">From</span>{" "}
-                <span className="hero-word-reveal [animation-delay:180ms]">morning</span>{" "}
-                <span className="hero-word-reveal [animation-delay:260ms]">check-in</span>{" "}
-                <span className="hero-word-reveal [animation-delay:340ms]">to</span>{" "}
-                <span className="hero-word-reveal [animation-delay:420ms] inline-block">
-                  <span className="bg-gradient-to-r from-[#12B5A5] via-[#2DD4BF] to-[#0E9486] bg-clip-text text-transparent animate-hero-gradient font-black">
-                    month-end bank file
-                  </span>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-[62px] font-black tracking-tight text-slate-950 leading-[1.1]">
+                Payroll That <br />
+                <span className="bg-gradient-to-r from-[#12B5A5] via-[#14B8A6] to-[#0E9486] bg-clip-text text-transparent">
+                  Runs Itself
                 </span>
               </h1>
 
-              <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-600 max-w-xl mx-auto lg:mx-0 animate-fade-up [animation-delay:500ms]">
-                Simplify attendance, leaves, shift rostering, and statutory payroll with one award-winning platform built for Indian organisations.
+              <p className="mt-5 text-base sm:text-lg leading-relaxed text-slate-600 max-w-xl mx-auto lg:mx-0">
+                A complete hardware plus software system that helps you manage attendance, salaries, leaves, shifts, & more.
               </p>
 
-              {/* 3 Green Checkmark Benefit List (BambooHR Signature Pattern) */}
-              <div className="mt-5 space-y-2.5 text-left max-w-lg mx-auto lg:mx-0 animate-fade-up [animation-delay:520ms]">
-                <div className="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-800">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xs">
-                    <CheckCircle2 className="h-3.5 w-3.5 stroke-[3]" />
-                  </span>
-                  <span>Contactless Face & Mobile GPS Attendance</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-800">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xs">
-                    <CheckCircle2 className="h-3.5 w-3.5 stroke-[3]" />
-                  </span>
-                  <span>Automated Leaves, Shifts & Indian Statutory Payroll</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-800">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xs">
-                    <CheckCircle2 className="h-3.5 w-3.5 stroke-[3]" />
-                  </span>
-                  <span>1-Click Bank CMS File (HDFC, ICICI, SBI) & WhatsApp Delivery</span>
-                </div>
-              </div>
-
-              {/* CTAs (AttendoHR Premium Button Styling) */}
-              <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-fade-up [animation-delay:550ms]">
+              {/* CTAs (AttendoHR Clean Button Layout) */}
+              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 <Link
                   href="/book-a-demo"
-                  className="btn-attendo-primary group rounded-2xl px-7 py-3.5 text-sm font-bold text-white flex items-center gap-2.5 shadow-md shadow-teal-500/20"
+                  className="rounded-2xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-7 py-3.5 text-sm font-bold text-white shadow-md shadow-teal-500/25 hover:from-[#0E9486] hover:to-[#0A7B6E] hover:shadow-lg transition-all flex items-center gap-2.5"
                 >
-                  <Calendar className="h-4 w-4 text-teal-100 transition-transform duration-300 group-hover:scale-110" />
+                  <Calendar className="h-4 w-4 text-teal-100" />
                   <span>Book a Free Demo</span>
                 </Link>
 
                 <Link
                   href="/features"
-                  className="btn-attendo-secondary group rounded-2xl px-6 py-3.5 text-sm font-bold text-slate-800 flex items-center gap-2.5"
+                  className="rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-bold text-slate-800 shadow-2xs hover:bg-slate-50 hover:border-slate-300 transition-all flex items-center gap-2.5"
                 >
-                  <Play className="h-4 w-4 text-[#12B5A5] fill-[#12B5A5]/20 transition-transform duration-300 group-hover:scale-110 group-hover:fill-[#12B5A5]" />
+                  <Play className="h-4 w-4 text-[#12B5A5] fill-[#12B5A5]/20" />
                   <span>See how it works</span>
                 </Link>
-
-                <a
-                  href={contactDetails.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group rounded-2xl border border-transparent px-4 py-3.5 text-sm font-semibold text-slate-600 hover:text-[#0E7A6E] hover:bg-teal-50/60 transition-all flex items-center gap-2"
-                >
-                  <MessageCircle className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
-                  <span>WhatsApp us</span>
-                </a>
               </div>
 
-              {/* Review Stars & Social Proof (AttendoHR / BambooHR Rating Bar) */}
-              <div className="mt-6 flex items-center justify-center lg:justify-start gap-3 text-xs font-semibold text-slate-700 animate-fade-up [animation-delay:650ms]">
+              {/* Review Stars & Social Proof (AttendoHR Exact Benchmark) */}
+              <div className="mt-7 flex items-center justify-center lg:justify-start gap-3 text-xs font-semibold text-slate-700">
                 <div className="flex items-center gap-1.5">
                   <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white border border-slate-200 shadow-2xs font-black text-rose-500 text-[10px]">
                     G
@@ -329,265 +287,195 @@ export default function HomePage() {
                   <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                   <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                 </div>
-                <span className="text-slate-800 font-bold">4.9</span>
-                <span className="text-slate-500 font-normal">from 150+ Indian Organisations</span>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500 border-t border-slate-200/60 pt-4 animate-fade-up [animation-delay:720ms]">
-                <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
-                  <span>Indian statutory compliant</span>
-                </div>
-                <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
-                  <span>No proprietary biometric devices</span>
-                </div>
-                <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
-                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
-                  <span>Self-service mobile portal</span>
-                </div>
+                <span className="text-slate-900 font-bold">4.8</span>
+                <span className="text-slate-500 font-normal">from 7,000 Reviews</span>
               </div>
             </div>
 
-            {/* Right Live Interactive Mockup Hero Showcase (BambooHR Signature Layered Cards) */}
-            <div className="relative py-6 lg:py-2 w-full">
-              {/* Playful BambooHR 4-point sparkle stars in background */}
-              <svg className="absolute -top-3 left-6 w-5 h-5 text-teal-400/70 animate-pulse pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
-              </svg>
-              <svg className="absolute top-1/2 -right-4 w-6 h-6 text-amber-300/80 animate-pulse [animation-delay:1.2s] pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
-              </svg>
+            {/* Right Complete Hardware + Software System Showcase (AttendoHR 3-Device Mockup) */}
+            <div className="relative py-4 lg:py-2 w-full select-none">
+              {/* Soft ambient background glow */}
+              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-tr from-sky-200/25 via-teal-100/20 to-blue-50/15 blur-3xl pointer-events-none" />
 
-              {/* Ambient backdrop glow */}
-              <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-tr from-sky-100/40 via-teal-100/25 to-blue-50/20 blur-2xl pointer-events-none" />
+              {/* Unified 3-Device Composite with smooth non-scaling luxury float */}
+              <div className="animate-device-float relative flex items-end justify-center pt-6 pb-2">
+                
+                {/* 1. BIOMETRIC PRO WALL TERMINAL (Left Device) */}
+                <div className="relative -mr-6 sm:-mr-10 z-10 w-[100px] sm:w-[130px] shrink-0 mb-4 sm:mb-7">
+                  <div className="relative rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 p-2 sm:p-2.5 shadow-2xl border border-slate-700/70 ring-1 ring-white/10">
+                    {/* Upper Glowing Display */}
+                    <div className="rounded-xl bg-gradient-to-br from-[#E6FAF7] to-[#CEF4EE] p-2 sm:p-2.5 text-center border border-teal-200/80 shadow-inner">
+                      <div className="flex justify-center">
+                        <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-lg bg-gradient-to-br from-[#12B5A5] to-[#0E9486] flex items-center justify-center text-white font-black text-xs sm:text-sm shadow-sm">
+                          A
+                        </div>
+                      </div>
+                      <span className="mt-1 block text-[8px] sm:text-[9px] font-mono font-bold text-slate-700">09:41</span>
+                      <span className="block text-[7px] sm:text-[8px] font-bold text-[#0E7A6E]">Ready to check in</span>
+                    </div>
 
-              {/* ======================================================== */}
-              {/* MAIN CENTRAL DASHBOARD WINDOW (BambooHR Style) */}
-              {/* ======================================================== */}
-              <div className="relative mx-auto w-full max-w-[480px] lg:max-w-[500px] overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-2xl shadow-slate-900/10">
-                {/* Browser/Window Header Bar with Mac-style dots */}
-                <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/90 px-4 py-2.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-rose-400/90" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-amber-400/90" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/90" />
+                    {/* Lower Optical Sensor Chamber */}
+                    <div className="mt-2 rounded-xl bg-slate-950 border border-teal-500/30 p-2 text-center relative overflow-hidden">
+                      <div className="h-6 sm:h-8 w-full flex items-center justify-center">
+                        <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-md border border-teal-400 bg-teal-500/20 flex items-center justify-center text-teal-300">
+                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M12 2v20M2 12h20" strokeDasharray="2 2" />
+                          </svg>
+                        </div>
+                      </div>
+                      <span className="text-[6.5px] sm:text-[7px] font-mono text-teal-400 uppercase tracking-widest block">Biometric Pro</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1 rounded-md bg-white border border-slate-200/70 px-2.5 py-0.5 text-[10px] font-mono text-slate-500">
-                    <Lock className="h-2.5 w-2.5 text-teal-600" />
-                    <span>payrolehr.com/app/people/EMP-0142</span>
-                  </div>
-                  <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
 
-                {/* Profile Header Banner (BambooHR Green/Teal style) */}
-                <div className="bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] p-4 text-white">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      {/* Avatar */}
-                      <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/20 border-2 border-white text-white font-bold text-lg shadow-sm">
-                        PS
-                        <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-400 border-2 border-[#12B5A5]" />
+                {/* 2. LAPTOP DASHBOARD (Center Piece - Aluminum MacBook Style) */}
+                <div className="relative z-20 w-[310px] sm:w-[440px] lg:w-[480px] shrink-0">
+                  {/* Laptop Screen Bezel */}
+                  <div className="relative rounded-t-2xl border-[6px] sm:border-[8px] border-slate-900 bg-white shadow-2xl overflow-hidden">
+                    {/* Top Notch & Camera */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 h-2.5 sm:h-3 w-16 sm:w-20 bg-slate-900 rounded-b-md z-30 flex items-center justify-center">
+                      <span className="h-1 w-1 rounded-full bg-slate-700" />
+                    </div>
+
+                    {/* Portal Top Bar */}
+                    <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/95 px-3 py-1.5 text-[9px] text-slate-600">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-2 w-2 rounded-full bg-rose-400" />
+                        <span className="h-2 w-2 rounded-full bg-amber-400" />
+                        <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                        <span className="ml-2 font-display font-bold text-slate-900 text-[10px]">
+                          Payrole<span className="text-[#12B5A5]">HR</span>
+                        </span>
                       </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h3 className="font-display text-base font-extrabold text-white">
-                            Priya Sharma
-                          </h3>
-                          <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-semibold text-white">
-                            Active
+                      <div className="flex items-center gap-2">
+                        <span className="rounded bg-white border border-slate-200 px-1.5 py-0.5 text-[8px] font-medium text-slate-600">
+                          All Organisations ▾
+                        </span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      </div>
+                    </div>
+
+                    {/* 5 KPI Metric Cards (Attendo Exact Summary Bar) */}
+                    <div className="grid grid-cols-5 gap-1 p-1.5 sm:p-2 bg-slate-50/60 border-b border-slate-100 text-[8px]">
+                      <div className="rounded-lg bg-white p-1 border border-slate-100 shadow-2xs text-center">
+                        <span className="text-slate-400 block text-[6.5px] sm:text-[7px]">Total Employees</span>
+                        <span className="font-bold text-slate-900 text-[9px] sm:text-[10px]">723</span>
+                      </div>
+                      <div className="rounded-lg bg-white p-1 border border-emerald-100 shadow-2xs text-center">
+                        <span className="text-emerald-600 block text-[6.5px] sm:text-[7px]">Working</span>
+                        <span className="font-bold text-emerald-700 text-[9px] sm:text-[10px]">684</span>
+                      </div>
+                      <div className="rounded-lg bg-white p-1 border border-amber-100 shadow-2xs text-center">
+                        <span className="text-amber-600 block text-[6.5px] sm:text-[7px]">On Break</span>
+                        <span className="font-bold text-amber-700 text-[9px] sm:text-[10px]">12</span>
+                      </div>
+                      <div className="rounded-lg bg-white p-1 border border-indigo-100 shadow-2xs text-center">
+                        <span className="text-indigo-600 block text-[6.5px] sm:text-[7px]">Time Off</span>
+                        <span className="font-bold text-indigo-700 text-[9px] sm:text-[10px]">27</span>
+                      </div>
+                      <div className="rounded-lg bg-white p-1 border border-teal-100 shadow-2xs text-center">
+                        <span className="text-[#0E7A6E] block text-[6.5px] sm:text-[7px]">Pending</span>
+                        <span className="font-bold text-[#0E7A6E] text-[9px] sm:text-[10px]">3</span>
+                      </div>
+                    </div>
+
+                    {/* Quick Attendance Summary Sub-bar */}
+                    <div className="px-2.5 py-1.5 bg-white border-b border-slate-100 flex items-center justify-between text-[8px]">
+                      <div className="flex items-center gap-1 font-semibold text-slate-800">
+                        <span className="rounded bg-teal-50 text-[#0E7A6E] px-1.5 py-0.5 font-bold">
+                          All (723)
+                        </span>
+                        <span className="text-slate-400">Open Shift</span>
+                        <span className="text-slate-400">General</span>
+                      </div>
+                      <span className="text-slate-400 font-mono text-[7px]">30-Aug-2026</span>
+                    </div>
+
+                    {/* Employee Attendance Table Preview */}
+                    <div className="divide-y divide-slate-100 bg-white text-[8px] sm:text-[9px]">
+                      <div className="grid grid-cols-4 px-2.5 py-1 font-bold text-slate-400 text-[7px] uppercase tracking-wider bg-slate-50/60">
+                        <span>Employee</span>
+                        <span>Role</span>
+                        <span>In Time</span>
+                        <span className="text-right">Status</span>
+                      </div>
+                      <div className="grid grid-cols-4 items-center px-2.5 py-1 text-slate-700 hover:bg-teal-50/40 transition-colors">
+                        <span className="font-semibold text-slate-900 truncate">Dhruv Chandok</span>
+                        <span className="text-slate-500 truncate">Software Engineer</span>
+                        <span className="font-mono text-slate-600">09:14 AM</span>
+                        <span className="text-right font-bold text-emerald-600">✓ In Office</span>
+                      </div>
+                      <div className="grid grid-cols-4 items-center px-2.5 py-1 text-slate-700 hover:bg-teal-50/40 transition-colors">
+                        <span className="font-semibold text-slate-900 truncate">Priya Sharma</span>
+                        <span className="text-slate-500 truncate">Lead Dev</span>
+                        <span className="font-mono text-slate-600">09:18 AM</span>
+                        <span className="text-right font-bold text-emerald-600">✓ In Office</span>
+                      </div>
+                      <div className="grid grid-cols-4 items-center px-2.5 py-1 text-slate-700 hover:bg-teal-50/40 transition-colors">
+                        <span className="font-semibold text-slate-900 truncate">Dhruv Ghoula</span>
+                        <span className="text-slate-500 truncate">Supervisor</span>
+                        <span className="font-mono text-slate-600">09:32 AM</span>
+                        <span className="text-right font-bold text-amber-600">Late (2m)</span>
+                      </div>
+                      <div className="grid grid-cols-4 items-center px-2.5 py-1 text-slate-700 hover:bg-teal-50/40 transition-colors">
+                        <span className="font-semibold text-slate-900 truncate">Rohit Verma</span>
+                        <span className="text-slate-500 truncate">Sales Exec</span>
+                        <span className="font-mono text-slate-600">09:28 AM</span>
+                        <span className="text-right font-bold text-emerald-600">✓ In Office</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* MacBook Aluminum Bottom Deck & Notch Indent */}
+                  <div className="relative -mt-0.5 h-2.5 sm:h-3 w-[106%] -left-[3%] rounded-b-xl bg-gradient-to-b from-slate-300 via-slate-400 to-slate-500 shadow-md">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-12 sm:w-16 bg-slate-600 rounded-b" />
+                  </div>
+                </div>
+
+                {/* 3. SMARTPHONE MOBILE APP (Right Device) */}
+                <div className="relative -ml-6 sm:-ml-10 z-30 w-[88px] sm:w-[115px] shrink-0 mb-1 sm:mb-2">
+                  <div className="rounded-[22px] sm:rounded-[26px] border-[4px] sm:border-[5px] border-slate-900 bg-white shadow-2xl overflow-hidden ring-1 ring-black/10">
+                    {/* iPhone Dynamic Island */}
+                    <div className="pt-1.5 pb-0.5 bg-slate-900 flex justify-center">
+                      <div className="h-1.5 sm:h-2 w-7 sm:w-9 rounded-full bg-slate-950" />
+                    </div>
+
+                    {/* Mobile Screen App */}
+                    <div className="p-1.5 sm:p-2 bg-slate-50 text-[7px] sm:text-[8px]">
+                      <div className="flex items-center justify-between text-[7px] text-slate-500 pb-1">
+                        <span className="font-bold text-slate-800">Hi Priya</span>
+                        <span className="font-mono">09:41</span>
+                      </div>
+
+                      {/* Circular Punch In Ring */}
+                      <div className="my-1 rounded-xl bg-gradient-to-br from-[#12B5A5] to-[#0E9486] p-2 text-center text-white shadow-sm">
+                        <div className="flex justify-center">
+                          <span className="h-6 w-6 sm:h-7 sm:w-7 rounded-full border-2 border-white/60 flex items-center justify-center text-[10px] font-bold">
+                            ✓
                           </span>
                         </div>
-                        <p className="text-xs text-teal-100 font-medium">
-                          Lead Software Engineer • Bangalore Campus
-                        </p>
+                        <span className="block mt-0.5 text-[8px] font-black tracking-tight">Checked In</span>
+                        <span className="block text-[6.5px] text-teal-100 font-mono">09:14 AM</span>
+                      </div>
+
+                      {/* Quick Shift / Leave Status */}
+                      <div className="grid grid-cols-2 gap-1 text-[6.5px] sm:text-[7px] text-center pt-0.5">
+                        <div className="rounded bg-white p-0.5 border border-slate-200">
+                          <span className="text-slate-400 block">Shift</span>
+                          <span className="font-bold text-slate-800">General</span>
+                        </div>
+                        <div className="rounded bg-white p-0.5 border border-slate-200">
+                          <span className="text-slate-400 block">Leaves</span>
+                          <span className="font-bold text-emerald-600">14.5 d</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-
-                  {/* Profile Sub-tabs (Personal, Job, Attendance, Time Off, Payroll) */}
-                  <div className="mt-3.5 flex items-center gap-1 overflow-x-auto text-[11px] font-semibold border-t border-white/15 pt-2.5">
-                    <span className="rounded-md px-2 py-0.5 text-white/70 hover:text-white cursor-pointer transition-colors">
-                      Personal
-                    </span>
-                    <span className="rounded-md bg-white text-[#0E7A6E] px-2.5 py-0.5 font-bold shadow-xs">
-                      Job Details
-                    </span>
-                    <span className="rounded-md px-2 py-0.5 text-white/70 hover:text-white cursor-pointer transition-colors">
-                      Attendance
-                    </span>
-                    <span className="rounded-md px-2 py-0.5 text-white/70 hover:text-white cursor-pointer transition-colors">
-                      Time Off
-                    </span>
-                    <span className="rounded-md px-2 py-0.5 text-white/70 hover:text-white cursor-pointer transition-colors">
-                      Payroll
-                    </span>
-                  </div>
-                </div>
-
-                {/* Profile Job Details Content */}
-                <div className="p-4 sm:p-5 text-xs">
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 text-[11px] font-bold text-slate-800">
-                    <span>Job Information</span>
-                    <span className="font-normal text-slate-400">Effective: 01 Apr 2026</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-y-3 gap-x-4 pt-3 font-medium">
-                    <div>
-                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
-                        Employment Status
-                      </span>
-                      <span className="text-slate-800 font-semibold">Full-Time In-Office</span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
-                        Department
-                      </span>
-                      <span className="text-slate-800 font-semibold">Engineering & Tech</span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
-                        Shift Schedule
-                      </span>
-                      <span className="text-slate-800 font-semibold">General (09:30 – 18:30)</span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">
-                        Reporting Lead
-                      </span>
-                      <span className="text-slate-800 font-semibold">Anand Verma (VP Tech)</span>
-                    </div>
-                  </div>
-
-                  {/* Quick Punch Status Bar */}
-                  <div className="mt-4 rounded-xl bg-teal-50/70 border border-teal-100 p-2.5 flex items-center justify-between text-[11px]">
-                    <div className="flex items-center gap-1.5 text-slate-700">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="font-semibold">Today's Check-In:</span>
-                      <span className="font-mono font-bold text-emerald-700">09:14 AM (Gate 01)</span>
-                    </div>
-                    <span className="text-[10px] font-bold text-[#0E7A6E]">On Time ✓</span>
-                  </div>
                 </div>
               </div>
 
-              {/* ======================================================== */}
-              {/* FLOATING CARD 1: BENEFITS & STATUTORY (Top-Right) */}
-              {/* ======================================================== */}
-              <div className="animate-float absolute -top-4 right-1 sm:-right-3 z-20 w-44 sm:w-50 rounded-2xl bg-white border border-indigo-100 p-3 shadow-xl shadow-indigo-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
-                <div className="flex items-center justify-between pb-1.5 border-b border-slate-100">
-                  <span className="font-display text-[11px] font-bold text-slate-900">
-                    Statutory & Benefits
-                  </span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
-                </div>
-                <div className="py-2 space-y-1.5 text-[10px]">
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-500">Medical Cover:</span>
-                    <span className="font-bold text-slate-800">₹5 Lakhs Active</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-500">EPF & ESIC:</span>
-                    <span className="font-bold text-emerald-600">Auto-Enrolled</span>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  className="w-full rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 py-1 text-[10px] font-bold text-white shadow-xs hover:opacity-95 transition-opacity"
-                >
-                  ✓ 100% Compliant
-                </button>
-              </div>
-
-              {/* ======================================================== */}
-              {/* FLOATING CARD 2: VACATION & LEAVES (Bottom-Left) */}
-              {/* ======================================================== */}
-              <div className="animate-float-delayed absolute -bottom-3 -left-2 sm:-left-5 z-20 w-52 sm:w-60 rounded-2xl bg-white border border-teal-100 p-3 shadow-xl shadow-teal-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                  <span className="font-display text-[11px] font-bold text-slate-900 flex items-center gap-1.5">
-                    <Calendar className="h-3 w-3 text-[#12B5A5]" />
-                    Leave Balance
-                  </span>
-                  <span className="text-[9px] font-semibold text-[#0E7A6E] bg-teal-50 px-1.5 py-0.5 rounded">
-                    FY 2026-27
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 py-2 text-center">
-                  <div className="rounded-lg bg-emerald-50/70 p-1.5 border border-emerald-100">
-                    <span className="text-[9px] text-slate-500 block font-medium">Vacation</span>
-                    <span className="font-display text-sm font-extrabold text-emerald-700">14.5 d</span>
-                  </div>
-                  <div className="rounded-lg bg-teal-50/70 p-1.5 border border-teal-100">
-                    <span className="text-[9px] text-slate-500 block font-medium">Sick / Casual</span>
-                    <span className="font-display text-sm font-extrabold text-[#0E7A6E]">8.0 d</span>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={triggerSimPunch}
-                  className="w-full rounded-lg bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-1.5 text-[10px] font-bold text-white shadow-xs hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all flex items-center justify-center gap-1"
-                >
-                  {simPunchState === "matched" ? (
-                    <span>✓ Face Punch Matched (0.18s)</span>
-                  ) : simPunchState === "scanning" ? (
-                    <span>Scanning Face Kiosk...</span>
-                  ) : (
-                    <span>⚡ Test Live Face Punch (0.18s)</span>
-                  )}
-                </button>
-              </div>
-
-              {/* ======================================================== */}
-              {/* FLOATING CARD 3: START PAYROLL (Bottom-Right with Arrow) */}
-              {/* ======================================================== */}
-              <div className="animate-float absolute -bottom-3 -right-2 sm:-right-5 z-20 w-48 sm:w-56 rounded-2xl bg-white border border-emerald-100 p-3 shadow-xl shadow-emerald-900/10 hover:scale-105 hover:shadow-2xl transition-all duration-300">
-                <Link
-                  href="/payroll"
-                  className="block w-full text-center rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] py-2 text-[11px] font-extrabold text-white shadow-md shadow-teal-500/20 hover:from-[#0E9486] hover:to-[#0B7A6E] transition-all"
-                >
-                  ⚡ Start 1-Click Payroll
-                </Link>
-
-                <div className="mt-2.5 space-y-1 text-[10px]">
-                  <div className="flex justify-between items-center font-medium">
-                    <span className="text-slate-500">Employees:</span>
-                    <span className="font-bold text-slate-800">148 / 148 Processed</span>
-                  </div>
-                  <div className="flex justify-between items-center font-medium">
-                    <span className="text-slate-500">Pay Period:</span>
-                    <span className="font-semibold text-slate-700">Apr 30 – May 13</span>
-                  </div>
-                  <div className="flex justify-between items-center border-t border-slate-100 pt-1 font-bold">
-                    <span className="text-slate-600">Net Transfer:</span>
-                    <span className="font-mono text-emerald-700">HDFC CMS Ready</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Playful BambooHR Hand-drawn Curved Arrow pointing to Start Payroll */}
-              <svg
-                className="absolute -bottom-8 right-24 sm:right-32 w-14 h-14 text-[#12B5A5]/80 pointer-events-none hidden lg:block"
-                viewBox="0 0 100 100"
-                fill="none"
-              >
-                <path
-                  d="M15 20 C 15 65, 45 78, 72 72"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeDasharray="4 4"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M66 64 L 75 72 L 65 80"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              {/* 4. REALISTIC FLOOR SHADOW (Underneath all 3 devices) */}
+              <div className="mx-auto h-4 sm:h-5 w-[85%] max-w-[520px] rounded-full bg-slate-900/15 blur-md mt-1" />
             </div>
           </div>
         </div>

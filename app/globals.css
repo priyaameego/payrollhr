@@ -202,12 +202,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes pulseGlow {
   0%, 100% {
-    opacity: 0.35;
-    transform: scale(1);
+    opacity: 0.4;
+    transform: translateY(0);
   }
   50% {
     opacity: 0.8;
-    transform: scale(1.08);
+    transform: translateY(-2px);
   }
 }
 
@@ -425,11 +425,11 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes heroMeshGlow {
   0%, 100% {
-    transform: translate(-50%, 0) scale(1);
+    transform: translate(-50%, 0);
     opacity: 0.35;
   }
   50% {
-    transform: translate(-50%, -12px) scale(1.05);
+    transform: translate(-50%, -8px);
     opacity: 0.55;
   }
 }
@@ -441,6 +441,19 @@ h1, h2, h3, h4, h5, h6 {
   50% {
     transform: translateY(-5px);
   }
+}
+
+@keyframes deviceFloatSmooth {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-device-float {
+  animation: deviceFloatSmooth 6s ease-in-out infinite;
 }
 
 .animate-hero-gradient {
