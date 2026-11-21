@@ -157,29 +157,6 @@ export default function Header() {
             </button>
           </div>
 
-          {/* 3. FREE TOOLS MENU BUTTON */}
-          <div
-            className="relative"
-            onMouseEnter={() => handleMouseEnter("tools")}
-          >
-            <button
-              type="button"
-              aria-expanded={activeMenu === "tools"}
-              onClick={() => setActiveMenu(activeMenu === "tools" ? null : "tools")}
-              className={`flex items-center gap-1 rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
-                activeMenu === "tools"
-                  ? "bg-teal-50 text-[#0E7A6E]"
-                  : "text-slate-700 hover:bg-slate-50 hover:text-[#12B5A5]"
-              }`}
-            >
-              Free Tools
-              <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  activeMenu === "tools" ? "rotate-180 text-[#12B5A5]" : "text-slate-400"
-                }`}
-              />
-            </button>
-          </div>
 
           {/* 4. PRICING LINK */}
           <Link
@@ -531,8 +508,8 @@ export default function Header() {
             </div>
           )}
 
-          {/* 3 & 4. COMBINED FREE TOOLS & RESOURCES MEGA MENU (Exact Match to AttendoHR Screenshot) */}
-          {(activeMenu === "tools" || activeMenu === "resources") && (
+          {/* 3. RESOURCES MEGA MENU (Unified Templates, Tools, Popular Cards & Glossary) */}
+          {activeMenu === "resources" && (
             <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-2xl ring-1 ring-slate-900/5">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-7 items-stretch">
                 {/* COLUMN 1: TEMPLATES & CHECKLISTS (lg:col-span-3) */}
@@ -909,79 +886,7 @@ export default function Header() {
               )}
             </div>
 
-            {/* 3. Free Tools Accordion */}
-            <div className="border-b border-slate-100 pb-2">
-              <button
-                type="button"
-                onClick={() =>
-                  setMobileExpandedSection(
-                    mobileExpandedSection === "tools" ? null : "tools"
-                  )
-                }
-                className="flex w-full items-center justify-between py-2 text-sm font-bold text-slate-900"
-              >
-                <span>Free Tools</span>
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform ${
-                    mobileExpandedSection === "tools" ? "rotate-180 text-[#12B5A5]" : ""
-                  }`}
-                />
-              </button>
-              {mobileExpandedSection === "tools" && (
-                <div className="mt-1 space-y-3 pl-2">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#12B5A5]">Popular Tools</span>
-                    <div className="mt-1 space-y-1">
-                      <Link
-                        href="/free-tools/salary-per-day-calculator"
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-1 text-xs font-semibold text-slate-800 hover:text-[#12B5A5]"
-                      >
-                        Salary Per Day Calculator
-                      </Link>
-                      <Link
-                        href="/free-tools/ctc-to-in-hand-calculator"
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-1 text-xs font-semibold text-slate-800 hover:text-[#12B5A5]"
-                      >
-                        CTC to In-Hand Calculator
-                      </Link>
-                      <Link
-                        href="/free-tools/attendance-calculator"
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-1 text-xs font-semibold text-slate-800 hover:text-[#12B5A5]"
-                      >
-                        Attendance Calculator
-                      </Link>
-                    </div>
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">All Calculators</span>
-                    <div className="mt-1 space-y-1">
-                      {toolsData.map((t: any) => (
-                        <Link
-                          key={t.slug}
-                          href={`/free-tools/${t.slug}`}
-                          onClick={() => setMobileOpen(false)}
-                          className="block py-1 text-xs text-slate-700 hover:text-[#12B5A5]"
-                        >
-                          {t.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                  <Link
-                    href="/free-tools"
-                    onClick={() => setMobileOpen(false)}
-                    className="block pt-1 font-bold text-xs text-[#12B5A5]"
-                  >
-                    All 9 calculators →
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* 4. Pricing Link */}
+            {/* 3. Pricing Link */}
             <Link
               href="/pricing"
               onClick={() => setMobileOpen(false)}
@@ -990,7 +895,7 @@ export default function Header() {
               Pricing
             </Link>
 
-            {/* 5. Resources Accordion */}
+            {/* 4. Resources Accordion (Includes Templates, Free Tools, Glossary & Guides) */}
             <div className="border-b border-slate-100 pb-2">
               <button
                 type="button"
@@ -1010,6 +915,29 @@ export default function Header() {
               </button>
               {mobileExpandedSection === "resources" && (
                 <div className="mt-1 space-y-3 pl-2">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#12B5A5]">Free Tools & Calculators</span>
+                    <div className="mt-1 space-y-1">
+                      {toolsData.slice(0, 6).map((t: any) => (
+                        <Link
+                          key={t.slug}
+                          href={`/free-tools/${t.slug}`}
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-1 text-xs text-slate-700 hover:text-[#12B5A5]"
+                        >
+                          {t.name}
+                        </Link>
+                      ))}
+                      <Link
+                        href="/free-tools"
+                        onClick={() => setMobileOpen(false)}
+                        className="block pt-1 font-bold text-xs text-[#12B5A5]"
+                      >
+                        All 9 calculators →
+                      </Link>
+                    </div>
+                  </div>
+
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#12B5A5]">Templates & Checklists</span>
                     <div className="mt-1 space-y-1">
