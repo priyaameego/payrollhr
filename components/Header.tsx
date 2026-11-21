@@ -24,6 +24,11 @@ import {
   Cloud,
   IndianRupee,
   LayoutGrid,
+  FileText,
+  Calculator,
+  Star,
+  BookOpen,
+  Lightbulb,
 } from "lucide-react";
 import {
   productGroups,
@@ -35,6 +40,8 @@ import { FeatureIcon } from "@/components/IconHelper";
 import featuresData from "@/data/features.json";
 import solutionsData from "@/data/solutions.json";
 import toolsData from "@/data/tools.json";
+import templatesData from "@/data/templates.json";
+import glossaryData from "@/data/glossary.json";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -524,70 +531,247 @@ export default function Header() {
             </div>
           )}
 
-          {/* 3. FREE TOOLS MEGA MENU */}
-          {activeMenu === "tools" && (
-            <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-2xl ring-1 ring-slate-900/5">
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {toolsData.map((tool: any) => (
-                  <Link
-                    key={tool.slug}
-                    href={`/free-tools/${tool.slug}`}
-                    onClick={() => setActiveMenu(null)}
-                    className="group flex gap-3.5 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
-                  >
-                    <span className="attendo-icon-box h-9 w-9 shrink-0 mt-0.5">
-                      <FeatureIcon slug={tool.slug} className="h-4 w-4 stroke-[2.2]" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] text-hover-lux">
-                        {tool.name}
-                      </span>
-                      <span className="mt-0.5 block text-[11px] leading-snug text-slate-500 line-clamp-2">
-                        {tool.short}
-                      </span>
-                    </span>
-                  </Link>
-                ))}
-              </div>
-              <div className="mt-5 border-t border-slate-100 pt-3.5 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-medium">
-                  100% Free, reactive math engines matching Indian Labour Law formulas.
-                </span>
-                <Link
-                  href="/free-tools"
-                  onClick={() => setActiveMenu(null)}
-                  className="font-bold text-[#12B5A5] hover:underline"
-                >
-                  All 9 calculators →
-                </Link>
-              </div>
-            </div>
-          )}
+          {/* 3 & 4. COMBINED FREE TOOLS & RESOURCES MEGA MENU (Exact Match to AttendoHR Screenshot) */}
+          {(activeMenu === "tools" || activeMenu === "resources") && (
+            <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-2xl ring-1 ring-slate-900/5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-7 items-stretch">
+                {/* COLUMN 1: TEMPLATES & CHECKLISTS (lg:col-span-3) */}
+                <div className="lg:col-span-3 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-100 pb-6 md:pb-0 md:pr-5">
+                  <div>
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#12B5A5]">
+                      <FileText className="h-3.5 w-3.5 stroke-[2.2]" />
+                      <span>Templates & Checklists</span>
+                    </div>
+                    <h3 className="mt-2 font-display text-base font-extrabold text-slate-950 leading-snug">
+                      Ready-to-use templates for HR & Payroll
+                    </h3>
+                    <p className="mt-1 text-xs text-slate-500 leading-relaxed">
+                      Save time with expert-crafted letters, forms, and HR documents.
+                    </p>
 
-          {/* 4. RESOURCES MENU */}
-          {activeMenu === "resources" && (
-            <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-2xl ring-1 ring-slate-900/5">
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                {resourceLinks.map((item) => (
-                  <Link
-                    key={item.to}
-                    href={item.to}
-                    onClick={() => setActiveMenu(null)}
-                    className="group flex gap-3 rounded-2xl p-3 outline-none transition-all duration-200 hover:bg-teal-50/70 hover:shadow-xs border border-transparent hover:border-teal-100"
-                  >
-                    <span className="attendo-icon-box h-9 w-9 shrink-0 mt-0.5">
-                      <FeatureIcon slug={item.to.split("/").pop() || "guides"} className="h-4 w-4 stroke-[2.2]" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="flex items-center gap-2 text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] text-hover-lux">
-                        {item.name}
+                    <div className="mt-4 space-y-1">
+                      {templatesData.slice(0, 7).map((tpl: any) => (
+                        <Link
+                          key={tpl.file}
+                          href="/resources/templates"
+                          onClick={() => setActiveMenu(null)}
+                          className="group flex items-center gap-2.5 rounded-lg py-1.5 text-xs font-semibold text-slate-800 hover:text-[#0E7A6E] transition-colors"
+                        >
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-teal-50 text-[#12B5A5] border border-teal-100/70 group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                            <FileText className="h-3 w-3 stroke-[2.2]" />
+                          </span>
+                          <span className="truncate group-hover:underline">{tpl.name}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-slate-100">
+                    <Link
+                      href="/resources/templates"
+                      onClick={() => setActiveMenu(null)}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#12B5A5] hover:text-[#0E7A6E] group"
+                    >
+                      <span>View all 11 templates</span>
+                      <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* COLUMN 2: FREE TOOLS (lg:col-span-3) */}
+                <div className="lg:col-span-3 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-100 pb-6 md:pb-0 md:pr-5">
+                  <div>
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#12B5A5]">
+                      <Calculator className="h-3.5 w-3.5 stroke-[2.2]" />
+                      <span>Free Tools</span>
+                    </div>
+                    <h3 className="mt-2 font-display text-base font-extrabold text-slate-950 leading-snug">
+                      Smart tools for smarter decisions
+                    </h3>
+                    <p className="mt-1 text-xs text-slate-500 leading-relaxed">
+                      Calculate, analyze, and stay compliant with ease.
+                    </p>
+
+                    <div className="mt-4 space-y-1">
+                      {toolsData.slice(0, 9).map((tool: any) => (
+                        <Link
+                          key={tool.slug}
+                          href={`/free-tools/${tool.slug}`}
+                          onClick={() => setActiveMenu(null)}
+                          className="group flex items-center gap-2.5 rounded-lg py-1.5 text-xs font-semibold text-slate-800 hover:text-[#0E7A6E] transition-colors"
+                        >
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-teal-50 text-[#12B5A5] border border-teal-100/70 group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                            <Calculator className="h-3 w-3 stroke-[2.2]" />
+                          </span>
+                          <span className="truncate group-hover:underline">{tool.name}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-slate-100">
+                    <Link
+                      href="/free-tools"
+                      onClick={() => setActiveMenu(null)}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#12B5A5] hover:text-[#0E7A6E] group"
+                    >
+                      <span>All 9 calculators</span>
+                      <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* COLUMN 3: POPULAR TOOLS (lg:col-span-3) */}
+                <div className="lg:col-span-3 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-100 pb-6 md:pb-0 md:pr-5">
+                  <div>
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#12B5A5]">
+                      <Star className="h-3.5 w-3.5 stroke-[2.2]" />
+                      <span>Popular Tools</span>
+                    </div>
+                    <div className="mt-2 flex items-center gap-2">
+                      <h3 className="font-display text-base font-extrabold text-slate-950 leading-snug">
+                        Most used by HR professionals
+                      </h3>
+                      <span className="inline-flex items-center rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 text-[10px] font-bold text-emerald-700 shrink-0">
+                        Trending
                       </span>
-                      <span className="mt-0.5 block text-[11px] leading-snug text-slate-500">
-                        {item.short}
-                      </span>
-                    </span>
-                  </Link>
-                ))}
+                    </div>
+
+                    <div className="mt-4 space-y-2.5">
+                      {/* Popular Card 1 */}
+                      <Link
+                        href="/free-tools/salary-per-day-calculator"
+                        onClick={() => setActiveMenu(null)}
+                        className="group flex items-center justify-between rounded-2xl border border-teal-100/80 bg-white p-3 hover:border-teal-300 hover:bg-teal-50/40 transition-all shadow-2xs"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 font-display text-base font-bold text-[#12B5A5] border border-teal-100/70">
+                            ₹
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] truncate">
+                              Salary Per Day Calculator
+                            </div>
+                            <div className="text-[11px] text-slate-500 truncate">
+                              Monthly salary to daily & hourly rates
+                            </div>
+                          </div>
+                        </div>
+                        <ArrowRight className="h-3.5 w-3.5 shrink-0 text-slate-400 group-hover:text-[#12B5A5] group-hover:translate-x-0.5 transition-all ml-1.5" />
+                      </Link>
+
+                      {/* Popular Card 2 */}
+                      <Link
+                        href="/free-tools/ctc-to-in-hand-calculator"
+                        onClick={() => setActiveMenu(null)}
+                        className="group flex items-center justify-between rounded-2xl border border-teal-100/80 bg-white p-3 hover:border-teal-300 hover:bg-teal-50/40 transition-all shadow-2xs"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-[#12B5A5] border border-teal-100/70">
+                            <BarChart3 className="h-4 w-4" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] truncate">
+                              CTC to In-Hand Calculator
+                            </div>
+                            <div className="text-[11px] text-slate-500 truncate">
+                              See take-home pay under tax regimes
+                            </div>
+                          </div>
+                        </div>
+                        <ArrowRight className="h-3.5 w-3.5 shrink-0 text-slate-400 group-hover:text-[#12B5A5] group-hover:translate-x-0.5 transition-all ml-1.5" />
+                      </Link>
+
+                      {/* Popular Card 3: Highlighted with Active Border Matching Screenshot */}
+                      <Link
+                        href="/free-tools/attendance-calculator"
+                        onClick={() => setActiveMenu(null)}
+                        className="group flex items-center justify-between rounded-2xl border-2 border-teal-400 bg-teal-50/50 p-3 hover:bg-teal-50 transition-all shadow-xs"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white border border-teal-200 text-[#12B5A5] shadow-2xs">
+                            <Calendar className="h-4 w-4" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-xs font-bold text-slate-900 group-hover:text-[#0E7A6E] truncate">
+                              Attendance Calculator
+                            </div>
+                            <div className="text-[11px] text-slate-600 truncate">
+                              Attendance percentage in seconds
+                            </div>
+                          </div>
+                        </div>
+                        <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#12B5A5] group-hover:translate-x-0.5 transition-all ml-1.5" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Help Choosing Right Tool Callout Box Matching Screenshot */}
+                  <div className="mt-4 rounded-2xl border border-teal-100 bg-[#F0FDFB] p-3.5">
+                    <div className="flex items-start gap-2.5">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-100 text-[#12B5A5]">
+                        <Lightbulb className="h-3.5 w-3.5" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-900">
+                          Need help choosing the <span className="text-[#12B5A5]">right tool?</span>
+                        </div>
+                        <p className="mt-0.5 text-[11px] text-slate-600 leading-snug">
+                          Our experts are here to help you find what fits your business.
+                        </p>
+                        <Link
+                          href="/book-a-demo"
+                          onClick={() => setActiveMenu(null)}
+                          className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-[#0E7A6E] hover:underline"
+                        >
+                          Book a walkthrough →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* COLUMN 4: GLOSSARY (lg:col-span-3) */}
+                <div className="lg:col-span-3 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#12B5A5]">
+                      <BookOpen className="h-3.5 w-3.5 stroke-[2.2]" />
+                      <span>Glossary</span>
+                    </div>
+                    <h3 className="mt-2 font-display text-base font-extrabold text-slate-950 leading-snug">
+                      HR & Payroll glossary
+                    </h3>
+                    <p className="mt-1 text-xs text-slate-500 leading-relaxed">
+                      Understand key HR, payroll and compliance terms in simple language.
+                    </p>
+
+                    <div className="mt-4 space-y-1">
+                      {["Absenteeism", "Arrears", "Attendance regularisation", "Basic salary", "Bank salary file", "Carry forward", "CTC", "Full and final settlement"].map((term) => (
+                        <Link
+                          key={term}
+                          href="/resources/glossary"
+                          onClick={() => setActiveMenu(null)}
+                          className="group flex items-center gap-2.5 rounded-lg py-1.5 text-xs font-semibold text-slate-800 hover:text-[#0E7A6E] transition-colors"
+                        >
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-teal-50 text-[#12B5A5] border border-teal-100/70 group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                            <BookOpen className="h-3 w-3 stroke-[2.2]" />
+                          </span>
+                          <span className="truncate group-hover:underline">{term}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-4 pt-3">
+                    <Link
+                      href="/resources/glossary"
+                      onClick={() => setActiveMenu(null)}
+                      className="block w-full rounded-xl border border-teal-200 bg-white py-2.5 text-center text-xs font-bold text-[#0E7A6E] hover:bg-teal-50 hover:border-teal-300 transition-colors shadow-2xs"
+                    >
+                      View full glossary →
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           )}
@@ -744,23 +928,54 @@ export default function Header() {
                 />
               </button>
               {mobileExpandedSection === "tools" && (
-                <div className="mt-1 space-y-1 pl-2">
-                  {toolsData.map((t: any) => (
-                    <Link
-                      key={t.slug}
-                      href={`/free-tools/${t.slug}`}
-                      onClick={() => setMobileOpen(false)}
-                      className="block py-1.5 text-xs text-slate-700 hover:text-[#12B5A5]"
-                    >
-                      {t.name}
-                    </Link>
-                  ))}
+                <div className="mt-1 space-y-3 pl-2">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#12B5A5]">Popular Tools</span>
+                    <div className="mt-1 space-y-1">
+                      <Link
+                        href="/free-tools/salary-per-day-calculator"
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-1 text-xs font-semibold text-slate-800 hover:text-[#12B5A5]"
+                      >
+                        Salary Per Day Calculator
+                      </Link>
+                      <Link
+                        href="/free-tools/ctc-to-in-hand-calculator"
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-1 text-xs font-semibold text-slate-800 hover:text-[#12B5A5]"
+                      >
+                        CTC to In-Hand Calculator
+                      </Link>
+                      <Link
+                        href="/free-tools/attendance-calculator"
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-1 text-xs font-semibold text-slate-800 hover:text-[#12B5A5]"
+                      >
+                        Attendance Calculator
+                      </Link>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">All Calculators</span>
+                    <div className="mt-1 space-y-1">
+                      {toolsData.map((t: any) => (
+                        <Link
+                          key={t.slug}
+                          href={`/free-tools/${t.slug}`}
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-1 text-xs text-slate-700 hover:text-[#12B5A5]"
+                        >
+                          {t.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                   <Link
                     href="/free-tools"
                     onClick={() => setMobileOpen(false)}
-                    className="block pt-2 font-bold text-xs text-[#12B5A5]"
+                    className="block pt-1 font-bold text-xs text-[#12B5A5]"
                   >
-                    All calculators →
+                    All 9 calculators →
                   </Link>
                 </div>
               )}
@@ -794,17 +1009,68 @@ export default function Header() {
                 />
               </button>
               {mobileExpandedSection === "resources" && (
-                <div className="mt-1 space-y-1 pl-2">
-                  {resourceLinks.map((r) => (
-                    <Link
-                      key={r.to}
-                      href={r.to}
-                      onClick={() => setMobileOpen(false)}
-                      className="block py-1.5 text-xs text-slate-700 hover:text-[#12B5A5]"
-                    >
-                      {r.name}
-                    </Link>
-                  ))}
+                <div className="mt-1 space-y-3 pl-2">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#12B5A5]">Templates & Checklists</span>
+                    <div className="mt-1 space-y-1">
+                      {templatesData.slice(0, 5).map((tpl: any) => (
+                        <Link
+                          key={tpl.file}
+                          href="/resources/templates"
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-1 text-xs text-slate-700 hover:text-[#12B5A5]"
+                        >
+                          {tpl.name}
+                        </Link>
+                      ))}
+                      <Link
+                        href="/resources/templates"
+                        onClick={() => setMobileOpen(false)}
+                        className="block pt-1 font-bold text-xs text-[#12B5A5]"
+                      >
+                        All 11 templates →
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#12B5A5]">HR & Payroll Glossary</span>
+                    <div className="mt-1 space-y-1">
+                      {["Absenteeism", "Arrears", "Basic salary", "CTC", "Full and final settlement"].map((term) => (
+                        <Link
+                          key={term}
+                          href="/resources/glossary"
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-1 text-xs text-slate-700 hover:text-[#12B5A5]"
+                        >
+                          {term}
+                        </Link>
+                      ))}
+                      <Link
+                        href="/resources/glossary"
+                        onClick={() => setMobileOpen(false)}
+                        className="block pt-1 font-bold text-xs text-[#12B5A5]"
+                      >
+                        View full glossary →
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Guides & Articles</span>
+                    <div className="mt-1 space-y-1">
+                      {resourceLinks.map((r) => (
+                        <Link
+                          key={r.to}
+                          href={r.to}
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-1 text-xs text-slate-700 hover:text-[#12B5A5]"
+                        >
+                          {r.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
