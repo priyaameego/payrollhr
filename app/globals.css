@@ -570,6 +570,54 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 6px 16px -3px rgba(18, 181, 165, 0.18);
 }
 
+/* AI Face Scanner Dynamic Animations */
+@keyframes laserSweep {
+  0% {
+    top: 4%;
+    opacity: 0.95;
+  }
+  50% {
+    top: 92%;
+    opacity: 1;
+  }
+  100% {
+    top: 4%;
+    opacity: 0.95;
+  }
+}
+
+@keyframes biometricPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+@keyframes cameraFeedBreathe {
+  0%, 100% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1.045);
+  }
+}
+
+.animate-laser-sweep {
+  animation: laserSweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-biometric-pulse {
+  animation: biometricPulse 1.6s ease-in-out infinite;
+}
+
+.animate-camera-breathe {
+  animation: cameraFeedBreathe 5s ease-in-out infinite;
+}
+
 /* Accessibility: Respect Reduced Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
   .animate-hero-gradient,

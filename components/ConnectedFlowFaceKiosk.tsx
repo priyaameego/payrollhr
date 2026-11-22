@@ -13,6 +13,12 @@ import {
   Smartphone,
   Sparkles,
   Zap,
+  Check,
+  Radio,
+  Building2,
+  HardHat,
+  Eye,
+  Shield,
 } from "lucide-react";
 
 interface RuleCard {
@@ -78,7 +84,7 @@ const rightRules: RuleCard[] = [
     iconColor: "text-blue-600",
     title: "Shift matched",
     subtitle: "9 to 6, and the roster knows",
-    screenBadge: "📅 Shift: 09:30 – 18:30 rostered",
+    screenBadge: "📅 Shift: 09:00 – 18:00 rostered",
   },
   {
     id: 5,
@@ -116,14 +122,31 @@ const allRules = [...leftRules, ...rightRules];
 
 export default function ConnectedFlowFaceKiosk() {
   const [activeStep, setActiveStep] = useState<number>(0);
+  const [mode, setMode] = useState<"worker" | "corporate">("worker");
   const [isPunching, setIsPunching] = useState<boolean>(false);
+  const [currentTime, setCurrentTime] = useState<string>("09:28:44");
+  const [currentMs, setCurrentMs] = useState<string>("842");
 
-  // Auto-cycle one by one through rules
+  // Auto-cycle through the 8 rules
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % 8);
     }, 2200);
     return () => clearInterval(timer);
+  }, []);
+
+  // Live millisecond ticking clock for high-authenticity video feel
+  useEffect(() => {
+    const clockTimer = setInterval(() => {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, "0");
+      const m = String(now.getMinutes()).padStart(2, "0");
+      const s = String(now.getSeconds()).padStart(2, "0");
+      const ms = String(now.getMilliseconds()).padStart(3, "0");
+      setCurrentTime(`${h}:${m}:${s}`);
+      setCurrentMs(ms);
+    }, 60);
+    return () => clearInterval(clockTimer);
   }, []);
 
   const triggerLivePunch = () => {
@@ -134,15 +157,38 @@ export default function ConnectedFlowFaceKiosk() {
       step++;
       if (step >= 8) {
         clearInterval(interval);
-        setTimeout(() => setIsPunching(false), 800);
+        setTimeout(() => setIsPunching(false), 900);
       }
     }, 220);
   };
 
   const currentRule = allRules.find((r) => r.id === activeStep) || leftRules[0];
+  const isMatchConfirmed = isPunching || activeStep % 2 === 0;
+
+  // Profiles based on selected mode
+  const profile =
+    mode === "worker"
+      ? {
+          name: "Ramesh Verma",
+          id: "EMP #1048",
+          dept: "Production Unit 02",
+          shift: "09:00 - 18:00 (On-Time)",
+          punch: "08:58 AM",
+          image: "/images/kiosk-face-worker.jpg",
+          location: "GATE 01 • FACTORY KIOSK",
+        }
+      : {
+          name: "Pooja Sharma",
+          id: "EMP #2035",
+          dept: "Accounts & Finance",
+          shift: "09:30 - 18:30 (On-Time)",
+          punch: "09:28 AM",
+          image: "/images/kiosk-face-corporate.jpg",
+          location: "MAIN RECEPTION • DESK KIOSK",
+        };
 
   return (
-    <div className="relative mt-12 sm:mt-16 w-full max-w-6xl mx-auto py-4">
+    <div className="relative mt-10 sm:mt-14 w-full max-w-6xl mx-auto py-4">
       {/* Background radial glow */}
       <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-tr from-teal-100/40 via-sky-100/30 to-emerald-50/20 blur-3xl pointer-events-none" />
 
@@ -202,65 +248,177 @@ export default function ConnectedFlowFaceKiosk() {
         </div>
 
         {/* ======================================================== */}
-        {/* CENTER REAL HARDWARE FACE TERMINAL KIOSK (100% Copyright-Free) */}
+        {/* CENTER HARDWARE FACE TERMINAL KIOSK (Live AI Recognition) */}
         {/* ======================================================== */}
         <div className="flex flex-col items-center justify-center order-1 lg:order-2 py-2">
-          {/* Hardware Device Chassis */}
-          <div className="relative w-[260px] sm:w-[285px] rounded-[36px] bg-[#0c1017] border-[4px] border-slate-800 p-3.5 shadow-2xl ring-1 ring-white/10">
-            {/* Top Indicator Light (Live biometric green glow) */}
-            <div className="h-1.5 w-14 rounded-full bg-emerald-400 mx-auto mb-2.5 shadow-[0_0_14px_#34d399] animate-pulse" />
+          {/* Mode Switcher: Factory Gate vs Corporate Office */}
+          <div className="mb-3 inline-flex items-center gap-1 rounded-full bg-slate-900/90 border border-slate-800 p-1 shadow-md">
+            <button
+              type="button"
+              onClick={() => setMode("worker")}
+              className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold transition-all ${
+                mode === "worker"
+                  ? "bg-gradient-to-r from-[#12B5A5] to-[#0E9486] text-white shadow-sm"
+                  : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <HardHat className="h-3 w-3" />
+              <span>Factory Shift Gate</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setMode("corporate")}
+              className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold transition-all ${
+                mode === "corporate"
+                  ? "bg-gradient-to-r from-[#12B5A5] to-[#0E9486] text-white shadow-sm"
+                  : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <Building2 className="h-3 w-3" />
+              <span>Corporate Desk</span>
+            </button>
+          </div>
 
-            {/* Camera & Dual IR Sensor Notch */}
-            <div className="flex items-center justify-center gap-2.5 mb-2.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-slate-900 ring-1 ring-slate-700/80 shadow-inner" />
-              <span className="h-1.5 w-1.5 rounded-full bg-rose-500/80 shadow-[0_0_6px_#f43f5e]" />
+          {/* Hardware Device Chassis */}
+          <div className="relative w-[265px] sm:w-[290px] rounded-[38px] bg-[#0A0E14] border-[4px] border-slate-800/95 p-3.5 shadow-2xl ring-1 ring-white/10 transition-all">
+            {/* Top Biometric Status Indicator LED */}
+            <div className="flex items-center justify-between px-3 mb-2">
+              <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest">
+                AI SCANNER
+              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+                <div className="h-1.5 w-12 rounded-full bg-emerald-400 shadow-[0_0_12px_#34d399]" />
+              </div>
             </div>
 
-            {/* Terminal Screen with REAL Photography & Dynamic Biometric HUD */}
-            <div className="relative aspect-[9/14] w-full rounded-2xl bg-black overflow-hidden border border-slate-800/90 shadow-inner flex flex-col justify-between">
-              {/* REAL Photo of worker at gate (100% Royalty-Free Commercial License) */}
-              <div className="absolute inset-0">
+            {/* Camera & Dual IR Sensor Notch */}
+            <div className="flex items-center justify-center gap-2.5 mb-2">
+              <span className="h-2 w-2 rounded-full bg-slate-900 ring-1 ring-slate-700/80 shadow-inner" />
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-500/80 shadow-[0_0_6px_#f43f5e] animate-pulse" />
+              <span className="h-1 w-1 rounded-full bg-cyan-400/80 shadow-[0_0_4px_#22d3ee]" />
+            </div>
+
+            {/* Terminal Screen with Photorealistic Portrait & Animated AI Vision HUD */}
+            <div className="relative aspect-[9/15] w-full rounded-2xl bg-black overflow-hidden border border-slate-800 shadow-inner flex flex-col justify-between">
+              {/* Authentic Photo with subtle camera breathing motion */}
+              <div className="absolute inset-0 overflow-hidden">
                 <Image
-                  src="/images/kiosk-face-real.jpg"
-                  alt="Real-time Face Verification at Attendance Gate"
+                  key={profile.image}
+                  src={profile.image}
+                  alt={`Real-time Face Verification - ${profile.name}`}
                   fill
                   priority
-                  className="object-cover object-center scale-105 transition-transform duration-1000"
+                  className="object-cover object-center animate-camera-breathe transition-opacity duration-500"
                 />
-                {/* Subtle vignette shadow to blend with hardware frame */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-slate-950/45 pointer-events-none" />
+                {/* Vignette shadow to blend smoothly with terminal bezel */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-slate-950/60 pointer-events-none" />
+                
+                {/* Subtle camera scanline texture */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,181,165,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] pointer-events-none opacity-30" />
               </div>
 
-              {/* Realistic AI Face Recognition Bounding Box & HUD overlay */}
+              {/* Top Screen HUD: Gate info, Millisecond Clock & Match Speed */}
+              <div className="relative z-10 flex items-center justify-between text-[8px] font-mono font-semibold text-white/95 bg-slate-950/80 backdrop-blur-xs px-2.5 py-1.5 border-b border-white/10">
+                <span className="tracking-wider uppercase flex items-center gap-1 truncate max-w-[140px]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  {profile.location}
+                </span>
+                <span className="text-emerald-400 font-bold flex items-center gap-1 font-mono">
+                  {currentTime}.<span className="text-emerald-200">{currentMs}</span>
+                </span>
+              </div>
+
+              {/* AI Biometric Face Reticle & Scanning Engine */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="relative w-36 h-48 rounded-2xl border-2 border-emerald-400/85 shadow-[0_0_16px_rgba(52,211,153,0.35)] animate-pulse">
-                  {/* Corner targeting brackets */}
+                {/* Reticle positioned around the employee's face */}
+                <div
+                  className={`relative w-[50%] h-[32%] -translate-y-4 rounded-2xl border-2 transition-all duration-300 ${
+                    isMatchConfirmed
+                      ? "border-emerald-400 bg-emerald-500/10 shadow-[0_0_24px_rgba(52,211,153,0.55)] scale-105"
+                      : "border-teal-400/80 shadow-[0_0_16px_rgba(20,184,166,0.35)]"
+                  }`}
+                >
+                  {/* High-Tech Corner Targeting Brackets */}
                   <span className="absolute -top-1 -left-1 h-3.5 w-3.5 border-t-2 border-l-2 border-emerald-300" />
                   <span className="absolute -top-1 -right-1 h-3.5 w-3.5 border-t-2 border-r-2 border-emerald-300" />
                   <span className="absolute -bottom-1 -left-1 h-3.5 w-3.5 border-b-2 border-l-2 border-emerald-300" />
                   <span className="absolute -bottom-1 -right-1 h-3.5 w-3.5 border-b-2 border-r-2 border-emerald-300" />
 
-                  {/* Facial landmark reticles on eyes */}
-                  <span className="absolute top-12 left-7 h-2 w-2 rounded-full border border-emerald-300/80 bg-emerald-400/30 animate-ping [animation-duration:3s]" />
-                  <span className="absolute top-12 right-7 h-2 w-2 rounded-full border border-emerald-300/80 bg-emerald-400/30 animate-ping [animation-duration:3s]" />
+                  {/* Active Laser Scanning Beam (Sweeps up & down over face) */}
+                  <div className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-300 to-transparent shadow-[0_0_12px_#34d399] animate-laser-sweep" />
 
-                  {/* Laser scanning beam */}
-                  <div className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#34d399] animate-[bounce_3s_ease-in-out_infinite]" />
+                  {/* Facial Landmark Points & Biometric Feature Mesh */}
+                  <div className="absolute inset-0">
+                    {/* Left Eye Landmark */}
+                    <span className="absolute top-[34%] left-[34%] h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-300 shadow-[0_0_6px_#34d399] animate-biometric-pulse" />
+                    {/* Right Eye Landmark */}
+                    <span className="absolute top-[34%] right-[34%] h-1.5 w-1.5 translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-300 shadow-[0_0_6px_#34d399] animate-biometric-pulse" />
+                    {/* Nose Bridge Landmark */}
+                    <span className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_6px_#22d3ee]" />
+                    {/* Left Mouth Corner */}
+                    <span className="absolute top-[68%] left-[38%] h-1 w-1 rounded-full bg-emerald-300" />
+                    {/* Right Mouth Corner */}
+                    <span className="absolute top-[68%] right-[38%] h-1 w-1 rounded-full bg-emerald-300" />
+                    {/* Chin Landmark */}
+                    <span className="absolute top-[82%] left-[50%] -translate-x-1/2 h-1 w-1 rounded-full bg-emerald-300" />
+
+                    {/* Connecting SVG Biometric Triangulation Lines */}
+                    <svg className="absolute inset-0 w-full h-full stroke-emerald-300/40 stroke-[0.8] fill-emerald-400/5">
+                      <polygon points="40,38 75,38 57,56" />
+                      <polygon points="40,38 57,56 44,76" />
+                      <polygon points="75,38 57,56 70,76" />
+                      <polygon points="44,76 70,76 57,92" />
+                    </svg>
+                  </div>
+
+                  {/* Floating AI Confidence Pill */}
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-slate-950/85 border border-emerald-400/60 px-2 py-0.5 text-[8px] font-mono font-bold text-emerald-300 shadow-sm flex items-center gap-1">
+                    <span className="h-1 w-1 rounded-full bg-emerald-400 animate-ping" />
+                    <span>LIVENESS: 99.8% VERIFIED</span>
+                  </div>
+
+                  {/* Center Match Confirmed Badge */}
+                  {isMatchConfirmed && (
+                    <div className="absolute inset-0 flex items-center justify-center animate-in fade-in zoom-in-95 duration-200">
+                      <div className="rounded-full bg-emerald-500/95 border border-white/60 px-3 py-1 text-[10px] font-black text-white shadow-lg flex items-center gap-1.5">
+                        <Check className="h-3 w-3 stroke-[3]" />
+                        <span>0.18s MATCH</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
-              {/* Top Screen HUD */}
-              <div className="relative z-10 flex items-center justify-between text-[8px] font-mono font-semibold text-white/95 bg-slate-950/75 backdrop-blur-xs px-2.5 py-1.5 border-b border-white/10">
-                <span className="tracking-wider uppercase">GATE 01 • LOGIN VIEW</span>
-                <span className="text-emerald-400 font-bold flex items-center gap-1">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                  0.18s MATCH
-                </span>
-              </div>
+              {/* Bottom Area: Employee Identified Card & Live Rule Badge */}
+              <div className="relative z-10 p-2.5 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent space-y-2">
+                {/* Employee Identification Card */}
+                <div className="rounded-xl bg-slate-900/90 border border-slate-700/80 p-2 shadow-lg backdrop-blur-xs flex items-center justify-between">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="relative h-7 w-7 rounded-lg overflow-hidden border border-emerald-400/80 shrink-0">
+                      <Image
+                        src={profile.image}
+                        alt={profile.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-bold text-white leading-tight truncate">
+                        {profile.name}
+                      </div>
+                      <div className="text-[8px] font-mono text-emerald-400 truncate">
+                        {profile.id} • {profile.shift}
+                      </div>
+                    </div>
+                  </div>
+                  <span className="shrink-0 rounded-md bg-emerald-500/20 border border-emerald-500/60 px-1.5 py-0.5 text-[8px] font-bold text-emerald-300">
+                    PUNCHED IN
+                  </span>
+                </div>
 
-              {/* Bottom Screen Live Rule Verification Pill */}
-              <div className="relative z-10 p-2.5 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-transparent">
-                <div className="rounded-lg bg-emerald-950/90 border border-emerald-500/70 px-2.5 py-1 text-center backdrop-blur-xs shadow-md transition-all duration-300">
+                {/* Active Connected Rule Notification Badge */}
+                <div className="rounded-lg bg-emerald-950/95 border border-emerald-500/80 px-2.5 py-1 text-center shadow-md">
                   <span className="text-[10px] font-bold text-emerald-300 font-mono tracking-wide flex items-center justify-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     {currentRule.screenBadge}
@@ -292,19 +450,19 @@ export default function ConnectedFlowFaceKiosk() {
             </div>
           </div>
 
-          {/* Bottom Action Pill & Subtext */}
+          {/* Bottom Interactive Simulation Trigger Button */}
           <div className="mt-4 flex flex-col items-center">
             <button
               type="button"
               onClick={triggerLivePunch}
-              className="inline-flex items-center gap-2 rounded-full bg-slate-950 border border-slate-800 px-4 sm:px-5 py-2 text-xs font-bold text-white shadow-xl hover:border-teal-400 hover:shadow-teal-500/10 transition-all cursor-pointer group"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-950 border border-slate-800 px-5 py-2.5 text-xs font-bold text-white shadow-xl hover:border-teal-400 hover:shadow-teal-500/15 transition-all cursor-pointer group active:scale-95"
             >
               <Sparkles className="h-3.5 w-3.5 text-teal-400 animate-spin [animation-duration:4s]" />
-              <span>12 more rules ran on that one punch</span>
-              <Zap className="h-3 w-3 text-amber-400 transition-transform group-hover:scale-125" />
+              <span>Simulate Live Punch (0.18s Match)</span>
+              <Zap className="h-3.5 w-3.5 text-amber-400 transition-transform group-hover:scale-125" />
             </button>
             <p className="mt-2 text-[11px] font-medium text-slate-500 tracking-wide">
-              Free to start. No card, no contract.
+              12 payroll & statutory compliance rules run instantly on that single punch
             </p>
           </div>
         </div>
