@@ -37,6 +37,11 @@ import {
   Laptop,
   Check,
   TrendingUp,
+  Database,
+  ClipboardCheck,
+  IndianRupee,
+  MonitorSmartphone,
+  Zap,
 } from "lucide-react";
 import { productGroups, groupMeta, contactDetails } from "@/data/navigation";
 import { FeatureIcon } from "@/components/IconHelper";
@@ -46,6 +51,14 @@ import toolsData from "@/data/tools.json";
 import DemoForm from "@/components/DemoForm";
 import ConnectedFlowFaceKiosk from "@/components/ConnectedFlowFaceKiosk";
 import StaffNeedsWordCloud from "@/components/StaffNeedsWordCloud";
+
+function WhatsAppIcon({ className = "h-4 w-4 shrink-0" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="#25D366">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
 
 // 3D Visual Badges inspired by AttendoHR Showcase Design
 function Calendar3DBadge({ className = "" }: { className?: string }) {
@@ -596,85 +609,107 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* LIVE MARQUEE TICKER (PagarBook Clean SaaS Style) */}
+      {/* 2. TRUST & STATUTORY FOUNDATION (Ticker + 4 Enterprise Pillars) */}
       {/* ============================================================ */}
-      <div className="relative overflow-hidden border-y border-[#C8EFE6] bg-[#F3FAF8] py-3.5 shadow-2xs">
-        <div className="animate-marquee flex items-center whitespace-nowrap text-xs sm:text-[13px] font-semibold text-slate-800">
-          {[1, 2, 3].map((loop) => (
-            <React.Fragment key={loop}>
-              <span className="flex items-center gap-2">
-                <span>🛡️</span>
-                <span>100% PF, ESIC, PT & TDS Compliant</span>
-              </span>
-              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
-              <span className="flex items-center gap-2">
-                <span>🧾</span>
-                <span>WhatsApp Payslip Delivery in 1 Click</span>
-              </span>
-              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
-              <span className="flex items-center gap-2">
-                <span>📍</span>
-                <span>GPS Geofenced Mobile Punch with Anti-Spoof</span>
-              </span>
-              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
-              <span className="flex items-center gap-2">
-                <span>⚡</span>
-                <span>Zero Biometric Machine Maintenance</span>
-              </span>
-              <span className="text-[#12B5A5] mx-6 font-black text-sm">•</span>
-            </React.Fragment>
-          ))}
+      <div className="-mt-14 sm:-mt-20 space-y-6 sm:space-y-7">
+        {/* LIVE MARQUEE TICKER (PagarBook Clean SaaS Style with Real SVGs) */}
+        <div className="relative overflow-hidden border-y border-[#C8EFE6] bg-[#F3FAF8] py-3.5 shadow-2xs">
+          <div className="animate-marquee flex items-center whitespace-nowrap text-xs sm:text-[13px] font-semibold text-slate-800">
+            {[1, 2, 3].map((loop) => (
+              <React.Fragment key={loop}>
+                <span className="flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 shrink-0 text-[#12B5A5]" />
+                  <span>100% PF, ESIC, PT & TDS Compliant</span>
+                </span>
+                <span className="text-[#12B5A5] mx-5 font-black text-sm">•</span>
+                <span className="flex items-center gap-2">
+                  <WhatsAppIcon />
+                  <span>WhatsApp Payslip Delivery in 1 Click</span>
+                </span>
+                <span className="text-[#12B5A5] mx-5 font-black text-sm">•</span>
+                <span className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 shrink-0 text-rose-500" />
+                  <span>GPS Geofenced Mobile Punch with Anti-Spoof</span>
+                </span>
+                <span className="text-[#12B5A5] mx-5 font-black text-sm">•</span>
+                <span className="flex items-center gap-2">
+                  <ScanFace className="h-4 w-4 shrink-0 text-[#12B5A5]" />
+                  <span>Zero Biometric Machine Maintenance</span>
+                </span>
+                <span className="text-[#12B5A5] mx-5 font-black text-sm">•</span>
+                <span className="flex items-center gap-2">
+                  <Zap className="h-4 w-4 shrink-0 text-amber-500" />
+                  <span>1-Click Bank Payouts (HDFC CMS, ICICI, SBI)</span>
+                </span>
+                <span className="text-[#12B5A5] mx-5 font-black text-sm">•</span>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* ============================================================ */}
-      {/* 2. STATUTORY STRIP */}
-      {/* ============================================================ */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="rounded-3xl border border-teal-100/70 bg-gradient-to-r from-white via-[#F0FDFB] to-white p-6 shadow-sm">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4 bg-white">
-              <div className="attendo-icon-box h-11 w-11 shrink-0">
-                <Receipt className="h-5 w-5" />
+        {/* STATUTORY STRIP (4 Real-World Enterprise Pillars) */}
+        <section className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="rounded-3xl border border-teal-100/90 bg-gradient-to-r from-white via-[#F0FDFB] to-white p-5 sm:p-6 shadow-sm">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {/* Card 1: Indian Payroll */}
+              <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4.5 bg-white border border-slate-100/80 rounded-2xl shadow-2xs">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#E6FAF7] to-[#D0F5EE] border border-teal-200/90 text-[#0E7A6E] shadow-2xs group-hover:scale-105 group-hover:bg-[#12B5A5] group-hover:text-white transition-all">
+                  <IndianRupee className="h-5 w-5 stroke-[2.4]" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm font-bold text-slate-900 text-hover-lux truncate">Indian Payroll</h4>
+                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">PF, ESI, Professional Tax, TDS</p>
+                  <span className="inline-block mt-2 rounded-md bg-teal-50 border border-teal-200/80 px-2.5 py-0.5 text-[10px] font-bold text-[#0E7A6E]">
+                    100% Statutory Compliant
+                  </span>
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-900 text-hover-lux">Indian Payroll</h4>
-                <p className="text-xs text-slate-500 mt-0.5">PF, ESI, Professional Tax, TDS</p>
-              </div>
-            </div>
 
-            <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4 bg-white">
-              <div className="attendo-icon-box h-11 w-11 shrink-0">
-                <Smartphone className="h-5 w-5" />
+              {/* Card 2: Universal Access */}
+              <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4.5 bg-white border border-slate-100/80 rounded-2xl shadow-2xs">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-50 to-teal-50 border border-sky-200/90 text-sky-700 shadow-2xs group-hover:scale-105 group-hover:bg-sky-600 group-hover:text-white transition-all">
+                  <MonitorSmartphone className="h-5 w-5 stroke-[2.4]" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm font-bold text-slate-900 text-hover-lux truncate">Universal Access</h4>
+                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Works on phone, tablet or laptop</p>
+                  <span className="inline-block mt-2 rounded-md bg-sky-50 border border-sky-200/80 px-2.5 py-0.5 text-[10px] font-bold text-sky-800">
+                    Web • Android • iOS
+                  </span>
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-900 text-hover-lux">Universal Access</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Works on any phone, tablet or laptop</p>
-              </div>
-            </div>
 
-            <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4 bg-white">
-              <div className="attendo-icon-box h-11 w-11 shrink-0">
-                <Building className="h-5 w-5" />
+              {/* Card 3: Isolated Data */}
+              <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4.5 bg-white border border-slate-100/80 rounded-2xl shadow-2xs">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-50 to-teal-50 border border-indigo-200/90 text-indigo-700 shadow-2xs group-hover:scale-105 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                  <Database className="h-5 w-5 stroke-[2.4]" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm font-bold text-slate-900 text-hover-lux truncate">Isolated Data</h4>
+                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Each organisation separate</p>
+                  <span className="inline-block mt-2 rounded-md bg-indigo-50 border border-indigo-200/80 px-2.5 py-0.5 text-[10px] font-bold text-indigo-800">
+                    Dedicated Tenant DB
+                  </span>
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-900 text-hover-lux">Isolated Data</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Each organisation kept completely separate</p>
-              </div>
-            </div>
 
-            <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4 bg-white">
-              <div className="attendo-icon-box h-11 w-11 shrink-0">
-                <ShieldCheck className="h-5 w-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-900 text-hover-lux">Audit Logged</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Every punch, edit and approval tracked</p>
+              {/* Card 4: Audit Logged */}
+              <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4.5 bg-white border border-slate-100/80 rounded-2xl shadow-2xs">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200/90 text-emerald-700 shadow-2xs group-hover:scale-105 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                  <ClipboardCheck className="h-5 w-5 stroke-[2.4]" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm font-bold text-slate-900 text-hover-lux truncate">Audit Logged</h4>
+                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Every punch, edit &amp; approval</p>
+                  <span className="inline-block mt-2 rounded-md bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800">
+                    Tamper-Proof History
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* ============================================================ */}
       {/* 3. IS THIS HOW YOUR PAYROLL RUNS TODAY? (AttendoHR Problem Breakdown) */}
