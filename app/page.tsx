@@ -45,6 +45,7 @@ import solutionsData from "@/data/solutions.json";
 import toolsData from "@/data/tools.json";
 import DemoForm from "@/components/DemoForm";
 import ConnectedFlowFaceKiosk from "@/components/ConnectedFlowFaceKiosk";
+import StaffNeedsWordCloud from "@/components/StaffNeedsWordCloud";
 
 // 3D Visual Badges inspired by AttendoHR Showcase Design
 function Calendar3DBadge({ className = "" }: { className?: string }) {
@@ -1121,6 +1122,11 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+
+      {/* ============================================================ */}
+      {/* 4.5 THINK OF ANYTHING YOU DO FOR YOUR STAFF - INTERACTIVE SEARCH CLOUD */}
+      {/* ============================================================ */}
+      <StaffNeedsWordCloud />
 
       {/* ============================================================ */}
       {/* 5. COMPLETE PRODUCT SUITE - 5-PART ALTERNATING ATTENDOHR SHOWCASE */}
