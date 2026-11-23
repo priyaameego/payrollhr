@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Check, BookOpen, ArrowRight, Sparkles } from "lucide-react";
+import { Check, BookOpen, ArrowRight, Sparkles, FileText } from "lucide-react";
 
 export interface TocItem {
   id: string;
@@ -208,6 +208,54 @@ export default function GlossaryTocSidebar({
             className="ml-auto inline-flex items-center gap-1 text-xs font-bold text-[#12B5A5] hover:text-[#0E7A6E]"
           >
             <span>View full glossary</span>
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+      </div>
+
+      {/* 4. TEMPLATES & CHECKLISTS CARD (Screenshot 2 Exact Match) */}
+      <div className="rounded-3xl border border-teal-100/90 bg-white p-6 shadow-card">
+        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+          <FileText className="h-4 w-4 stroke-[2.2]" />
+          <span>TEMPLATES &amp; CHECKLISTS</span>
+        </div>
+
+        <h4 className="mt-2 font-display text-lg font-bold text-slate-950 leading-snug">
+          Ready-to-use templates for HR &amp; Payroll
+        </h4>
+        <p className="mt-1 text-xs text-slate-500 leading-relaxed font-normal">
+          Save time with expert-crafted letters, forms, and HR documents.
+        </p>
+
+        <div className="mt-4 space-y-2.5">
+          {[
+            { name: "Employee Information Form", slug: "employee-information-form" },
+            { name: "Leave Application Form", slug: "leave-application-form" },
+            { name: "Attendance Register", slug: "attendance-register" },
+            { name: "Salary Structure Template", slug: "salary-structure-template" },
+            { name: "Employee Exit Checklist", slug: "employee-exit-checklist" },
+            { name: "Shift Roster Template", slug: "shift-roster-template" },
+            { name: "Performance Review Template", slug: "performance-review-template" },
+          ].map((item) => (
+            <Link
+              key={item.slug}
+              href={`/templates/${item.slug}`}
+              className="group flex items-center gap-3 rounded-xl p-2 text-xs font-bold text-slate-800 hover:bg-teal-50/70 hover:text-[#0E7A6E] transition-all"
+            >
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-teal-50 border border-teal-200/70 text-[#12B5A5] group-hover:scale-105 group-hover:bg-[#12B5A5] group-hover:text-white transition-all">
+                <FileText className="h-3.5 w-3.5 stroke-[2.2]" />
+              </div>
+              <span className="truncate">{item.name}</span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-5 pt-3.5 border-t border-slate-100">
+          <Link
+            href="/templates"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#12B5A5] hover:text-[#0E7A6E] transition-colors"
+          >
+            <span>View all 11 templates</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>

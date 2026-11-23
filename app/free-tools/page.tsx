@@ -48,6 +48,8 @@ export default function FreeToolsIndexPage() {
 
   const getToolIcon = (slug: string) => {
     switch (slug) {
+      case "8th-pay-commission-calculator":
+        return <Layers className="h-6 w-6 stroke-[2.2]" />;
       case "salary-per-day-calculator":
       case "salary-breakup-calculator":
       case "payroll-cost-calculator":

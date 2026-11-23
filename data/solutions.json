@@ -2,328 +2,822 @@
   {
     "slug": "education",
     "name": "Educational Institutions",
-    "icon": "nc",
-    "short": "Teaching and non-teaching staff, academic calendars and staff payroll.",
-    "headline": "HR and payroll for schools, colleges and institutes",
-    "intro": "Teaching and non-teaching staff often follow different timings, salary structures and rounding rules. PayroleHR lets you set each one up the way your institution already works.",
+    "icon": "GraduationCap",
+    "heroBadge": "Schools, Colleges & Universities",
+    "image": "/images/solutions/solution-education.jpg",
+    "short": "Teaching and non-teaching staff, academic calendars, dual roles, and multi-tier approval payroll.",
+    "headline": "Unified HR, Attendance & Payroll for Schools, Colleges & Institutes",
+    "intro": "Schools and colleges operate with distinct staff divisions: professors, lab assistants, administrative staff, bus drivers, and security. PayroleHR configures distinct shift timings, independent salary structures, and multi-tier principal approvals that mirror your institution's governance.",
+    "stats": [
+      {
+        "label": "Gate Check-in",
+        "value": "99.4% Face Accuracy"
+      },
+      {
+        "label": "Salary Groups",
+        "value": "Teaching vs Admin"
+      },
+      {
+        "label": "Approval Flow",
+        "value": "HOD → Accounts → Principal"
+      },
+      {
+        "label": "Statutory Filing",
+        "value": "EPFO & Gratuity Ready"
+      }
+    ],
     "challenges": [
-      "Teaching and non-teaching staff on different salary structures.",
-      "Morning and day timings for different sections.",
-      "Staff who hold two roles, such as teacher and hostel warden.",
-      "Several approval levels before salaries are released."
+      "Teaching and non-teaching staff operate on entirely different salary structures, allowances, and rounding rules.",
+      "Morning and afternoon timings differ across junior, senior, and administrative sections with shorter working Saturdays.",
+      "Faculty holding dual roles (e.g., senior teacher and hostel warden) require combined payroll without double-counting PF benefits.",
+      "Payroll releases require formal sequential approvals from Department Heads, Accounts Officers, and the Principal."
     ],
     "features": [
       {
         "slug": "salary-structure-management",
-        "why": "Separate structures for teaching and non-teaching staff, each with its own columns and rounding."
+        "title": "Split Salary Structures",
+        "why": "Configure separate salary structures for UGC/CBSE grade teaching staff and non-teaching support staff with unique allowance heads and rounding rules."
       },
       {
         "slug": "face-attendance",
-        "why": "A kiosk at the staff gate replaces the attendance register."
+        "title": "Staff Gate Face Attendance Kiosk",
+        "why": "Place a standard Android tablet kiosk at the staff entry gate to capture fast contactless punches, eliminating traditional paper registers and long morning queues."
       },
       {
         "slug": "shift-management",
-        "why": "Different timings per weekday, such as shorter Saturdays."
+        "title": "Academic Shift Rostering",
+        "why": "Set distinct shift timings per weekday, accommodating early morning lab sessions, exam duty timings, and half-day Saturdays automatically."
       },
       {
         "slug": "payroll-management",
-        "why": "HR → Accounts → Principal sign-off before salaries are locked."
+        "title": "Multi-Tier Approval Hierarchy",
+        "why": "Lock attendance and route monthly payout drafts sequentially through Department Head, Bursar/Accounts, and Principal before bank release."
       },
       {
         "slug": "leave-management",
-        "why": "Casual and sick leave credited monthly or yearly."
+        "title": "Academic Leave & Vacation Credits",
+        "why": "Credit casual, sick, and earned leaves according to the academic fiscal year with custom carry-forward rules for non-vacation staff."
       }
     ],
     "workflow": [
-      "Staff check in at the gate kiosk each morning.",
-      "The month's attendance flows into each staff group's salary structure.",
-      "Accounts reviews, the principal approves, and the bank file is exported.",
-      "Staff download payslips from the portal."
+      {
+        "step": "01",
+        "title": "Morning Gate Check-In",
+        "desc": "Teachers and campus staff punch in at the gate kiosk within seconds using AI face recognition, verifying on-time arrival before morning assembly."
+      },
+      {
+        "step": "02",
+        "title": "Lecture & Shift Mapping",
+        "desc": "Attendance rules automatically map punches against specific departmental schedules and special exam supervision shifts."
+      },
+      {
+        "step": "03",
+        "title": "HOD & Principal Review",
+        "desc": "Department heads review leave applications and regularizations on their portal; bursar validates loss of pay calculations."
+      },
+      {
+        "step": "04",
+        "title": "1-Click Bank Disbursement",
+        "desc": "Accounts generates statutory PF/ESI deduction files and exports direct bank transfer sheets formatted for SBI, HDFC, or Canara Bank."
+      }
     ],
     "scenarios": [
       {
-        "title": "Two roles, one bank transfer",
-        "text": "A teacher who is also hostel warden keeps two staff records with separate salaries; the bank file pays both in one line."
+        "title": "Dual Role: Teacher & Hostel Warden",
+        "text": "Faculty managing academic classes and residential hostel duties maintain two assigned role allowances under one consolidated employee profile, ensuring single UAN compliance and unified monthly salary credit."
       },
       {
-        "title": "Holidays and vacations",
-        "text": "Institution holidays come from your calendar. Separate vacation-period handling is planned, not available yet."
+        "title": "Academic Vacations & Non-Vacation Staff",
+        "text": "Configure distinct holiday rules: teaching faculty observe designated summer/winter breaks while administrative and maintenance staff remain on regular working schedules with compensatory offs."
+      },
+      {
+        "title": "Guest Lecturers & Visiting Faculty Pay",
+        "text": "Track visiting professors on hourly or per-lecture payout rates without creating permanent full-time statutory payroll liabilities."
       }
     ],
+    "screen": {
+      "title": "Academic Staff Master",
+      "eyebrow": "Education Setup",
+      "rows": [
+        [
+          "Staff Division",
+          "Teaching (PGT / TGT) & Admin"
+        ],
+        [
+          "Gate Face Kiosk",
+          "Active at Main Gate & Block B"
+        ],
+        [
+          "Approval Route",
+          "HOD → Accounts → Principal"
+        ],
+        [
+          "Salary Engine",
+          "Separate Basic + DA + Academic Allowance"
+        ]
+      ]
+    },
     "faqs": [
       {
-        "q": "Can non-teaching staff salaries keep paise while teachers round?",
-        "a": "Yes. Rounding is set per column in each structure."
+        "q": "Can non-teaching staff salaries keep exact paise while teachers round to the nearest rupee?",
+        "a": "Yes. In PayroleHR, rounding rules (round off, truncate, or exact paise) are configured on each individual column within salary structures."
+      },
+      {
+        "q": "Can school bus drivers and field security mark attendance at outer gates?",
+        "a": "Yes. Bus drivers and security guards can check in via dedicated tablet kiosks at transport yards or through mobile geofenced punches with live photo proof."
+      },
+      {
+        "q": "How does PayroleHR handle guest lecturer payouts?",
+        "a": "You can define an hourly or lecture-based payout group that calculates total remuneration based on approved session logs without mandatory EPF deductions."
+      },
+      {
+        "q": "Does PayroleHR provide Form 16 and statutory PF reports for educational trusts?",
+        "a": "Yes. PayroleHR generates official EPFO ECR text returns, Form 16 Part B tax breakdowns, and state-wise Professional Tax sheets ready for audit inspections."
       }
     ]
   },
   {
     "slug": "corporate",
     "name": "Corporate Offices",
-    "icon": "Ds",
-    "short": "Departments, custom roles, self-service and approvals.",
-    "headline": "HR for offices that want fewer spreadsheets and emails",
-    "intro": "Give employees a self-service portal, managers their own department view, and finance a payroll they can approve with confidence.",
+    "icon": "Building",
+    "heroBadge": "IT, Tech & Professional Services",
+    "image": "/images/solutions/solution-corporate.jpg",
+    "short": "Departments, custom roles, employee self-service, future increments, and audit-ready governance.",
+    "headline": "Automated HR, Attendance & Payroll for High-Growth Corporate Offices",
+    "intro": "Modern corporate offices require a polished employee experience: self-service mobile apps for leave and payslips, granular department-level manager visibility, and streamlined approval workflows that save finance and HR from repetitive email threads and Excel chaos.",
+    "stats": [
+      {
+        "label": "Self-Service",
+        "value": "100% Mobile & Web"
+      },
+      {
+        "label": "Salary Slabs",
+        "value": "New vs Old Tax Regime"
+      },
+      {
+        "label": "Security",
+        "value": "Role-Based Access Control"
+      },
+      {
+        "label": "Payout Speed",
+        "value": "Month-End in 10 Minutes"
+      }
+    ],
     "challenges": [
-      "Staff asking HR for payslips and leave balances.",
-      "Managers who should see only their team.",
-      "Increments that need to take effect from a future month."
+      "HR teams waste hours every month answering repetitive queries about leave balances, payslips, and tax projections.",
+      "Department heads need team visibility to approve leaves without seeing confidential company-wide salary details.",
+      "Annual appraisal increments, promotions, and bonus adjustments must take effect from future dates without manual calculations.",
+      "Managing hybrid work arrangements where some employees work from office while others work remotely or visit client offices."
     ],
     "features": [
       {
-        "slug": "employee-management",
-        "why": "Self-registration and custom fields for each employee."
+        "slug": "employee-self-service",
+        "title": "Employee Mobile Self-Service",
+        "why": "Empower staff to view attendance logs, apply for leaves, download encrypted payslips, and inspect tax declarations from iOS and Android devices."
       },
       {
-        "slug": "organization-policies",
-        "why": "Custom roles and department-head visibility."
+        "slug": "organization-management",
+        "title": "Department & Role Isolation",
+        "why": "Grant department heads approval authority over their direct reports while keeping financial structures strictly locked to authorized payroll admins."
       },
       {
-        "slug": "payroll-management",
-        "why": "Scheduled salary revisions and approval stages."
+        "slug": "salary-structure-management",
+        "title": "Future-Dated Salary Revisions",
+        "why": "Schedule salary increments and promotions weeks in advance; the system automatically switches to the revised CTC on the effective date."
       },
       {
-        "slug": "helpdesk",
-        "why": "HR queries tracked instead of lost in email."
+        "slug": "geo-fencing-attendance",
+        "title": "Hybrid & Remote Attendance",
+        "why": "Office staff check in via contactless kiosk while remote or field executives punch with 50m GPS geofencing and anti-spoof selfie capture."
       },
       {
-        "slug": "performance-management",
-        "why": "Goals and reviews alongside attendance and pay."
+        "slug": "reports-analytics",
+        "title": "Executive Workforce Analytics",
+        "why": "Real-time visual dashboards showing headcount distribution, departmental wage bills, overtime trends, and attrition metrics for leadership."
       }
     ],
     "workflow": [
-      "Employees sign in to the portal with mobile OTP.",
-      "They apply for leave, raise queries and update goals.",
-      "Managers approve for their department.",
-      "Finance approves payroll and payslips are published."
+      {
+        "step": "01",
+        "title": "Mobile / Kiosk Check-In",
+        "desc": "Office employees scan at reception tablet kiosks while remote workers punch in with geofenced mobile verification."
+      },
+      {
+        "step": "02",
+        "title": "Manager Approval Flow",
+        "desc": "Leave requests, punch regularizations, and comp-off claims route to the employee's direct reporting manager for 1-click approval."
+      },
+      {
+        "step": "03",
+        "title": "Automated Payroll Computation",
+        "desc": "Attendance days, approved leaves, and lop deductions automatically feed the salary engine with dual tax regime comparisons."
+      },
+      {
+        "step": "04",
+        "title": "Encrypted Payslip Release",
+        "desc": "Finance approves payouts and publishes password-protected payslips directly to employee portals and registered WhatsApp numbers."
+      }
     ],
     "scenarios": [
       {
-        "title": "Increment from April",
-        "text": "Schedule the revision in advance; it applies automatically when April payroll is calculated."
+        "title": "April Appraisal Revisions Scheduled in Advance",
+        "text": "HR uploads revised salary structures for 150 employees in February. The system continues calculating March under old rates and switches automatically to revised compensation on 01 April."
       },
       {
-        "title": "Hybrid attendance",
-        "text": "Office staff use the kiosk; others check in from the portal, optionally with face verification."
+        "title": "Hybrid Work Authorization",
+        "text": "Configure team policies allowing 2 days work-from-home per week with geofenced mobile punches, while requiring physical kiosk attendance on anchor office days."
+      },
+      {
+        "title": "Multi-Department Cost Centers",
+        "text": "Assign staff to specific cost centers (Engineering, Sales, Marketing) to generate department-wise wage registers for corporate management accounting."
       }
     ],
+    "screen": {
+      "title": "Corporate Workforce Overview",
+      "eyebrow": "Corporate Setup",
+      "rows": [
+        [
+          "Workforce Model",
+          "Hybrid (Kiosk + Mobile Geofence)"
+        ],
+        [
+          "Manager View",
+          "Department-level team isolation"
+        ],
+        [
+          "Tax Engine",
+          "Auto-compare Old & New Regime TDS"
+        ],
+        [
+          "Payslip Delivery",
+          "Employee App & Verified WhatsApp"
+        ]
+      ]
+    },
     "faqs": [
       {
-        "q": "Can department heads see salaries?",
-        "a": "Only if their role allows it. Custom roles can narrow access."
+        "q": "Can department heads see salaries of other teams or executives?",
+        "a": "No. Role-based permissions allow department managers to view only attendance and leave requests for their direct reports, keeping executive payroll strictly confidential."
+      },
+      {
+        "q": "Does PayroleHR calculate TDS under both Old and New Tax Regimes?",
+        "a": "Yes. Employees can submit investment declarations, and the payroll engine projects the annual tax liability under both regimes to optimize monthly deductions."
+      },
+      {
+        "q": "Can we integrate biometric data from multiple corporate branch offices?",
+        "a": "Yes. All branch tablet kiosks and mobile check-ins sync to your centralized cloud dashboard in real time with multi-branch data isolation."
+      },
+      {
+        "q": "How does PayroleHR handle employee onboarding documents?",
+        "a": "New joiners receive a secure registration link to upload Aadhaar, PAN, educational certificates, and bank account proofs for digital HR verification."
       }
     ]
   },
   {
     "slug": "manufacturing",
     "name": "Manufacturing & Factories",
-    "icon": "Js",
-    "short": "Multiple shifts, overtime and fast gate attendance.",
-    "headline": "Shift attendance and overtime for factories",
-    "intro": "Large numbers of workers on several shifts need fast check-in, correct late marks and overtime that reaches payroll.",
+    "icon": "Factory",
+    "heroBadge": "Factories, Industrial Plants & Warehouses",
+    "image": "/images/solutions/solution-manufacturing.jpg",
+    "short": "Multiple rotational shifts, overtime multipliers, fast turnstile gate check-in, and statutory muster rolls.",
+    "headline": "Industrial Shift Attendance, Overtime & Statutory Payroll for Factories",
+    "intro": "Factories face unique floor realities: hundreds of contract and permanent workers passing through gates during 15-minute shift handovers, complex night shift overtime rules, and stringent Indian Factories Act compliance. PayroleHR automates gate check-ins and overtime calculations with zero manual Excel spreadsheets.",
+    "stats": [
+      {
+        "label": "Gate Throughput",
+        "value": "30+ Scans Per Min"
+      },
+      {
+        "label": "Shift Rotations",
+        "value": "Day, Evening & Night"
+      },
+      {
+        "label": "Overtime Engine",
+        "value": "1.5x / 2.0x Statutory Slabs"
+      },
+      {
+        "label": "Labour Registers",
+        "value": "Form T, Form Q & Form A"
+      }
+    ],
     "challenges": [
-      "Queues at the gate at shift change.",
-      "Workers on morning, evening and night shifts.",
-      "Overtime calculated by hand.",
-      "Weekly offs that differ by shift."
+      "Massive gate congestion and buddy punching when 300+ workers arrive simultaneously during shift changes.",
+      "Managing complex rotational shifts (Shift A, Shift B, Night Shift C) with changing weekly offs and break rules.",
+      "Manual overtime calculations prone to dispute: supervisor logs on paper rarely match actual punch records.",
+      "Passing state labour commissioner inspections with statutory muster rolls (Form T, Form Q) and wage registers."
     ],
     "features": [
       {
         "slug": "face-attendance",
-        "why": "Quick face recognition keeps the gate moving."
+        "title": "High-Speed Face Recognition Kiosk",
+        "why": "Sub-second contactless facial scanning operates smoothly on budget tablets mounted at turnstiles, preventing buddy punching even in dusty shop-floor environments."
       },
       {
         "slug": "shift-management",
-        "why": "Multiple shifts with their own timings and weekly offs."
+        "title": "Rotational Shifts & Night Spans",
+        "why": "Configure shifts that cross midnight without day-split errors, automatically assigning week-offs based on rotating team schedules."
       },
       {
-        "slug": "attendance-management",
-        "why": "Late, half-day and early-leaving rules per shift."
+        "slug": "configurable-rules",
+        "title": "Automated Overtime Rules & Multipliers",
+        "why": "Define buffer times (e.g., 15m grace), round extra hours to 30m blocks, and apply statutory double-rate (2.0x) overtime for rest days."
       },
       {
         "slug": "payroll-management",
-        "why": "Approved overtime hours become a payroll formula input."
+        "title": "Contract vs Permanent Worker Payroll",
+        "why": "Process monthly permanent staff salaries and weekly piece-rate or hourly contractor disbursements within the same system."
       },
       {
         "slug": "reports-analytics",
-        "why": "Daily absentee and late-comer reports."
+        "title": "Labour Law Form T & Muster Rolls",
+        "why": "Download 1-click statutory muster rolls, Form T combined registers, and overtime registers formatted to pass labour inspections without stress."
       }
     ],
     "workflow": [
-      "Workers scan at the gate kiosk.",
-      "Status is decided from their assigned shift.",
-      "Supervisors approve overtime.",
-      "Payroll pays overtime through your own formula."
+      {
+        "step": "01",
+        "title": "Shift Gate In-Punch",
+        "desc": "Workers scan face at turnstile kiosks at 07:00 AM; punch timestamp is verified against Shift A start buffer with zero queue buildup."
+      },
+      {
+        "step": "02",
+        "title": "Floor Overtime Tracking",
+        "desc": "System automatically tracks hours worked beyond 8 hours; supervisors lock authorized overtime hours directly from their floor tablets."
+      },
+      {
+        "step": "03",
+        "title": "Mid-Shift Anomaly Flags",
+        "desc": "Early departures and unauthorized floor absences trigger instant supervisor alerts before shift change occurs."
+      },
+      {
+        "step": "04",
+        "title": "Inspection-Ready Register Export",
+        "desc": "Month-end salary computations incorporate overtime, ESI, and PF deductions, exporting official Form T registers in 1 click."
+      }
     ],
     "scenarios": [
       {
-        "title": "Shift change for a week",
-        "text": "Assign a different shift for a date range; attendance follows it for those days only."
+        "title": "Continuous 3-Shift Manufacturing Cycle",
+        "text": "Workers rotate weekly between Morning (06:00-14:00), Afternoon (14:00-22:00), and Night (22:00-06:00). PayroleHR automatically applies night shift allowances and ensures minimum 16-hour mandatory rest intervals between changes."
       },
       {
-        "title": "Overtime rate",
-        "text": "Use OT hours in a salary column formula, e.g. hourly rate × 2 × OT hours."
+        "title": "Double-Rate Overtime on National Holidays",
+        "text": "When critical boiler units run on Republic Day, hours logged by operating technicians are automatically multiplied by 2.0x and added to their monthly payroll slip with supervisor approval."
+      },
+      {
+        "title": "Contractor vs On-Roll Workforce Segregation",
+        "text": "Maintain full attendance and compliance visibility for contractor labor without mixing their wage structures into executive company payroll."
       }
     ],
+    "screen": {
+      "title": "Plant Attendance Monitor",
+      "eyebrow": "Factory Setup",
+      "rows": [
+        [
+          "Active Shifts",
+          "Shift A, Shift B, Night Shift C"
+        ],
+        [
+          "Turnstile Kiosks",
+          "Kiosk 1 (East Gate) & Kiosk 2 (West)"
+        ],
+        [
+          "Overtime Formula",
+          "Statutory Double Rate (2.0x) on Rest Days"
+        ],
+        [
+          "Compliance Slabs",
+          "Factories Act 1948 & Form T Ready"
+        ]
+      ]
+    },
     "faqs": [
       {
-        "q": "Do you support rotating shift patterns?",
-        "a": "You can assign shifts by date range. Automatic rotation is not built in."
+        "q": "Does face recognition work if workers have dust or grease on their face?",
+        "a": "Yes. Our AI facial recognition algorithm uses 3D structural landmark points (eyes, cheekbones, nose bridge) and matches accurately even in factory lighting and minor floor dust."
+      },
+      {
+        "q": "How does PayroleHR handle shifts that start on one day and finish the next morning?",
+        "a": "PayroleHR includes native cross-midnight shift handling. Punches after midnight are accurately attributed to the previous calendar day's assigned night shift."
+      },
+      {
+        "q": "Can we enforce biometric attendance on contractor staff for safety muster rolls?",
+        "a": "Yes. You can register contract workers under separate contractor categories to maintain live fire-safety muster rolls without mixing payroll records."
+      },
+      {
+        "q": "Are the muster roll exports accepted by Indian labour inspectors?",
+        "a": "Yes. PayroleHR's Form T and Form Q exports strictly follow the format prescribed by state labour departments and the Factories Act 1948."
       }
     ]
   },
   {
     "slug": "healthcare",
     "name": "Healthcare Organizations",
-    "icon": "ac",
-    "short": "Round-the-clock shifts, rosters and credential documents.",
-    "headline": "Rosters and records for clinics and hospitals",
-    "intro": "Nursing and support staff work around the clock, and their registrations and certificates must be on file.",
+    "icon": "Stethoscope",
+    "heroBadge": "Hospitals, Nursing Homes & Diagnostic Labs",
+    "image": "/images/solutions/solution-healthcare.jpg",
+    "short": "24/7 rotational ward rosters, doctor and nurse shift duty, credential tracking, and emergency call allowances.",
+    "headline": "24/7 Ward Rostering, Attendance & Compliance for Hospitals & Clinics",
+    "intro": "Healthcare organizations never sleep. Doctors, nursing staff, technicians, and sanitation teams work on continuous 24/7 emergency rosters. PayroleHR helps hospital administrators plan shift rosters, track emergency call allowances, and manage medical registrations on a clean digital platform.",
+    "stats": [
+      {
+        "label": "Operation Hours",
+        "value": "24/7 / 365 Days"
+      },
+      {
+        "label": "Roster Planning",
+        "value": "7-Day Grid View"
+      },
+      {
+        "label": "Shift Types",
+        "value": "Morning, General, Night, On-Call"
+      },
+      {
+        "label": "Credential Store",
+        "value": "Nursing & Medical Licenses"
+      }
+    ],
     "challenges": [
-      "Day, evening and night rosters.",
-      "Licences and certificates to keep on record.",
-      "Many staff categories with different pay."
+      "Round-the-clock ward duty rosters with sudden emergency shift swaps and unplanned staff shortages.",
+      "Tracking mandatory medical registration certificates, nursing licenses, and compliance documents on file.",
+      "Multiple staff categories with varied remuneration: full-time consultants, duty doctors, nursing staff, and visiting specialists.",
+      "Night duty allowances and on-call emergency response bonuses that need accurate verification before payroll release."
     ],
     "features": [
       {
-        "slug": "shift-management",
-        "why": "Roster calendar for every ward or team."
+        "slug": "roster-management",
+        "title": "Interactive Ward Duty Rostering",
+        "why": "Plan 7-day and 30-day shift schedules across ICU, emergency, OPD, and surgical wards in a unified grid view with visual conflict alerts."
+      },
+      {
+        "slug": "face-attendance",
+        "title": "Contactless Facial Check-in",
+        "why": "Hygienic touchless face scanning at hospital staff entries prevents hospital-acquired infection spread compared to thumbprint biometrics."
       },
       {
         "slug": "document-management",
-        "why": "Staff upload certificates; HR verifies them."
+        "title": "Medical Credential & License Archive",
+        "why": "Maintain digital copies of state medical council registrations, nursing council certificates, and police clearances with HR verification tags."
       },
       {
         "slug": "salary-structure-management",
-        "why": "Different structures per staff category."
+        "title": "Multi-Tier Healthcare Compensation",
+        "why": "Configure unique salary rules for resident doctors, visiting consultants, nursing staff, and hospital ward boys on a single platform."
       },
       {
-        "slug": "attendance-management",
-        "why": "Check-in and check-out times per shift."
+        "slug": "configurable-rules",
+        "title": "On-Call & Night Duty Allowance Engine",
+        "why": "Automatically credit night shift allowances and emergency call-back bonuses based on verified attendance timestamps."
       }
     ],
     "workflow": [
-      "Plan the month's roster.",
-      "Staff check in by face or portal.",
-      "HR verifies documents.",
-      "Payroll runs per category."
+      {
+        "step": "01",
+        "title": "Ward Duty Schedule Published",
+        "desc": "Nursing superintendents allocate weekly shift rosters across intensive care and general wards with zero double-booking."
+      },
+      {
+        "step": "02",
+        "title": "Contactless Kiosk Punch",
+        "desc": "Doctors and nursing staff check in at department tablet kiosks via contactless face scan, upholding infection control guidelines."
+      },
+      {
+        "step": "03",
+        "title": "Emergency Swap Approval",
+        "desc": "Staff swap shifts with peer colleagues via mobile portal; ward incharges receive instant approval requests."
+      },
+      {
+        "step": "04",
+        "title": "Category-Wise Payout Release",
+        "desc": "Monthly payroll reconciles on-call allowances, night duties, and TDS, releasing direct bank transfers to staff accounts."
+      }
     ],
     "scenarios": [
       {
-        "title": "Certificate on file",
-        "text": "Ask staff to upload registration documents; pending items are visible at a glance."
+        "title": "Emergency ICU Ward Shift Swap",
+        "text": "When a night-shift nurse has an emergency, a day-shift colleague accepts a mutual swap. The nursing supervisor approves the swap on their phone, and attendance hours update automatically with correct night duty pay."
       },
       {
-        "title": "Night shift timings",
-        "text": "Shift timings are configurable per weekday."
+        "title": "Visiting Consultant Fee Accounting",
+        "text": "Consulting surgeons and diagnostic radiologists are compensated per OPD session or procedure without creating full-time statutory payroll liabilities."
+      },
+      {
+        "title": "Mandatory Nursing License Verification",
+        "text": "New nursing recruits upload state council certificates during mobile onboarding; HR verifies documents before issuing hospital ID cards."
       }
     ],
+    "screen": {
+      "title": "Ward Roster & Clinical Staff",
+      "eyebrow": "Healthcare Setup",
+      "rows": [
+        [
+          "Roster Coverage",
+          "ICU, Emergency, OPD & General Wards"
+        ],
+        [
+          "Check-in Mode",
+          "Contactless Face Match (Infection Safe)"
+        ],
+        [
+          "Night Allowances",
+          "Auto-credited for 20:00 - 08:00 shifts"
+        ],
+        [
+          "Staff Categories",
+          "Resident Doctors, Staff Nurses, Lab Techs"
+        ]
+      ]
+    },
     "faqs": [
       {
-        "q": "Does it track certificate expiry?",
-        "a": "Not automatically yet; documents are stored and verified."
+        "q": "Why is face attendance superior to fingerprint biometrics in hospitals?",
+        "a": "Thumbprint biometrics are a recognized vector for cross-contamination in clinical settings. PayroleHR's contactless face kiosks require zero physical contact, ensuring high clinical hygiene."
+      },
+      {
+        "q": "Can hospital supervisors swap staff shifts on short notice?",
+        "a": "Yes. Shift assignments can be updated in real time via the roster management screen or supervisor mobile app, automatically adjusting attendance rules for that shift."
+      },
+      {
+        "q": "How does PayroleHR track doctor on-call emergency duties?",
+        "a": "Doctors on call can log emergency visits through geofenced mobile check-ins or department kiosks. Verified hours feed into customized on-call allowance columns."
+      },
+      {
+        "q": "Can nursing staff view their monthly shift duty rosters on their phones?",
+        "a": "Yes. Staff log into the PayroleHR mobile portal to view upcoming morning, evening, and night shifts along with approved week-offs."
       }
     ]
   },
   {
     "slug": "retail",
     "name": "Retail & Hospitality",
-    "icon": "Rc",
-    "short": "Several outlets, part-time staff and cash wages.",
-    "headline": "HR for shops, outlets and hotels",
-    "intro": "Outlet staff work varied timings, some are paid in cash, and managers need simple tools on a phone.",
+    "icon": "ShoppingBag",
+    "heroBadge": "Retail Chains, Supermarkets, Restaurants & Cafes",
+    "image": "/images/solutions/solution-retail.jpg",
+    "short": "Multiple outlets, part-time store associates, cash wage management, high staff turnover, and weekend timings.",
+    "headline": "Multi-Outlet Attendance, Shift Roster & Payroll for Retail & Restaurants",
+    "intro": "Retail chains and restaurant businesses manage staff across dozens of mall stores, high-street outlets, and central kitchens. With high seasonal turnover, varying weekend hours, and split bank/cash wage payouts, PayroleHR gives outlet managers simple mobile tools while providing headquarters with consolidated enterprise visibility.",
+    "stats": [
+      {
+        "label": "Outlet Reach",
+        "value": "Multi-Branch Isolation"
+      },
+      {
+        "label": "Hardware Cost",
+        "value": "₹0 Proprietary Devices"
+      },
+      {
+        "label": "Disbursement",
+        "value": "Bank NEFT + Cash Slips"
+      },
+      {
+        "label": "Onboarding",
+        "value": "2-Minute Mobile KYC"
+      }
+    ],
     "challenges": [
-      "Staff across several outlets.",
-      "Some staff paid in cash.",
-      "High joining and leaving."
+      "Managing staff scattered across 5 to 50+ retail outlets without buying expensive dedicated biometric hardware for each shop.",
+      "High staff turnover with new store associates joining and leaving frequently, making traditional HR paperwork impossible.",
+      "Extended operating hours on weekends and festive sales events that require different shift timings than regular weekdays.",
+      "Disbursing wages where some floor associates are paid via direct bank transfer while junior trainees or utility staff receive cash."
     ],
     "features": [
       {
         "slug": "face-attendance",
-        "why": "A phone or tablet at each outlet as a kiosk."
+        "title": "Budget Tablet Outlet Kiosks",
+        "why": "Turn any affordable Android phone or tablet into an outlet attendance kiosk with camera-based face recognition, recording camera ID for every scan."
       },
       {
         "slug": "employee-management",
-        "why": "Quick self-registration and approval for new joiners."
+        "title": "Rapid Mobile Self-Registration",
+        "why": "New store associates scan a QR code at the counter, enter mobile OTP, and upload Aadhaar for 2-minute store onboarding."
       },
       {
-        "slug": "payroll-management",
-        "why": "Cash-paid staff left out of the bank file automatically."
+        "slug": "bank-salary-export",
+        "title": "Split Bank & Cash Wage Processing",
+        "why": "Mark employees as bank-paid or cash-paid; the system generates corporate bank NEFT upload files while creating clean cash receipt vouchers."
       },
       {
         "slug": "shift-management",
-        "why": "Different timings for weekdays and weekends."
+        "title": "Weekend & Mall Timing Configurations",
+        "why": "Set distinct shift hours for weekdays (10am-8pm) and weekends (10am-10pm) with automated overtime buffer rules for closing stock counts."
+      },
+      {
+        "slug": "organization-management",
+        "title": "Branch-Wise Manager Permissions",
+        "why": "Store managers can view and approve rosters for their own shop, while corporate HR and owners view consolidated enterprise analytics."
       }
     ],
     "workflow": [
-      "New staff register from their phone.",
-      "They check in at the outlet kiosk.",
-      "Payroll pays bank and cash staff correctly.",
-      "Exit clearance on leaving."
+      {
+        "step": "01",
+        "title": "Counter Kiosk Punch",
+        "desc": "Store associates check in using the store counter tablet during shop opening; photo timestamp logs the exact outlet branch location."
+      },
+      {
+        "step": "02",
+        "title": "Closing Stock Overtime",
+        "desc": "Closing associates staying late for inventory audits log extra hours; store manager approves extra hours with 1 tap."
+      },
+      {
+        "step": "03",
+        "title": "Inter-Store Staff Borrowing",
+        "desc": "Staff temporarily assigned to a busy neighboring mall branch are transferred digitally with attendance correctly attributed."
+      },
+      {
+        "step": "04",
+        "title": "Unified Month-End Payout",
+        "desc": "HQ exports bank transfer files for permanent staff and generates cash wage disbursement slips for seasonal retail helpers."
+      }
     ],
     "scenarios": [
       {
-        "title": "Cash wages",
-        "text": "Mark an employee as cash-paid; they stay on payroll but not in the bank file."
+        "title": "Cash Wage Reconciliation Without Excel Errors",
+        "text": "Store helpers receiving cash are calculated in the main payroll engine with full attendance, PF/ESI tracking, and tax deductions, but excluded from the bank NEFT file to prevent payout mismatches."
       },
       {
-        "title": "Weekend timings",
-        "text": "Use per-day shift timings for longer weekend hours."
+        "title": "Festive Sale Weekend Extended Hours",
+        "text": "During Diwali or End-of-Season sales, outlets operate 2 hours later. Shift rules automatically adjust for the campaign week, paying overtime allowances without manual HR re-entry."
+      },
+      {
+        "title": "Temporary Inter-Branch Staff Transfer",
+        "text": "When a flagship outlet needs extra floor staff for a weekend product launch, employees punch in at the destination outlet camera; attendance credits seamlessly to their home store profile."
       }
     ],
+    "screen": {
+      "title": "Store Network Monitor",
+      "eyebrow": "Retail Setup",
+      "rows": [
+        [
+          "Outlets Active",
+          "18 Stores across Mumbai & Pune"
+        ],
+        [
+          "Kiosk Hardware",
+          "Standard Android Tablets (₹6,000 each)"
+        ],
+        [
+          "Disbursement Mode",
+          "Split: 82% Bank NEFT / 18% Cash Voucher"
+        ],
+        [
+          "Weekend Timing",
+          "Extended 12-hour mall shifts with closing buffer"
+        ]
+      ]
+    },
     "faqs": [
       {
-        "q": "Can each outlet have its own camera?",
-        "a": "Yes, each scan records which camera took it."
+        "q": "Do we need to purchase expensive biometric machines for every retail outlet?",
+        "a": "No. You can use any budget Android tablet or smartphone as a dedicated face attendance kiosk at each outlet, saving thousands of rupees in hardware costs."
+      },
+      {
+        "q": "Can store managers approve leaves only for their specific outlet?",
+        "a": "Yes. Role permissions isolate data so each store manager only sees staff assigned to their branch, while retail directors maintain company-wide visibility."
+      },
+      {
+        "q": "How does PayroleHR handle cash wages for retail helpers?",
+        "a": "Staff marked as 'Cash Paid' are calculated on payroll with all statutory deductions, but the system generates printable cash vouchers instead of adding them to the bank NEFT file."
+      },
+      {
+        "q": "Can an employee work at different outlets during the same week?",
+        "a": "Yes. PayroleHR's multi-outlet architecture recognizes employees at any authorized company kiosk, attributing hours to the respective branch cost center."
       }
     ]
   },
   {
     "slug": "small-business",
     "name": "Small and Medium Businesses",
-    "icon": "Es",
-    "short": "Everything in one place without an HR team.",
-    "headline": "Payroll and attendance without a full HR department",
-    "intro": "Owners and accountants who handle HR on the side need something that is quick to set up and hard to get wrong.",
+    "icon": "Briefcase",
+    "heroBadge": "Startups, Agencies & SMBs (10 - 200 Employees)",
+    "image": "/images/solutions/solution-small-business.jpg",
+    "short": "Complete HR, attendance and automated payroll without requiring a dedicated HR department.",
+    "headline": "All-in-One Payroll, Attendance & Compliance for Growing Businesses",
+    "intro": "Business founders, managing partners, and office accountants juggle multiple responsibilities. Spending 3 days every month calculating salaries on messy spreadsheets, fixing attendance discrepancies, and generating manual payslips is a drain on growth. PayroleHR automates the entire cycle from punch to bank transfer in 10 minutes.",
+    "stats": [
+      {
+        "label": "Setup Time",
+        "value": "Under 1 Day"
+      },
+      {
+        "label": "Payroll Processing",
+        "value": "< 10 Minutes"
+      },
+      {
+        "label": "Hardware Requirement",
+        "value": "Zero (Use Existing Phone)"
+      },
+      {
+        "label": "Cost Savings",
+        "value": "Save 3 Days / Month"
+      }
+    ],
     "challenges": [
-      "No dedicated HR person.",
-      "Salaries worked out in Excel each month.",
-      "Staff asking for payslips."
+      "No full-time HR manager: the business owner or finance accountant manages payroll on the side.",
+      "Salary calculation on Excel formulas leads to costly human errors in PF, ESIC, and Professional Tax deductions.",
+      "Employees repeatedly messaging HR on personal WhatsApp asking for salary slips, leave balances, and tax computations.",
+      "Worrying about labour law penalties and inspection notices due to non-standard muster registers and late filings."
     ],
     "features": [
       {
+        "slug": "payroll-processing",
+        "title": "1-Click Payroll Calculation",
+        "why": "Approved attendance days, leaves, and overtime feed directly into salary calculations, producing exact net pay figures in minutes."
+      },
+      {
+        "slug": "bank-salary-export",
+        "title": "Direct Corporate Bank Transfer File",
+        "why": "Export 1-click batch payout files formatted for HDFC, ICICI, SBI, Axis, and Kotak Bank to disburse team salaries instantly without manual entry."
+      },
+      {
         "slug": "attendance-management",
-        "why": "Attendance totals ready at month end."
-      },
-      {
-        "slug": "payroll-management",
-        "why": "Salaries, payslips and bank file in a few clicks."
-      },
-      {
-        "slug": "leave-management",
-        "why": "Staff apply for leave from their phone."
+        "title": "Fast Setup Attendance Options",
+        "why": "Choose the attendance mode that fits your stage: tablet kiosk at office reception, mobile GPS punches, or simple first-and-last punch of the day."
       },
       {
         "slug": "employee-management",
-        "why": "Import your existing staff list from Excel."
+        "title": "1-Click Excel Staff Import",
+        "why": "Upload your existing employee Excel sheet to migrate your entire team in minutes with automatic validation checks."
+      },
+      {
+        "slug": "payslip-management",
+        "title": "Automated Payslip Distribution",
+        "why": "Salary slips are generated with company branding and sent directly to employee mobile portals and WhatsApp with zero manual emailing."
       }
     ],
     "workflow": [
-      "Import staff from Excel.",
-      "Staff mark attendance from the portal or a kiosk.",
-      "Calculate payroll at month end.",
-      "Publish payslips."
+      {
+        "step": "01",
+        "title": "Upload Existing Staff List",
+        "desc": "Import employee names, designations, bank details, and monthly salaries from your current Excel template in 60 seconds."
+      },
+      {
+        "step": "02",
+        "title": "Effortless Daily Attendance",
+        "desc": "Staff mark attendance via reception tablet kiosk or mobile app; system tracks present days, half days, and leave balance automatically."
+      },
+      {
+        "step": "03",
+        "title": "Month-End Review & Calculation",
+        "desc": "On the 30th, click 'Calculate Payroll' — gross pay, PF, ESI, PT, and net pay are computed across all staff in one step."
+      },
+      {
+        "step": "04",
+        "title": "Disburse Salaries & Send Payslips",
+        "desc": "Download the corporate bank upload file, approve transfer in your netbanking portal, and publish digital payslips to staff."
+      }
     ],
     "scenarios": [
       {
-        "title": "First month",
-        "text": "Enter last month's days by hand; switch to attendance-only from the month you choose."
+        "title": "Migrating from Excel to PayroleHR in 24 Hours",
+        "text": "A 40-member creative agency switches from manual spreadsheets to PayroleHR over a weekend. Staff self-verify details with mobile OTP on Monday, and the first month's payroll finishes in 8 minutes."
+      },
+      {
+        "title": "Handling Mid-Month New Joiners",
+        "text": "When a new executive joins on the 18th, the system automatically computes per-day pro-rata earnings for the remaining days without manual calculator math."
+      },
+      {
+        "title": "100% Audit-Ready Compliance on a Startup Budget",
+        "text": "Generate statutory ECR text files and state-wise Form T muster rolls automatically, ensuring full Indian statutory compliance without hiring high-fee external payroll consultants."
       }
     ],
+    "screen": {
+      "title": "SMB Company Dashboard",
+      "eyebrow": "Small Business Setup",
+      "rows": [
+        [
+          "Total Team Size",
+          "42 Employees across 2 Offices"
+        ],
+        [
+          "Attendance Setup",
+          "Reception Kiosk + WFH Mobile Punch"
+        ],
+        [
+          "Payroll Runtime",
+          "Calculated & Verified in 8 Minutes"
+        ],
+        [
+          "Statutory Health",
+          "EPF, ESIC & PT 100% Reconciled"
+        ]
+      ]
+    },
     "faqs": [
       {
-        "q": "How long does setup take?",
-        "a": "Most small teams are set up in a day once salary structures are decided."
+        "q": "How long does it take for a small business to get started?",
+        "a": "Most teams with 15 to 100 employees are up and running within a single day. You simply upload your staff Excel sheet, assign salary structures, and start capturing attendance."
+      },
+      {
+        "q": "Do we need an in-house payroll accountant to use PayroleHR?",
+        "a": "No. The system is designed with simple human language and step-by-step guidance so business owners or office administrators can run payroll without formal accounting training."
+      },
+      {
+        "q": "What happens if an employee leaves mid-month?",
+        "a": "PayroleHR includes a structured Full & Final (F&F) settlement workflow that calculates payable days, encashes unused leaves, computes gratuity, and outputs a settlement slip."
+      },
+      {
+        "q": "Can we download bank transfer files for our corporate netbanking?",
+        "a": "Yes. PayroleHR exports corporate CMS/NEFT salary upload files compatible with HDFC, ICICI, SBI, Axis, Kotak, Yes Bank, and IndusInd Bank."
       }
     ]
   }

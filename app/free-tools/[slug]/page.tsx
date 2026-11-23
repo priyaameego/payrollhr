@@ -69,10 +69,12 @@ export default async function CalculatorDetailPage({
   // Find related tools
   const relatedTools = detail?.relatedToolSlugs
     ? toolsData.filter((t: any) => detail.relatedToolSlugs.includes(t.slug))
-    : toolsData.filter((t: any) => t.category === tool.category && t.slug !== tool.slug).slice(0, 3);
+    : toolsData.filter((t: any) => t.slug !== tool.slug).slice(0, 3);
 
   const getToolIcon = (toolSlug: string) => {
     switch (toolSlug) {
+      case "8th-pay-commission-calculator":
+        return <Layers className="h-5 w-5 stroke-[2.2]" />;
       case "salary-per-day-calculator":
       case "salary-breakup-calculator":
       case "payroll-cost-calculator":
@@ -111,179 +113,98 @@ export default async function CalculatorDetailPage({
     a: f.a,
   }));
 
+  // Highlight Subject Extraction for Title & Headings
+  const getSubjectText = (name: string) => {
+    return name
+      .replace(/ Calculator$/i, "")
+      .replace(/ Calculator \(India\)$/i, "")
+      .replace(/ India$/i, "");
+  };
+
+  const subjectText = getSubjectText(tool.name);
+
   return (
     <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#F0F6FE]/70 via-[#F8FBFE]/40 to-white py-10 sm:py-16">
-      {/* Ambient background glowing gradient orbs inspired by AttendoHR */}
+      {/* Ambient background glowing gradient orbs */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-        <div className="h-[500px] w-[800px] rounded-full bg-teal-100/35 blur-[140px] -translate-y-56 pointer-events-none" />
-        <div className="h-[400px] w-[600px] rounded-full bg-sky-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
+        <div className="h-[500px] w-[800px] rounded-full bg-sky-100/35 blur-[140px] -translate-y-56 pointer-events-none" />
+        <div className="h-[400px] w-[600px] rounded-full bg-teal-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
       </div>
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 space-y-12 sm:space-y-16">
-        {/* Breadcrumbs Navigation */}
-        <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-          <Link href="/" className="hover:text-[#12B5A5] transition">
-            Home
-          </Link>
-          <ChevronRight className="h-3.5 w-3.5 text-slate-300" />
-          <Link href="/resources" className="hover:text-[#12B5A5] transition">
-            Resources
-          </Link>
-          <ChevronRight className="h-3.5 w-3.5 text-slate-300" />
-          <Link href="/free-tools" className="hover:text-[#12B5A5] transition">
-            Free Tools
-          </Link>
-          <ChevronRight className="h-3.5 w-3.5 text-slate-300" />
-          <span className="font-semibold text-slate-900 truncate">{tool.name}</span>
-        </nav>
-
-        {/* Hero Header with AttendoHR Visual Badges & Headings */}
-        <div>
-          <div className="flex flex-wrap items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-200 bg-[#E8FAF7] px-4 py-1.5 text-xs font-bold text-[#0E7A6E] shadow-2xs">
-              <Calculator className="h-3.5 w-3.5 text-[#12B5A5]" />
-              {tool.category} • 100% Free Tool
-            </span>
-            {detail?.heroBadge && (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs">
-                <Sparkles className="h-3 w-3 text-[#12B5A5]" />
-                {detail.heroBadge}
-              </span>
-            )}
+        {/* ============================================================ */}
+        {/* 1. HERO HEADER SECTION (Screenshot 1 Exact Match) */}
+        {/* ============================================================ */}
+        <div className="text-center max-w-3xl mx-auto space-y-3.5">
+          {/* Top Pill Badge */}
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-sky-200/90 bg-sky-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#0284c7] shadow-2xs">
+            <span>FREE TOOL • NO SIGN-UP</span>
           </div>
 
-          <h1 className="mt-4 font-display text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-950 tracking-tight leading-[1.18]">
-            {detail?.h1 || tool.name}
+          {/* Main Headline H1 with Blue Subject Accent */}
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-[1.16]">
+            Free{" "}
+            <span className="text-[#0284c7]">
+              {subjectText}
+            </span>{" "}
+            Calculator India
           </h1>
 
-          <p className="mt-3.5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-3xl">
+          {/* Subtitle */}
+          <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
             {detail?.introduction || tool.short}
           </p>
 
-          {/* Quick Trust Pills Bar */}
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-600">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 border border-slate-200/80 px-3.5 py-1.5 shadow-2xs">
-              <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5]" />
-              <span>Indian Labour Law Basis</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 border border-slate-200/80 px-3.5 py-1.5 shadow-2xs">
-              <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5]" />
-              <span>Zero Registration Required</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 border border-slate-200/80 px-3.5 py-1.5 shadow-2xs">
-              <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5]" />
-              <span>1-Click Print &amp; Copy</span>
-            </span>
-          </div>
+          {/* Breadcrumbs Navigation (Matching Screenshot 1) */}
+          <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs text-slate-400 font-medium pt-1">
+            <Link href="/" className="hover:text-[#0284c7] transition-colors">
+              Home
+            </Link>
+            <span>›</span>
+            <Link href="/free-tools" className="hover:text-[#0284c7] transition-colors">
+              Free Tools
+            </Link>
+            <span>›</span>
+            <span className="font-semibold text-slate-700 truncate">{tool.name} (India)</span>
+          </nav>
         </div>
 
         {/* ============================================================ */}
-        {/* INTERACTIVE CALCULATOR ENGINE RUNNER */}
+        {/* 2. INTERACTIVE CALCULATOR ENGINE RUNNER (Screenshots 1, 2, 3) */}
         {/* ============================================================ */}
         <section aria-label="Interactive Calculator" className="scroll-mt-12">
           <CalculatorRunner slug={tool.slug} name={tool.name} />
         </section>
 
         {/* ============================================================ */}
-        {/* 1. WHAT THIS CALCULATOR DOES & WHO IT IS FOR */}
+        {/* 3. EDITORIAL GUIDE: WHAT IS THIS TOPIC? (Screenshot 4 Match) */}
         {/* ============================================================ */}
         {detail && (
-          <section className="relative overflow-hidden rounded-3xl border border-teal-100/90 bg-white/95 p-7 sm:p-10 shadow-card space-y-8">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-[#12B5A5] to-emerald-400" />
-            
+          <section className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-10 shadow-card space-y-6">
             <div>
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
-                Target Audience &amp; Value
-              </span>
-              <h2 className="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
-                What this calculator does and who it is useful for
+              <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
+                What is the{" "}
+                <span className="text-[#0284c7]">
+                  {subjectText}
+                </span>
+                ?
               </h2>
             </div>
 
-            {/* Persona Cards Grid */}
-            <div className="grid gap-4 sm:grid-cols-2">
-              {detail.whoIsItFor.map((persona, idx) => (
-                <div
-                  key={idx}
-                  className="group rounded-2xl border border-slate-200/80 bg-gradient-to-br from-white to-[#FAFDFD] p-5 hover:border-teal-300 hover:shadow-md transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 border border-teal-200/80 text-[#0E7A6E] font-bold group-hover:bg-[#12B5A5] group-hover:text-white transition-all">
-                      {getPersonaIcon(idx)}
-                    </div>
-                    <h3 className="font-display text-sm font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
-                      {persona.role}
-                    </h3>
-                  </div>
-                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed pl-12 font-normal">
-                    {persona.benefit}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+              The {subjectText.toLowerCase()} is designed to simplify standard Indian salary and workforce calculations. Whether managing central government scales, private sector CTC components, or daily labor rates, calculations strictly follow statutory labor regulations.
+            </p>
 
-            {/* Key Capabilities Visual Tiles */}
-            <div className="pt-6 border-t border-slate-100">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-4">
-                Key Calculator Capabilities:
-              </span>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {detail.whatItDoes.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3 rounded-xl border border-slate-100 bg-[#F9FBFA] p-3.5 hover:bg-white hover:border-teal-200 transition-all"
-                  >
-                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-teal-50 border border-teal-200/80 text-[#12B5A5] mt-0.5">
-                      <Check className="h-3.5 w-3.5 stroke-[2.5]" />
-                    </div>
-                    <span className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
-                      {item}
-                    </span>
+            {/* Checkmark Bullets List (Screenshot 4 Exact Match) */}
+            <div className="space-y-3 pt-2">
+              {detail.whatItDoes.map((bullet, idx) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[#0284c7] mt-0.5">
+                    <Check className="h-3 w-3 stroke-[3]" />
                   </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* ============================================================ */}
-        {/* 2. HOW TO USE THE CALCULATOR (STEP-BY-STEP) */}
-        {/* ============================================================ */}
-        {detail?.howToUseSteps && (
-          <section className="relative overflow-hidden rounded-3xl border border-teal-100/90 bg-white/95 p-7 sm:p-10 shadow-card space-y-7">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-[#12B5A5] to-emerald-400" />
-            
-            <div>
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-                <Clock className="h-3.5 w-3.5 text-[#12B5A5]" />
-                Step-by-Step Instructions
-              </span>
-              <h2 className="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
-                How to use the {tool.name}
-              </h2>
-              <p className="mt-1 text-sm text-slate-600">
-                Follow these simple steps to calculate accurate results in seconds:
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {detail.howToUseSteps.map((step) => (
-                <div
-                  key={step.step}
-                  className="group rounded-2xl border border-slate-200/80 bg-white p-5.5 hover:border-teal-300 hover:shadow-md transition-all duration-300 flex gap-4"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#12B5A5] to-[#0E9486] text-white font-display font-extrabold text-sm shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
-                    {step.step}
-                  </div>
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="mt-1.5 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                      {step.description}
-                    </p>
-                  </div>
+                  <span className="text-sm text-slate-700 font-medium leading-relaxed">
+                    {bullet}
+                  </span>
                 </div>
               ))}
             </div>
@@ -291,37 +212,74 @@ export default async function CalculatorDetailPage({
         )}
 
         {/* ============================================================ */}
-        {/* 3. FORMULA & MATHEMATICAL BREAKDOWN */}
+        {/* 4. MID-CONTENT CTA BANNER (Screenshot 5 Match) */}
         {/* ============================================================ */}
-        <section className="relative overflow-hidden rounded-3xl border border-teal-100/90 bg-white/95 p-7 sm:p-10 shadow-card space-y-7">
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-[#12B5A5] to-emerald-400" />
-          
+        <section className="rounded-3xl bg-gradient-to-r from-[#0284c7] via-[#0284c7] to-[#0369a1] p-8 sm:p-12 text-center text-white shadow-xl space-y-4">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-snug">
+            Automate Payroll with PayroleHR
+          </h2>
+
+          <p className="text-sm sm:text-base text-sky-100 leading-relaxed font-normal max-w-xl mx-auto">
+            PayroleHR handles salary structures, allowances, and statutory compliance for 30,000+ businesses. Same-day go-live, no per-employee pricing.
+          </p>
+
+          <div className="pt-2">
+            <Link
+              href="/book-a-demo"
+              className="rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[#0284c7] shadow-md hover:bg-sky-50 transition-all hover:scale-105 inline-block"
+            >
+              Book a Free Demo →
+            </Link>
+          </div>
+        </section>
+
+        {/* ============================================================ */}
+        {/* 5. FORMULA & WORKED EXAMPLE (Screenshot 6 Match) */}
+        {/* ============================================================ */}
+        <section className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-10 shadow-card space-y-6">
           <div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-              <Calculator className="h-3.5 w-3.5 text-[#12B5A5]" />
-              Mathematical Integrity
-            </span>
-            <h2 className="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
-              {detail?.formulaHeading || "Calculation Formula & How It Works"}
+            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
+              How is{" "}
+              <span className="text-[#0284c7]">
+                {subjectText}
+              </span>{" "}
+              Calculated?
             </h2>
-            <p className="mt-1 text-sm text-slate-600">
-              All PayroleHR calculations strictly adhere to statutory Indian accounting standards and labor law formulas:
+            <p className="mt-2 text-sm text-slate-600 leading-relaxed font-normal">
+              The primary formula used by payroll managers to compute this figure consolidates the underlying statutory rates, attendance days, and applicable multiplier factor into a standardized calculation.
             </p>
           </div>
 
-          {/* Luxury Mathematical Equation Card */}
-          <div className="rounded-2xl border-2 border-teal-200/90 bg-gradient-to-r from-[#E8FAF7]/80 via-white to-[#E8FAF7]/80 p-6 sm:p-7 text-center shadow-xs space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#0E7A6E] block">
-              Official Statutory Formula:
-            </span>
-            <div className="font-mono text-base sm:text-xl font-extrabold text-slate-950 tracking-wide break-words whitespace-pre-line leading-relaxed">
-              {detail?.formulaCode || tool.formula}
-            </div>
+          {/* Black Formula Bar (Screenshot 6 Match) */}
+          <div className="rounded-2xl bg-[#18181B] text-white p-4 sm:p-5 text-center font-mono font-bold text-sm sm:text-base shadow-md">
+            {detail?.formulaCode || tool.formula}
           </div>
 
-          {/* Variables Breakdown Table */}
+          {/* Blue Worked Example Box (Screenshot 6 Match) */}
+          {detail?.workedExample && (
+            <div className="rounded-r-2xl border-l-4 border-[#0284c7] bg-[#F0F9FF] border-y border-r border-sky-100 p-6 space-y-3">
+              <div className="font-bold text-sm sm:text-base text-slate-900">
+                {detail.workedExample.scenario}
+              </div>
+
+              <div className="space-y-1.5 font-mono text-xs sm:text-sm text-slate-700">
+                {detail.workedExample.calculation.map((line, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <span className="text-[#0284c7] font-bold">•</span>
+                    <span>{line}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-2 border-t border-sky-200/70 font-display font-extrabold text-base text-[#0284c7]">
+                {detail.workedExample.result}
+              </div>
+            </div>
+          )}
+
+          {/* Formula Breakdown Variables */}
           {detail?.formulaBreakdown && (
-            <div className="overflow-hidden rounded-2xl border border-slate-200/90 shadow-2xs">
+            <div className="overflow-hidden rounded-2xl border border-slate-200/90 shadow-2xs mt-4">
               <table className="w-full text-left text-xs sm:text-sm">
                 <thead className="bg-[#FAFDFD] border-b border-slate-200/80 text-slate-500 font-bold uppercase text-[11px]">
                   <tr>
@@ -333,7 +291,7 @@ export default async function CalculatorDetailPage({
                   {detail.formulaBreakdown.map((row, idx) => (
                     <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
                       <td className="py-3 px-4 font-bold text-slate-900 font-mono text-xs">
-                        <span className="rounded-md bg-teal-50 border border-teal-100 px-2 py-0.5 text-[#0E7A6E]">
+                        <span className="rounded-md bg-sky-50 border border-sky-200 px-2 py-0.5 text-[#0284c7]">
                           {row.variable}
                         </span>
                       </td>
@@ -347,104 +305,36 @@ export default async function CalculatorDetailPage({
         </section>
 
         {/* ============================================================ */}
-        {/* 4. WORKED PRACTICAL EXAMPLE & SCENARIO */}
+        {/* 6. WHO IS THIS CALCULATOR FOR? (PERSONA CARDS) */}
         {/* ============================================================ */}
-        {detail?.workedExample && (
-          <section className="relative overflow-hidden rounded-3xl border border-teal-100/90 bg-white/95 p-7 sm:p-10 shadow-card space-y-7">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-[#12B5A5] to-emerald-400" />
-            
+        {detail?.whoIsItFor && (
+          <section className="space-y-6">
             <div>
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
-                Real-World Simulation
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0284c7] font-mono">
+                Target Audience
               </span>
-              <h2 className="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
-                Practical Scenario &amp; Worked Example
+              <h2 className="mt-1 font-display text-2xl font-bold text-slate-950">
+                Who Uses the {tool.name}?
               </h2>
-              <p className="mt-2 text-sm text-slate-700 leading-relaxed font-medium">
-                {detail.workedExample.scenario}
-              </p>
             </div>
 
-            {/* Input Values Table */}
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {detail.workedExample.inputs.map((inp, idx) => (
-                <div key={idx} className="rounded-2xl border border-teal-100 bg-[#F0FDFB]/70 p-4 shadow-2xs">
-                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
-                    {inp.label}
-                  </span>
-                  <span className="mt-1 text-base font-extrabold text-slate-900 block font-display">
-                    {inp.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Step-by-Step Mathematical Calculation */}
-            <div className="rounded-2xl bg-slate-50/90 p-5 border border-slate-200/80 space-y-2.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
-                Mathematical Execution:
-              </span>
-              <ul className="space-y-2 font-mono text-xs sm:text-[13px] text-slate-800">
-                {detail.workedExample.calculation.map((step, idx) => (
-                  <li key={idx} className="flex items-center gap-2.5">
-                    <span className="text-[#12B5A5] font-black text-sm">→</span>
-                    <span>{step}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Final Computed Result Showcase Card */}
-            <div className="rounded-3xl border-2 border-[#12B5A5]/80 bg-gradient-to-r from-[#E6FAF7] via-white to-[#E6FAF7] p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 shadow-sm">
-              <div>
-                <span className="inline-block rounded-full bg-[#12B5A5]/15 border border-[#12B5A5]/30 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0E7A6E]">
-                  Final Computed Result
-                </span>
-                <p className="mt-2 font-display text-2xl sm:text-3xl font-black text-[#0E7A6E]">
-                  {detail.workedExample.result}
-                </p>
-              </div>
-              <div className="sm:text-right max-w-sm">
-                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                  {detail.workedExample.note}
-                </p>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* ============================================================ */}
-        {/* 5. INTERPRETATION & COMPLIANCE ADVICE */}
-        {/* ============================================================ */}
-        {detail?.interpretationAndTips && (
-          <section className="relative overflow-hidden rounded-3xl border border-teal-100/90 bg-white/95 p-7 sm:p-10 shadow-card space-y-6">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-[#12B5A5] to-emerald-400" />
-            
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-50 border border-teal-200 text-[#0E7A6E]">
-                <ShieldCheck className="h-5 w-5 stroke-[2.2]" />
-              </div>
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-                  Statutory Advisory
-                </span>
-                <h2 className="font-display text-xl sm:text-2xl font-bold text-slate-950">
-                  Interpretation of Results &amp; Compliance Tips
-                </h2>
-              </div>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              {detail.interpretationAndTips.map((tip, idx) => (
+            <div className="grid gap-4 sm:grid-cols-3">
+              {detail.whoIsItFor.map((persona, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-100 bg-[#FAFDFD] p-4.5 flex items-start gap-3 hover:bg-white hover:border-teal-200 transition-all"
+                  className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:border-[#0284c7] hover:shadow-md transition-all duration-300 flex flex-col justify-between"
                 >
-                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#12B5A5]" />
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
-                    {tip}
-                  </p>
+                  <div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-[#0284c7] mb-3">
+                      {getPersonaIcon(idx)}
+                    </div>
+                    <h3 className="font-display text-sm font-bold text-slate-900 mb-1.5">
+                      {persona.role}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {persona.benefit}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -452,19 +342,53 @@ export default async function CalculatorDetailPage({
         )}
 
         {/* ============================================================ */}
-        {/* 6. TOOL FAQS (Interactive Accordion) */}
+        {/* 7. STEP-BY-STEP "HOW TO USE" */}
+        {/* ============================================================ */}
+        {detail?.howToUseSteps && (
+          <section className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-10 shadow-card space-y-6">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0284c7] font-mono">
+                How-To Instructions
+              </span>
+              <h2 className="mt-1 font-display text-2xl font-bold text-slate-950">
+                Step-by-Step Usage Guide
+              </h2>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {detail.howToUseSteps.map((step) => (
+                <div
+                  key={step.step}
+                  className="rounded-2xl border border-slate-100 bg-slate-50/60 p-5 flex gap-4"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#0284c7] to-[#0369a1] text-white font-mono font-black text-xs shadow-sm">
+                    {step.step}
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-900">
+                      {step.title}
+                    </h3>
+                    <p className="mt-1 text-xs text-slate-600 leading-relaxed font-normal">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ============================================================ */}
+        {/* 8. INTERACTIVE FAQ ACCORDION */}
         {/* ============================================================ */}
         {faqItems.length > 0 && (
-          <section className="relative overflow-hidden rounded-3xl border border-teal-100/90 bg-white/95 p-7 sm:p-10 shadow-card space-y-6">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-[#12B5A5] to-emerald-400" />
-            
+          <section className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-10 shadow-card space-y-6">
             <div>
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-                <HelpCircle className="h-3.5 w-3.5 text-[#12B5A5]" />
-                Got Questions?
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0284c7] font-mono">
+                Frequently Asked Questions
               </span>
-              <h2 className="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
-                Frequently asked questions about {tool.name}
+              <h2 className="mt-1 font-display text-2xl font-bold text-slate-950">
+                Common Questions about {tool.name}
               </h2>
             </div>
 
@@ -473,117 +397,59 @@ export default async function CalculatorDetailPage({
         )}
 
         {/* ============================================================ */}
-        {/* 7. RELATED FREE CALCULATORS & INTERNAL LINKING */}
+        {/* 9. RELATED FREE TOOLS DIRECTORY & INTERNAL LINKING */}
         {/* ============================================================ */}
         {relatedTools && relatedTools.length > 0 && (
-          <section className="space-y-5">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+          <section className="space-y-5 pt-4 border-t border-slate-200/80">
+            <div className="flex items-center justify-between">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
-                  Resource Directory
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">
+                  More Free Calculators
                 </span>
-                <h2 className="font-display text-xl sm:text-2xl font-bold text-slate-900">
-                  Related Free HR &amp; Payroll Calculators
+                <h2 className="mt-1 font-display text-xl sm:text-2xl font-bold text-slate-900">
+                  Related Payroll &amp; HR Free Tools
                 </h2>
               </div>
               <Link
                 href="/free-tools"
-                className="text-xs sm:text-sm font-bold text-[#12B5A5] hover:text-[#0E9486] transition flex items-center gap-1.5 group"
+                className="text-xs sm:text-sm font-bold text-[#0284c7] hover:text-[#0369a1] transition flex items-center gap-1.5 group"
               >
-                <span>View all 9 tools</span>
+                <span>View all {toolsData.length} calculators</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-3">
               {relatedTools.map((relTool: any) => (
                 <Link
                   key={relTool.slug}
                   href={`/free-tools/${relTool.slug}`}
-                  className="rounded-3xl border border-teal-100/90 bg-white p-6 shadow-2xs hover:shadow-xl hover:border-[#12B5A5] hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
+                  className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-2xs hover:border-[#0284c7] hover:shadow-md transition-all duration-300 group flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E8FAF7] border border-teal-200/80 text-[#0E7A6E] shadow-2xs group-hover:scale-105 group-hover:bg-[#12B5A5] group-hover:text-white transition-all">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-50 text-[#0284c7] group-hover:scale-105 group-hover:bg-[#0284c7] group-hover:text-white transition-all">
                         {getToolIcon(relTool.slug)}
                       </div>
-                      <span className="rounded-full bg-[#E8FAF7] border border-teal-200 px-2.5 py-0.5 text-[10px] font-bold text-[#0E7A6E]">
+                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600">
                         {relTool.category}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-base font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-snug">
+                    <h3 className="font-display text-sm font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors leading-snug">
                       {relTool.name}
                     </h3>
-                    <p className="mt-1.5 text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                    <p className="mt-1 text-xs text-slate-500 line-clamp-2 leading-relaxed">
                       {relTool.short}
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0E7A6E]">
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0284c7]">
                     <span>Calculate Now</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </Link>
               ))}
-            </div>
-          </section>
-        )}
-
-        {/* ============================================================ */}
-        {/* 8. AUTOMATE IN PAYROLEHR (AttendoHR Signature Dark Showcase Banner) */}
-        {/* ============================================================ */}
-        {relatedFeature && (
-          <section className="relative overflow-hidden rounded-3xl border border-teal-800/40 bg-gradient-to-br from-slate-950 via-[#072B28] to-slate-900 p-8 sm:p-14 text-center shadow-2xl text-white">
-            {/* Glowing background radial ambient light */}
-            <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[350px] w-[600px] rounded-full bg-teal-500/20 blur-[130px]" />
-
-            <div className="relative z-10 max-w-2xl mx-auto space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-300 shadow-sm">
-                <Sparkles className="h-3.5 w-3.5 text-teal-300" />
-                Automate Workforce Calculations
-              </span>
-
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                Never calculate this by hand again
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-                PayroleHR runs {tool.name.toLowerCase().replace(" calculator", "")} automatically inside our{" "}
-                <span className="text-teal-300 font-semibold">{relatedFeature.name}</span>.
-                Zero spreadsheet formulas, zero human errors, and 1-click bank transfer exports.
-              </p>
-
-              <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-                <Link
-                  href="/book-a-demo"
-                  className="rounded-full bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] px-8 py-4 text-sm font-bold text-white shadow-lg shadow-teal-500/30 hover:shadow-teal-500/50 hover:scale-105 transition-all duration-300 inline-flex items-center gap-2.5"
-                >
-                  <span>Book a Free Demo</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href={`/features/${relatedFeature.slug}`}
-                  className="rounded-full border border-white/25 bg-white/10 hover:bg-white/15 px-7 py-4 text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  <span>Explore {relatedFeature.name}</span>
-                </Link>
-              </div>
-
-              <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-medium border-t border-white/10">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-teal-400" />
-                  150+ Indian Companies
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-teal-400" />
-                  0.18s Face Attendance
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-teal-400" />
-                  1-Click Bank Files
-                </span>
-              </div>
             </div>
           </section>
         )}

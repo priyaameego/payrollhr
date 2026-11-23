@@ -146,5 +146,33 @@
         "a": "No. Add any provision under other monthly costs."
       }
     ]
+  },
+  {
+    "category": "Salary & Pay",
+    "slug": "8th-pay-commission-calculator",
+    "name": "8th Pay Commission Salary Calculator",
+    "icon": "Cp",
+    "short": "Estimate your revised salary under the 8th Pay Commission using your current pay level and expected fitment factor. Covers Basic Pay, HRA, and gross salary comparison.",
+    "formula": "New Basic Pay = Current Basic Pay × Fitment Factor.",
+    "example": "Pay Level 7, ₹44,900 basic, fitment 2.28x: New Basic ₹1,02,372; Estimated New Gross ₹1,38,220.",
+    "feature": "salary-structure-management",
+    "faqs": [
+      {
+        "q": "What is the expected fitment factor for the 8th Pay Commission?",
+        "a": "Most staff associations and economic projections suggest a fitment factor between 1.92x and 2.86x, with 2.28x being widely referenced. The 7th CPC used 2.57x."
+      },
+      {
+        "q": "Will Dearness Allowance (DA) reset to 0% after 8th CPC implementation?",
+        "a": "Yes. Following past pay commissions, accumulated DA (currently 53% as of Jan 2026) is merged into the revised basic pay, and DA resets to 0% on the date of implementation."
+      },
+      {
+        "q": "How will HRA be calculated under the 8th Pay Commission?",
+        "a": "House Rent Allowance (HRA) will be calculated on the new revised basic pay at standard classification rates (27% for X class metro cities, 18% for Y class, and 9% for Z class)."
+      },
+      {
+        "q": "Who is covered under the 8th Central Pay Commission?",
+        "a": "The 8th CPC covers approximately 50 lakh Central Government employees (including defence personnel and railway staff) and nearly 65 lakh pensioners across India."
+      }
+    ]
   }
 ]

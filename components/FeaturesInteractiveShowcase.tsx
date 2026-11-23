@@ -43,11 +43,14 @@ interface FeatureDetail {
   id: string;
   num: string;
   tabLabel: string;
+  tabSubtitle?: string;
   subHeader: string;
   title: string;
   headline: string;
   description: string;
   icon: React.ElementType;
+  iconBgColor?: string;
+  iconTextColor?: string;
   mockup: {
     type: "attendance" | "shift" | "leave" | "payroll" | "overtime" | "compliance" | "geo" | "reports" | "admin";
   };
@@ -64,12 +67,15 @@ const featuresList: FeatureDetail[] = [
     id: "attendance",
     num: "01",
     tabLabel: "Time & Attendance",
+    tabSubtitle: "Real-time punches from face devices and mobile",
     subHeader: "01 – FEATURE",
     title: "Time & Attendance",
     headline: "Attendance Synced With Payroll",
     description:
       "Every punch lands on the payroll. Device, mobile, or field every entry feeds the employee's salary directly. No re-entry at month-end.",
     icon: Clock,
+    iconBgColor: "bg-teal-100/90",
+    iconTextColor: "text-[#0E7A6E]",
     mockup: { type: "attendance" },
     cards: [
       {
@@ -120,12 +126,15 @@ const featuresList: FeatureDetail[] = [
     id: "shifts",
     num: "02",
     tabLabel: "Shifts & Roster",
+    tabSubtitle: "Plan shifts and rosters without spreadsheets",
     subHeader: "02 – FEATURE",
     title: "Shifts & Roster",
     headline: "Shifts Set Once, Applied Daily",
     description:
       "Define how each team works and the system decides who is late, who is on a week-off, and whose hours count as overtime.",
     icon: CalendarDays,
+    iconBgColor: "bg-indigo-100/90",
+    iconTextColor: "text-indigo-600",
     mockup: { type: "shift" },
     cards: [
       {
@@ -164,12 +173,15 @@ const featuresList: FeatureDetail[] = [
     id: "leaves",
     num: "03",
     tabLabel: "Leave & Holidays",
+    tabSubtitle: "Requests, approvals and balances in one place",
     subHeader: "03 – FEATURE",
     title: "Leave & Holidays",
     headline: "Consolidated Leave Records",
     description:
       "Every leave request, approval, and balance in one place. Each approved leave reflects that month's salary.",
     icon: Calendar,
+    iconBgColor: "bg-emerald-100/90",
+    iconTextColor: "text-emerald-700",
     mockup: { type: "leave" },
     cards: [
       {
@@ -208,12 +220,15 @@ const featuresList: FeatureDetail[] = [
     id: "payroll",
     num: "04",
     tabLabel: "Payroll & Payout",
+    tabSubtitle: "Salaries computed and paid out automatically",
     subHeader: "04 – FEATURE",
     title: "Payroll & Payout",
     headline: "Payroll Ready Before Month-End",
     description:
       "Keep salaries calculated through the month so payroll is ready to approve by the month end.",
     icon: Receipt,
+    iconBgColor: "bg-teal-100/90",
+    iconTextColor: "text-[#0E7A6E]",
     mockup: { type: "payroll" },
     cards: [
       {
@@ -252,12 +267,15 @@ const featuresList: FeatureDetail[] = [
     id: "overtime",
     num: "05",
     tabLabel: "Overtime & Penalties",
+    tabSubtitle: "Automated extra hours and late penalty deductions",
     subHeader: "05 – FEATURE",
     title: "Overtime & Penalties",
     headline: "Calculate Extra Hours and Deductions",
     description:
       "Set the rules once. The system applies them to every cycle without a fresh decision each month.",
     icon: Scale,
+    iconBgColor: "bg-amber-100/90",
+    iconTextColor: "text-amber-700",
     mockup: { type: "overtime" },
     cards: [
       {
@@ -290,12 +308,15 @@ const featuresList: FeatureDetail[] = [
     id: "compliance",
     num: "06",
     tabLabel: "Compliance",
+    tabSubtitle: "PF, ESIC, PT, and TDS calculated per employee",
     subHeader: "06 – FEATURE",
     title: "Compliance",
     headline: "Compliance Ready Payroll",
     description:
       "Configure the statutory rules once and the system applies them every cycle, per employee, on the salary slip.",
     icon: ShieldCheck,
+    iconBgColor: "bg-sky-100/90",
+    iconTextColor: "text-sky-700",
     mockup: { type: "compliance" },
     cards: [
       {
@@ -328,12 +349,15 @@ const featuresList: FeatureDetail[] = [
     id: "geotrack",
     num: "07",
     tabLabel: "Geo Track",
+    tabSubtitle: "Field staff attendance with location proof",
     subHeader: "07 – FEATURE",
     title: "Geo Track",
     headline: "Attendance That Knows Where It Happened",
     description:
       "For teams that don't sit at one location, the punch carries the place along with the time.",
     icon: MapPin,
+    iconBgColor: "bg-amber-100/90",
+    iconTextColor: "text-amber-700",
     mockup: { type: "geo" },
     cards: [
       {
@@ -366,12 +390,15 @@ const featuresList: FeatureDetail[] = [
     id: "reports",
     num: "08",
     tabLabel: "Reports",
+    tabSubtitle: "Every register and report, one click away",
     subHeader: "08 – FEATURE",
     title: "Reports",
     headline: "Complete Visibility",
     description:
       "Admins can check what is happening across teams, branches, and payroll at any point.",
     icon: BarChart3,
+    iconBgColor: "bg-purple-100/90",
+    iconTextColor: "text-purple-700",
     mockup: { type: "reports" },
     cards: [
       {
@@ -404,12 +431,15 @@ const featuresList: FeatureDetail[] = [
     id: "admin",
     num: "09",
     tabLabel: "Admin Control",
+    tabSubtitle: "Role-based permissions and complete audit trail",
     subHeader: "09 – FEATURE",
     title: "Admin Control",
     headline: "Control Who Does What",
     description:
       "Every action in the system is saved and traceable.",
     icon: Lock,
+    iconBgColor: "bg-slate-100",
+    iconTextColor: "text-slate-700",
     mockup: { type: "admin" },
     cards: [
       {
@@ -510,58 +540,70 @@ export default function FeaturesInteractiveShowcase({
         {/* LEFT COLUMN: NUMBERED FEATURE TABS (01 to 09) */}
         {/* ========================================================== */}
         {!hideSidebar && (
-          <div className="lg:col-span-3 space-y-2">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 mb-3">
-              <span className="text-[11px] font-black uppercase tracking-wider text-slate-400">
-                FEATURES ({featuresList.length})
-              </span>
-              {/* Quick Slider Arrow Controls */}
-              <div className="flex items-center gap-1">
-                <button
-                  type="button"
-                  onClick={handlePrev}
-                  aria-label="Previous Feature"
-                  className="h-7 w-7 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#12B5A5] hover:border-teal-200 transition-colors cursor-pointer"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  aria-label="Next Feature"
-                  className="h-7 w-7 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#12B5A5] hover:border-teal-200 transition-colors cursor-pointer"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
+          <div className="lg:col-span-4 space-y-3">
+            <div className="pb-3 border-b border-slate-200/80 mb-2">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 font-display">
+                    PAYROLEHR&apos;S FEATURES
+                  </h3>
+                  <div className="h-0.5 w-14 bg-[#12B5A5] mt-1.5 rounded-full" />
+                </div>
+                {/* Quick Slider Arrow Controls */}
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={handlePrev}
+                    aria-label="Previous Feature"
+                    className="h-7 w-7 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#12B5A5] hover:border-teal-200 transition-colors cursor-pointer"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    aria-label="Next Feature"
+                    className="h-7 w-7 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#12B5A5] hover:border-teal-200 transition-colors cursor-pointer"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
+                </div>
               </div>
             </div>
 
-            <nav className="flex flex-row lg:flex-col gap-1.5 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 no-scrollbar" aria-label="Features Tab Navigation">
+            <nav className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 no-scrollbar" aria-label="Features Tab Navigation">
               {featuresList.map((item, idx) => {
                 const isActive = activeIdx === idx;
+                const IconComp = item.icon;
                 return (
                   <button
                     key={item.id}
                     type="button"
                     onClick={() => setActiveIdx(idx)}
-                    className={`group shrink-0 lg:shrink flex items-center gap-2 lg:gap-3.5 rounded-xl lg:rounded-2xl px-3 lg:px-4 py-2 lg:py-3 text-left transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                    className={`group shrink-0 lg:shrink flex items-start gap-3 rounded-2xl p-3 text-left transition-all duration-200 cursor-pointer ${
                       isActive
-                        ? "bg-gradient-to-r from-teal-50 via-teal-50/70 to-emerald-50/40 text-[#0E7A6E] font-bold shadow-xs border-b-2 lg:border-b-0 lg:border-l-4 border-[#12B5A5]"
-                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent"
+                        ? "bg-[#EAFBF7] border border-teal-200 text-[#0E7A6E] shadow-2xs ring-1 ring-teal-200"
+                        : "bg-white/80 hover:bg-slate-50 border border-slate-100 text-slate-800"
                     }`}
                   >
-                    <span
-                      className={`text-xs font-mono font-bold tracking-tight px-1.5 py-0.5 rounded ${
-                        isActive
-                          ? "bg-[#12B5A5]/15 text-[#0E7A6E]"
-                          : "text-slate-400 group-hover:text-slate-600"
-                      }`}
-                    >
-                      {item.num}
-                    </span>
-                    <span className="text-xs lg:text-sm font-semibold leading-tight">
-                      {item.tabLabel}
-                    </span>
+                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.iconBgColor || "bg-teal-50"} ${item.iconTextColor || "text-[#12B5A5]"} transition-transform group-hover:scale-105`}>
+                      <IconComp className="h-5 w-5" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1.5">
+                        <span className={`text-[10px] font-mono font-bold ${isActive ? "text-[#0E7A6E]" : "text-slate-400"}`}>
+                          {item.num}
+                        </span>
+                        <span className={`text-sm font-bold leading-tight block truncate ${isActive ? "text-[#0E7A6E]" : "text-slate-900 group-hover:text-slate-950"}`}>
+                          {item.tabLabel}
+                        </span>
+                      </div>
+                      {item.tabSubtitle && (
+                        <p className="mt-0.5 text-xs text-slate-500 font-normal leading-snug line-clamp-1">
+                          {item.tabSubtitle}
+                        </p>
+                      )}
+                    </div>
                   </button>
                 );
               })}
@@ -572,7 +614,7 @@ export default function FeaturesInteractiveShowcase({
         {/* ========================================================== */}
         {/* RIGHT COLUMN: ACTIVE FEATURE SHOWCASE (HEADER + MOCKUP + CARDS) */}
         {/* ========================================================== */}
-        <div className={`${hideSidebar ? "w-full" : "lg:col-span-9"} rounded-3xl border border-teal-100/90 bg-gradient-to-b from-[#FAFDFD] via-white to-white p-4 sm:p-6 lg:p-10 shadow-card`}>
+        <div className={`${hideSidebar ? "w-full" : "lg:col-span-8"} rounded-3xl border border-teal-100/90 bg-gradient-to-b from-[#FAFDFD] via-white to-white p-4 sm:p-6 lg:p-10 shadow-card`}>
           {/* Top Feature Tag & Title */}
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold font-mono tracking-wider text-[#12B5A5] uppercase">
@@ -1529,7 +1571,7 @@ export default function FeaturesInteractiveShowcase({
                         {c.desc.split(c.linkText)[0]}
                         <Link
                           href={c.linkHref || "/book-demo"}
-                          className="text-[#0E7A6E] font-semibold underline decoration-[#12B5A5]/60 hover:text-[#12B5A5] transition-colors"
+                          className="text-[#0284c7] font-medium underline decoration-[#0284c7]/50 hover:text-[#0369a1] hover:decoration-[#0369a1] transition-colors"
                         >
                           {c.linkText}
                         </Link>
