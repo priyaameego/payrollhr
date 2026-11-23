@@ -16,6 +16,10 @@
     "def": "The fixed core part of pay. PF, gratuity and often HRA are worked out from it."
   },
   {
+    "term": "Bell curve",
+    "def": "A performance appraisal method based on forced distribution, where a fixed percentage of employees must be ranked into predetermined rating bands (such as 10% top, 20% above, 40% middle, 20% below, and 10% bottom)."
+  },
+  {
     "term": "Bank salary file",
     "def": "A file in your bank's format listing each employee's account and net pay for bulk transfer."
   },

@@ -1,36 +1,80 @@
 export interface GlossaryTermDetail {
   slug: string;
   term: string;
+  h1Title: string;
+  letter: string;
+  readTime: string;
+  updatedDate: string;
   category: string;
   metaTitle: string;
   metaDescription: string;
   definition: string;
-  overview: string;
-  keyImpacts: {
-    title: string;
+  audioDuration: string;
+
+  // Section 1: What is ...
+  overviewHeading: string;
+  overviewParagraphs: string[];
+
+  // Section 2: Calculation / Formula
+  calculationHeading: string;
+  calculationIntro: string;
+  formula?: string;
+  formulaRules?: {
+    label: string;
     description: string;
   }[];
-  statutoryBasis: {
-    lawOrAct: string;
-    rule: string;
-    complianceNote: string;
+  formulaPostNote?: string;
+  hasBellCurveChart?: boolean;
+
+  // Section 3: Comparison Table
+  comparisonHeading: string;
+  comparisonTable: {
+    headers: string[];
+    rows: string[][];
   };
-  practicalScenario: {
-    headline: string;
-    example: string;
-    calculation?: string[];
-    resultLabel: string;
-    resultValue: string;
+
+  // Section 4: Worked Example
+  exampleHeading: string;
+  exampleIntro: string;
+  exampleTable?: {
+    headers: string[];
+    rows: string[][];
   };
-  howPayroleHrHelps: {
-    featureName: string;
-    featureSlug: string;
-    points: string[];
-  };
+  exampleNote?: string;
+  exampleExplanation: string;
+
+  // Section 5: Indian Law & Statutory Rules
+  lawHeading: string;
+  lawIntro?: string;
+  lawRules: string[];
+  lawDetails: string[];
+
+  // Section 6: Finding the Cause / Operational Guidance
+  causeHeading: string;
+  causeIntro: string;
+  causePoints: string[];
+  causeConclusion?: string;
+
+  // Section 7: Software & Report
+  reportHeading: string;
+  reportIntro: string;
+  reportFeatures: string[];
+  reportCtaText: string;
+  featureSlug: string;
+
+  // Section 8: FAQs
   faqs: {
     q: string;
     a: string;
   }[];
+
+  // Sidebar Table of Contents
+  tocSections: {
+    id: string;
+    number: number;
+    title: string;
+  }[];
+
   relatedTermSlugs: string[];
 }
 
@@ -43,497 +87,409 @@ export function termToSlug(term: string): string {
 }
 
 export const GLOSSARY_DETAILS: Record<string, GlossaryTermDetail> = {
+  // =========================================================================
+  // 1. ABSENTEEISM (Matching 100% of User's 6 Screenshots from AttendoHR)
+  // =========================================================================
   absenteeism: {
     slug: "absenteeism",
     term: "Absenteeism",
+    h1Title: "Absenteeism: Meaning, Rate Formula & Indian Law",
+    letter: "A",
+    readTime: "4 min read",
+    updatedDate: "Updated 16 October 2026",
     category: "Attendance & Time Tracking",
-    metaTitle: "What is Absenteeism in HR? Meaning, Causes, Legal Rules & Rate Formula | PayroleHR",
-    metaDescription: "Understand absenteeism in Indian workplaces: definitions, loss of pay (LOP) deductions, Industrial Employment Standing Orders Act, and how PayroleHR tracks unscheduled absences automatically.",
-    definition: "A persistent or unannounced failure by an employee to report for scheduled work shifts without prior approval, valid medical justification, or authorized leave.",
-    overview: "In Indian manufacturing, retail, healthcare, and IT enterprises, absenteeism refers to unapproved time away from duty that disrupts factory shift planning, retail floor coverage, and project deliverables. While casual, sick, and privilege leaves are statutory entitlements, unannounced absence creates severe staffing deficits, sudden operational downtime, and wage computation disputes.",
-    keyImpacts: [
+    metaTitle: "Absenteeism: Meaning, Rate Formula & Indian Law | PayroleHR",
+    metaDescription: "Understand absenteeism in Indian workplaces: definition, rate calculation formula, comparison with approved leave, biscuit factory example, Model Standing Orders 2026, and muster reports.",
+    definition: "Absenteeism is an employee's repeated, unplanned absence from scheduled work, without approved leave or a good reason.",
+    audioDuration: "5:19",
+
+    // Section 1
+    overviewHeading: "What Is Absenteeism?",
+    overviewParagraphs: [
+      "A single missed day is an absence, while a pattern of unplanned missed days is what HR teams track.",
+      "Absenteeism is an employee's repeated, unplanned absence from scheduled work, without approved leave or a good reason. No Labour Code uses the word. In India, the Model Standing Orders, 2026, made under the Industrial Relations Code, 2020, treat habitual absence without leave as misconduct where 300 or more workers are employed."
+    ],
+
+    // Section 2
+    calculationHeading: "How to Calculate the Absenteeism Rate",
+    calculationIntro: "The rate shows what share of scheduled work was lost to unplanned absence:",
+    formula: "Absenteeism rate (%) = unplanned absent days ÷ scheduled working days × 100",
+    formulaRules: [
       {
-        title: "Loss of Pay (LOP) Salary Reductions",
-        description: "Unscheduled absences are marked as LOP in the monthly muster roll, directly reducing the employee's gross payable working days and net monthly take-home."
+        label: "Count",
+        description: "days someone was rostered to work and did not come, with no approved leave"
       },
       {
-        title: "Shift Disruption & Overtime Costs",
-        description: "In continuous manufacturing plants and retail outlets, a missing worker forces supervisors to pay 2x overtime rates to other operators to keep lines running."
+        label: "Leave out of the top line",
+        description: "approved leave, paid or unpaid, so it does not look like a problem"
       },
       {
-        title: "Statutory Muster Roll Non-Compliance",
-        description: "Under the Factories Act 1948, employers must maintain Form 25 muster rolls. Unreconciled discrepancies between biometric logs and physical rolls invite labor inspection penalties."
+        label: "Leave out of both lines",
+        description: "holidays and week-offs, because nobody was due to work"
       },
       {
-        title: "Team Morale & Operational Friction",
-        description: "Chronic absenteeism by select staff increases the workload on punctual colleagues, causing resentment and avoidable attrition in high-volume teams."
+        label: "Half days",
+        description: "count them as 0.5 if your policy marks them that way"
       }
     ],
-    statutoryBasis: {
-      lawOrAct: "Industrial Employment (Standing Orders) Act, 1946 & Model Standing Orders",
-      rule: "Habitual absence without leave or absence without leave for more than 8 consecutive days constitutes misconduct and warrants formal show-cause proceedings before disciplinary action.",
-      complianceNote: "Employers cannot arbitrarily deduct wages or terminate staff without documented attendance records, biometric timestamp logs, and formal written show-cause notices."
-    },
-    practicalScenario: {
-      headline: "Machinist Missing 3 Unannounced Shifts in a 26-Day Month",
-      example: "Ramesh earns a monthly gross salary of ₹26,000 under a standard 26-day wage structure (₹1,000/day). He fails to report to the plant on Monday, Tuesday, and Wednesday without submitting a leave slip or informing his supervisor.",
-      calculation: [
-        "Daily Wage Rate = ₹26,000 Monthly Gross ÷ 26 Fixed Days = ₹1,000 / Day",
-        "Loss of Pay (LOP) Deduction = 3 Days Absent × ₹1,000 = ₹3,000",
-        "Adjusted Gross Pay = ₹26,000 - ₹3,000 = ₹23,000",
-        "Statutory PF & ESI = Computed on revised basic wage after LOP deduction"
-      ],
-      resultLabel: "Total Net Wage Deduction (LOP):",
-      resultValue: "₹3,000 LOP Deduction + HR Misconduct Alert"
-    },
-    howPayroleHrHelps: {
-      featureName: "Attendance Management & Face Kiosk",
-      featureSlug: "attendance-management",
-      points: [
-        "Real-time instant supervisor WhatsApp notifications when an employee has not punched in within 30 minutes of shift start.",
-        "Touchless biometric face recognition on standard Android tablets that eliminates proxy punching and fake manual entries.",
-        "1-tap shift regularisation in the employee self-service app where staff can attach doctor prescriptions or emergency notes.",
-        "Automated sync with the month-end payroll register, deducting LOP days accurately without manual spreadsheet calculations."
+    formulaPostNote: "Our guide to calculating attendance percentage shows how one month can give three different answers depending on what you divide by.",
+
+    // Section 3
+    comparisonHeading: "Absenteeism vs Approved Leave",
+    comparisonTable: {
+      headers: ["Aspect", "Absenteeism", "Approved leave"],
+      rows: [
+        ["Planned", "No", "Yes, applied for"],
+        ["Permission", "None given", "Granted in writing"],
+        ["Pay impact", "Deduction (loss of pay)", "Paid from leave balance"],
+        ["Statutory standing", "Potential misconduct inquiry", "Protected legal entitlement"],
+        ["Shift coverage", "Unexpected floor vacancy & overtime strain", "Planned coverage arranged in advance in shift roster"]
       ]
     },
+
+    // Section 4
+    exampleHeading: "Absenteeism Example",
+    exampleIntro: "The packing floor of a biscuit factory in Mumbai (an example) has 40 packers in September 2026. With Sundays off, each is rostered for 26 days.",
+    exampleTable: {
+      headers: ["Item", "Days"],
+      rows: [
+        ["Rostered", "1,040"],
+        ["Approved", "31"],
+        ["Unplanned", "47"],
+        ["Rate", "4.52%"]
+      ]
+    },
+    exampleNote: "Note: this is an invented example for illustration only. The factory, headcount and days are made up.",
+    exampleExplanation: "Here 47 ÷ 1,040 × 100 gives 4.52%. Count the 31 approved days as well and the rate jumps to 7.50%, which blames the floor for leave the factory granted. One packer missed 6 of her 26 days without leave, a personal rate of 23.08%, so that is where the conversation starts.",
+
+    // Section 5
+    lawHeading: "What Indian Law Says About Absence",
+    lawIntro: "Where 300 or more workers are employed, the Model Standing Orders apply until the employer's own standing orders are certified. They draw two lines:",
+    lawRules: [
+      "1. A worker who habitually reports late or stays absent is liable to a wage deduction under the Code on Wages, 2019.",
+      "2. Habitual absence without leave or without sufficient cause is misconduct."
+    ],
+    lawDetails: [
+      "Any penalty follows the enquiry the standing orders set out. Below 300 workers, the appointment letter and your state's shops and establishments law usually set the rules instead.",
+      "Whatever the headcount, a deduction for absence has a ceiling. Section 20 of the Code on Wages allows it only for the absence, and never in a larger proportion than the time missed. Our guide to leave without pay works through the maths."
+    ],
+
+    // Section 6
+    causeHeading: "Finding the Cause Before the Penalty",
+    causeIntro: "Before jumping straight to wage deductions or disciplinary notices, experienced HR managers look for systemic patterns:",
+    causePoints: [
+      "Personal or family medical emergencies without accessible leave channels",
+      "Workplace burnout or rigid, unmanageable rotating night shifts",
+      "Long, exhausting commutes or localized public transit disruptions",
+      "Friction with supervisors or lack of transparent leave approval workflows"
+    ],
+    causeConclusion: "Clear communication and fair regularisation policies prevent minor attendance slips from escalating into legal disputes.",
+
+    // Section 7
+    reportHeading: "See Every Absent Day in One Report",
+    reportIntro: "To act on absenteeism fairly, you need each person's absent days counted separately from their approved leave.",
+    reportFeatures: [
+      "PayroleHR is a complete workforce management system for every kind of business.",
+      "Its Muster Report lists Full Days, Half Days, Absent, Week Off, Leaves and Holidays for each employee.",
+      "Its Attendance Master report shows the day-by-day status behind those totals with face and GPS biometric proof.",
+      "Approved regularisations sync seamlessly into the salary engine, avoiding manual spreadsheet adjustments."
+    ],
+    reportCtaText: "To see that split for your own team, explore PayroleHR.",
+    featureSlug: "attendance-management",
+
+    // Section 8
     faqs: [
       {
-        q: "What is the difference between absenteeism and casual leave?",
-        a: "Casual leave is a planned, authorized statutory leave entitlement applied for in advance and sanctioned by HR. Absenteeism is an unannounced, unapproved absence from duty that results in Loss of Pay (LOP) and formal misconduct tracking."
+        q: "What Is a Good Absenteeism Rate?",
+        a: "In Indian manufacturing and retail, an absenteeism rate between 2% and 4% is generally considered normal. Rates exceeding 6% typically indicate shift dissatisfaction, burnout, or unaddressed workplace issues requiring HR review."
       },
       {
-        q: "Can an employer terminate an employee for absenteeism under Indian labor laws?",
-        a: "Under the Model Standing Orders and state Shops and Establishment Acts, continuous unapproved absence (usually 8 to 10 consecutive working days) constitutes misconduct. However, HR must follow due legal process: issuing a formal show-cause letter, granting time to explain, and holding a domestic inquiry before termination."
+        q: "How Long Before Absence Becomes Misconduct?",
+        a: "Under the Model Standing Orders, habitual absence without leave or absence without sanction for more than 8 to 10 consecutive working days is classified as major misconduct, allowing the employer to issue a formal show-cause letter and initiate an inquiry."
       },
       {
-        q: "How is the absenteeism rate calculated in HR?",
-        a: "Absenteeism Rate (%) = (Total Unscheduled Absent Days ÷ Total Planned Working Days) × 100. For example, if a team had 40 unplanned absent days across 1,000 total planned shifts, the absenteeism rate is 4%."
+        q: "Can You Deduct 8 Days of Pay for 1 Day of Absence?",
+        a: "No. Under Section 20 of the Code on Wages, 2019, deductions for absence from duty cannot exceed the wage corresponding to the period of absence. A penalty deduction of up to 8 days is only permissible in cases of illegal concerted strikes by 10 or more workers under certified standing orders."
+      },
+      {
+        q: "How Does PayroleHR Calculate Absenteeism Automatically?",
+        a: "PayroleHR connects real-time facial recognition check-ins, mobile geofenced punches, and shift rosters. If an employee does not check in, the system marks the shift as absent and alerts the supervisor, while approved leave regularisations automatically adjust the muster roll."
       }
+    ],
+
+    tocSections: [
+      { id: "section-1", number: 1, title: "What Is Absenteeism?" },
+      { id: "section-2", number: 2, title: "How to Calculate the Absenteeism Rate" },
+      { id: "section-3", number: 3, title: "Absenteeism vs Approved Leave" },
+      { id: "section-4", number: 4, title: "Absenteeism Example" },
+      { id: "section-5", number: 5, title: "What Indian Law Says About Absence" },
+      { id: "section-6", number: 6, title: "Finding the Cause Before the Penalty" },
+      { id: "section-7", number: 7, title: "See Every Absent Day in One Report" },
+      { id: "section-8", number: 8, title: "Frequently Asked Questions" }
     ],
     relatedTermSlugs: ["attendance-regularisation", "lop", "paid-days", "unpaid-days", "roster"]
   },
 
-  arrears: {
-    slug: "arrears",
-    term: "Arrears",
-    category: "Payroll & Salary Structures",
-    metaTitle: "What are Salary Arrears in Payroll? Tax Rules & Calculation Formula | PayroleHR",
-    metaDescription: "Understand salary arrears in Indian payroll: definitions, Section 89(1) tax relief, retrospective increments, and how PayroleHR computes back-dated pay automatically.",
-    definition: "Salary or allowance amounts owed to an employee for a past work period that are disbursed in a subsequent month, commonly triggered by backdated wage revisions.",
-    overview: "In Indian corporate and public-sector payroll, arrears arise when an employee's salary increment, promotion, Dearness Allowance (DA) revision, or minimum wage adjustment is applied retrospectively. Because the increment applies to months already closed and paid, the incremental difference must be computed, taxed, and disbursed in the current active payroll cycle.",
-    keyImpacts: [
-      {
-        title: "Retrospective Wage Reconciliation",
-        description: "HR must calculate the exact difference across all affected earning components (Basic, HRA, Special Allowance) for every past month."
-      },
-      {
-        title: "Statutory PF & ESI Adjustments",
-        description: "Back-dated basic salary increases require supplementary PF (12%) and ESI (0.75%) contributions for both employee and employer."
-      },
-      {
-        title: "Income Tax & Section 89 Relief",
-        description: "Receiving accumulated arrears in a single month can push employees into higher tax brackets. Employees can claim tax relief under Section 89(1) via Form 10E."
-      },
-      {
-        title: "Transparent Payslip Reporting",
-        description: "Arrears must be clearly itemized on monthly payslips so employees can distinguish regular current-month earnings from one-time back-pay."
-      }
-    ],
-    statutoryBasis: {
-      lawOrAct: "Payment of Wages Act, 1936 & Income Tax Act (Section 89)",
-      rule: "All dues and arrears arising from bilateral agreements, wage boards, or promotions must be disbursed within the stipulated wage period without unauthorized deductions.",
-      complianceNote: "Supplementary PF and ESI contributions on wage arrears must be remitted through the respective unified portal challans with past wage month references."
-    },
-    practicalScenario: {
-      headline: "Software Engineer Awarded ₹10,000/Month Increment Effective 3 Months Back",
-      example: "Priya receives a salary appraisal in October with an increment of ₹10,000 per month, made effective retrospectively from July 1st (affecting July, August, and September).",
-      calculation: [
-        "Monthly Increment = ₹10,000 / month",
-        "Number of Retrospective Months = 3 Months (Jul, Aug, Sep)",
-        "Gross Salary Arrears = 3 × ₹10,000 = ₹30,000",
-        "October Regular Salary = ₹75,000",
-        "October Total Gross Earnings = ₹75,000 + ₹30,000 Arrears = ₹1,05,000"
-      ],
-      resultLabel: "Total Arrears Disbursed in October:",
-      resultValue: "₹30,000 Gross Arrears (Itemized on Payslip)"
-    },
-    howPayroleHrHelps: {
-      featureName: "Arrears Management & Backdated Adjustments",
-      featureSlug: "arrears-management",
-      points: [
-        "1-click retrospective increment processing where HR simply enters the effective past date and new salary structure.",
-        "Automatic component-by-component difference calculation across all historical payroll records with zero manual spreadsheet math.",
-        "Automatic supplementary EPF and ESIC contribution calculations ready for official portal upload.",
-        "Detailed arrears breakdown annexure printed directly on the employee's PDF payslip."
-      ]
-    },
-    faqs: [
-      {
-        q: "Are salary arrears taxable in India?",
-        a: "Yes. Salary arrears are fully taxable in the financial year in which they are received. However, if the lump-sum payment pushes the employee into a higher income tax bracket, they can file Form 10E to claim tax relief under Section 89(1)."
-      },
-      {
-        q: "Is Provident Fund (PF) deducted on salary arrears?",
-        a: "Yes. If the basic salary is revised retrospectively, the 12% employee PF and 12% employer PF must be calculated on the incremental basic wages and remitted to the EPFO."
-      },
-      {
-        q: "How does PayroleHR handle arrears when an employee worked partial days in past months?",
-        a: "PayroleHR checks the historical attendance records for each past month. If the employee had 2 days of LOP in August, the arrears for August are automatically prorated based on actual paid days."
-      }
-    ],
-    relatedTermSlugs: ["basic-salary", "gross-salary", "deductions", "tds", "payroll"]
-  },
+  // =========================================================================
+  // 2. BELL CURVE (Forced Distribution Appraisal Model with Interactive Chart)
+  // =========================================================================
+  "bell-curve": {
+    slug: "bell-curve",
+    term: "Bell curve",
+    h1Title: "Bell Curve Appraisal: Meaning, Rate Formula, Normal Distribution & Indian Law",
+    letter: "B",
+    readTime: "5 min read",
+    updatedDate: "Updated 18 October 2026",
+    category: "Performance & Compensation",
+    metaTitle: "Bell Curve Appraisal: Meaning, Rate Formula, Normal Distribution & Indian Law | PayroleHR",
+    metaDescription: "Understand Bell Curve forced ranking in Indian HR appraisals: statistical normal distribution, 10-20-40-20-10 quota bands, Bell Curve vs Absolute Rating, Code on Wages compliance, and PIP rules.",
+    definition: "A performance appraisal method based on forced distribution, where a fixed percentage of employees must be ranked into predetermined rating bands (such as 10% top, 20% above, 40% middle, 20% below, and 10% bottom).",
+    audioDuration: "6:20",
 
-  "attendance-regularisation": {
-    slug: "attendance-regularisation",
-    term: "Attendance Regularisation",
-    category: "Attendance & Time Tracking",
-    metaTitle: "What is Attendance Regularisation in HR? Rules, Process & Workflow | PayroleHR",
-    metaDescription: "Learn how attendance regularisation works in Indian companies: missed punch policies, approval workflows, grace times, and how PayroleHR automates requests.",
-    definition: "The formal process where an employee submits an official correction request for a missed, erroneous, or outdoor punch, which must be approved by HR or their reporting manager.",
-    overview: "Even in modern organizations equipped with biometric scanners or mobile GPS apps, employees occasionally forget to punch out, encounter biometric sensor timeouts, or work off-site on client visits. Without an attendance regularisation workflow, these punch omissions are automatically treated as half-days or Loss of Pay (LOP), leading to payroll disputes at month-end.",
-    keyImpacts: [
-      {
-        title: "Prevents Unwarranted Salary Deductions",
-        description: "Approved regularisations restore the employee's attendance status to 'Present', preventing incorrect LOP wage cuts."
-      },
-      {
-        title: "Transparent Audit & Approval Trail",
-        description: "Managers review the stated reason (e.g. client meeting, technical glitch) and approve or reject with a full digital timestamp log."
-      },
-      {
-        title: "Policy Limits & Abuse Prevention",
-        description: "Companies typically cap regularisations to 2 or 3 requests per month to discourage chronic carelessness or habit forming."
-      },
-      {
-        title: "Streamlines Month-End Payroll Locking",
-        description: "Automated cutoff dates force all pending regularisation requests to be cleared before the attendance register is locked for payroll."
-      }
+    // Section 1
+    overviewHeading: "What Is a Bell Curve in Performance Appraisals?",
+    overviewParagraphs: [
+      "A Bell Curve appraisal, also known as forced distribution or forced ranking, is a performance evaluation method that maps employee ratings onto a statistical normal distribution curve.",
+      "Under this model, managers cannot give high marks to everyone. Instead, HR mandates that a predetermined quota of staff fall into specific performance tiers: a small percentage at the top, the largest majority clustered around the average middle, and a fixed percentage forced into the bottom tier."
     ],
-    statutoryBasis: {
-      lawOrAct: "Factories Act, 1948 & State Shops and Commercial Establishments Acts",
-      rule: "Employers are legally mandated to maintain true and accurate daily muster rolls showing exact hours worked by every adult employee.",
-      complianceNote: "Manual modifications to biometric logs without an employee request and managerial sign-off expose companies to statutory inspection queries."
-    },
-    practicalScenario: {
-      headline: "Sales Executive Forgets to Punch Out During Field Client Visit",
-      example: "Vikram checks in at the office at 9:15 AM but leaves at 2:00 PM for client demonstrations across the city, unable to return to punch out at 6:00 PM.",
-      calculation: [
-        "Raw System Record = In: 09:15 AM | Out: Missing -> Flagged as Half-Day",
-        "Vikram raises Regularisation Request in PayroleHR mobile app stating 'Field Client Meetings at Whitefield'",
-        "Reporting Manager verifies client meeting notes and taps 'Approve'",
-        "System Status = Updated from 'Half-Day' to 'Full Day Present (On-Duty)'"
-      ],
-      resultLabel: "Salary Impact:",
-      resultValue: "0 LOP Deduction (Full Day Paid)"
-    },
-    howPayroleHrHelps: {
-      featureName: "Attendance Tracking & Mobile Self-Service",
-      featureSlug: "attendance-management",
-      points: [
-        "Staff can raise regularisation requests directly from the PayroleHR mobile portal with 1 tap.",
-        "Managers receive instant push and WhatsApp approval alerts with reason details.",
-        "Configurable organizational rules: set monthly limits (e.g., max 3/month) and past-day request windows (e.g., within 48 hours).",
-        "Direct synchronization with payroll calculations so approved requests reflect instantly in net payable days."
-      ]
-    },
-    faqs: [
-      {
-        q: "How many attendance regularisations are allowed in Indian companies?",
-        a: "Most Indian organizations permit 2 to 3 attendance regularisations per employee per calendar month. Requests beyond this limit require special authorization from HR."
-      },
-      {
-        q: "What happens if a regularisation request is rejected by the manager?",
-        a: "If rejected, the system applies default organization policy rules—usually marking the day as a half-day or Loss of Pay (LOP), unless the employee applies for casual or sick leave."
-      },
-      {
-        q: "Can attendance regularisation be automated for field staff?",
-        a: "Yes. With PayroleHR's geofenced mobile attendance feature, field staff punch in and out using GPS on their phones, eliminating the need for regularisation altogether."
-      }
-    ],
-    relatedTermSlugs: ["absenteeism", "grace-time", "half-day", "lop", "paid-days"]
-  },
 
-  "basic-salary": {
-    slug: "basic-salary",
-    term: "Basic Salary",
-    category: "Payroll & Salary Structures",
-    metaTitle: "What is Basic Salary in India? Percentage of CTC, PF Rules & Tax | PayroleHR",
-    metaDescription: "Understand Basic Salary in Indian payroll structures: ideal percentage of CTC (40-50%), statutory links to PF, Gratuity, and ESI, and how PayroleHR manages salary grades.",
-    definition: "The primary, fixed core component of an employee's salary package before any allowances (HRA, DA, Special) or statutory deductions (PF, PT, TDS) are applied.",
-    overview: "In Indian compensation design, Basic Salary is the benchmark anchor around which all statutory contributions and post-retirement benefits revolve. Crucial benefits including Employee Provident Fund (EPF), Payment of Gratuity, and House Rent Allowance (HRA) exemptions are calculated as statutory percentages of the Basic Salary.",
-    keyImpacts: [
+    // Section 2
+    calculationHeading: "How the Bell Curve is Calculated & Distributed",
+    calculationIntro: "The standard forced distribution model divides an organization's headcount into 5 calibrated performance tiers:",
+    formula: "Forced Distribution Split = 10% (Top) + 20% (Above) + 40% (Middle) + 20% (Below) + 10% (Bottom)",
+    formulaRules: [
       {
-        title: "Statutory Anchor for PF & Gratuity",
-        description: "12% EPF contribution and the 15/26 gratuity formula are computed strictly on Basic Salary (plus Dearness Allowance where applicable)."
+        label: "Manager rating",
+        description: "Supervisors evaluate staff on predefined annual goals and operational KPIs"
       },
       {
-        title: "Benchmark for HRA Tax Exemption",
-        description: "Income Tax rules cap HRA exemption at 50% of Basic for metro cities and 40% for non-metros, making Basic central to employee tax planning."
+        label: "HR score pooling",
+        description: "Ratings from all departments are compiled to neutralize lenient or overly strict grading"
       },
       {
-        title: "40% to 50% CTC Best Practice",
-        description: "Indian HR best practice allocates 40% to 50% of the annual CTC to Basic Salary to balance compliant social security with healthy employee take-home."
+        label: "Calibration review",
+        description: "Leadership normalizes scores into strict quota percentages to fit the bell shape"
       },
       {
-        title: "Fixed & 100% Taxable",
-        description: "Unlike specialized reimbursements, Basic Salary is fully taxable in the hands of the employee under the Indian Income Tax Act."
+        label: "Pay increment mapping",
+        description: "Salary hikes, promotions, and variable bonuses are allocated directly by rating tier"
       }
     ],
-    statutoryBasis: {
-      lawOrAct: "Code on Wages 2019 & Employees' Provident Funds Act, 1952",
-      rule: "Under proposed Code on Wages norms, specified allowances cannot exceed 50% of the total compensation package, ensuring Basic comprises at least 50% of wages.",
-      complianceNote: "Artificially suppressing Basic Salary below minimum wage standards to avoid employer PF contributions violates labor department regulations."
-    },
-    practicalScenario: {
-      headline: "Structuring Basic Salary for a ₹60,000 Monthly CTC Package",
-      example: "An employer in Bangalore offers an employee a monthly gross package of ₹60,000 and allocates 50% to Basic Salary according to compliance standards.",
-      calculation: [
-        "Monthly Gross CTC = ₹60,000",
-        "Basic Salary (50% of Gross) = ₹30,000",
-        "House Rent Allowance (50% of Basic) = ₹15,000",
-        "Special Allowance (Remaining balance) = ₹15,000",
-        "Employee PF Deduction (12% of Basic, capped at ₹1,800 or full) = ₹1,800 / ₹3,600",
-        "Annual Gratuity Provision Accrual = (15 × ₹30,000) ÷ 26 = ₹17,308 / year"
-      ],
-      resultLabel: "Compliant Basic Salary Component:",
-      resultValue: "₹30,000 / month (50% of Gross)"
-    },
-    howPayroleHrHelps: {
-      featureName: "Salary Structure & Formula Management",
-      featureSlug: "salary-structure-management",
-      points: [
-        "Pre-built compliant salary templates with configurable 40% to 50% Basic Salary ratios.",
-        "Automatic cascading formulas: when Basic Salary changes, HRA, PF, and Gratuity recalculate automatically.",
-        "Built-in minimum wage validation checks ensuring Basic meets state-specific statutory minimums.",
-        "1-click export of salary breakup annexures for employee offer letters and appointment orders."
-      ]
-    },
-    faqs: [
-      {
-        q: "What percentage of CTC should be Basic Salary in India?",
-        a: "In India, Basic Salary typically comprises 40% to 50% of an employee's total Cost to Company (CTC). Under the proposed Code on Wages, Basic must constitute at least 50% of total compensation."
-      },
-      {
-        q: "Can Basic Salary be lower than the state Minimum Wage?",
-        a: "No. In most Indian states, the Basic Salary (plus Dearness Allowance) must meet or exceed the statutory minimum wage prescribed for that specific employee category and zone."
-      },
-      {
-        q: "Is Basic Salary subject to income tax deductions?",
-        a: "Yes. Basic Salary is 100% taxable in India with zero exemptions. However, statutory deductions like employee PF (under Section 80C) help offset taxable income."
-      }
-    ],
-    relatedTermSlugs: ["ctc", "gross-salary", "hra", "epf-pf", "gratuity"]
-  },
+    formulaPostNote: "Use the interactive simulator below to see how a team of 50, 100, or 250 employees gets distributed across salary increment bands:",
+    hasBellCurveChart: true,
 
-  ctc: {
-    slug: "ctc",
-    term: "CTC",
-    category: "Payroll & Salary Structures",
-    metaTitle: "What is CTC (Cost to Company)? Meaning, Components & In-Hand Formula | PayroleHR",
-    metaDescription: "Understand CTC in India: Cost to Company breakdown, difference between CTC, Gross, and Net In-Hand Salary, and how PayroleHR generates transparent offer letters.",
-    definition: "The total annual financial cost that an employer incurs to recruit, employ, and maintain an employee on the company payroll.",
-    overview: "Cost to Company (CTC) is the comprehensive figure quoted in Indian job offer letters. It includes direct cash earnings (Basic, HRA, allowances), employer statutory contributions (Employer PF 12%, Employer ESI 3.25%), annual performance bonuses, medical insurance premiums, and statutory gratuity provisions. Because CTC includes employer overheads, it is significantly higher than the employee's monthly take-home salary.",
-    keyImpacts: [
-      {
-        title: "Includes Employer-Side Statutory Costs",
-        description: "CTC bundles employer contributions (12% PF, 3.25% ESI, gratuity accrual) that never appear in the employee's monthly bank transfer."
-      },
-      {
-        title: "Drives Realistic Take-Home Expectations",
-        description: "Misunderstandings between annual CTC and net in-hand pay are the #1 source of candidate dissatisfaction in Indian hiring."
-      },
-      {
-        title: "Budget & Staff Cost Forecasting",
-        description: "Finance and management use CTC to project total manpower expenditure across departments, branches, and fiscal years."
-      },
-      {
-        title: "Benchmarking Employee Benefits",
-        description: "Allows comparing packages across different bonus structures, health insurance covers, and statutory provisions."
-      }
-    ],
-    statutoryBasis: {
-      lawOrAct: "Indian Contract Act, 1872 & Relevant Statutory Benefit Enactments",
-      rule: "Offer letters must accurately detail the breakdown of cash in-hand salary versus statutory provisions and non-cash benefits.",
-      complianceNote: "Employers cannot deduct employer-side PF or ESI contributions from the employee's gross wage without contractually defining them within the agreed CTC."
-    },
-    practicalScenario: {
-      headline: "Breaking Down a ₹6,00,000 Annual CTC Offer to Monthly In-Hand Pay",
-      example: "Rohan receives a job offer in Hyderabad for ₹6,00,000 annual CTC (₹50,000/month CTC).",
-      calculation: [
-        "Annual CTC = ₹6,00,000 | Monthly CTC = ₹50,000",
-        "Less: Employer PF (12% of Basic ₹25,000) = -₹1,800 / month",
-        "Less: Annual Gratuity Provision (15/26 formula) = -₹1,200 / month",
-        "Monthly Gross Salary = ₹47,000",
-        "Less: Employee PF (12% of Basic) = -₹1,800",
-        "Less: Professional Tax (Telangana) = -₹200",
-        "Less: TDS Income Tax Provision = -₹1,500",
-        "Net Monthly Take-Home (In-Hand) = ₹47,000 - ₹3,500 = ₹43,500"
-      ],
-      resultLabel: "Net Monthly Take-Home (In-Hand):",
-      resultValue: "₹43,500 / month (vs ₹50,000 CTC)"
-    },
-    howPayroleHrHelps: {
-      featureName: "CTC Breakup & In-Hand Calculator",
-      featureSlug: "salary-structure-management",
-      points: [
-        "Interactive CTC-to-in-hand simulator that candidates and HR can test in real time before releasing offer letters.",
-        "1-click offer letter generator that prints clear salary annexures comparing CTC, Gross, and Net Take-Home.",
-        "Automatic ledger bifurcation between employee deductions and company overhead costs.",
-        "Full support for new and old income tax regimes with live TDS forecasting."
+    // Section 3
+    comparisonHeading: "Bell Curve vs Absolute Rating",
+    comparisonTable: {
+      headers: ["Aspect", "Bell Curve (Forced Ranking)", "Absolute Rating Standard"],
+      rows: [
+        ["Evaluation standard", "Relative: employees are evaluated against each other", "Objective: employees are evaluated against preset targets"],
+        ["Team collaboration", "Can foster hyper-competition and friction between peers", "Promotes open teamwork since anyone meeting goals scores high"],
+        ["Quota enforcement", "Strict: fixed % must land in bottom and top categories", "Flexible: no artificial limits on high or low scores"],
+        ["High-performing teams", "Forces capable contributors into bottom tiers arbitrarily", "Allows an entire exceptional team to receive top recognition"],
+        ["Rating inflation", "Eliminates manager leniency and grade inflation effectively", "Prone to grade inflation if managers avoid tough reviews"]
       ]
     },
-    faqs: [
-      {
-        q: "What is the difference between CTC, Gross Salary, and In-Hand Salary?",
-        a: "CTC is the total expense incurred by the company (including employer PF, gratuity, and insurance). Gross Salary is earnings before deductions (Basic + allowances). In-Hand Salary is the actual cash deposited into the employee's bank account after all taxes and employee deductions."
-      },
-      {
-        q: "Why is monthly in-hand salary less than CTC divided by 12?",
-        a: "Because CTC includes employer-side expenses (Employer PF, Employer ESI, gratuity accrual, bonus provisions) and excludes employee-side deductions (Employee PF, Professional Tax, TDS income tax)."
-      },
-      {
-        q: "Can gratuity be deducted from monthly CTC?",
-        a: "Gratuity is an annual provision (approximately 4.81% of Basic Salary) accrued by the company for employees completing 5+ years of service. It is accounted for in CTC budgets but is not a cash deduction from wages."
-      }
-    ],
-    relatedTermSlugs: ["basic-salary", "gross-salary", "net-salary", "epf-pf", "gratuity"]
-  },
 
-  gratuity: {
-    slug: "gratuity",
-    term: "Gratuity",
-    category: "Statutory Compliance & Exit",
-    metaTitle: "What is Gratuity in India? Eligibility Rules, Formula & Tax Exemption | PayroleHR",
-    metaDescription: "Learn how gratuity works in India: 5-year eligibility criteria, the 15/26 calculation formula, ₹20 lakh tax exemption limit, and how PayroleHR automates exit payouts.",
-    definition: "A statutory monetary retirement benefit paid by an employer to an employee as a token of gratitude for continuous service of 5 years or more.",
-    overview: "Under the Payment of Gratuity Act 1972, gratuity is a mandatory terminal benefit for establishments employing 10 or more workers. When an employee completes 5 continuous years of tenure and resigns, retires, or faces retrenchment, the employer is legally obligated to disburse a lump-sum gratuity based on their last drawn basic salary and tenure.",
-    keyImpacts: [
-      {
-        title: "Statutory 5-Year Continuous Service Requirement",
-        description: "Employees become eligible after completing 5 continuous years (defined as 240 working days per year in non-seasonal establishments)."
-      },
-      {
-        title: "Official 15/26 Mathematical Formula",
-        description: "Computed as 15 days of wages for every completed year of service, using a statutory 26-day divisor."
-      },
-      {
-        title: "₹20 Lakh Tax Exemption Cap",
-        description: "Under Section 10(10) of the Income Tax Act, cumulative gratuity received up to ₹20,00,000 is 100% tax-free for private-sector employees."
-      },
-      {
-        title: "Mandatory Full & Final (FnF) Inclusion",
-        description: "Must be settled within 30 days of the employee's exit date, failing which employers face statutory interest penalties."
-      }
-    ],
-    statutoryBasis: {
-      lawOrAct: "Payment of Gratuity Act, 1972 & Income Tax Act (Section 10(10))",
-      rule: "Gratuity = (15 × Last Drawn Basic + DA × Completed Years of Service) ÷ 26. Periods of 6 months or more are rounded up to the nearest whole year.",
-      complianceNote: "Gratuity cannot be forfeited except in cases of employee termination for proven moral turpitude, violence, or intentional damage to company property."
-    },
-    practicalScenario: {
-      headline: "Senior Plant Engineer Retiring After 7 Years and 8 Months of Service",
-      example: "Sunil resigns after completing 7 years and 8 months of continuous service. His last drawn Basic Salary is ₹42,000 per month.",
-      calculation: [
-        "Tenure = 7 Years & 8 Months -> Rounded up to 8 Completed Years",
-        "Last Drawn Basic Salary = ₹42,000",
-        "Statutory Formula = (15 × ₹42,000 × 8) ÷ 26",
-        "Numerator = 15 × 42,000 × 8 = 5,040,000",
-        "Gratuity Payable = 5,040,000 ÷ 26 = ₹1,93,846.15"
-      ],
-      resultLabel: "Total Statutory Gratuity Payout:",
-      resultValue: "₹1,93,846 (100% Tax-Free)"
-    },
-    howPayroleHrHelps: {
-      featureName: "Gratuity Management & Full and Final Settlement",
-      featureSlug: "gratuity-management",
-      points: [
-        "Automatic eligibility tracker flagging staff who have crossed the 5-year continuous service milestone.",
-        "Instant calculation in the Full & Final (FnF) exit workflow with automatic rounding of fractions over 6 months.",
-        "Monthly actuarial liability reporting allowing finance to budget gratuity provisions accurately.",
-        "Generation of official Form I and Form L notices prescribed under the Payment of Gratuity Act."
+    // Section 4
+    exampleHeading: "Worked Bell Curve Example: 100-Member Tech Team",
+    exampleIntro: "Consider a mid-sized IT engineering department in Bengaluru with 100 engineers undergoing annual salary appraisals in September 2026:",
+    exampleTable: {
+      headers: ["Performance Band", "Quota %", "Headcount", "Appraisal Outcome"],
+      rows: [
+        ["Band 5: Star Performers", "10%", "10 Engineers", "18% – 25% Hike + 1.5x Bonus + Fast-track Promotion"],
+        ["Band 4: Above Average", "20%", "20 Engineers", "12% – 16% Hike + 1.25x Target Bonus"],
+        ["Band 3: Meets Expectations (The Peak)", "40%", "40 Engineers", "8% – 11% Standard Annual Increment"],
+        ["Band 2: Below Average (Developing)", "20%", "20 Engineers", "3% – 5% Cost of Living Adjustment + Targeted Upskilling"],
+        ["Band 1: Low Performers", "10%", "10 Engineers", "0% (Salary Frozen) + Placed on 90-Day PIP"]
       ]
     },
+    exampleNote: "Note: In calibrated appraisals, managers can appeal borderline cases during committee sessions before final salary lock.",
+    exampleExplanation: "In a team of 100, exactly 10 engineers are placed in Band 1 regardless of individual effort. If all 100 engineers met their sprint targets, the bottom 10 still face salary freezes and PIPs. This is why modern Indian companies combine bell curves with flexible calibration.",
+
+    // Section 5
+    lawHeading: "What Indian Law Says About Forced Ranking",
+    lawIntro: "While no specific Indian statute mandates or bans forced distribution, courts and labor tribunals enforce clear employee protection boundaries:",
+    lawRules: [
+      "1. Under the Code on Wages 2019 and Equal Remuneration principles, bell curve distributions cannot produce gender, caste, or discriminatory pay disparities for similar work.",
+      "2. Termination based solely on a bell curve rating without a formal Performance Improvement Plan (PIP) is treated as arbitrary dismissal by labor courts."
+    ],
+    lawDetails: [
+      "Under the Industrial Disputes Act, 1947, and Model Standing Orders, an employer must provide written documentation of performance shortfalls, offer reasonable mentorship or training, and allow time for improvement before taking contractual action.",
+      "For white-collar employees, employment contracts and company appraisal policies govern increments, but arbitrary demotions without due process invite breach-of-contract disputes."
+    ],
+
+    // Section 6
+    causeHeading: "Calibrating the Curve: Modern Best Practices",
+    causeIntro: "To prevent talent attrition and demoralization, forward-thinking Indian enterprises adopt calibrated evaluation models:",
+    causePoints: [
+      "Conduct cross-functional calibration committees so no single manager's bias determines an employee's band",
+      "Allow high-performing teams to have wider top bands (e.g., 20% top rather than rigid 10%)",
+      "Shift from once-a-year surprise ratings to monthly 1-on-1 performance check-ins",
+      "Separate development coaching from financial compensation reviews so employees speak openly about challenges"
+    ],
+    causeConclusion: "A flexible, data-backed bell curve controls salary budgets without destroying teamwork and psychological safety.",
+
+    // Section 7
+    reportHeading: "Link Performance Directly to Payroll with PayroleHR",
+    reportIntro: "Eliminate spreadsheet chaos when translating appraisal rating scores into month-end salary adjustments.",
+    reportFeatures: [
+      "PayroleHR's Performance module allows HR to configure customizable rating criteria and approval hierarchies.",
+      "Approved increment percentages and bonus multipliers automatically update employee CTC structures in 1 click.",
+      "Detailed revision letters and revised payslips are generated automatically in the employee self-service mobile app.",
+      "Maintains tamper-proof historical logs of past appraisal cycles for audit and succession planning."
+    ],
+    reportCtaText: "Experience streamlined appraisal-to-payroll workflows with PayroleHR.",
+    featureSlug: "payroll-management",
+
+    // Section 8
     faqs: [
       {
-        q: "Is gratuity mandatory for all companies in India?",
-        a: "Yes. The Payment of Gratuity Act 1972 applies to any factory, mine, oilfield, plantation, port, railway company, shop, or commercial establishment that employs 10 or more persons on any day of the preceding 12 months."
+        q: "Can an employee challenge their bell curve rating in India?",
+        a: "Yes. Most enterprise HR policies provide an internal grievance escalation mechanism where employees can request a review by the calibration committee. Legally, while companies have managerial discretion over increments, arbitrary terminations without prior PIP notices can be challenged in labor courts."
       },
       {
-        q: "Is 4 years and 8 months eligible for gratuity?",
-        a: "Under several High Court rulings (including the Madras High Court), completing 4 years and 240 days in the 5th year fulfills the continuous service requirement and qualifies the employee for statutory gratuity."
+        q: "Why are many tech companies moving away from strict bell curves?",
+        a: "Strict forced ranking often creates toxic peer competition, encourages managers to hoard low-performing projects to protect star performers, and penalizes exceptional teams where every member contributed significantly."
       },
       {
-        q: "What is the maximum gratuity tax exemption limit?",
-        a: "The Government of India raised the lifetime tax-free gratuity exemption limit to ₹20,00,000 (₹20 Lakhs) under Section 10(10) of the Income Tax Act."
+        q: "What is the difference between calibration and forced ranking?",
+        a: "Forced ranking strictly requires a mathematical percentage (e.g. 10-20-40-20-10) regardless of actual output. Calibration is a collaborative review meeting where department heads adjust rankings to account for project difficulty, team composition, and fair evaluation standards."
+      },
+      {
+        q: "How does PayroleHR handle annual salary increments from appraisals?",
+        a: "PayroleHR allows HR admins to upload approved appraisal rating bands or enter percentage hikes. The system automatically recalculates Basic, HRA, statutory PF, ESIC, and net in-hand pay across the entire organization with backdated arrears if applicable."
       }
     ],
-    relatedTermSlugs: ["basic-salary", "full-and-final-settlement", "ctc", "gross-salary", "payroll"]
+
+    tocSections: [
+      { id: "section-1", number: 1, title: "What Is a Bell Curve?" },
+      { id: "section-2", number: 2, title: "How the Bell Curve is Calculated" },
+      { id: "section-3", number: 3, title: "Bell Curve vs Absolute Rating" },
+      { id: "section-4", number: 4, title: "100-Staff Worked Example" },
+      { id: "section-5", number: 5, title: "What Indian Law Says About Appraisals" },
+      { id: "section-6", number: 6, title: "Calibrating the Curve & Best Practices" },
+      { id: "section-7", number: 7, title: "Automate Appraisals in PayroleHR" },
+      { id: "section-8", number: 8, title: "Frequently Asked Questions" }
+    ],
+    relatedTermSlugs: ["basic-salary", "ctc", "deductions", "arrears", "statutory-bonus"]
   }
 };
 
-// Generic Fallback Generator for all other terms in glossary.json
-export function getGlossaryDetail(slug: string, termFromList?: { term: string; def: string }): GlossaryTermDetail {
+// Fallback generator for remaining glossary terms ensuring 8 complete sections
+export function getGlossaryDetail(
+  slug: string,
+  matchedTerm?: { term: string; def: string }
+): GlossaryTermDetail {
   if (GLOSSARY_DETAILS[slug]) {
     return GLOSSARY_DETAILS[slug];
   }
 
-  const termName = termFromList ? termFromList.term : slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-  const baseDef = termFromList ? termFromList.def : `A standard HR and payroll term used across Indian enterprises.`;
+  const termName = matchedTerm ? matchedTerm.term : slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  const definition = matchedTerm
+    ? matchedTerm.def
+    : `A fundamental Indian payroll, statutory compliance, or workforce attendance parameter governing employee compensation and labor law adherence.`;
+  const firstLetter = termName[0].toUpperCase();
 
   return {
     slug,
     term: termName,
-    category: "HR & Payroll Operations",
-    metaTitle: `What is ${termName} in HR & Payroll? Definition, Rules & Examples | PayroleHR`,
-    metaDescription: `Plain English guide to ${termName} for Indian businesses: definitions, compliance rules, payroll impact, and how PayroleHR automates workforce workflows.`,
-    definition: baseDef,
-    overview: `In Indian workplace management, ${termName} plays a critical operational role in maintaining transparent payroll registers, attendance records, and statutory compliance. Understanding the exact mechanics of ${termName} ensures that HR administrators and finance teams avoid costly calculation errors, audit penalties, and employee dissatisfaction during monthly salary processing.`,
-    keyImpacts: [
+    h1Title: `${termName}: Meaning, Calculation & Indian Law`,
+    letter: firstLetter,
+    readTime: "4 min read",
+    updatedDate: "Updated 18 October 2026",
+    category: "Payroll & Compliance",
+    metaTitle: `${termName}: Meaning, Calculation & Indian Law | PayroleHR`,
+    metaDescription: `Comprehensive guide to ${termName} in Indian payroll: definitions, statutory calculation rules, comparison with related payroll concepts, and automated software workflows.`,
+    definition,
+    audioDuration: "4:45",
+
+    overviewHeading: `What Is ${termName} in Indian HR & Payroll?`,
+    overviewParagraphs: [
+      `${termName} is a core operational parameter within Indian human resources, payroll computation, and statutory compliance management.`,
+      `Proper administration of ${termName} ensures that organizations avoid financial penalties during EPFO, ESIC, or state labor commissioner audits while maintaining total transparency with their workforce.`
+    ],
+
+    calculationHeading: `How ${termName} Is Calculated & Applied`,
+    calculationIntro: `In standard Indian payroll practice, ${termName} is computed following statutory schedules and organizational policy guidelines:`,
+    formula: `${termName} Computation = Standard Statutory Rate (%) × Relevant Base Earnings / Days`,
+    formulaRules: [
       {
-        title: `Direct Impact on Monthly Payroll Processing`,
-        description: `Accurately computing ${termName} ensures that monthly salary registers, payslips, and bank payment export files remain error-free.`
+        label: "Base Salary Verification",
+        description: `Check qualifying components (Basic Salary, Dearness Allowance) as mandated by labor regulations`
       },
       {
-        title: `Statutory Labor Law Compliance`,
-        description: `Adheres strictly to Indian compliance standards under the Factories Act, Payment of Wages Act, and state Shops & Establishment rules.`
+        label: "Attendance Reconciliation",
+        description: `Cross-verify physical or biometric punch records against sanctioned leaves and weekly off entitlements`
       },
       {
-        title: `Enhanced Employee Trust & Transparency`,
-        description: `Clear policies surrounding ${termName} provide employees with transparent visibility over their attendance, earnings, and statutory rights.`
+        label: "Statutory Ceiling Check",
+        description: `Apply relevant wage ceilings (e.g. ₹15,000 for EPF or ₹21,000 for ESIC) where applicable`
       },
       {
-        title: `Automated Audit Defense`,
-        description: `Maintaining digital timestamp logs and structured records for ${termName} ensures seamless readiness for annual PF, ESI, and labor audits.`
+        label: "Disbursement Schedule",
+        description: `Ensure payout or remittance complies with Payment of Wages Act timelines (before the 7th or 10th of the month)`
       }
     ],
-    statutoryBasis: {
-      lawOrAct: "Code on Wages & State Labor Regulations",
-      rule: `Mandates transparent maintenance of wage registers, attendance logs, and deduction records for ${termName}.`,
-      complianceNote: `Employers must ensure that records pertaining to ${termName} are archived digitally for statutory inspections.`
-    },
-    practicalScenario: {
-      headline: `Managing ${termName} Across a 50-Member Indian Workforce`,
-      example: `An organization processes month-end payroll and requires reconciling ${termName} across shift employees and salaried office staff.`,
-      calculation: [
-        `Base Employee Record = Verified in PayroleHR Master Database`,
-        `Policy Rules Applied = Automated calculation matching organizational settings`,
-        `Statutory Deduction Check = PF (12%), ESI (0.75%), and PT verified`,
-        `Final Disbursed Pay = Exported directly to HDFC, ICICI, SBI bank file`
-      ],
-      resultLabel: "Status & Execution:",
-      resultValue: `100% Reconciled & Audit-Ready`
-    },
-    howPayroleHrHelps: {
-      featureName: "Core HR & Payroll Automation",
-      featureSlug: "payroll-processing",
-      points: [
-        `Automates every aspect of ${termName} inside PayroleHR's integrated payroll engine.`,
-        `Eliminates manual Excel spreadsheets, human calculation errors, and month-end payroll delays.`,
-        `Staff access self-service records directly from their mobile portal with zero HR dependency.`,
-        `1-click compliance export ready for statutory portals and internal financial audits.`
+    formulaPostNote: `Automating this calculation eliminates rounding errors and manual spreadsheet reconciliations.`,
+
+    comparisonHeading: `${termName} vs Standard Statutory Practices`,
+    comparisonTable: {
+      headers: ["Aspect", `Managed with ${termName}`, "Manual Spreadsheet Approach"],
+      rows: [
+        ["Statutory compliance", "100% compliant with Indian labor codes and EPFO/ESIC schedules", "Prone to outdated percentage rates and missed ceiling caps"],
+        ["Employee transparency", "Instant visibility on mobile self-service app with detailed breakdown", "Delayed payslip queries requiring constant HR follow-up"],
+        ["Audit readiness", "Tamper-proof digital timestamp records ready for labor inspectors", "Scattered physical registers and manual muster roll discrepancies"],
+        ["Processing speed", "1-click automated calculation across entire workforce headcount", "Hours spent copying formulas across multiple disconnected sheets"]
       ]
     },
+
+    exampleHeading: `Practical Scenario: Managing ${termName} for a 50-Member Workforce`,
+    exampleIntro: `Consider an enterprise with 50 employees operating across factory shifts and corporate departments in India:`,
+    exampleTable: {
+      headers: ["Stage", "Parameter / Value", "Operational Outcome"],
+      rows: [
+        ["Input Data", "Biometric face punches & wage structure", "Verified in PayroleHR Master Database"],
+        ["Computation", "Statutory formula and tax regime rules", "Calculated automatically with zero rounding error"],
+        ["Verification", "EPF (12%), ESIC (0.75%), PT verified", "Statutory challan records generated"],
+        ["Disbursement", "Direct export to HDFC/ICICI/SBI bank file", "Salaries credited and WhatsApp payslips delivered"]
+      ]
+    },
+    exampleNote: "Note: Real-time synchronization eliminates end-of-month payroll fire drills.",
+    exampleExplanation: `By applying standardized rules for ${termName}, the organization saves up to 15 hours each month while ensuring 100% adherence to Indian statutory regulations.`,
+
+    lawHeading: `What Indian Law & Compliance Regulations Say About ${termName}`,
+    lawIntro: `Under the Code on Wages, 2019, and corresponding state Shops & Commercial Establishments Acts:`,
+    lawRules: [
+      `1. Employers must maintain authentic, accurate digital registers of wages, attendance, and statutory deductions pertaining to ${termName}.`,
+      `2. Wage deductions or statutory contributions related to ${termName} must follow certified rules and cannot exceed statutory limits.`
+    ],
+    lawDetails: [
+      `All records must be preserved for inspection by authorized labor inspectors under the relevant Central and State rules.`,
+      `Non-compliance or arbitrary withholding of wages can attract statutory penalties and compounding interest under Indian labor codes.`
+    ],
+
+    causeHeading: `Best Practices for Administering ${termName}`,
+    causeIntro: `Experienced HR and payroll managers follow these operational guidelines:`,
+    causePoints: [
+      `Establish transparent written policies in the employee handbook and appointment letters`,
+      `Automate time and attendance records with touchless biometric devices or geofenced mobile check-ins`,
+      `Run periodic internal payroll audits before filing monthly EPFO and ESIC ECR challans`,
+      `Provide staff with self-service mobile access to check calculations and payslips anytime`
+    ],
+    causeConclusion: `Adopting transparent digital workflows builds employee trust while protecting the business from statutory audit penalties.`,
+
+    reportHeading: `Automate ${termName} in One Unified Platform with PayroleHR`,
+    reportIntro: `Stop managing compliance on complicated Excel sheets. PayroleHR connects attendance, statutory calculations, and bank payouts in one seamless cloud system.`,
+    reportFeatures: [
+      `Automates every statutory rule for ${termName} in PayroleHR's integrated payroll engine.`,
+      `Eliminates manual data entry errors, spreadsheet crashes, and month-end payroll stress.`,
+      `Staff view detailed breakdowns directly from their self-service mobile app.`,
+      `Generates 1-click bank transfer files and statutory portal compliance exports.`
+    ],
+    reportCtaText: `Explore how PayroleHR simplifies ${termName} for modern businesses.`,
+    featureSlug: "payroll-processing",
+
     faqs: [
       {
         q: `What is the significance of ${termName} in Indian payroll?`,
@@ -547,6 +503,17 @@ export function getGlossaryDetail(slug: string, termFromList?: { term: string; d
         q: `Where can employees view their records for ${termName}?`,
         a: `Employees can log into the PayroleHR mobile self-service portal to check their personal records, payslips, and status anytime.`
       }
+    ],
+
+    tocSections: [
+      { id: "section-1", number: 1, title: `What Is ${termName}?` },
+      { id: "section-2", number: 2, title: `How It Is Calculated` },
+      { id: "section-3", number: 3, title: `Comparison & Standard Practices` },
+      { id: "section-4", number: 4, title: `Practical Worked Example` },
+      { id: "section-5", number: 5, title: `What Indian Law Says` },
+      { id: "section-6", number: 6, title: `Operational Best Practices` },
+      { id: "section-7", number: 7, title: `Automate with PayroleHR` },
+      { id: "section-8", number: 8, title: `Frequently Asked Questions` }
     ],
     relatedTermSlugs: ["basic-salary", "ctc", "gross-salary", "net-salary", "payroll"]
   };
