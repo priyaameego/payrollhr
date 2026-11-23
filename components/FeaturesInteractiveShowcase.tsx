@@ -25,6 +25,8 @@ import {
   FileText,
   Download,
   Building,
+  Search,
+  Moon,
 } from "lucide-react";
 
 interface FeatureDetail {
@@ -109,24 +111,42 @@ const featuresList: FeatureDetail[] = [
     num: "02",
     tabLabel: "Shifts & Roster",
     subHeader: "02 – FEATURE",
-    title: "Shifts & Roster Management",
-    headline: "Rosters That Directly Decide Salaries",
+    title: "Shifts & Roster",
+    headline: "Shifts Set Once, Applied Daily",
     description:
-      "Plan rotating, night, split, and flexi shifts without spreadsheets. Shift timings decide punch validity, grace minutes, and overtime automatically.",
+      "Define how each team works and the system decides who is late, who is on a week-off, and whose hours count as overtime.",
     icon: CalendarDays,
     mockup: { type: "shift" },
     cards: [
       {
-        title: "Rotational Shift Automation",
-        desc: "Define shift patterns once. The system auto-rotates employees weekly or fortnightly across Morning, General, and Night shifts with zero manual hassle.",
-        linkText: "automated shift scheduling",
+        title: "Shift Assignment by Role and Location",
+        desc: "Create shifts once and assign them by department, store branch, or factory line. Day, night, rotating, and alternate week-offs apply on their own without manual intervention.",
+        linkText: "assign by role, department, or branch",
         linkHref: "/features/shift-management",
       },
       {
-        title: "1-Tap Shift Swap Approvals",
-        desc: "Staff request swaps on their self-service app; managers approve in 1 tap without breaking attendance tracking or payroll formulas.",
-        linkText: "manager shift approvals",
+        title: "Roster Planning in One Grid",
+        desc: "Plan a seven-day roster in a unified grid view with employees as rows and dates as columns. Filter by branch, lock allocations, and export when the plan is ready.",
+        linkText: "seven-day roster in a grid view",
         linkHref: "/features/roster-management",
+      },
+      {
+        title: "Fixed Break Hours",
+        desc: "Log a set break duration automatically when employees do not punch out for breaks. Working hours stay audit-accurate without enforcing extra punches.",
+        linkText: "log a set break duration automatically",
+        linkHref: "/features/attendance-management",
+      },
+      {
+        title: "Future Shift Changes",
+        desc: "Apply a shift change to many employees at once, with an effective date set in the future for scheduled project rotations and seasonal peaks.",
+        linkText: "effective date set in the future",
+        linkHref: "/features/shift-management",
+      },
+      {
+        title: "Shift & Role Flexibility",
+        desc: "Assign different shift structures to departments, locations, and roles based on how your teams work. The system adjusts to how your teams actually operate.",
+        linkText: "shift structures to departments, locations, and roles",
+        linkHref: "/features/organization-management",
       },
     ],
   },
@@ -136,23 +156,41 @@ const featuresList: FeatureDetail[] = [
     tabLabel: "Leave & Holidays",
     subHeader: "03 – FEATURE",
     title: "Leave & Holidays",
-    headline: "Clear Leave Balances & Instant Approvals",
+    headline: "Consolidated Leave Records",
     description:
-      "Requests, approvals, and balances in one place. Approved leaves feed directly into monthly paid days with zero recalculation or manual paperwork.",
+      "Every leave request, approval, and balance in one place. Each approved leave reflects that month's salary.",
     icon: Calendar,
     mockup: { type: "leave" },
     cards: [
       {
-        title: "Tenure-Based Auto Accrual",
-        desc: "Paid, casual, and sick leave balances accrue automatically on the 1st of every month based on probation rules and company policy.",
-        linkText: "leave accrual & encashment",
+        title: "Define Leave Types",
+        desc: "Set up paid, unpaid, earned, comp-off, and any other leave type your organisation uses before employees begin submitting requests.",
+        linkText: "paid, unpaid, earned, comp-off",
         linkHref: "/features/leave-management",
       },
       {
-        title: "Multi-Location Holiday Calendars",
-        desc: "Manage state-specific festival holidays for corporate offices, retail stores, and factory units under isolated branch calendars.",
-        linkText: "state holiday setup",
+        title: "Request Submissions Via App",
+        desc: "Raise leave requests from the mobile app or web portal. The request reaches the right approver directly with zero paperwork.",
+        linkText: "requests from the mobile app or web portal",
+        linkHref: "/features/employee-self-service",
+      },
+      {
+        title: "Auto-updated Leave Balance",
+        desc: "Update leave balances as soon as a request is approved. The salary deduction for that leave appears in the same month's payroll.",
+        linkText: "appears in the same month's payroll",
+        linkHref: "/features/payroll-management",
+      },
+      {
+        title: "Leave Encashment",
+        desc: "Pay out unused leave monthly or yearly. Use the standard calculation or build your own formula when your policy works differently.",
+        linkText: "Pay out unused leave monthly or yearly",
         linkHref: "/features/advanced-leave-management",
+      },
+      {
+        title: "Comp-Off Carry Forward",
+        desc: "Carry forward comp-offs earned on holidays and week-offs. Set the frequency, and decide whether the unused balance is encashed or lapses.",
+        linkText: "comp-offs earned on holidays and week-offs",
+        linkHref: "/features/configurable-rules",
       },
     ],
   },
@@ -325,8 +363,36 @@ export default function FeaturesInteractiveShowcase({
 }: FeaturesInteractiveShowcaseProps = {}) {
   const getInitialIndex = () => {
     if (!initialId) return 0;
+    const clean = initialId.toLowerCase();
+    if (clean.includes("shift") || clean.includes("roster")) {
+      return featuresList.findIndex((f) => f.id === "shifts");
+    }
+    if (clean.includes("leave") || clean.includes("holiday")) {
+      return featuresList.findIndex((f) => f.id === "leaves");
+    }
+    if (clean.includes("attendance") || clean.includes("face")) {
+      return featuresList.findIndex((f) => f.id === "attendance");
+    }
+    if (clean.includes("payroll") || clean.includes("salary") || clean.includes("payout")) {
+      return featuresList.findIndex((f) => f.id === "payroll");
+    }
+    if (clean.includes("overtime") || clean.includes("penalty")) {
+      return featuresList.findIndex((f) => f.id === "overtime");
+    }
+    if (clean.includes("compliance") || clean.includes("statutory")) {
+      return featuresList.findIndex((f) => f.id === "compliance");
+    }
+    if (clean.includes("geo") || clean.includes("gps")) {
+      return featuresList.findIndex((f) => f.id === "geotrack");
+    }
+    if (clean.includes("report") || clean.includes("analytics")) {
+      return featuresList.findIndex((f) => f.id === "reports");
+    }
+    if (clean.includes("admin") || clean.includes("organization")) {
+      return featuresList.findIndex((f) => f.id === "admin");
+    }
     const found = featuresList.findIndex(
-      (f) => f.id === initialId || initialId.includes(f.id) || f.id.includes(initialId)
+      (f) => f.id === clean || clean.includes(f.id) || f.id.includes(clean)
     );
     return found !== -1 ? found : 0;
   };
@@ -521,72 +587,205 @@ export default function FeaturesInteractiveShowcase({
               )}
 
               {activeFeature.mockup.type === "shift" && (
-                <div className="relative w-full max-w-[320px] rounded-3xl bg-white border border-slate-200 p-4 shadow-xl">
-                  <div className="flex justify-between items-center pb-2.5 border-b border-slate-100">
-                    <span className="font-display text-xs font-bold text-slate-900">Weekly Shift Schedule</span>
-                    <span className="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">
-                      Auto-Rostered
-                    </span>
+                <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
+                  {/* Phone Notch & Dynamic Island */}
+                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
+                    <span className="font-semibold text-slate-700">3:18</span>
+                    <div className="h-3.5 w-16 rounded-full bg-slate-900 mx-auto" />
+                    <div className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" />
+                      <span className="text-[10px] font-medium text-slate-500">Live</span>
+                    </div>
                   </div>
-                  <div className="space-y-2 mt-3 text-xs">
-                    <div className="p-2.5 rounded-xl bg-teal-50/70 border border-teal-100 flex justify-between items-center">
-                      <div>
-                        <span className="font-bold text-slate-900 block">Morning Shift</span>
-                        <span className="text-[10px] text-slate-500">06:00 AM – 02:00 PM</span>
+
+                  {/* Header Row: Back to Roster */}
+                  <div className="flex items-center gap-1 pt-2.5 pb-1 text-xs font-bold text-slate-800 cursor-pointer hover:text-[#12B5A5]">
+                    <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
+                    <span>Roster</span>
+                  </div>
+
+                  {/* Date pills horizontal strip (Exact screenshot match) */}
+                  <div className="flex gap-1.5 overflow-x-auto pb-1 my-2 no-scrollbar">
+                    {[
+                      { day: "WED", date: "12", active: true },
+                      { day: "THU", date: "13", active: false },
+                      { day: "FRI", date: "14", active: false },
+                      { day: "SAT", date: "15", active: false },
+                      { day: "SUN", date: "16", active: false },
+                      { day: "MON", date: "17", active: false },
+                    ].map((item) => (
+                      <div
+                        key={item.date}
+                        className={`flex flex-col items-center justify-center min-w-[42px] py-2 px-1 rounded-2xl text-center cursor-pointer transition-all ${
+                          item.active
+                            ? "bg-[#12B5A5] text-white shadow-xs font-bold ring-2 ring-teal-200"
+                            : "bg-slate-50 text-slate-600 border border-slate-100 hover:bg-slate-100"
+                        }`}
+                      >
+                        <span className="text-[9px] uppercase font-bold tracking-tight">{item.day}</span>
+                        <span className="text-xs font-extrabold">{item.date}</span>
                       </div>
-                      <span className="text-[10px] font-bold text-teal-800 bg-white px-2 py-1 rounded-md shadow-2xs">
-                        32 Staff
+                    ))}
+                  </div>
+
+                  {/* Search Bar */}
+                  <div className="relative my-2">
+                    <Search className="absolute left-3 top-2.5 h-3 w-3 text-slate-400" />
+                    <input
+                      type="text"
+                      readOnly
+                      placeholder="Search by employee name"
+                      className="w-full rounded-xl bg-slate-50 border border-slate-200/70 py-1.5 pl-8 pr-3 text-[10px] text-slate-700 placeholder-slate-400"
+                    />
+                  </div>
+
+                  {/* Floating Employee Shift Card 1 */}
+                  <div className="rounded-2xl border border-slate-200/90 bg-white p-3 shadow-md">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-100 text-[#0E7A6E] font-extrabold text-xs">
+                          N
+                        </div>
+                        <div>
+                          <span className="font-bold text-xs text-slate-900 block leading-tight">Niyon Roy</span>
+                          <span className="text-[10px] text-slate-500">Software engineer</span>
+                        </div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-indigo-50 border border-indigo-100 px-2 py-0.5 text-[9px] font-bold text-indigo-700">
+                        <Moon className="h-2.5 w-2.5" />
+                        <span>Week Off</span>
                       </span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100 flex justify-between items-center">
-                      <div>
-                        <span className="font-bold text-slate-900 block">General Shift</span>
-                        <span className="text-[10px] text-slate-500">09:30 AM – 06:30 PM</span>
+
+                    <div className="grid grid-cols-2 gap-2 mt-2.5 pt-2 border-t border-slate-100">
+                      <div className="rounded-xl bg-teal-50/70 border border-teal-100 p-2 text-left">
+                        <span className="text-[10px] font-bold text-slate-800 block">• 5 am to 1 pm</span>
+                        <span className="text-[8px] font-mono text-slate-500">05:00 am - 01:00 pm</span>
                       </div>
-                      <span className="text-[10px] font-bold text-blue-800 bg-white px-2 py-1 rounded-md shadow-2xs">
-                        78 Staff
-                      </span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-indigo-50/70 border border-indigo-100 flex justify-between items-center">
-                      <div>
-                        <span className="font-bold text-slate-900 block">Night Shift (+Allowance)</span>
-                        <span className="text-[10px] text-slate-500">10:00 PM – 06:00 AM</span>
+                      <div className="rounded-xl bg-slate-50 border border-slate-100 p-2 text-left">
+                        <span className="text-[10px] font-bold text-slate-800 block">• 5 pm to 5 am</span>
+                        <span className="text-[8px] font-mono text-slate-500">05:00 pm - 05:00 am</span>
                       </div>
-                      <span className="text-[10px] font-bold text-indigo-800 bg-white px-2 py-1 rounded-md shadow-2xs">
-                        24 Staff
-                      </span>
                     </div>
+                  </div>
+
+                  {/* Second Employee Card peek below */}
+                  <div className="mt-2 rounded-2xl border border-slate-100 bg-slate-50/80 p-2 opacity-70 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-200 text-slate-700 text-[10px] font-bold">
+                        D
+                      </div>
+                      <div>
+                        <span className="font-bold text-[10px] text-slate-800 block">Dhruv Chavda</span>
+                        <span className="text-[8px] text-slate-500">Software engineer</span>
+                      </div>
+                    </div>
+                    <span className="rounded-full bg-slate-200/80 px-2 py-0.5 text-[8px] font-bold text-slate-600">
+                      Week Off
+                    </span>
                   </div>
                 </div>
               )}
 
               {activeFeature.mockup.type === "leave" && (
-                <div className="relative w-full max-w-[320px] rounded-3xl bg-white border border-slate-200 p-4 shadow-xl">
-                  <div className="flex justify-between items-center pb-2.5 border-b border-slate-100">
-                    <span className="font-display text-xs font-bold text-slate-900">Leave Balance • FY 26-27</span>
-                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                      Active
-                    </span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 my-3">
-                    <div className="rounded-xl bg-teal-50 p-2.5 text-center border border-teal-100">
-                      <span className="text-[10px] text-slate-500 block font-medium">Vacation</span>
-                      <span className="font-display text-lg font-black text-[#0E7A6E]">14.5 d</span>
-                    </div>
-                    <div className="rounded-xl bg-emerald-50 p-2.5 text-center border border-emerald-100">
-                      <span className="text-[10px] text-slate-500 block font-medium">Sick / Casual</span>
-                      <span className="font-display text-lg font-black text-emerald-700">8.0 d</span>
+                <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
+                  {/* Phone Notch & Status */}
+                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
+                    <span className="font-semibold text-slate-700">9:41</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" />
+                      <span className="text-[10px] font-medium text-slate-500">Self-Service</span>
                     </div>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-xs">
-                    <span className="text-[10px] text-slate-400 uppercase tracking-wider font-bold block">
-                      Pending Approvals
+
+                  {/* Header Row: Approvals */}
+                  <div className="flex items-center gap-1 pt-2 pb-1 text-xs font-bold text-slate-800 cursor-pointer hover:text-[#12B5A5]">
+                    <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
+                    <span>Approvals</span>
+                  </div>
+
+                  {/* Top 3 Status Tabs */}
+                  <div className="flex border-b border-slate-100 text-xs font-bold my-1.5">
+                    <div className="pb-1 px-2 text-[#0E7A6E] border-b-2 border-[#12B5A5]">Pending (3)</div>
+                    <div className="pb-1 px-2 text-slate-400">Approved (2)</div>
+                    <div className="pb-1 px-2 text-slate-400">Rejected (1)</div>
+                  </div>
+
+                  {/* Sub-filter chips */}
+                  <div className="flex gap-1.5 my-1.5">
+                    <span className="rounded-full bg-teal-50 border border-teal-200 px-2.5 py-0.5 text-[9px] font-bold text-[#0E7A6E]">
+                      Leaves (3)
                     </span>
-                    <div className="flex justify-between items-center mt-1">
-                      <span className="font-bold text-slate-800">Vikram Mehta (3d)</span>
-                      <span className="text-[10px] font-bold text-emerald-600 bg-white border border-emerald-200 px-2 py-0.5 rounded">
-                        ✓ Approved
+                    <span className="rounded-full bg-slate-50 border border-slate-100 px-2.5 py-0.5 text-[9px] font-medium text-slate-600">
+                      Attendance (2)
+                    </span>
+                    <span className="rounded-full bg-slate-50 border border-slate-100 px-2.5 py-0.5 text-[9px] font-medium text-slate-600">
+                      Document (1)
+                    </span>
+                  </div>
+
+                  {/* Search bar with mic icon */}
+                  <div className="relative my-2">
+                    <Search className="absolute left-3 top-2 h-3 w-3 text-slate-400" />
+                    <input
+                      type="text"
+                      readOnly
+                      placeholder="Search Employees..."
+                      className="w-full rounded-xl bg-slate-50 border border-slate-200/70 py-1.5 pl-8 pr-7 text-[10px] text-slate-700 placeholder-slate-400"
+                    />
+                    <span className="absolute right-2.5 top-1.5 text-[10px] text-slate-400">🎙️</span>
+                  </div>
+
+                  {/* Floating Leave Request Card (Exact screenshot match) */}
+                  <div className="rounded-2xl border border-slate-200/90 bg-white p-3 shadow-md">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="font-bold text-xs text-slate-900 block leading-tight">Arjun Nair</span>
+                        <span className="text-[10px] text-slate-500">20 March, 2026</span>
+                      </div>
+                      <span className="rounded-full bg-amber-50 border border-amber-200/80 px-2 py-0.5 text-[9px] font-bold text-amber-700">
+                        Sick Leave
                       </span>
+                    </div>
+
+                    {/* Date duration connector */}
+                    <div className="my-2.5 py-1.5 px-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-[10px]">
+                      <div>
+                        <span className="font-bold text-slate-800 block">23-05-2026</span>
+                        <span className="text-slate-500 text-[8px]">Full Day</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <span className="text-[9px] font-bold text-teal-700 bg-teal-100/80 px-2 py-0.5 rounded-full">
+                          2 Days
+                        </span>
+                        <div className="w-14 border-t border-dashed border-slate-300 my-0.5" />
+                      </div>
+                      <div className="text-right">
+                        <span className="font-bold text-slate-800 block">25-05-2026</span>
+                        <span className="text-slate-500 text-[8px]">Full Day</span>
+                      </div>
+                    </div>
+
+                    {/* Reason box */}
+                    <div className="rounded-xl bg-slate-50/80 p-2 text-[10px] text-slate-600 border border-slate-100 mb-2.5">
+                      <span className="font-semibold text-slate-800 block">Reason:</span>
+                      <span>Due to personal family event, requesting 2 days planned leave.</span>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        type="button"
+                        className="rounded-xl border border-slate-200 bg-white py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+                      >
+                        Reject
+                      </button>
+                      <button
+                        type="button"
+                        className="rounded-xl bg-[#12B5A5] hover:bg-[#0E9486] py-1.5 text-xs font-bold text-white shadow-xs transition-colors"
+                      >
+                        Approve
+                      </button>
                     </div>
                   </div>
                 </div>
