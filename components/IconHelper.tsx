@@ -101,6 +101,7 @@ export const iconMap: Record<string, LucideIcon> = {
   "payroll-reports": FileBarChart2,
   "employee-reports": UserSquare2,
   "configurable-rules": Settings2,
+  "notifications-alerts": MessageSquare,
 
   // Solutions
   education: GraduationCap,

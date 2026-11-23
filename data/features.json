@@ -2314,5 +2314,94 @@
         "a": "Yes, working-day rules can be set per person."
       }
     ]
+  },
+  {
+    "slug": "notifications-alerts",
+    "name": "WhatsApp Updates & Notifications",
+    "icon": "MessageSquare",
+    "short": "Receive daily attendance summaries, late alerts, and payslip links directly on WhatsApp.",
+    "headline": "Daily Attendance Digests and Real-Time Alerts Delivered Directly to WhatsApp",
+    "intro": "Stay informed without logging into complex dashboards. Daily morning punch summaries, absent alerts, late arrivals, shift reminders, and 1-click payslips sent straight to WhatsApp.",
+    "problem": [
+      "Managers rarely check HR dashboards every morning to see who came, who is late, or who is absent.",
+      "Employees miss vital shift rotation updates, leave approval confirmations, and payslip notices lost in email inboxes.",
+      "HR teams are flooded with repetitive calls asking 'Is my leave sanctioned?' and 'Can you send my salary slip on WhatsApp?'"
+    ],
+    "solution": "PayroleHR connects directly to the WhatsApp Business API. Managers receive an automated 10:00 AM attendance digest with who is present, on leave, or late. Employees receive instant WhatsApp notifications for leave approvals and password-protected PDF payslips on salary day.",
+    "capabilities": [
+      {
+        "title": "Daily Attendance Digests",
+        "text": "Automated morning WhatsApp summary showing total present staff, on-leave employees, and unpunched staff per department or branch."
+      },
+      {
+        "title": "Late Arrival & Anomaly Alerts",
+        "text": "Instant WhatsApp notifications triggered when an employee exceeds the 15-minute grace threshold or punches outside the geofence perimeter."
+      },
+      {
+        "title": "1-Click PDF Payslip Delivery",
+        "text": "Deliver password-protected payslips directly to employees' WhatsApp on payout day with zero email bounce rates."
+      },
+      {
+        "title": "Direct WhatsApp Leave Approvals",
+        "text": "Interactive message cards with 'Approve' and 'Reject' quick-action buttons so managers can approve leaves without opening a browser."
+      },
+      {
+        "title": "Upcoming Shift Rotation Alerts",
+        "text": "Automatic reminders sent 12 hours before night or rotational shifts commence to eliminate missed shift handovers."
+      },
+      {
+        "title": "Multi-Language WhatsApp Support",
+        "text": "Messages delivered in 11 Indian regional languages including Hindi, Tamil, Telugu, Marathi, and Gujarati based on employee profile."
+      }
+    ],
+    "steps": [
+      "Connect your WhatsApp Business number in PayroleHR Settings.",
+      "Configure which alerts to send (Daily digest, late arrival, leave approval, payslip).",
+      "Managers and staff receive instant updates and 1-tap actions on their personal phones."
+    ],
+    "screen": {
+      "title": "WhatsApp Daily Digest",
+      "rows": [
+        [
+          "Report Time",
+          "10:00 AM Daily"
+        ],
+        [
+          "Channel",
+          "WhatsApp Business Cloud API"
+        ],
+        [
+          "Staff Present",
+          "224 Staff (96%)"
+        ],
+        [
+          "Late Arrivals",
+          "2 Staff Flagged"
+        ],
+        [
+          "Delivery Status",
+          "Delivered & Read"
+        ]
+      ]
+    },
+    "related": [
+      "attendance-management",
+      "employee-self-service",
+      "payroll-management"
+    ],
+    "faqs": [
+      {
+        "q": "Do employees need to download a separate mobile app for WhatsApp alerts?",
+        "a": "No. All daily summaries, payslip PDFs, and approval alerts arrive in the regular WhatsApp app they already use every day."
+      },
+      {
+        "q": "Can branch managers approve leave requests from WhatsApp directly?",
+        "a": "Yes. Interactive WhatsApp messages feature built-in Approve and Reject action buttons that sync with PayroleHR in real time."
+      },
+      {
+        "q": "Is WhatsApp payslip delivery secure and privacy-compliant?",
+        "a": "Yes. Every PDF payslip is 256-bit encrypted with employee-specific passwords (such as PAN + Year of Birth), and sent via official Meta enterprise APIs."
+      }
+    ]
   }
 ]

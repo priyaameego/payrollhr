@@ -467,7 +467,7 @@ export default function FeaturesInteractiveShowcase({
     if (clean.includes("leave") || clean.includes("holiday")) {
       return featuresList.findIndex((f) => f.id === "leaves");
     }
-    if (clean.includes("attendance") || clean.includes("face")) {
+    if (clean.includes("attendance") || clean.includes("face") || clean.includes("whatsapp") || clean.includes("notification") || clean.includes("alert")) {
       return featuresList.findIndex((f) => f.id === "attendance");
     }
     if (clean.includes("overtime") || clean.includes("penalty") || clean.includes("configurable-rules")) {
@@ -536,7 +536,7 @@ export default function FeaturesInteractiveShowcase({
               </div>
             </div>
 
-            <nav className="flex flex-col gap-1.5" aria-label="Features Tab Navigation">
+            <nav className="flex flex-row lg:flex-col gap-1.5 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 no-scrollbar" aria-label="Features Tab Navigation">
               {featuresList.map((item, idx) => {
                 const isActive = activeIdx === idx;
                 return (
@@ -544,10 +544,10 @@ export default function FeaturesInteractiveShowcase({
                     key={item.id}
                     type="button"
                     onClick={() => setActiveIdx(idx)}
-                    className={`group flex items-center gap-3.5 rounded-2xl px-4 py-3 text-left transition-all duration-200 cursor-pointer ${
+                    className={`group shrink-0 lg:shrink flex items-center gap-2 lg:gap-3.5 rounded-xl lg:rounded-2xl px-3 lg:px-4 py-2 lg:py-3 text-left transition-all duration-200 cursor-pointer whitespace-nowrap ${
                       isActive
-                        ? "bg-gradient-to-r from-teal-50 via-teal-50/70 to-emerald-50/40 text-[#0E7A6E] font-bold shadow-xs border-l-4 border-[#12B5A5]"
-                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 border-l-4 border-transparent"
+                        ? "bg-gradient-to-r from-teal-50 via-teal-50/70 to-emerald-50/40 text-[#0E7A6E] font-bold shadow-xs border-b-2 lg:border-b-0 lg:border-l-4 border-[#12B5A5]"
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent"
                     }`}
                   >
                     <span
@@ -559,7 +559,7 @@ export default function FeaturesInteractiveShowcase({
                     >
                       {item.num}
                     </span>
-                    <span className="text-sm font-semibold leading-tight">
+                    <span className="text-xs lg:text-sm font-semibold leading-tight">
                       {item.tabLabel}
                     </span>
                   </button>
@@ -572,7 +572,7 @@ export default function FeaturesInteractiveShowcase({
         {/* ========================================================== */}
         {/* RIGHT COLUMN: ACTIVE FEATURE SHOWCASE (HEADER + MOCKUP + CARDS) */}
         {/* ========================================================== */}
-        <div className={`${hideSidebar ? "w-full" : "lg:col-span-9"} rounded-3xl border border-teal-100/90 bg-gradient-to-b from-[#FAFDFD] via-white to-white p-6 sm:p-10 shadow-card`}>
+        <div className={`${hideSidebar ? "w-full" : "lg:col-span-9"} rounded-3xl border border-teal-100/90 bg-gradient-to-b from-[#FAFDFD] via-white to-white p-4 sm:p-6 lg:p-10 shadow-card`}>
           {/* Top Feature Tag & Title */}
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold font-mono tracking-wider text-[#12B5A5] uppercase">
