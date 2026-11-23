@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Check, BookOpen, ArrowRight, ChevronRight, Layers } from "lucide-react";
+import { Check, BookOpen, ArrowRight, Sparkles } from "lucide-react";
 
 export interface TocItem {
   id: string;
@@ -62,23 +62,28 @@ export default function GlossaryTocSidebar({
 
   return (
     <aside className="lg:sticky lg:top-24 space-y-6">
-      {/* 1. TOP CARD: "Need HR Software?" Vibrant Blue Banner (Matching AttendoHR Screenshot 1) */}
-      <div className="rounded-3xl bg-[#0088F0] p-6 sm:p-7 text-white shadow-xl shadow-sky-500/20 relative overflow-hidden">
+      {/* 1. TOP CARD: PayroleHR Teal Gradient Showcase Banner */}
+      <div className="rounded-3xl bg-gradient-to-br from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] p-6 sm:p-7 text-white shadow-xl shadow-teal-500/25 relative overflow-hidden">
         <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-white/10 blur-xl" />
 
+        <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-100 mb-1">
+          <Sparkles className="h-3.5 w-3.5 text-teal-200" />
+          <span>PayroleHR Workforce Engine</span>
+        </div>
+
         <h3 className="font-display text-xl sm:text-2xl font-black text-white leading-tight">
-          Need HR Software?
+          Need Indian HR Software?
         </h3>
-        <p className="mt-1.5 text-xs text-blue-100 font-medium leading-relaxed">
-          Automate HR, payroll, attendance &amp; compliance in one platform.
+        <p className="mt-1.5 text-xs text-teal-50 font-medium leading-relaxed">
+          Automate biometric attendance, muster rolls &amp; 1-click salary payouts.
         </p>
 
         {/* 3 Checkmark bullets */}
         <div className="mt-5 space-y-2.5">
           {[
-            "Attendance that flows into salary",
-            "PF, ESIC, PT & LWF built in",
-            "Payslips delivered on Employee App",
+            "Biometric punch auto-flows into salary slips",
+            "100% EPFO, ESIC, PT & LWF statutory compliant",
+            "Direct employee self-service mobile app",
           ].map((item, idx) => (
             <div key={idx} className="flex items-center gap-2.5 text-xs text-white font-medium">
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
@@ -89,24 +94,24 @@ export default function GlossaryTocSidebar({
           ))}
         </div>
 
-        {/* CTA White Button */}
+        {/* CTA White Button with PayroleHR Teal Text */}
         <div className="mt-6">
           <Link
             href="/book-a-demo"
-            className="w-full rounded-full bg-white py-3 px-5 text-center text-xs sm:text-sm font-black text-[#0088F0] hover:bg-blue-50 hover:shadow-md transition-all inline-block shadow-sm"
+            className="w-full rounded-full bg-white py-3 px-5 text-center text-xs sm:text-sm font-black text-[#0E7A6E] hover:bg-teal-50 hover:shadow-md transition-all inline-block shadow-sm"
           >
-            Book a Free Demo
+            Book a Free Demo →
           </Link>
         </div>
       </div>
 
-      {/* 2. MIDDLE CARD: "ON THIS PAGE" Table of Contents (Matching AttendoHR Screenshots) */}
-      <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm">
+      {/* 2. MIDDLE CARD: "ON THIS PAGE" Table of Contents */}
+      <div className="rounded-3xl border border-teal-100/90 bg-white p-6 shadow-card">
         <div className="flex items-center justify-between border-b border-slate-100 pb-3.5">
           <span className="text-xs font-black uppercase tracking-wider text-slate-800">
             ON THIS PAGE
           </span>
-          <span className="text-[11px] font-bold text-slate-400">
+          <span className="text-[11px] font-bold text-[#0E7A6E] bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200">
             Section {currentSectionNum} of {sections.length}
           </span>
         </div>
@@ -122,14 +127,14 @@ export default function GlossaryTocSidebar({
                 onClick={() => scrollToSection(sec.id)}
                 className={`w-full flex items-center gap-3 rounded-xl p-2 text-left text-xs sm:text-[13px] font-bold transition-all cursor-pointer ${
                   isActive
-                    ? "bg-[#0088F0]/10 text-[#0088F0] shadow-2xs"
+                    ? "bg-[#E8FAF7] border border-teal-200/90 text-[#0E7A6E] shadow-2xs font-extrabold"
                     : "text-slate-700 hover:bg-slate-50 hover:text-slate-950"
                 }`}
               >
                 <span
                   className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-xs font-black transition-colors ${
                     isActive
-                      ? "bg-[#0088F0] text-white"
+                      ? "bg-[#12B5A5] text-white"
                       : "bg-slate-100 text-slate-500"
                   }`}
                 >
@@ -142,8 +147,8 @@ export default function GlossaryTocSidebar({
         </nav>
       </div>
 
-      {/* 3. BOTTOM CARD: HR & Payroll Glossary Drawer (Matching User Screenshot) */}
-      <div className="rounded-3xl border border-teal-100/90 bg-white p-6 shadow-sm">
+      {/* 3. BOTTOM CARD: HR & Payroll Glossary Drawer */}
+      <div className="rounded-3xl border border-teal-100/90 bg-white p-6 shadow-card">
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
           <BookOpen className="h-4 w-4 stroke-[2.2]" />
           <span>GLOSSARY</span>

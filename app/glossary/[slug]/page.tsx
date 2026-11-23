@@ -4,10 +4,10 @@ import { notFound } from "next/navigation";
 import {
   Calendar,
   Clock,
-  ChevronRight,
   ArrowRight,
   Sparkles,
   CheckCircle2,
+  BookOpen,
 } from "lucide-react";
 import glossaryData from "@/data/glossary.json";
 import {
@@ -61,7 +61,7 @@ export default async function GlossaryDetailPage({
 
   const detail = getGlossaryDetail(slug, matchedTerm);
 
-  // Sidebar list of terms (matching user screenshot)
+  // Sidebar list of terms
   const sidebarTerms = glossaryData.map((item: any) => ({
     term: item.term,
     slug: termToSlug(item.term),
@@ -72,17 +72,23 @@ export default async function GlossaryDetailPage({
   )} ${detail.lawRules.join(" ")}`;
 
   return (
-    <div className="relative w-full overflow-hidden bg-white py-8 sm:py-12">
+    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#F0F6FE]/70 via-[#F8FBFE]/40 to-white py-8 sm:py-14">
+      {/* Ambient background glowing gradient mesh in PayroleHR Teal */}
+      <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
+        <div className="h-[500px] w-[800px] rounded-full bg-teal-100/35 blur-[140px] -translate-y-56 pointer-events-none" />
+        <div className="h-[400px] w-[600px] rounded-full bg-sky-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
+      </div>
+
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* ============================================================ */}
-        {/* TOP BREADCRUMBS (Matching AttendoHR Screenshot 1) */}
+        {/* TOP BREADCRUMBS */}
         {/* ============================================================ */}
         <nav className="flex flex-wrap items-center gap-2 text-xs text-slate-500 font-medium mb-6">
-          <Link href="/" className="hover:text-[#0088F0] transition">
+          <Link href="/" className="hover:text-[#12B5A5] transition">
             Home
           </Link>
           <span className="text-slate-300">/</span>
-          <Link href="/glossary" className="hover:text-[#0088F0] transition">
+          <Link href="/glossary" className="hover:text-[#12B5A5] transition">
             Glossary
           </Link>
           <span className="text-slate-300">/</span>
@@ -99,17 +105,17 @@ export default async function GlossaryDetailPage({
           <main className="lg:col-span-8 space-y-10 sm:space-y-12">
             {/* Header Block */}
             <div className="space-y-4">
-              {/* Pills: GLOSSARY & LETTER (Matching Screenshot 1) */}
+              {/* Pills: GLOSSARY & LETTER in PayroleHR Teal */}
               <div className="flex items-center gap-2">
-                <span className="rounded-full bg-[#E8F4FD] px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#0088F0]">
+                <span className="rounded-full bg-[#E8FAF7] border border-teal-200/90 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#0E7A6E] shadow-2xs">
                   GLOSSARY
                 </span>
-                <span className="rounded-full bg-[#E8F4FD] px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#0088F0]">
+                <span className="rounded-full bg-[#E8FAF7] border border-teal-200/90 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#0E7A6E] shadow-2xs">
                   LETTER {detail.letter}
                 </span>
               </div>
 
-              {/* H1 Heading (Exact AttendoHR typography & style) */}
+              {/* H1 Heading */}
               <h1 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-950 tracking-tight leading-[1.18]">
                 {detail.h1Title}
               </h1>
@@ -127,17 +133,22 @@ export default async function GlossaryDetailPage({
                 </div>
               </div>
 
-              {/* DEFINITION Callout Card (Matching Screenshot 1) */}
-              <div className="rounded-2xl border border-sky-100 bg-[#F5F9FE] p-6 sm:p-7 shadow-2xs space-y-2">
-                <span className="text-[11px] font-black uppercase tracking-wider text-[#0088F0] block">
+              {/* DEFINITION Callout Card with PayroleHR Teal Accent */}
+              <div className="rounded-3xl border-2 border-teal-200/90 bg-gradient-to-br from-[#E8FAF7]/90 via-white to-[#F0FDFB] p-6 sm:p-7 shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-[#12B5A5] to-emerald-400" />
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#0E7A6E] block mb-2">
                   DEFINITION
                 </span>
                 <p className="font-display text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-relaxed">
-                  {detail.definition}
+                  &ldquo;{detail.definition}&rdquo;
                 </p>
+                <div className="mt-3.5 pt-3 border-t border-teal-100 flex items-center gap-2 text-xs font-medium text-slate-600">
+                  <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0" />
+                  <span>Verified for Indian Labour Laws, Factories Act &amp; EPFO/ESIC Regulations</span>
+                </div>
               </div>
 
-              {/* Interactive Audio Player (Listen to this article - Matching Screenshot 1) */}
+              {/* Interactive Audio Player (Listen to this article) */}
               <div className="pt-1">
                 <GlossaryAudioPlayer
                   title={detail.term}
@@ -148,9 +159,13 @@ export default async function GlossaryDetailPage({
             </div>
 
             {/* ============================================================ */}
-            {/* SECTION 1: WHAT IS [TERM]? (Matching Screenshot 2) */}
+            {/* SECTION 1: WHAT IS [TERM]? */}
             {/* ============================================================ */}
-            <section id="section-1" className="scroll-mt-24 space-y-4">
+            <section id="section-1" className="scroll-mt-24 rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card space-y-4">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+                <BookOpen className="h-3.5 w-3.5 text-[#12B5A5]" />
+                In-Depth Definition
+              </span>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
                 {detail.overviewHeading}
               </h2>
@@ -162,9 +177,13 @@ export default async function GlossaryDetailPage({
             </section>
 
             {/* ============================================================ */}
-            {/* SECTION 2: CALCULATION / FORMULA (Matching Screenshot 2) */}
+            {/* SECTION 2: CALCULATION / FORMULA */}
             {/* ============================================================ */}
-            <section id="section-2" className="scroll-mt-24 space-y-5">
+            <section id="section-2" className="scroll-mt-24 rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card space-y-5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
+                Mathematical Formulation
+              </span>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
                 {detail.calculationHeading}
               </h2>
@@ -172,19 +191,21 @@ export default async function GlossaryDetailPage({
                 {detail.calculationIntro}
               </p>
 
-              {/* Formula Callout Box */}
+              {/* Formula Callout Box in Teal Accent */}
               {detail.formula && (
-                <div className="rounded-2xl border border-slate-200/90 bg-slate-50/90 p-5 text-sm sm:text-base font-bold text-slate-950 font-display shadow-2xs">
+                <div className="rounded-2xl border-2 border-teal-200/90 bg-gradient-to-r from-[#E8FAF7] via-white to-[#E8FAF7] p-5 text-sm sm:text-base font-bold text-slate-950 font-display shadow-2xs">
                   {detail.formula}
                 </div>
               )}
 
-              {/* Bullet Rules (Count, Leave out of top line, etc.) */}
+              {/* Bullet Rules */}
               {detail.formulaRules && detail.formulaRules.length > 0 && (
                 <ul className="space-y-2.5 text-sm text-slate-700 leading-relaxed pl-1">
                   {detail.formulaRules.map((rule, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-slate-400 font-bold">•</span>
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-teal-50 text-[#0E7A6E] text-xs font-bold mt-0.5">
+                        ✓
+                      </span>
                       <span>
                         <strong className="text-slate-950 font-bold">
                           {rule.label}:{" "}
@@ -196,7 +217,7 @@ export default async function GlossaryDetailPage({
                 </ul>
               )}
 
-              {/* Interactive Bell Curve Chart (If this term has one) */}
+              {/* Interactive Bell Curve Chart (If applicable) */}
               {detail.hasBellCurveChart && (
                 <div className="pt-2">
                   <BellCurveChart />
@@ -211,19 +232,23 @@ export default async function GlossaryDetailPage({
             </section>
 
             {/* ============================================================ */}
-            {/* SECTION 3: COMPARISON TABLE (Matching Screenshot 3) */}
+            {/* SECTION 3: COMPARISON TABLE */}
             {/* ============================================================ */}
-            <section id="section-3" className="scroll-mt-24 space-y-5">
+            <section id="section-3" className="scroll-mt-24 rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card space-y-5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
+                Comparative Breakdown
+              </span>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
                 {detail.comparisonHeading}
               </h2>
 
-              <div className="overflow-x-auto rounded-2xl border border-slate-200/90 bg-white shadow-2xs">
+              <div className="overflow-x-auto rounded-2xl border border-teal-100 bg-white shadow-2xs">
                 <table className="w-full text-left text-xs sm:text-sm text-slate-700">
-                  <thead className="bg-[#F5F9FE] border-b border-slate-200/90 text-slate-950 font-bold">
+                  <thead className="bg-[#E8FAF7]/80 border-b border-teal-100 text-slate-950 font-bold">
                     <tr>
                       {detail.comparisonTable.headers.map((h, idx) => (
-                        <th key={idx} className="p-3.5 sm:p-4 font-bold">
+                        <th key={idx} className="p-3.5 sm:p-4 font-bold text-[#0E7A6E]">
                           {h}
                         </th>
                       ))}
@@ -255,9 +280,13 @@ export default async function GlossaryDetailPage({
             </section>
 
             {/* ============================================================ */}
-            {/* SECTION 4: WORKED EXAMPLE (Matching Screenshot 4) */}
+            {/* SECTION 4: WORKED EXAMPLE */}
             {/* ============================================================ */}
-            <section id="section-4" className="scroll-mt-24 space-y-5">
+            <section id="section-4" className="scroll-mt-24 rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card space-y-5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
+                Practical Real-World Scenario
+              </span>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
                 {detail.exampleHeading}
               </h2>
@@ -267,12 +296,12 @@ export default async function GlossaryDetailPage({
 
               {/* Example Data Table */}
               {detail.exampleTable && (
-                <div className="max-w-md overflow-x-auto rounded-2xl border border-slate-200/90 bg-white shadow-2xs">
+                <div className="max-w-md overflow-x-auto rounded-2xl border border-teal-100 bg-white shadow-2xs">
                   <table className="w-full text-left text-xs sm:text-sm text-slate-700">
-                    <thead className="bg-[#F5F9FE] border-b border-slate-200/90 text-slate-950 font-bold">
+                    <thead className="bg-[#E8FAF7]/80 border-b border-teal-100 text-slate-950 font-bold">
                       <tr>
                         {detail.exampleTable.headers.map((h, idx) => (
-                          <th key={idx} className="p-3 sm:p-3.5 font-bold">
+                          <th key={idx} className="p-3 sm:p-3.5 font-bold text-[#0E7A6E]">
                             {h}
                           </th>
                         ))}
@@ -287,7 +316,7 @@ export default async function GlossaryDetailPage({
                               className={`p-3 sm:p-3.5 ${
                                 cIdx === 0
                                   ? "font-bold text-slate-900"
-                                  : "text-slate-700 font-mono"
+                                  : "text-slate-700 font-mono font-semibold"
                               }`}
                             >
                               {cell}
@@ -312,9 +341,13 @@ export default async function GlossaryDetailPage({
             </section>
 
             {/* ============================================================ */}
-            {/* SECTION 5: WHAT INDIAN LAW SAYS (Matching Screenshot 5) */}
+            {/* SECTION 5: WHAT INDIAN LAW SAYS */}
             {/* ============================================================ */}
-            <section id="section-5" className="scroll-mt-24 space-y-5">
+            <section id="section-5" className="scroll-mt-24 rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card space-y-5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
+                Indian Statutory Compliance
+              </span>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
                 {detail.lawHeading}
               </h2>
@@ -328,14 +361,17 @@ export default async function GlossaryDetailPage({
               {/* Numbered Law Rules */}
               <div className="space-y-3 pl-1">
                 {detail.lawRules.map((rule, idx) => (
-                  <div key={idx} className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
-                    {rule}
+                  <div key={idx} className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium flex items-start gap-2.5">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-teal-50 border border-teal-200 text-[#0E7A6E] text-xs font-bold">
+                      {idx + 1}
+                    </span>
+                    <span>{rule.replace(/^\d+\.\s*/, "")}</span>
                   </div>
                 ))}
               </div>
 
               {/* Legal Detail Paragraphs */}
-              <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+              <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed font-normal pt-2">
                 {detail.lawDetails.map((detailText, idx) => (
                   <p key={idx}>{detailText}</p>
                 ))}
@@ -343,9 +379,13 @@ export default async function GlossaryDetailPage({
             </section>
 
             {/* ============================================================ */}
-            {/* SECTION 6: FINDING THE CAUSE (Matching Screenshot 5 & 6) */}
+            {/* SECTION 6: FINDING THE CAUSE */}
             {/* ============================================================ */}
-            <section id="section-6" className="scroll-mt-24 space-y-5">
+            <section id="section-6" className="scroll-mt-24 rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card space-y-5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
+                Operational &amp; Managerial Strategy
+              </span>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
                 {detail.causeHeading}
               </h2>
@@ -355,8 +395,8 @@ export default async function GlossaryDetailPage({
 
               <ul className="space-y-2.5 text-sm text-slate-700 leading-relaxed pl-1">
                 {detail.causePoints.map((pt, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="text-[#0088F0] font-bold">•</span>
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="text-[#12B5A5] font-black">•</span>
                     <span>{pt}</span>
                   </li>
                 ))}
@@ -370,9 +410,13 @@ export default async function GlossaryDetailPage({
             </section>
 
             {/* ============================================================ */}
-            {/* SECTION 7: SEE IN ONE REPORT / PAYROLEHR (Matching Screenshot 6) */}
+            {/* SECTION 7: SEE IN ONE REPORT / PAYROLEHR */}
             {/* ============================================================ */}
-            <section id="section-7" className="scroll-mt-24 space-y-5">
+            <section id="section-7" className="scroll-mt-24 rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card space-y-5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
+                PayroleHR Software Automation
+              </span>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
                 {detail.reportHeading}
               </h2>
@@ -380,7 +424,7 @@ export default async function GlossaryDetailPage({
                 {detail.reportIntro}
               </p>
 
-              <div className="rounded-2xl border border-slate-200/80 bg-[#FAFDFD] p-5 sm:p-6 space-y-3">
+              <div className="rounded-2xl border border-teal-100 bg-[#FAFDFD] p-5 sm:p-6 space-y-3">
                 {detail.reportFeatures.map((feat, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <CheckCircle2 className="h-4 w-4 text-[#12B5A5] shrink-0 mt-0.5" />
@@ -393,7 +437,7 @@ export default async function GlossaryDetailPage({
                 <div className="pt-3 border-t border-slate-200/60">
                   <Link
                     href="/book-a-demo"
-                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0088F0] hover:text-[#0070D0] transition"
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:text-[#12B5A5] transition"
                   >
                     <span>{detail.reportCtaText}</span>
                     <ArrowRight className="h-4 w-4" />
@@ -403,11 +447,15 @@ export default async function GlossaryDetailPage({
             </section>
 
             {/* ============================================================ */}
-            {/* SECTION 8: FAQS ACCORDION (Matching Screenshot 6) */}
+            {/* SECTION 8: FAQS ACCORDION */}
             {/* ============================================================ */}
-            <section id="section-8" className="scroll-mt-24 space-y-5">
-              <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
+            <section id="section-8" className="scroll-mt-24 rounded-3xl border border-teal-100/90 bg-white p-7 sm:p-9 shadow-card space-y-5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#12B5A5]">
+                <Sparkles className="h-3.5 w-3.5 text-[#12B5A5]" />
                 Frequently Asked Questions
+              </span>
+              <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
+                Common Compliance Questions
               </h2>
               <GlossaryFaqAccordion items={detail.faqs} />
             </section>

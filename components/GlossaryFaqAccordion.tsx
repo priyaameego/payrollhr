@@ -30,7 +30,7 @@ export default function GlossaryFaqAccordion({ items }: GlossaryFaqAccordionProp
             <button
               type="button"
               onClick={() => toggleIndex(idx)}
-              className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-900 hover:text-[#0088F0] transition-colors cursor-pointer"
+              className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-slate-900 hover:text-[#0E7A6E] transition-colors cursor-pointer"
               aria-expanded={isOpen}
             >
               <span>{item.q}</span>
