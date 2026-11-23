@@ -62,15 +62,45 @@ const featuresList: FeatureDetail[] = [
     cards: [
       {
         title: "Live Attendance Records",
-        desc: "Capture each punch from the face scanner or mobile app and mark attendance status like present, late, or half-day based on the rules set by you.",
+        desc: "Capture each punch from the device and mark attendance status like present, late, or half-day based on the rules set by you.",
         linkText: "each punch from the device",
         linkHref: "/features/face-attendance",
       },
       {
         title: "Mobile Punch-in with Photo",
-        desc: "A photo is captured automatically every time an employee checks in with real-time GPS location stamping and anti-spoof liveness detection.",
-        linkText: "mobile attendance rules",
+        desc: "A photo is captured automatically every time an employee punches from the app. Visual proof of every entry. No buddy-punching.",
+        linkText: "visual proof of every entry",
         linkHref: "/features/geo-fencing-attendance",
+      },
+      {
+        title: "Attendance Modes That Match Your Floor",
+        desc: "Choose how punches are read — count every punch, take only the first and last of the day, or mark present on a single punch. A factory floor and a kitchen do not work the same way.",
+        linkText: "custom floor punch modes",
+        linkHref: "/features/attendance-management",
+      },
+      {
+        title: "Payroll and Attendance Status",
+        desc: "View pending approvals, attendance summaries, and payroll progress across the organisation from the main dashboard screen.",
+        linkText: "organisation dashboard",
+        linkHref: "/features/payroll-management",
+      },
+      {
+        title: "Attendance Records for Employees",
+        desc: "Each employee can view their own attendance history and current leave balance at any time, without contacting HR or waiting for month-end.",
+        linkText: "employee self-service records",
+        linkHref: "/features/employee-self-service",
+      },
+      {
+        title: "Works in 11 Indian Languages",
+        desc: "Switch between 11 Indian regional languages including Marathi, Tamil, Gujarati, and Odia based on the employee's phone setting. No separate setup is needed per employee.",
+        linkText: "11 Indian regional languages",
+        linkHref: "/features/employee-self-service",
+      },
+      {
+        title: "WhatsApp Updates",
+        desc: "Receive daily attendance summaries, mentioning who came, who didn't, and more on WhatsApp daily.",
+        linkText: "daily WhatsApp summaries",
+        linkHref: "/features/notifications-alerts",
       },
     ],
   },
@@ -383,61 +413,91 @@ export default function FeaturesInteractiveShowcase() {
           </div>
 
           {/* Grid: Center Interactive Mockup | Right Detailed Value Cards */}
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Center Phone/Device Mockup */}
-            <div className="lg:col-span-6 flex justify-center">
+            <div className="lg:col-span-5 flex justify-center lg:sticky lg:top-24">
               {/* Dynamic UI Mockup based on active feature */}
               {activeFeature.mockup.type === "attendance" && (
-                <div className="relative w-full max-w-[320px] rounded-[36px] bg-[#0C111D] border-4 border-slate-800 p-4 shadow-2xl text-white">
-                  {/* Phone Notch */}
-                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-800">
-                    <span>9:41 AM</span>
-                    <span className="flex items-center gap-1.5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                      GPS Geofenced
-                    </span>
+                <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
+                  {/* Phone Notch & Status */}
+                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
+                    <span className="font-semibold text-slate-700">9:41</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5] animate-ping" />
+                      <span className="text-[10px] font-medium text-slate-500">Live GPS</span>
+                    </div>
                   </div>
 
-                  <div className="pt-3 pb-2 text-center">
-                    <span className="text-[11px] text-slate-400 block font-medium">Regularization</span>
-                    <span className="text-xs font-bold text-slate-200">10 Jan 2026</span>
+                  {/* Header Row: Regularization & Date */}
+                  <div className="flex items-center justify-between pt-3 pb-2 text-xs">
+                    <div className="flex items-center gap-1 text-slate-700 font-bold cursor-pointer hover:text-[#12B5A5]">
+                      <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
+                      <span>Regularization</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-[11px] font-semibold text-slate-500">
+                      <Calendar className="h-3 w-3 text-slate-400" />
+                      <span>10 Jan 2026</span>
+                    </div>
                   </div>
 
-                  {/* Dark Counter Card (Exact Attendo screenshot look) */}
-                  <div className="rounded-2xl bg-[#161B26] border border-slate-700/80 p-4 my-3 text-center shadow-lg">
+                  {/* Centered Dark Counter Card (Exact Attendo screenshot look) */}
+                  <div className="rounded-2xl bg-[#10141E] border border-slate-800 p-4 my-2 text-center shadow-lg text-white">
                     <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold block mb-2">
                       Working Hours
                     </span>
                     <div className="flex items-center justify-center gap-2 my-1">
-                      <div className="rounded-xl bg-[#202738] px-3 py-2 text-center min-w-[54px] border border-slate-700">
+                      <div className="rounded-xl bg-[#1A202E] px-3 py-2 text-center min-w-[54px] border border-slate-700/60">
                         <span className="font-display text-2xl font-black text-white">3</span>
                         <span className="text-[9px] text-slate-400 block uppercase font-mono mt-0.5">Hrs</span>
                       </div>
                       <span className="text-xl font-bold text-teal-400">:</span>
-                      <div className="rounded-xl bg-[#202738] px-3 py-2 text-center min-w-[54px] border border-slate-700">
+                      <div className="rounded-xl bg-[#1A202E] px-3 py-2 text-center min-w-[54px] border border-slate-700/60">
                         <span className="font-display text-2xl font-black text-white">13</span>
                         <span className="text-[9px] text-slate-400 block uppercase font-mono mt-0.5">Min</span>
                       </div>
                       <span className="text-xl font-bold text-teal-400">:</span>
-                      <div className="rounded-xl bg-[#202738] px-3 py-2 text-center min-w-[54px] border border-slate-700">
+                      <div className="rounded-xl bg-[#1A202E] px-3 py-2 text-center min-w-[54px] border border-slate-700/60">
                         <span className="font-display text-2xl font-black text-[#12B5A5] animate-pulse">05</span>
                         <span className="text-[9px] text-slate-400 block uppercase font-mono mt-0.5">Sec</span>
                       </div>
                     </div>
 
-                    <div className="mt-3.5 inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 px-3 py-1 text-[11px] font-semibold text-amber-300">
+                    <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[#202738] border border-amber-500/30 px-3 py-1 text-[11px] font-semibold text-amber-300">
                       <Coffee className="h-3.5 w-3.5 text-amber-400" />
                       <span>Total Break Time - 40m</span>
                     </div>
                   </div>
 
-                  {/* Bottom Verification Badge */}
-                  <div className="rounded-xl bg-emerald-950/80 border border-emerald-500/60 p-2.5 flex items-center justify-between text-xs">
-                    <span className="text-emerald-300 font-bold flex items-center gap-1.5">
-                      <Check className="h-3.5 w-3.5 text-emerald-400" />
-                      Gate 01 In: 09:30 AM
-                    </span>
-                    <span className="text-[10px] text-slate-400">On Time</span>
+                  {/* Activity Section */}
+                  <div className="mt-3 pt-2 border-t border-slate-100">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-bold text-slate-800">Activity</span>
+                      <span className="rounded-lg bg-teal-50 px-2 py-0.5 text-[10px] font-bold text-[#0E7A6E] border border-teal-200">
+                        Add Punch
+                      </span>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between rounded-xl bg-slate-50 p-2 text-xs border border-slate-100">
+                        <div className="flex items-center gap-2">
+                          <div className="flex h-5 w-5 items-center justify-center rounded-md bg-emerald-100 text-emerald-600">
+                            <ArrowRight className="h-3 w-3 -rotate-45" />
+                          </div>
+                          <span className="font-semibold text-slate-700">Punch In</span>
+                        </div>
+                        <span className="font-mono text-slate-500 text-[11px]">10:30am</span>
+                      </div>
+
+                      <div className="flex items-center justify-between rounded-xl bg-slate-50 p-2 text-xs border border-slate-100">
+                        <div className="flex items-center gap-2">
+                          <div className="flex h-5 w-5 items-center justify-center rounded-md bg-amber-100 text-amber-600">
+                            <ArrowRight className="h-3 w-3 rotate-45" />
+                          </div>
+                          <span className="font-semibold text-slate-700">Punch Out</span>
+                        </div>
+                        <span className="font-mono text-slate-500 text-[11px]">01:30pm</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
@@ -663,26 +723,39 @@ export default function FeaturesInteractiveShowcase() {
               )}
             </div>
 
-            {/* Right Stacked Value Cards (Attendo 3rd screenshot style) */}
-            <div className="lg:col-span-6 flex flex-col gap-4">
+            {/* Right Stacked Value Cards */}
+            <div className="lg:col-span-7 flex flex-col gap-4">
               {activeFeature.cards.map((c, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs hover:border-[#12B5A5] hover:shadow-md transition-all duration-300"
+                  className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:border-[#12B5A5] hover:shadow-md transition-all duration-300"
                 >
-                  <h4 className="font-display text-base font-bold text-slate-900 leading-snug">
+                  <h4 className="font-display text-base sm:text-lg font-bold text-slate-900 leading-snug">
                     {c.title}
                   </h4>
                   <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    {c.desc}
+                    {c.linkText && c.desc.includes(c.linkText) ? (
+                      <>
+                        {c.desc.split(c.linkText)[0]}
+                        <Link
+                          href={c.linkHref || "/book-demo"}
+                          className="text-[#0E7A6E] font-semibold underline decoration-[#12B5A5]/60 hover:text-[#12B5A5] transition-colors"
+                        >
+                          {c.linkText}
+                        </Link>
+                        {c.desc.split(c.linkText)[1]}
+                      </>
+                    ) : (
+                      c.desc
+                    )}
                   </p>
-                  {c.linkText && (
-                    <div className="mt-3 pt-2.5 border-t border-slate-100">
+                  {c.linkHref && (
+                    <div className="mt-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
                       <Link
-                        href={c.linkHref || "/book-a-demo"}
+                        href={c.linkHref}
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-[#12B5A5] hover:text-[#0E7A6E] transition-colors"
                       >
-                        <span>Explore {c.linkText}</span>
+                        <span>Explore {c.title}</span>
                         <ArrowRight className="h-3 w-3" />
                       </Link>
                     </div>

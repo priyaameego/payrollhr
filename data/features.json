@@ -103,8 +103,32 @@
     "solution": "Check-in and check-out times are stored for every day. One rule set decides Present, Late, Half day or Left early based on the employee's shift and grace time, and the monthly totals flow straight into payroll.",
     "capabilities": [
       {
-        "title": "Several ways to punch",
-        "text": "Face kiosk, staff portal button or face check-in, and HR corrections."
+        "title": "Live Attendance Records",
+        "text": "Capture each punch from the device and mark attendance status like present, late, or half-day based on the rules set by you."
+      },
+      {
+        "title": "Mobile Punch-in with Photo",
+        "text": "A photo is captured automatically every time an employee punches from the app. Visual proof of every entry. No buddy-punching."
+      },
+      {
+        "title": "Attendance Modes That Match Your Floor",
+        "text": "Choose how punches are read — count every punch, take only the first and last of the day, or mark present on a single punch. A factory floor and a kitchen do not work the same way."
+      },
+      {
+        "title": "Payroll and Attendance Status",
+        "text": "View pending approvals, attendance summaries, and payroll progress across the organisation from the main dashboard screen."
+      },
+      {
+        "title": "Attendance Records for Employees",
+        "text": "Each employee can view their own attendance history and current leave balance at any time, without contacting HR or waiting for month-end."
+      },
+      {
+        "title": "Works in 11 Indian Languages",
+        "text": "Switch between 11 Indian regional languages including Marathi, Tamil, Gujarati, and Odia based on the employee's phone setting. No separate setup is needed per employee."
+      },
+      {
+        "title": "WhatsApp Updates",
+        "text": "Receive daily attendance summaries, mentioning who came, who didn't, and more on WhatsApp daily."
       },
       {
         "title": "Shift-aware rules",
@@ -113,14 +137,6 @@
       {
         "title": "Monthly sheet",
         "text": "See the whole month per employee and correct days with a reason."
-      },
-      {
-        "title": "Holidays",
-        "text": "Organisation holiday calendar, with import."
-      },
-      {
-        "title": "Overtime requests",
-        "text": "Approved overtime hours become a payroll input."
       },
       {
         "title": "Attendance reports",
