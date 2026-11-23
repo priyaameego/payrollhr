@@ -24,6 +24,14 @@
     "def": "A file in your bank's format listing each employee's account and net pay for bulk transfer."
   },
   {
+    "term": "Blue collar",
+    "def": "Operational and factory workforce performing technical, manual, or field duties, governed by Factories Act overtime and shift rules."
+  },
+  {
+    "term": "Bonus (Statutory)",
+    "def": "Annual statutory payment under the Payment of Bonus Act, 1965 (minimum 8.33% up to 20% of basic wages for eligible employees)."
+  },
+  {
     "term": "Carry forward",
     "def": "Unused leave moved into the next leave year, often up to a limit."
   },
@@ -56,6 +64,10 @@
     "def": "The last payment to a leaving employee: pending salary, leave encashment, gratuity, minus recoveries."
   },
   {
+    "term": "Form 16",
+    "def": "Annual TDS certificate issued by the employer detailing gross salary, chapter VI-A deductions, and tax deposited with the government under Section 203."
+  },
+  {
     "term": "Grace time",
     "def": "Minutes after shift start during which a check-in is still treated as on time."
   },
@@ -78,6 +90,10 @@
   {
     "term": "Leave encashment",
     "def": "Paying unused leave in cash, usually at exit or year end."
+  },
+  {
+    "term": "Labour Welfare Fund (LWF)",
+    "def": "State-managed statutory fund for worker welfare, collected half-yearly or yearly from eligible employees and employers."
   },
   {
     "term": "LOP",
