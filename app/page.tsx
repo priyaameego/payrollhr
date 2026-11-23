@@ -1761,7 +1761,7 @@ export default function HomePage() {
                 The owner sees everything on web and mobile dashboards easily.
               </p>
 
-              <div className="mt-6 grid sm:grid-cols-[1.1fr_0.9fr] gap-6 items-center">
+              <div className="mt-6 grid sm:grid-cols-[1fr_250px] gap-6 items-center">
                 <div className="space-y-4">
                   {[
                     {
@@ -1795,12 +1795,12 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="relative aspect-square w-full max-w-[270px] mx-auto rounded-2xl bg-[#F0FDFB]/60 border border-teal-100/80 p-2.5 flex items-center justify-center overflow-hidden shadow-xs">
+                <div className="relative h-[250px] w-full max-w-[250px] mx-auto rounded-2xl bg-[#F0FDFB]/60 border border-teal-100/80 p-3 flex items-center justify-center overflow-hidden shadow-xs shrink-0">
                   <Image
                     src="/images/for-owner-management.jpg"
                     alt="Management dashboard and control"
-                    width={320}
-                    height={320}
+                    width={280}
+                    height={280}
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -1823,7 +1823,7 @@ export default function HomePage() {
                 Employees check their own data through a self-service app.
               </p>
 
-              <div className="mt-6 grid sm:grid-cols-[1.1fr_0.9fr] gap-6 items-center">
+              <div className="mt-6 grid sm:grid-cols-[1fr_250px] gap-6 items-center">
                 <div className="space-y-4">
                   {[
                     {
@@ -1857,12 +1857,12 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="relative aspect-square w-full max-w-[270px] mx-auto rounded-2xl bg-[#F0FDFB]/60 border border-teal-100/80 p-2.5 flex items-center justify-center overflow-hidden shadow-xs">
+                <div className="relative h-[250px] w-full max-w-[250px] mx-auto rounded-2xl bg-[#F0FDFB]/60 border border-teal-100/80 p-3 flex items-center justify-center overflow-hidden shadow-xs shrink-0">
                   <Image
                     src="/images/for-employee-app.jpg"
                     alt="Employee self-service app"
-                    width={320}
-                    height={320}
+                    width={280}
+                    height={280}
                     className="h-full w-full object-contain"
                   />
                 </div>
