@@ -258,7 +258,7 @@ export default function StaffNeedsWordCloud() {
   }, [activeCardKey]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-[#F8FCFB] to-white py-16 sm:py-24 border-b border-slate-100">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-[#F8FCFB] to-white pt-8 sm:pt-12 pb-14 sm:pb-20 border-b border-slate-100">
       {/* Decorative ambient background glows */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
         <div className="h-[450px] w-[650px] rounded-full bg-teal-100/40 blur-[120px]" />

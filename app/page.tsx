@@ -1177,7 +1177,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* PAGARBOOK STYLE USP TICKER BAR */}
       {/* ============================================================ */}
-      <div className="relative overflow-hidden border-y border-[#C8EFE6] bg-[#F3FAF8] py-3.5 shadow-2xs">
+      <div className="!mt-8 sm:!mt-10 relative overflow-hidden border-y border-[#C8EFE6] bg-[#F3FAF8] py-3 shadow-2xs">
         <div className="animate-marquee flex items-center whitespace-nowrap text-xs sm:text-[13px] font-semibold text-slate-800">
           {[1, 2, 3].map((loop) => (
             <React.Fragment key={loop}>
@@ -1209,7 +1209,9 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* 4.5 THINK OF ANYTHING YOU DO FOR YOUR STAFF - INTERACTIVE SEARCH CLOUD */}
       {/* ============================================================ */}
-      <StaffNeedsWordCloud />
+      <div className="!mt-0">
+        <StaffNeedsWordCloud />
+      </div>
 
       {/* ============================================================ */}
       {/* 5. COMPLETE PRODUCT SUITE - 5-PART ALTERNATING SHOWCASE */}
