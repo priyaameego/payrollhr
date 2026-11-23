@@ -314,8 +314,24 @@ const featuresList: FeatureDetail[] = [
   },
 ];
 
-export default function FeaturesInteractiveShowcase() {
-  const [activeIdx, setActiveIdx] = useState<number>(0);
+interface FeaturesInteractiveShowcaseProps {
+  initialId?: string;
+  hideSidebar?: boolean;
+}
+
+export default function FeaturesInteractiveShowcase({
+  initialId,
+  hideSidebar = false,
+}: FeaturesInteractiveShowcaseProps = {}) {
+  const getInitialIndex = () => {
+    if (!initialId) return 0;
+    const found = featuresList.findIndex(
+      (f) => f.id === initialId || initialId.includes(f.id) || f.id.includes(initialId)
+    );
+    return found !== -1 ? found : 0;
+  };
+
+  const [activeIdx, setActiveIdx] = useState<number>(getInitialIndex());
   const activeFeature = featuresList[activeIdx];
 
   const handleNext = () => {
@@ -327,74 +343,76 @@ export default function FeaturesInteractiveShowcase() {
   };
 
   return (
-    <section className="relative w-full max-w-7xl mx-auto py-8">
+    <section id="interactive-showcase" className="relative w-full max-w-7xl mx-auto py-8 scroll-mt-28">
       {/* Main Container: Left Tabs Slider | Right Content Showcase */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      <div className={`grid grid-cols-1 ${hideSidebar ? "" : "lg:grid-cols-12"} gap-8 lg:gap-10 items-start`}>
         {/* ========================================================== */}
         {/* LEFT COLUMN: NUMBERED FEATURE TABS (01 to 09) */}
         {/* ========================================================== */}
-        <div className="lg:col-span-3 space-y-2">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 mb-3">
-            <span className="text-[11px] font-black uppercase tracking-wider text-slate-400">
-              FEATURES ({featuresList.length})
-            </span>
-            {/* Quick Slider Arrow Controls */}
-            <div className="flex items-center gap-1">
-              <button
-                type="button"
-                onClick={handlePrev}
-                aria-label="Previous Feature"
-                className="h-7 w-7 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#12B5A5] hover:border-teal-200 transition-colors cursor-pointer"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                aria-label="Next Feature"
-                className="h-7 w-7 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#12B5A5] hover:border-teal-200 transition-colors cursor-pointer"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-
-          <nav className="flex flex-col gap-1.5" aria-label="Features Tab Navigation">
-            {featuresList.map((item, idx) => {
-              const isActive = activeIdx === idx;
-              return (
+        {!hideSidebar && (
+          <div className="lg:col-span-3 space-y-2">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 mb-3">
+              <span className="text-[11px] font-black uppercase tracking-wider text-slate-400">
+                FEATURES ({featuresList.length})
+              </span>
+              {/* Quick Slider Arrow Controls */}
+              <div className="flex items-center gap-1">
                 <button
-                  key={item.id}
                   type="button"
-                  onClick={() => setActiveIdx(idx)}
-                  className={`group flex items-center gap-3.5 rounded-2xl px-4 py-3 text-left transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? "bg-gradient-to-r from-teal-50 via-teal-50/70 to-emerald-50/40 text-[#0E7A6E] font-bold shadow-xs border-l-4 border-[#12B5A5]"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 border-l-4 border-transparent"
-                  }`}
+                  onClick={handlePrev}
+                  aria-label="Previous Feature"
+                  className="h-7 w-7 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#12B5A5] hover:border-teal-200 transition-colors cursor-pointer"
                 >
-                  <span
-                    className={`text-xs font-mono font-bold tracking-tight px-1.5 py-0.5 rounded ${
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Next Feature"
+                  className="h-7 w-7 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#12B5A5] hover:border-teal-200 transition-colors cursor-pointer"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+
+            <nav className="flex flex-col gap-1.5" aria-label="Features Tab Navigation">
+              {featuresList.map((item, idx) => {
+                const isActive = activeIdx === idx;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setActiveIdx(idx)}
+                    className={`group flex items-center gap-3.5 rounded-2xl px-4 py-3 text-left transition-all duration-200 cursor-pointer ${
                       isActive
-                        ? "bg-[#12B5A5]/15 text-[#0E7A6E]"
-                        : "text-slate-400 group-hover:text-slate-600"
+                        ? "bg-gradient-to-r from-teal-50 via-teal-50/70 to-emerald-50/40 text-[#0E7A6E] font-bold shadow-xs border-l-4 border-[#12B5A5]"
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 border-l-4 border-transparent"
                     }`}
                   >
-                    {item.num}
-                  </span>
-                  <span className="text-sm font-semibold leading-tight">
-                    {item.tabLabel}
-                  </span>
-                </button>
-              );
-            })}
-          </nav>
-        </div>
+                    <span
+                      className={`text-xs font-mono font-bold tracking-tight px-1.5 py-0.5 rounded ${
+                        isActive
+                          ? "bg-[#12B5A5]/15 text-[#0E7A6E]"
+                          : "text-slate-400 group-hover:text-slate-600"
+                      }`}
+                    >
+                      {item.num}
+                    </span>
+                    <span className="text-sm font-semibold leading-tight">
+                      {item.tabLabel}
+                    </span>
+                  </button>
+                );
+              })}
+            </nav>
+          </div>
+        )}
 
         {/* ========================================================== */}
         {/* RIGHT COLUMN: ACTIVE FEATURE SHOWCASE (HEADER + MOCKUP + CARDS) */}
         {/* ========================================================== */}
-        <div className="lg:col-span-9 rounded-3xl border border-teal-100/90 bg-gradient-to-b from-[#FAFDFD] via-white to-white p-6 sm:p-10 shadow-card">
+        <div className={`${hideSidebar ? "w-full" : "lg:col-span-9"} rounded-3xl border border-teal-100/90 bg-gradient-to-b from-[#FAFDFD] via-white to-white p-6 sm:p-10 shadow-card`}>
           {/* Top Feature Tag & Title */}
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold font-mono tracking-wider text-[#12B5A5] uppercase">

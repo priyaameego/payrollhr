@@ -273,44 +273,45 @@ export default function Header() {
                         {
                           name: "Time & Attendance",
                           desc: "Real-time punches from face devices and mobile",
+                          badges: ["Live Records", "11 Languages", "WhatsApp Alerts"],
                           icon: Clock,
                           iconBg: "bg-sky-50 text-sky-600 border-sky-100",
-                          href: "/features/attendance-management",
+                          href: "/features/attendance-management#interactive-showcase",
                         },
                         {
                           name: "Payroll & Payout",
                           desc: "Salaries computed and paid out automatically",
                           icon: IndianRupee,
                           iconBg: "bg-teal-50 text-[#0E7A6E] border-teal-100",
-                          href: "/features/payroll-management",
+                          href: "/features/payroll-management#interactive-showcase",
                         },
                         {
                           name: "Leave & Holidays",
                           desc: "Requests, approvals and balances in one place",
                           icon: Calendar,
                           iconBg: "bg-emerald-50 text-emerald-600 border-emerald-100",
-                          href: "/features/leave-management",
+                          href: "/features/leave-management#interactive-showcase",
                         },
                         {
                           name: "Shifts & Roster",
                           desc: "Plan shifts and rosters without spreadsheets",
                           icon: Users,
                           iconBg: "bg-indigo-50 text-indigo-600 border-indigo-100",
-                          href: "/features/shift-management",
+                          href: "/features/shift-management#interactive-showcase",
                         },
                         {
                           name: "Geo Track",
                           desc: "Field staff attendance with location proof",
                           icon: MapPin,
                           iconBg: "bg-amber-50 text-amber-600 border-amber-100",
-                          href: "/features/geo-fencing-attendance",
+                          href: "/features/geo-fencing-attendance#interactive-showcase",
                         },
                         {
                           name: "Reports",
                           desc: "Every register and report, one click away",
                           icon: BarChart3,
                           iconBg: "bg-purple-50 text-purple-600 border-purple-100",
-                          href: "/features/reports-analytics",
+                          href: "/features/reports-analytics#interactive-showcase",
                         },
                       ].map((item) => {
                         const Icon = item.icon;
@@ -333,6 +334,18 @@ export default function Header() {
                               <span className="block text-[11px] text-slate-500 leading-snug mt-0.5 group-hover:text-slate-600">
                                 {item.desc}
                               </span>
+                              {item.badges && (
+                                <span className="mt-1 flex flex-wrap gap-1">
+                                  {item.badges.map((b) => (
+                                    <span
+                                      key={b}
+                                      className="rounded-md bg-teal-50 px-1.5 py-0.5 text-[9px] font-bold text-[#0E7A6E] border border-teal-100"
+                                    >
+                                      {b}
+                                    </span>
+                                  ))}
+                                </span>
+                              )}
                             </span>
                           </Link>
                         );

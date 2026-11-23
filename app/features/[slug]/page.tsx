@@ -13,6 +13,7 @@ import FeatureScreenMockup from "@/components/FeatureScreenMockup";
 import { FeatureIcon } from "@/components/IconHelper";
 import { contactDetails } from "@/data/navigation";
 import FeatureFaqAccordion from "./FeatureFaqAccordion";
+import FeaturesInteractiveShowcase from "@/components/FeaturesInteractiveShowcase";
 
 export async function generateStaticParams() {
   return featuresData.map((f: any) => ({
@@ -113,6 +114,11 @@ export default async function FeatureDetailPage({
             />
           </div>
         </div>
+      </section>
+
+      {/* 0.5 INTERACTIVE FEATURE SHOWCASE WITH 7 VALUE CARDS & STICKY PHONE MOCKUP */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-10" id="interactive-showcase">
+        <FeaturesInteractiveShowcase initialId={slug === "attendance-management" ? "attendance" : slug} />
       </section>
 
       {/* 1. THE PROBLEM VS HOW PAYROLEHR SOLVES IT */}
