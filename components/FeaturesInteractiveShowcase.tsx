@@ -31,6 +31,12 @@ import {
   Mail,
   TrendingUp,
   TrendingDown,
+  Palmtree,
+  Fingerprint,
+  Info,
+  Bell,
+  AlertTriangle,
+  SlidersHorizontal,
 } from "lucide-react";
 
 interface FeatureDetail {
@@ -323,36 +329,36 @@ const featuresList: FeatureDetail[] = [
     num: "07",
     tabLabel: "Geo Track",
     subHeader: "07 – FEATURE",
-    title: "Geo Track & Mobile Check-in",
-    headline: "Field Staff Attendance With Location Proof",
+    title: "Geo Track",
+    headline: "Attendance That Knows Where It Happened",
     description:
-      "Field sales, delivery, and remote site workers mark attendance directly from their mobile phones with 50m geofencing and anti-spoof selfie capture.",
+      "For teams that don't sit at one location, the punch carries the place along with the time.",
     icon: MapPin,
     mockup: { type: "geo" },
     cards: [
       {
-        title: "Anti-Mock Location Guard",
-        desc: "Blocks fake GPS apps, spoofed Wi-Fi coordinates, and developer mode mock locations at the device level before the punch is accepted.",
-        linkText: "GPS geofence anti-spoof",
+        title: "Location-Based Attendance (Geo Fencing)",
+        desc: "Set a boundary around the shop, branch, or site. Punches outside it don't register. Field employees' GPS is logged with every entry.",
+        linkText: "boundary around the shop, branch, or site",
         linkHref: "/features/geo-fencing-attendance",
       },
       {
-        title: "Client Visit Stamping & Travel Claims",
-        desc: "Track client meeting locations, calculate odometer distance traveled, and automatically approve travel allowance claims with zero manual bill review.",
-        linkText: "automatically approve travel allowance claims",
+        title: "Live Tracking",
+        desc: "See where field employees are and how they moved through the day with Geo Tracking. Routes, distance, last activity without calling.",
+        linkText: "where field employees are and how they moved",
         linkHref: "/features/employee-self-service",
       },
       {
-        title: "Offline Punch Sync With Cryptographic Hash",
-        desc: "Enables field workers to log attendance even in zero-network remote basements. Punches are encrypted locally and auto-synced the moment connectivity resumes.",
-        linkText: "encrypted locally and auto-synced",
+        title: "Auto Punch-Out",
+        desc: "Punch an employee out automatically when they leave the site boundary or switch off location on their phone. No more shifts left running overnight because someone forgot to punch out.",
+        linkText: "leave the site boundary or switch off location",
         linkHref: "/features/attendance-management",
       },
       {
-        title: "Selfie With 3D Liveness Detection",
-        desc: "Captures instant selfie verification during every geo-punch. Advanced 3D micro-movement checks eliminate printed photograph and video spoofing.",
-        linkText: "instant selfie verification during every geo-punch",
-        linkHref: "/features/face-attendance",
+        title: "Every Location Event Recorded",
+        desc: "If an auto punch-out fires for someone who never punched in, the entry is still captured and flagged for the admin to review. Nothing goes unrecorded.",
+        linkText: "captured and flagged for the admin to review",
+        linkHref: "/features/configurable-rules",
       },
     ],
   },
@@ -361,35 +367,35 @@ const featuresList: FeatureDetail[] = [
     num: "08",
     tabLabel: "Reports",
     subHeader: "08 – FEATURE",
-    title: "Reports & Analytics",
-    headline: "Every Register and Audit Report in One Click",
+    title: "Reports",
+    headline: "Complete Visibility",
     description:
-      "Instant access to muster rolls, salary registers, attendance summaries, and cost reports formatted to pass labour inspections without stress.",
+      "Admins can check what is happening across teams, branches, and payroll at any point.",
     icon: BarChart3,
     mockup: { type: "reports" },
     cards: [
       {
-        title: "Labour Law Form T & Muster Rolls",
-        desc: "Download Form T, Form Q, Form A, and muster rolls with exact statutory column headers matching state inspection guidelines across all Indian states.",
-        linkText: "Form T, Form Q, Form A, and muster rolls",
+        title: "Reports by Employee, Department, or Branch",
+        desc: "Filter attendance and payroll reports by employee, team, location, or time period and download them at any point in the month.",
+        linkText: "Filter attendance and payroll reports by employee",
         linkHref: "/features/reports-analytics",
       },
       {
-        title: "Departmental Cost Distribution",
-        desc: "Interactive visual charts showing total wage bill per department, overtime trends, and absenteeism rates across branch locations in real time.",
-        linkText: "total wage bill per department, overtime trends",
+        title: "Muster Report",
+        desc: "Download the muster in the format Indian inspections expect — full days, half days, absents, week-offs, leaves, and holidays, per employee.",
+        linkText: "muster in the format Indian inspections expect",
         linkHref: "/features/payroll-reports",
       },
       {
-        title: "EPFO ECR & ESIC Text Returns",
-        desc: "Generate the exact formatted electronic return files ready to upload directly into the EPFO Unified Portal and ESIC portal with zero manual manipulation.",
-        linkText: "upload directly into the EPFO Unified Portal",
-        linkHref: "/features/reports-analytics",
+        title: "Statutory Reports for Filing",
+        desc: "Export PF, ESIC, PT, TDS, and LWF figures in a format ready to upload to the relevant portal.",
+        linkText: "Export PF, ESIC, PT, TDS, and LWF figures",
+        linkHref: "/features/payroll-management",
       },
       {
-        title: "Direct Bank NEFT/CMS Bulk Payout Files",
-        desc: "Export 1-click corporate bank salary transfer files formatted specifically for HDFC, ICICI, SBI, Axis Bank, and Kotak with zero reformatting.",
-        linkText: "Export 1-click corporate bank salary transfer files",
+        title: "Download Reports",
+        desc: "Download payroll, attendance, and compliance reports for any period, employee, or department at any point — without waiting for the month-end.",
+        linkText: "Download payroll, attendance, and compliance reports",
         linkHref: "/features/bank-salary-export",
       },
     ],
@@ -399,36 +405,42 @@ const featuresList: FeatureDetail[] = [
     num: "09",
     tabLabel: "Admin Control",
     subHeader: "09 – FEATURE",
-    title: "Admin & Branch Role Control",
-    headline: "Granular Permissions & Multi-Branch Access",
+    title: "Admin Control",
+    headline: "Control Who Does What",
     description:
-      "Keep corporate offices, retail stores, and factory units isolated. Give branch managers, HR, and accountants access only to their relevant data.",
+      "Every action in the system is saved and traceable.",
     icon: Lock,
     mockup: { type: "admin" },
     cards: [
       {
-        title: "Multi-Branch Data Isolation",
-        desc: "Branch managers only see their branch staff, while executive owners get consolidated enterprise analytics and cross-branch insights under one master login.",
-        linkText: "consolidated enterprise analytics and cross-branch insights",
+        title: "User Management",
+        desc: "According to their role, control what your staff can view, approve, or edit. Anything outside their role is not accessible to them.",
+        linkText: "control what your staff can view, approve, or edit",
         linkHref: "/features/organization-management",
       },
       {
-        title: "Granular Role & Tab-level Permissions",
-        desc: "Assign distinct roles for attendance supervisors, payroll accountants, and branch HRs with restricted access down to individual action buttons.",
-        linkText: "distinct roles for attendance supervisors",
+        title: "Access Templates and Action-Level Rights",
+        desc: "Build a permission set once for a role like accountant or branch manager, and apply it to every new user. Rights are granted per action view, create, edit, or delete so a user can review payroll without being able to change it.",
+        linkText: "Build a permission set once for a role",
         linkHref: "/features/configurable-rules",
       },
       {
-        title: "Tamper-Proof Audit Trail",
-        desc: "Every manual punch adjustment, salary revision, and rule override is permanently logged with IP address, user name, and UTC timestamp for audit readiness.",
-        linkText: "permanently logged with IP address, user name",
+        title: "Custom Employee Fields",
+        desc: "Add custom employee details your organisation tracks beyond the standard fields date of birth, emergency contacts, documents, or anything specific to your business.",
+        linkText: "custom employee details your organisation tracks",
         linkHref: "/features/employee-database",
       },
       {
-        title: "Device Binding & Multi-Factor Security",
-        desc: "Lock employee mobile app logins to single physical smartphones via hardware UUID, preventing multiple logins or unauthorized device sharing.",
-        linkText: "Lock employee mobile app logins to single physical smartphones",
-        linkHref: "/features/employee-self-service",
+        title: "Branch-Level View",
+        desc: "Review each branch on its own, or switch to a combined view that shows the full organisation's data from the same login.",
+        linkText: "Review each branch on its own, or switch to a combined view",
+        linkHref: "/features/organization-policies",
+      },
+      {
+        title: "Manage More Than One Business",
+        desc: "Owners running more than one organisation switch between them from the same login, without signing out.",
+        linkText: "Owners running more than one organisation switch between them",
+        linkHref: "/features/organization-management",
       },
     ],
   },
@@ -1127,82 +1139,140 @@ export default function FeaturesInteractiveShowcase({
 
               {activeFeature.mockup.type === "geo" && (
                 <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
-                  {/* Phone Notch & Dynamic Island */}
+                  {/* Phone Notch & Status */}
                   <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
-                    <span className="font-semibold text-slate-700">10:14</span>
-                    <div className="h-3.5 w-16 rounded-full bg-slate-900 mx-auto" />
-                    <div className="flex items-center gap-1">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-[10px] font-medium text-slate-500">GPS Live</span>
+                    <span className="font-semibold text-slate-700">9:41</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" />
+                      <span className="text-[10px] font-medium text-slate-500">Live GPS</span>
                     </div>
                   </div>
 
-                  {/* Header Row: Field Attendance */}
-                  <div className="flex items-center justify-between pt-2.5 pb-1">
-                    <div className="flex items-center gap-1 text-xs font-bold text-slate-800">
+                  {/* Header Row: Calendar View with back and icon controls */}
+                  <div className="flex items-center justify-between pt-2 pb-1 text-xs">
+                    <div className="flex items-center gap-1 text-slate-800 font-bold">
                       <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
-                      <span>Field Check-in</span>
+                      <span>Calendar View</span>
                     </div>
-                    <span className="rounded-full bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 text-[9px] border border-emerald-200">
-                      50m Geofence
-                    </span>
+                    <div className="flex items-center gap-2 text-slate-400 text-xs">
+                      <FileText className="h-3.5 w-3.5" />
+                      <SlidersHorizontal className="h-3.5 w-3.5" />
+                    </div>
                   </div>
 
-                  {/* Employee Mini Card */}
-                  <div className="rounded-2xl border border-slate-100 bg-slate-50/60 p-2.5 my-1.5 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-100 text-[#0E7A6E] font-bold text-xs">
-                        RV
+                  {/* Month Selector */}
+                  <div className="flex items-center justify-center gap-3 py-1.5 text-xs font-bold text-slate-800">
+                    <span className="text-slate-400 cursor-pointer hover:text-slate-700">‹</span>
+                    <span>January 2026</span>
+                    <span className="text-slate-400 cursor-pointer hover:text-slate-700">›</span>
+                  </div>
+
+                  {/* Calendar Grid Header (Sun - Sat) */}
+                  <div className="grid grid-cols-7 gap-1 text-center text-[8px] font-bold text-slate-400 uppercase py-1">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                  </div>
+
+                  {/* 31-Day Calendar Grid matching screenshot */}
+                  <div className="grid grid-cols-7 gap-1 text-[9px] font-semibold text-center pb-2">
+                    {/* Row 1 */}
+                    <div className="h-6 rounded-md bg-slate-50 text-slate-300 flex items-center justify-center"></div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">1</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">2</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">3</div>
+                    <div className="h-6 rounded-md bg-slate-100/70 text-slate-500 flex items-center justify-center">4</div>
+                    <div className="h-6 rounded-md bg-slate-100/70 text-slate-500 flex items-center justify-center">5</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">6</div>
+
+                    {/* Row 2 */}
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">7</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">8</div>
+                    <div className="h-6 rounded-md bg-amber-100 text-amber-800 border border-amber-300 flex items-center justify-center relative">
+                      9
+                      <span className="absolute -top-0.5 -right-0.5 h-1.5 w-1.5 rounded-full bg-amber-500"></span>
+                    </div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">10</div>
+                    <div className="h-6 rounded-md bg-rose-100 text-rose-800 flex items-center justify-center">11</div>
+                    <div className="h-6 rounded-md bg-slate-100/70 text-slate-500 flex items-center justify-center">12</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">13</div>
+
+                    {/* Row 3 */}
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">14</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">15</div>
+                    <div className="h-6 rounded-md bg-purple-100 text-purple-800 flex items-center justify-center">16</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">17</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">18</div>
+                    <div className="h-6 rounded-md bg-slate-100/70 text-slate-500 flex items-center justify-center">19</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">20</div>
+
+                    {/* Row 4 */}
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">21</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">22</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">23</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">24</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">25</div>
+                    <div className="h-6 rounded-md bg-slate-100/70 text-slate-500 flex items-center justify-center">26</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">27</div>
+
+                    {/* Row 5 */}
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">28</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">29</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">30</div>
+                    <div className="h-6 rounded-md bg-emerald-100/90 text-emerald-800 flex items-center justify-center">31</div>
+                  </div>
+
+                  {/* Calendar Legend below grid */}
+                  <div className="flex flex-wrap gap-2 text-[8px] text-slate-500 font-medium justify-center pb-2 border-b border-slate-100">
+                    <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-purple-500" /> On Leave</span>
+                    <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Present</span>
+                    <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-rose-500" /> Absent</span>
+                    <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-slate-400" /> Week off & Holiday</span>
+                    <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-amber-500" /> Half Day</span>
+                  </div>
+
+                  {/* Floating Regularization Card (Exact match of screenshot) */}
+                  <div className="rounded-2xl border border-slate-200/90 bg-white p-3 shadow-xl -mt-5 relative z-10 space-y-2">
+                    <div className="flex items-center justify-between pb-1 border-b border-slate-100">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-bold text-xs text-slate-900">7 Mon</span>
+                        <span className="text-[10px] text-slate-500 font-medium">March, 2026</span>
                       </div>
-                      <div>
-                        <span className="font-bold text-xs text-slate-900 block leading-tight">Rahul Verma</span>
-                        <span className="text-[10px] text-slate-500">Field Sales • Emp 2041</span>
+                      <button
+                        type="button"
+                        className="rounded-full border border-[#12B5A5] text-[#0E7A6E] bg-white hover:bg-teal-50 px-2.5 py-0.5 text-[9px] font-bold transition-colors cursor-pointer"
+                      >
+                        Withdraw
+                      </button>
+                    </div>
+
+                    {/* Time comparison row */}
+                    <div className="flex items-center justify-between gap-1 text-[10px]">
+                      <div className="bg-slate-100 rounded-lg px-2.5 py-1 text-slate-600 font-medium">
+                        <span className="text-[8px] text-slate-400 block uppercase">Old</span>
+                        <span>10:00 am</span>
+                      </div>
+                      <div className="flex-1 flex items-center justify-center px-1">
+                        <div className="w-full border-t border-dashed border-[#12B5A5]/60 relative flex items-center justify-end">
+                          <span className="text-[#12B5A5] -mr-1 font-bold">›</span>
+                        </div>
+                      </div>
+                      <div className="bg-teal-50 border border-teal-200 rounded-lg px-2.5 py-1 text-[#0E7A6E] font-bold">
+                        <span className="text-[8px] text-teal-600/70 block uppercase">Updated</span>
+                        <span>09:00 am</span>
                       </div>
                     </div>
-                    <span className="h-2 w-2 rounded-full bg-[#12B5A5]" />
-                  </div>
 
-                  {/* Simulated Geofence Map Radar View */}
-                  <div className="relative aspect-[4/3] w-full rounded-2xl bg-gradient-to-br from-teal-900 via-slate-900 to-[#0A161E] border border-teal-500/30 my-2 overflow-hidden flex flex-col items-center justify-center p-3 text-white text-center shadow-inner">
-                    {/* Concentric rings */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="h-40 w-40 rounded-full border border-teal-500/20 animate-ping opacity-25" />
-                      <div className="absolute h-32 w-32 rounded-full border border-teal-400/30" />
-                      <div className="absolute h-20 w-20 rounded-full border border-teal-300/40 bg-teal-500/10" />
-                    </div>
-
-                    <div className="relative z-10 flex flex-col items-center">
-                      <div className="h-9 w-9 rounded-full bg-[#12B5A5] text-white flex items-center justify-center shadow-lg shadow-teal-500/50 mb-1.5 animate-bounce">
-                        <MapPin className="h-5 w-5" />
-                      </div>
-                      <span className="font-bold text-xs text-white drop-shadow-sm">HDFC Bank Indiranagar</span>
-                      <span className="text-[10px] text-teal-200 font-mono mt-0.5">18m from Geofence Center</span>
-                      <span className="mt-1.5 rounded-full bg-emerald-500/90 text-white text-[9px] font-bold px-2 py-0.5 shadow-xs">
-                        ✓ Inside Approved Zone
-                      </span>
+                    {/* Reason box */}
+                    <div className="pt-1 text-[9px] text-slate-500">
+                      <span className="font-semibold text-slate-700 block">Reason:</span>
+                      <span className="text-slate-600">Came early but forgot to punch</span>
                     </div>
                   </div>
-
-                  {/* Anti-Spoof & Selfie Liveness Badge */}
-                  <div className="rounded-xl border border-teal-100 bg-teal-50/60 p-2 my-1 text-[10px] space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="font-semibold text-slate-700">Selfie Liveness:</span>
-                      <span className="font-bold text-emerald-700">Passed (Score: 99.8%)</span>
-                    </div>
-                    <div className="flex items-center justify-between text-[9px] text-slate-500">
-                      <span>Mock GPS Guard:</span>
-                      <span className="font-bold text-slate-700">Zero Spoof Detected</span>
-                    </div>
-                  </div>
-
-                  {/* Bottom Action Button */}
-                  <button
-                    type="button"
-                    className="w-full mt-2 rounded-xl bg-[#12B5A5] hover:bg-[#0E9486] py-2 text-xs font-bold text-white shadow-xs transition-colors flex items-center justify-center gap-1.5"
-                  >
-                    <span>Log Client Visit Punch</span>
-                    <ArrowRight className="h-3 w-3" />
-                  </button>
                 </div>
               )}
 
@@ -1210,74 +1280,119 @@ export default function FeaturesInteractiveShowcase({
                 <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
                   {/* Phone Notch & Status */}
                   <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
-                    <span className="font-semibold text-slate-700">3:45</span>
-                    <div className="h-3.5 w-16 rounded-full bg-slate-900 mx-auto" />
+                    <span className="font-semibold text-slate-700">9:41</span>
                     <div className="flex items-center gap-1">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" />
-                      <span className="text-[10px] font-medium text-slate-500">Audit Ready</span>
+                      <span className="text-[10px] font-medium text-slate-500">Reports</span>
                     </div>
                   </div>
 
-                  {/* Header Row: Registers & Reports */}
-                  <div className="flex items-center justify-between pt-2.5 pb-1">
-                    <div className="flex items-center gap-1 text-xs font-bold text-slate-800">
-                      <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
-                      <span>Statutory Registers</span>
+                  {/* Search Bar & Profile Avatar */}
+                  <div className="flex items-center gap-2 pt-2 pb-1.5">
+                    <div className="flex-1 flex items-center gap-1.5 rounded-xl bg-slate-100/80 px-2.5 py-1.5 text-slate-400 text-[10px]">
+                      <Search className="h-3 w-3 text-slate-400" />
+                      <span>Search employees</span>
                     </div>
-                    <span className="text-[10px] font-bold text-[#0E7A6E]">FY 2025-26</span>
-                  </div>
-
-                  {/* Summary Metric Strip */}
-                  <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-2.5 my-1.5 grid grid-cols-2 gap-2 text-[10px]">
-                    <div>
-                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight block">Total Headcount</span>
-                      <span className="font-display text-base font-black text-slate-900 block leading-tight">480 Staff</span>
-                    </div>
-                    <div>
-                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight block">Audit Compliance</span>
-                      <span className="font-bold text-emerald-600 block text-xs mt-0.5">100% Filed ✓</span>
+                    <div className="h-7 w-7 rounded-full bg-slate-200 flex items-center justify-center text-[10px] text-slate-600 font-bold">
+                      👤
                     </div>
                   </div>
 
-                  {/* Downloadable Statutory Registers List */}
-                  <div className="space-y-1.5 my-2 text-[10px]">
-                    <div className="flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/90 hover:border-teal-300 shadow-2xs">
-                      <div>
-                        <span className="font-bold text-slate-800 block text-[11px]">Form T Combined Register</span>
-                        <span className="text-[9px] text-slate-500">Muster roll & statutory wages</span>
+                  {/* Background summary preview: Today's Insights */}
+                  <div className="pt-1 pb-1">
+                    <span className="text-[10px] font-bold text-slate-700 block mb-1">Today's Insights</span>
+                    <div className="grid grid-cols-2 gap-1.5 opacity-80">
+                      <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100">
+                        <div>
+                          <span className="text-[9px] text-slate-500 block">Working</span>
+                          <span className="font-bold text-xs text-slate-800">234</span>
+                        </div>
+                        <Users className="h-3.5 w-3.5 text-emerald-600" />
                       </div>
-                      <span className="rounded-lg bg-teal-50 text-[#0E7A6E] font-bold px-2 py-1 text-[9px] border border-teal-200 flex items-center gap-1">
-                        <Download className="h-2.5 w-2.5" />
-                        <span>CSV</span>
+                      <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100">
+                        <div>
+                          <span className="text-[9px] text-slate-500 block">On Break</span>
+                          <span className="font-bold text-xs text-slate-800">23</span>
+                        </div>
+                        <Coffee className="h-3.5 w-3.5 text-amber-500" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating Donut Chart Card (Exact screenshot match) */}
+                  <div className="rounded-2xl border border-slate-200/90 bg-white p-3 shadow-xl space-y-2 relative z-10 my-1">
+                    <div className="flex items-center justify-between pb-1 border-b border-slate-100 text-[10px]">
+                      <div className="flex items-center gap-1 text-slate-700 font-bold">
+                        <Calendar className="h-3 w-3 text-teal-600" />
+                        <span>31 Feb 2026</span>
+                      </div>
+                      <div className="flex items-center gap-0.5 rounded-lg border border-slate-200 bg-slate-50 px-2 py-0.5 text-[9px] text-slate-600 font-medium">
+                        <span>All Shifts</span>
+                        <span className="text-[8px]">▾</span>
+                      </div>
+                    </div>
+
+                    {/* Donut & Breakdown Grid */}
+                    <div className="grid grid-cols-12 gap-2 items-center py-1">
+                      <div className="col-span-5 relative flex items-center justify-center">
+                        <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 100 100">
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#0284c7" strokeWidth="14" strokeDasharray="136 226" strokeDashoffset="0" />
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#f59e0b" strokeWidth="14" strokeDasharray="45 226" strokeDashoffset="-138" />
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#ef4444" strokeWidth="14" strokeDasharray="22 226" strokeDashoffset="-185" />
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#8b5cf6" strokeWidth="14" strokeDasharray="19 226" strokeDashoffset="-207" />
+                        </svg>
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+                          <span className="font-display text-sm font-black text-slate-900 leading-none">233</span>
+                          <span className="text-[7px] text-slate-500 font-semibold leading-tight mt-0.5">Total Emp.</span>
+                        </div>
+                      </div>
+
+                      <div className="col-span-7 space-y-1 text-[9px]">
+                        <div className="flex items-center justify-between px-2 py-1 rounded-lg bg-sky-50/70 border border-sky-100">
+                          <span className="font-bold text-slate-800">24</span>
+                          <span className="flex items-center gap-1 text-sky-700 font-medium"><span className="h-1.5 w-1.5 rounded-full bg-[#0284c7]" /> On Time</span>
+                        </div>
+                        <div className="flex items-center justify-between px-2 py-1 rounded-lg bg-rose-50/70 border border-rose-100">
+                          <span className="font-bold text-slate-800">2</span>
+                          <span className="flex items-center gap-1 text-rose-700 font-medium"><span className="h-1.5 w-1.5 rounded-full bg-[#ef4444]" /> Late</span>
+                        </div>
+                        <div className="flex items-center justify-between px-2 py-1 rounded-lg bg-amber-50/70 border border-amber-100">
+                          <span className="font-bold text-slate-800">3</span>
+                          <span className="flex items-center gap-1 text-amber-700 font-medium"><span className="h-1.5 w-1.5 rounded-full bg-[#f59e0b]" /> Not in Yet</span>
+                        </div>
+                        <div className="flex items-center justify-between px-2 py-1 rounded-lg bg-purple-50/70 border border-purple-100">
+                          <span className="font-bold text-slate-800">4</span>
+                          <span className="flex items-center gap-1 text-purple-700 font-medium"><span className="h-1.5 w-1.5 rounded-full bg-[#8b5cf6]" /> Leave</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="pt-1 border-t border-slate-100 text-center">
+                      <span className="text-[9px] font-bold text-slate-500 flex items-center justify-center gap-1 hover:text-[#0E7A6E] cursor-pointer">
+                        <span>Info</span>
+                        <Info className="h-2.5 w-2.5" />
                       </span>
                     </div>
-
-                    <div className="flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/90 hover:border-teal-300 shadow-2xs">
-                      <div>
-                        <span className="font-bold text-slate-800 block text-[11px]">EPFO ECR 2.0 Return</span>
-                        <span className="text-[9px] text-slate-500">Electronic portal text format</span>
-                      </div>
-                      <span className="rounded-lg bg-teal-50 text-[#0E7A6E] font-bold px-2 py-1 text-[9px] border border-teal-200 flex items-center gap-1">
-                        <Download className="h-2.5 w-2.5" />
-                        <span>TXT</span>
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/90 hover:border-teal-300 shadow-2xs">
-                      <div>
-                        <span className="font-bold text-slate-800 block text-[11px]">Bank CMS Payment File</span>
-                        <span className="text-[9px] text-slate-500">HDFC, ICICI, SBI direct transfer</span>
-                      </div>
-                      <span className="rounded-lg bg-teal-50 text-[#0E7A6E] font-bold px-2 py-1 text-[9px] border border-teal-200 flex items-center gap-1">
-                        <Download className="h-2.5 w-2.5" />
-                        <span>CSV</span>
-                      </span>
-                    </div>
                   </div>
 
-                  {/* Bottom Verification Strip */}
-                  <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-2 text-center text-[10px] font-bold text-emerald-800">
-                    ✓ Inspected & Certified Under Indian Labour Code
+                  {/* Bottom Navigation Bar */}
+                  <div className="grid grid-cols-4 pt-2.5 mt-2 border-t border-slate-100 text-center text-[8px] text-slate-400 font-medium">
+                    <div className="flex flex-col items-center gap-0.5 text-[#12B5A5] font-bold">
+                      <span>🏠</span>
+                      <span>Home</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-0.5">
+                      <span>📋</span>
+                      <span>Approvals</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-0.5">
+                      <span>📱</span>
+                      <span>Device</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-0.5">
+                      <span>🔔</span>
+                      <span>Notification</span>
+                    </div>
                   </div>
                 </div>
               )}
@@ -1286,75 +1401,113 @@ export default function FeaturesInteractiveShowcase({
                 <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
                   {/* Phone Notch & Status */}
                   <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
-                    <span className="font-semibold text-slate-700">4:10</span>
-                    <div className="h-3.5 w-16 rounded-full bg-slate-900 mx-auto" />
+                    <span className="font-semibold text-slate-700">9:41</span>
                     <div className="flex items-center gap-1">
                       <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-                      <span className="text-[10px] font-medium text-slate-500">Enterprise</span>
+                      <span className="text-[10px] font-medium text-slate-500">Admin</span>
                     </div>
                   </div>
 
-                  {/* Header Row: Branch Roles */}
-                  <div className="flex items-center justify-between pt-2.5 pb-1">
-                    <div className="flex items-center gap-1 text-xs font-bold text-slate-800">
-                      <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
-                      <span>Role Permissions</span>
+                  {/* Search Bar & Profile Avatar */}
+                  <div className="flex items-center gap-2 pt-2 pb-1.5">
+                    <div className="flex-1 flex items-center gap-1.5 rounded-xl bg-slate-100/80 px-2.5 py-1.5 text-slate-400 text-[10px]">
+                      <Search className="h-3 w-3 text-slate-400" />
+                      <span>Search employees</span>
                     </div>
-                    <span className="text-[10px] font-bold text-purple-700">3 Branches</span>
+                    <div className="h-7 w-7 rounded-full bg-slate-200 flex items-center justify-center text-[10px] text-slate-600 font-bold">
+                      👤
+                    </div>
                   </div>
 
-                  {/* Branch Tab Switcher */}
-                  <div className="flex gap-1 my-1.5 text-[9px] overflow-x-auto no-scrollbar font-bold">
-                    <span className="rounded-full bg-[#12B5A5] text-white px-2.5 py-0.5 shadow-xs whitespace-nowrap">
-                      Mumbai HQ
-                    </span>
-                    <span className="rounded-full bg-slate-100 text-slate-600 px-2 py-0.5 whitespace-nowrap">
-                      Bengaluru Unit
-                    </span>
-                    <span className="rounded-full bg-slate-100 text-slate-600 px-2 py-0.5 whitespace-nowrap">
-                      Pune Plant
-                    </span>
-                  </div>
-
-                  {/* Role Detail Cards */}
-                  <div className="space-y-1.5 my-2 text-[10px]">
-                    <div className="p-2.5 rounded-2xl bg-purple-50/70 border border-purple-200">
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold text-slate-900 block text-[11px]">Branch Manager</span>
-                        <span className="text-[9px] font-bold text-purple-800 bg-purple-100 px-1.5 py-0.5 rounded">Full Roster</span>
+                  {/* Floating 4-Tile Insights Grid (Exact screenshot match) */}
+                  <div className="grid grid-cols-2 gap-2 my-1.5">
+                    <div className="rounded-2xl border border-slate-200/90 bg-white p-2.5 shadow-sm flex items-center justify-between">
+                      <div>
+                        <span className="text-[9px] text-slate-500 font-medium block">Working</span>
+                        <span className="font-display text-base font-black text-slate-900 block leading-tight">234</span>
                       </div>
-                      <span className="text-[10px] text-slate-600 block mt-1 leading-snug">
-                        Approve shifts, leaves & overtime for Mumbai HQ only. Cannot edit statutory structures.
-                      </span>
-                    </div>
-
-                    <div className="p-2.5 rounded-2xl bg-teal-50/70 border border-teal-200">
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold text-slate-900 block text-[11px]">Payroll Accountant</span>
-                        <span className="text-[9px] font-bold text-[#0E7A6E] bg-teal-100 px-1.5 py-0.5 rounded">Payout Locked</span>
+                      <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
+                        <Users className="h-3.5 w-3.5" />
                       </div>
-                      <span className="text-[10px] text-slate-600 block mt-1 leading-snug">
-                        Compute salaries, process bulk adjustments, and generate bank disbursement sheets.
-                      </span>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200/90 bg-white p-2.5 shadow-sm flex items-center justify-between">
+                      <div>
+                        <span className="text-[9px] text-slate-500 font-medium block">On Break</span>
+                        <span className="font-display text-base font-black text-slate-900 block leading-tight">23</span>
+                      </div>
+                      <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-amber-50 text-amber-600 border border-amber-100">
+                        <Coffee className="h-3.5 w-3.5" />
+                      </div>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200/90 bg-white p-2.5 shadow-sm flex items-center justify-between">
+                      <div>
+                        <span className="text-[9px] text-slate-500 font-medium block">Time Off</span>
+                        <span className="font-display text-base font-black text-slate-900 block leading-tight">23</span>
+                      </div>
+                      <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-purple-50 text-purple-600 border border-purple-100">
+                        <Palmtree className="h-3.5 w-3.5" />
+                      </div>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200/90 bg-white p-2.5 shadow-sm flex items-center justify-between">
+                      <div>
+                        <span className="text-[9px] text-slate-500 font-medium block">Biometrics Left</span>
+                        <span className="font-display text-base font-black text-slate-900 block leading-tight">12</span>
+                      </div>
+                      <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-rose-50 text-rose-600 border border-rose-100">
+                        <Fingerprint className="h-3.5 w-3.5" />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Device Security & Audit Pin */}
-                  <div className="rounded-xl border border-slate-200/90 bg-slate-50/80 p-2 text-[9px] space-y-1">
-                    <div className="flex items-center justify-between text-slate-600">
-                      <span>Device Binding:</span>
-                      <span className="font-bold text-slate-800">UUID: 8F2A-44B1 (Bound)</span>
+                  {/* Donut chart card below */}
+                  <div className="rounded-2xl border border-slate-200/80 bg-slate-50/60 p-2.5 my-1.5 space-y-1.5">
+                    <div className="flex items-center justify-between text-[9px] text-slate-600">
+                      <span className="font-bold">📅 31 Feb 2026</span>
+                      <span className="rounded bg-white border border-slate-200 px-1.5 py-0.5">All Shifts ▾</span>
                     </div>
-                    <div className="flex items-center justify-between text-slate-600">
-                      <span>Audit Trail IP:</span>
-                      <span className="font-mono font-bold text-slate-800">103.21.58.12 • Logged</span>
+                    <div className="flex items-center justify-center gap-3">
+                      <div className="relative flex items-center justify-center">
+                        <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 100 100">
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#0284c7" strokeWidth="14" strokeDasharray="136 226" strokeDashoffset="0" />
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#f59e0b" strokeWidth="14" strokeDasharray="45 226" strokeDashoffset="-138" />
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#ef4444" strokeWidth="14" strokeDasharray="22 226" strokeDashoffset="-185" />
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#8b5cf6" strokeWidth="14" strokeDasharray="19 226" strokeDashoffset="-207" />
+                        </svg>
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+                          <span className="font-display text-xs font-black text-slate-900 leading-none">233</span>
+                          <span className="text-[6px] text-slate-500 font-semibold leading-tight">Total Emp.</span>
+                        </div>
+                      </div>
+                      <div className="space-y-0.5 text-[8px]">
+                        <div className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#0284c7]" /> 24 On Time</div>
+                        <div className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#ef4444]" /> 2 Late</div>
+                        <div className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#f59e0b]" /> 3 Not in Yet</div>
+                        <div className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#8b5cf6]" /> 4 Leave</div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Bottom Security Badge */}
-                  <div className="mt-2 rounded-xl bg-slate-900 text-white p-2 text-center text-[10px] font-bold flex items-center justify-center gap-1.5">
-                    <Lock className="h-3 w-3 text-teal-400" />
-                    <span>SOC-2 Type II & Indian IT Act Compliant</span>
+                  {/* Bottom Navigation Bar */}
+                  <div className="grid grid-cols-4 pt-2 border-t border-slate-100 text-center text-[8px] text-slate-400 font-medium">
+                    <div className="flex flex-col items-center gap-0.5 text-[#12B5A5] font-bold">
+                      <span>🏠</span>
+                      <span>Home</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-0.5">
+                      <span>📋</span>
+                      <span>Approvals</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-0.5">
+                      <span>📱</span>
+                      <span>Device</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-0.5">
+                      <span>🔔</span>
+                      <span>Notification</span>
+                    </div>
                   </div>
                 </div>
               )}
