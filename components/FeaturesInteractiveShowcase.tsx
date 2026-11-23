@@ -27,6 +27,10 @@ import {
   Building,
   Search,
   Moon,
+  Phone,
+  Mail,
+  TrendingUp,
+  TrendingDown,
 } from "lucide-react";
 
 interface FeatureDetail {
@@ -200,23 +204,41 @@ const featuresList: FeatureDetail[] = [
     tabLabel: "Payroll & Payout",
     subHeader: "04 – FEATURE",
     title: "Payroll & Payout",
-    headline: "Salaries Computed and Paid Out in 1 Click",
+    headline: "Payroll Ready Before Month-End",
     description:
-      "Shifts, approved leaves, and biometric punches convert automatically into error-free salary slips, statutory challans, and 1-click bank transfer files.",
+      "Keep salaries calculated through the month so payroll is ready to approve by the month end.",
     icon: Receipt,
     mockup: { type: "payroll" },
     cards: [
       {
-        title: "1-Click Direct Bank Transfer (CMS)",
-        desc: "Download pre-validated bulk transfer files formatted for HDFC CMS, ICICI, SBI, Axis, and Kotak Mahindra corporate net banking portals.",
-        linkText: "bank CMS transfer export",
-        linkHref: "/features/bank-salary-export",
+        title: "Automated Salary Calculation",
+        desc: "Update each employee's salary figure automatically with every approved attendance entry. Month-end is a review step, not a calculation exercise.",
+        linkText: "salary figure automatically with every approved attendance",
+        linkHref: "/features/payroll-processing",
       },
       {
-        title: "WhatsApp & Email Payslips",
-        desc: "Distribute password-protected PDF payslips directly to employees' WhatsApp numbers and emails with one single click.",
-        linkText: "automated payslip delivery",
-        linkHref: "/features/payslip-management",
+        title: "Flexible Payroll Structures",
+        desc: "Run fixed monthly salaries, weekly pay, and hourly pay — all within the same organisation and legal entity.",
+        linkText: "fixed monthly salaries, weekly pay, and hourly pay",
+        linkHref: "/features/salary-structure-management",
+      },
+      {
+        title: "Payroll Groups",
+        desc: "Group employees who share the same salary rules, attendance mode, and compliance settings, then process each group on its own. Three groups are ready from day one: monthly with compliance, monthly without, and hourly.",
+        linkText: "Group employees who share the same salary rules",
+        linkHref: "/features/payroll-management",
+      },
+      {
+        title: "Salary Structure Setup",
+        desc: "Build the salary components your organisation already uses like basic, allowances, and anything else, and the system calculates from that structure each month.",
+        linkText: "Build the salary components your organisation already uses",
+        linkHref: "/features/salary-structure-management",
+      },
+      {
+        title: "Bulk Payroll Adjustments",
+        desc: "Apply changes across multiple employees in one step before payroll is finalised, without affecting the individual calculations underneath.",
+        linkText: "Apply changes across multiple employees in one step",
+        linkHref: "/features/bank-salary-export",
       },
     ],
   },
@@ -226,22 +248,34 @@ const featuresList: FeatureDetail[] = [
     tabLabel: "Overtime & Penalties",
     subHeader: "05 – FEATURE",
     title: "Overtime & Penalties",
-    headline: "Fair, Transparent, and Automated Wage Rules",
+    headline: "Calculate Extra Hours and Deductions",
     description:
-      "Never argue over overtime or late marks again. Configurable grace times, late arrival fines, half-day deductions, and overtime multipliers run automatically.",
+      "Set the rules once. The system applies them to every cycle without a fresh decision each month.",
     icon: Scale,
     mockup: { type: "overtime" },
     cards: [
       {
+        title: "Overtime With Buffer and Intervals",
+        desc: "Set a grace window before overtime starts counting, and round it to 1, 15, 30, 45, or 60-minute intervals. Small overruns don't become a payout, and sustained extra hours are paid fairly.",
+        linkText: "grace window before overtime starts counting",
+        linkHref: "/features/configurable-rules",
+      },
+      {
+        title: "Off Day Hours",
+        desc: "Decide whether standard hours on a week-off are paid or not, and apply distinct statutory overtime multipliers (1.5x, 2.0x, 2.5x) automatically.",
+        linkText: "standard hours on a week-off are paid or not",
+        linkHref: "/features/payroll-processing",
+      },
+      {
         title: "Configurable Grace Windows",
         desc: "Allow a 15-minute grace window before late penalty marks kick in, and enforce rules like '3 late marks = 1 half-day deduction' seamlessly.",
-        linkText: "configurable penalty rules",
+        linkText: "15-minute grace window before late penalty marks",
         linkHref: "/features/configurable-rules",
       },
       {
         title: "Custom Overtime Multipliers",
-        desc: "Set distinct overtime rates for regular workdays (1.5x), weekly offs (2.0x), and national holidays (2.5x) with supervisor approval locks.",
-        linkText: "overtime calculations",
+        desc: "Set distinct overtime rates for regular workdays, weekly offs, and national holidays with supervisor approval locks.",
+        linkText: "distinct overtime rates for regular workdays",
         linkHref: "/features/payroll-processing",
       },
     ],
@@ -251,24 +285,36 @@ const featuresList: FeatureDetail[] = [
     num: "06",
     tabLabel: "Compliance",
     subHeader: "06 – FEATURE",
-    title: "100% Indian Statutory Compliance",
-    headline: "PF, ESIC, Professional Tax & TDS Compliant",
+    title: "Compliance",
+    headline: "Compliance Ready Payroll",
     description:
-      "Stay 100% compliant with central and state labour laws. Auto-generate EPFO ECR text files, ESIC returns, state PT slabs, and Form 16 TDS sheets.",
+      "Configure the statutory rules once and the system applies them every cycle, per employee, on the salary slip.",
     icon: ShieldCheck,
     mockup: { type: "compliance" },
     cards: [
       {
-        title: "EPFO ECR Text File Ready",
-        desc: "Generate the exact electronic return file ready to upload directly to the EPFO Unified Portal without manual Excel editing.",
-        linkText: "statutory challans & ECR",
+        title: "Compliance-Ready Calculations",
+        desc: "Configure PF, ESIC, TDS, and other compliance rules & deductions once and the system applies them automatically every payroll cycle, per employee, on the salary slip.",
+        linkText: "Configure PF, ESIC, TDS, and other compliance rules",
         linkHref: "/features/payroll-management",
       },
       {
-        title: "State-wise Professional Tax Slabs",
-        desc: "Auto-detects employee work locations and applies exact PT deduction slabs for Karnataka, Maharashtra, West Bengal, Telangana, and Delhi.",
-        linkText: "statutory compliance engine",
+        title: "TDS Under the New Tax Regime",
+        desc: "Enter a new joiner's previous employer salary and TDS already paid so the year's tax is projected correctly. Supports seamless comparison between Old and New tax regimes.",
+        linkText: "Enter a new joiner's previous employer salary and TDS",
         linkHref: "/features/salary-structure-management",
+      },
+      {
+        title: "EPFO ECR Text File Ready",
+        desc: "Generate the exact electronic return file ready to upload directly to the EPFO Unified Portal without manual Excel editing.",
+        linkText: "exact electronic return file ready to upload directly to EPFO",
+        linkHref: "/features/reports-analytics",
+      },
+      {
+        title: "State-wise Professional Tax Slabs",
+        desc: "Auto-detects employee work locations and applies exact PT deduction slabs for Karnataka, Maharashtra, West Bengal, Telangana, and Gujarat.",
+        linkText: "exact PT deduction slabs for Karnataka, Maharashtra",
+        linkHref: "/features/configurable-rules",
       },
     ],
   },
@@ -292,9 +338,21 @@ const featuresList: FeatureDetail[] = [
       },
       {
         title: "Client Visit Stamping & Travel Claims",
-        desc: "Track client meeting locations, calculate odometer distance traveled, and automatically approve travel allowance claims.",
-        linkText: "field staff tracking",
+        desc: "Track client meeting locations, calculate odometer distance traveled, and automatically approve travel allowance claims with zero manual bill review.",
+        linkText: "automatically approve travel allowance claims",
         linkHref: "/features/employee-self-service",
+      },
+      {
+        title: "Offline Punch Sync With Cryptographic Hash",
+        desc: "Enables field workers to log attendance even in zero-network remote basements. Punches are encrypted locally and auto-synced the moment connectivity resumes.",
+        linkText: "encrypted locally and auto-synced",
+        linkHref: "/features/attendance-management",
+      },
+      {
+        title: "Selfie With 3D Liveness Detection",
+        desc: "Captures instant selfie verification during every geo-punch. Advanced 3D micro-movement checks eliminate printed photograph and video spoofing.",
+        linkText: "instant selfie verification during every geo-punch",
+        linkHref: "/features/face-attendance",
       },
     ],
   },
@@ -312,15 +370,27 @@ const featuresList: FeatureDetail[] = [
     cards: [
       {
         title: "Labour Law Form T & Muster Rolls",
-        desc: "Download Form T, Form Q, Form A, and muster rolls with exact statutory column headers matching state inspection guidelines.",
-        linkText: "government format registers",
+        desc: "Download Form T, Form Q, Form A, and muster rolls with exact statutory column headers matching state inspection guidelines across all Indian states.",
+        linkText: "Form T, Form Q, Form A, and muster rolls",
         linkHref: "/features/reports-analytics",
       },
       {
         title: "Departmental Cost Distribution",
-        desc: "Interactive visual charts showing total wage bill per department, overtime trends, and absenteeism rates across branch locations.",
-        linkText: "analytics & audit reports",
+        desc: "Interactive visual charts showing total wage bill per department, overtime trends, and absenteeism rates across branch locations in real time.",
+        linkText: "total wage bill per department, overtime trends",
         linkHref: "/features/payroll-reports",
+      },
+      {
+        title: "EPFO ECR & ESIC Text Returns",
+        desc: "Generate the exact formatted electronic return files ready to upload directly into the EPFO Unified Portal and ESIC portal with zero manual manipulation.",
+        linkText: "upload directly into the EPFO Unified Portal",
+        linkHref: "/features/reports-analytics",
+      },
+      {
+        title: "Direct Bank NEFT/CMS Bulk Payout Files",
+        desc: "Export 1-click corporate bank salary transfer files formatted specifically for HDFC, ICICI, SBI, Axis Bank, and Kotak with zero reformatting.",
+        linkText: "Export 1-click corporate bank salary transfer files",
+        linkHref: "/features/bank-salary-export",
       },
     ],
   },
@@ -338,15 +408,27 @@ const featuresList: FeatureDetail[] = [
     cards: [
       {
         title: "Multi-Branch Data Isolation",
-        desc: "Branch managers only see their branch staff, while executive owners get consolidated enterprise analytics under one master login.",
-        linkText: "branch role management",
+        desc: "Branch managers only see their branch staff, while executive owners get consolidated enterprise analytics and cross-branch insights under one master login.",
+        linkText: "consolidated enterprise analytics and cross-branch insights",
         linkHref: "/features/organization-management",
       },
       {
+        title: "Granular Role & Tab-level Permissions",
+        desc: "Assign distinct roles for attendance supervisors, payroll accountants, and branch HRs with restricted access down to individual action buttons.",
+        linkText: "distinct roles for attendance supervisors",
+        linkHref: "/features/configurable-rules",
+      },
+      {
         title: "Tamper-Proof Audit Trail",
-        desc: "Every manual punch adjustment, salary revision, and rule override is permanently logged with IP, user name, and timestamp.",
-        linkText: "audit logs & security",
+        desc: "Every manual punch adjustment, salary revision, and rule override is permanently logged with IP address, user name, and UTC timestamp for audit readiness.",
+        linkText: "permanently logged with IP address, user name",
         linkHref: "/features/employee-database",
+      },
+      {
+        title: "Device Binding & Multi-Factor Security",
+        desc: "Lock employee mobile app logins to single physical smartphones via hardware UUID, preventing multiple logins or unauthorized device sharing.",
+        linkText: "Lock employee mobile app logins to single physical smartphones",
+        linkHref: "/features/employee-self-service",
       },
     ],
   },
@@ -364,7 +446,10 @@ export default function FeaturesInteractiveShowcase({
   const getInitialIndex = () => {
     if (!initialId) return 0;
     const clean = initialId.toLowerCase();
-    if (clean.includes("shift") || clean.includes("roster")) {
+    if (clean.includes("geo") || clean.includes("gps")) {
+      return featuresList.findIndex((f) => f.id === "geotrack");
+    }
+    if (clean.includes("shift") || clean.includes("roster") || clean.includes("scheduling")) {
       return featuresList.findIndex((f) => f.id === "shifts");
     }
     if (clean.includes("leave") || clean.includes("holiday")) {
@@ -373,22 +458,19 @@ export default function FeaturesInteractiveShowcase({
     if (clean.includes("attendance") || clean.includes("face")) {
       return featuresList.findIndex((f) => f.id === "attendance");
     }
-    if (clean.includes("payroll") || clean.includes("salary") || clean.includes("payout")) {
-      return featuresList.findIndex((f) => f.id === "payroll");
-    }
-    if (clean.includes("overtime") || clean.includes("penalty")) {
+    if (clean.includes("overtime") || clean.includes("penalty") || clean.includes("configurable-rules")) {
       return featuresList.findIndex((f) => f.id === "overtime");
     }
-    if (clean.includes("compliance") || clean.includes("statutory")) {
+    if (clean.includes("compliance") || clean.includes("statutory") || clean.includes("salary-structure")) {
       return featuresList.findIndex((f) => f.id === "compliance");
     }
-    if (clean.includes("geo") || clean.includes("gps")) {
-      return featuresList.findIndex((f) => f.id === "geotrack");
+    if (clean.includes("payroll") || clean.includes("salary") || clean.includes("payout") || clean.includes("arrears") || clean.includes("bank")) {
+      return featuresList.findIndex((f) => f.id === "payroll");
     }
     if (clean.includes("report") || clean.includes("analytics")) {
       return featuresList.findIndex((f) => f.id === "reports");
     }
-    if (clean.includes("admin") || clean.includes("organization")) {
+    if (clean.includes("admin") || clean.includes("organization") || clean.includes("policies")) {
       return featuresList.findIndex((f) => f.id === "admin");
     }
     const found = featuresList.findIndex(
@@ -792,149 +874,487 @@ export default function FeaturesInteractiveShowcase({
               )}
 
               {activeFeature.mockup.type === "payroll" && (
-                <div className="relative w-full max-w-[320px] rounded-3xl bg-white border border-slate-200 p-4 shadow-xl">
-                  <div className="flex justify-between items-center pb-2.5 border-b border-slate-100">
-                    <span className="font-display text-xs font-bold text-slate-900">April 2026 Payroll Run</span>
-                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                      100% Processed
+                <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
+                  {/* Phone Notch & Dynamic Island */}
+                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
+                    <span className="font-semibold text-slate-700">3:19</span>
+                    <div className="h-3.5 w-16 rounded-full bg-slate-900 mx-auto" />
+                    <div className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" />
+                      <span className="text-[10px] font-medium text-slate-500">Active</span>
+                    </div>
+                  </div>
+
+                  {/* Header Row: Employee & Edit Button */}
+                  <div className="flex items-center justify-between pt-2.5 pb-1">
+                    <div className="flex items-center gap-1 text-xs font-bold text-slate-800">
+                      <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
+                      <span>Employee</span>
+                    </div>
+                    <button
+                      type="button"
+                      className="rounded-lg bg-teal-50 px-2 py-0.5 text-[10px] font-bold text-[#0E7A6E] border border-teal-200"
+                    >
+                      ✏️ Edit
+                    </button>
+                  </div>
+
+                  {/* Profile Header Card */}
+                  <div className="rounded-2xl border border-slate-100 bg-slate-50/50 p-2.5 my-1.5">
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-200 text-slate-700 font-bold text-xs">
+                        AS
+                      </div>
+                      <div>
+                        <span className="font-bold text-xs text-slate-900 block leading-tight">Aakash Shah</span>
+                        <div className="flex items-center gap-1.5 text-[10px] text-slate-500">
+                          <span>Software engineer</span>
+                          <span>•</span>
+                          <span className="text-emerald-600 font-medium">Emp 1514</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Action buttons row */}
+                    <div className="grid grid-cols-3 gap-1.5 mt-2 pt-2 border-t border-slate-200/60 text-[10px] font-medium text-slate-600">
+                      <div className="flex items-center justify-center gap-1 py-1 rounded-lg bg-white border border-slate-200/80">
+                        <Phone className="h-2.5 w-2.5 text-[#12B5A5]" />
+                        <span>Call</span>
+                      </div>
+                      <div className="flex items-center justify-center gap-1 py-1 rounded-lg bg-white border border-slate-200/80">
+                        <Mail className="h-2.5 w-2.5 text-[#12B5A5]" />
+                        <span>Email</span>
+                      </div>
+                      <div className="flex items-center justify-center gap-1 py-1 rounded-lg bg-white border border-slate-200/80">
+                        <FileText className="h-2.5 w-2.5 text-[#12B5A5]" />
+                        <span>Payslip</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Sub-nav Pills */}
+                  <div className="flex gap-1 my-1.5 text-[9px] overflow-x-auto no-scrollbar">
+                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600 font-medium whitespace-nowrap">
+                      Professional Details
+                    </span>
+                    <span className="rounded-full bg-[#12B5A5] text-white px-2 py-0.5 font-bold shadow-xs whitespace-nowrap">
+                      Salary Details
+                    </span>
+                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600 font-medium whitespace-nowrap">
+                      Bank Details
                     </span>
                   </div>
-                  <div className="my-3 space-y-2 text-xs">
-                    <div className="flex justify-between items-center text-slate-600">
-                      <span>Employees Processed:</span>
-                      <span className="font-bold text-slate-900">148 / 148</span>
+
+                  {/* Floating Salary Card (Exact screenshot match) */}
+                  <div className="rounded-2xl border border-slate-200/90 bg-white p-3 shadow-md space-y-2 text-[10px]">
+                    <div className="grid grid-cols-2 gap-2 pb-1.5 border-b border-slate-100">
+                      <div>
+                        <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight block">Date of Joining *</span>
+                        <span className="font-semibold text-slate-800">2016-10-10</span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight block">Salary Type *</span>
+                        <span className="font-semibold text-slate-800">Compliance</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center text-slate-600">
-                      <span>Gross Salary:</span>
-                      <span className="font-bold text-slate-900">₹68,45,200</span>
+
+                    <div className="py-1">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight block">Monthly Salary</span>
+                      <span className="font-display text-2xl font-black text-slate-900 block leading-tight">₹40,000</span>
                     </div>
-                    <div className="flex justify-between items-center text-slate-600">
-                      <span>Total Statutory (PF+ESI+PT):</span>
-                      <span className="font-bold text-rose-600">-₹9,52,800</span>
+
+                    <div className="pt-1.5 border-t border-slate-100">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight block">Payroll Group *</span>
+                      <span className="font-semibold text-[#0E7A6E]">Safe compliance</span>
                     </div>
-                    <div className="flex justify-between items-center border-t border-slate-100 pt-2 font-bold text-sm text-slate-900">
-                      <span>Net Payout:</span>
-                      <span className="font-mono text-emerald-700">₹58,92,400</span>
+
+                    <div className="grid grid-cols-2 gap-2 pt-1.5 border-t border-slate-100 text-[9px]">
+                      <div>
+                        <span className="text-slate-400 block">Prev. Employer Income</span>
+                        <span className="font-bold text-slate-700">₹0</span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block">Prev. Employer TDS</span>
+                        <span className="font-bold text-slate-700">₹0</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="rounded-xl bg-gradient-to-r from-[#12B5A5] to-[#0E9486] p-2 text-center text-white text-[11px] font-bold shadow-md">
-                    ✓ HDFC CMS Bulk File Ready
                   </div>
                 </div>
               )}
 
               {activeFeature.mockup.type === "overtime" && (
-                <div className="relative w-full max-w-[320px] rounded-3xl bg-white border border-slate-200 p-4 shadow-xl text-xs">
-                  <div className="flex justify-between items-center pb-2.5 border-b border-slate-100">
-                    <span className="font-display text-xs font-bold text-slate-900">Overtime & Late Audit</span>
-                    <span className="text-[10px] font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">
-                      1.5x Multiplier
-                    </span>
-                  </div>
-                  <div className="my-3 space-y-2">
-                    <div className="p-2.5 rounded-xl bg-indigo-50/70 border border-indigo-100">
-                      <div className="flex justify-between font-bold text-slate-800">
-                        <span>Ramesh Kumar (Operator)</span>
-                        <span className="text-indigo-600">+₹485</span>
-                      </div>
-                      <span className="text-[10px] text-slate-500 block mt-0.5">2h 15m Overtime approved</span>
+                <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
+                  {/* Phone Notch & Dynamic Island */}
+                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
+                    <span className="font-semibold text-slate-700">3:26</span>
+                    <div className="h-3.5 w-16 rounded-full bg-slate-900 mx-auto" />
+                    <div className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      <span className="text-[10px] font-medium text-slate-500">Audit</span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-amber-50/70 border border-amber-100">
-                      <div className="flex justify-between font-bold text-slate-800">
-                        <span>Late Arrival: 12 mins</span>
-                        <span className="text-emerald-700">Grace (₹0)</span>
+                  </div>
+
+                  {/* Header Row: Perks & Penalties */}
+                  <div className="flex items-center justify-between pt-2 pb-1 text-xs">
+                    <div className="flex items-center gap-1 font-bold text-slate-800">
+                      <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
+                      <span>Perks & Penalties</span>
+                    </div>
+                    <button
+                      type="button"
+                      className="rounded-lg bg-teal-50 px-2 py-0.5 text-[10px] font-bold text-[#0E7A6E] border border-teal-200"
+                    >
+                      + Add
+                    </button>
+                  </div>
+
+                  {/* Month Selector */}
+                  <div className="my-1.5 rounded-xl bg-slate-50 p-2 text-center border border-slate-100">
+                    <div className="flex items-center justify-center gap-3 text-xs font-bold text-slate-800">
+                      <span className="text-slate-400 cursor-pointer">‹</span>
+                      <span>April 2026</span>
+                      <span className="text-slate-400 cursor-pointer">›</span>
+                    </div>
+                    <span className="text-[9px] text-slate-500 block font-mono mt-0.5">01 Apr 2026 – 30 Apr 2026</span>
+                  </div>
+
+                  {/* Floating Stat Card (Exact screenshot match) */}
+                  <div className="rounded-2xl border border-slate-200/90 bg-white p-3 shadow-md grid grid-cols-2 gap-2 my-2">
+                    <div className="pr-2 border-r border-slate-100">
+                      <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-tight text-emerald-600">
+                        <TrendingUp className="h-3 w-3" />
+                        <span>Total Perks</span>
                       </div>
-                      <span className="text-[10px] text-slate-500 block mt-0.5">Within 15-min company grace window</span>
+                      <span className="font-display text-lg font-black text-emerald-600 block mt-1">₹17,060</span>
+                    </div>
+                    <div className="pl-2">
+                      <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-tight text-rose-600">
+                        <TrendingDown className="h-3 w-3" />
+                        <span>Total Penalty</span>
+                      </div>
+                      <span className="font-display text-lg font-black text-rose-600 block mt-1">₹20</span>
+                    </div>
+                  </div>
+
+                  {/* Monthly statement preview below */}
+                  <div className="space-y-1.5 mt-2 pt-2 border-t border-slate-100 text-[10px]">
+                    <div className="flex items-center justify-between p-2 rounded-xl bg-emerald-50/60 border border-emerald-100">
+                      <div>
+                        <span className="font-bold text-slate-800 block">Holiday Overtime (2.0x)</span>
+                        <span className="text-[8px] text-slate-500">05 Apr 2026</span>
+                      </div>
+                      <span className="font-mono font-bold text-emerald-700 text-xs">+ ₹2,360</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 rounded-xl bg-rose-50/60 border border-rose-100">
+                      <div>
+                        <span className="font-bold text-slate-800 block">Late Arrival (18m)</span>
+                        <span className="text-[8px] text-slate-500">Grace threshold exceeded</span>
+                      </div>
+                      <span className="font-mono font-bold text-rose-700 text-xs">- ₹10</span>
                     </div>
                   </div>
                 </div>
               )}
 
               {activeFeature.mockup.type === "compliance" && (
-                <div className="relative w-full max-w-[320px] rounded-3xl bg-white border border-slate-200 p-4 shadow-xl text-xs">
-                  <div className="flex justify-between items-center pb-2.5 border-b border-slate-100">
-                    <span className="font-display text-xs font-bold text-slate-900">Statutory Compliance</span>
-                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                      ✓ 100% Compliant
+                <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
+                  {/* Phone Notch & Status */}
+                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
+                    <span className="font-semibold text-slate-700">9:41</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" />
+                      <span className="text-[10px] font-medium text-slate-500">Statutory</span>
+                    </div>
+                  </div>
+
+                  {/* Header Row */}
+                  <div className="pt-2 pb-1 text-xs font-bold text-slate-900">
+                    <span>Payroll Management</span>
+                  </div>
+
+                  {/* Floating horizontal pill filter bar (Exact screenshot match) */}
+                  <div className="flex gap-1 my-2 overflow-x-auto no-scrollbar text-[9px] font-bold">
+                    <span className="rounded-full bg-[#12B5A5] text-white px-2.5 py-1 shadow-xs whitespace-nowrap">
+                      Off Day Pay
+                    </span>
+                    <span className="rounded-full bg-slate-100 text-slate-600 px-2.5 py-1 whitespace-nowrap">
+                      Adjustment
+                    </span>
+                    <span className="rounded-full bg-slate-100 text-slate-600 px-2.5 py-1 whitespace-nowrap">
+                      Penalties
+                    </span>
+                    <span className="rounded-full bg-slate-100 text-slate-600 px-2.5 py-1 whitespace-nowrap">
+                      Gross Pay
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 my-3">
-                    <div className="rounded-xl bg-teal-50 p-2 text-center border border-teal-100">
-                      <span className="text-[10px] text-slate-500 block">EPF Contribution</span>
-                      <span className="font-bold text-slate-800 text-xs">₹1,800 Capped</span>
+
+                  {/* Data Table Grid (Exact screenshot match) */}
+                  <div className="rounded-2xl border border-slate-200/90 bg-white overflow-hidden shadow-xs text-[10px] my-2">
+                    <div className="bg-slate-50 px-2.5 py-1.5 border-b border-slate-200/80 flex justify-between font-bold text-slate-600 text-[9px] uppercase tracking-wider">
+                      <span>Staff</span>
+                      <span>Gross</span>
+                      <span>EPF</span>
+                      <span>PT</span>
                     </div>
-                    <div className="rounded-xl bg-blue-50 p-2 text-center border border-blue-100">
-                      <span className="text-[10px] text-slate-500 block">ESIC 4% (0.75+3.25)</span>
-                      <span className="font-bold text-slate-800 text-xs">Auto-Filed</span>
+                    <div className="divide-y divide-slate-100 text-[10px]">
+                      <div className="px-2.5 py-1.5 flex justify-between items-center hover:bg-slate-50/60">
+                        <span className="font-semibold text-slate-800 truncate max-w-[80px]">Asha S.</span>
+                        <span className="font-mono text-slate-600">₹40,000</span>
+                        <span className="font-mono text-teal-700 font-bold">₹1,800</span>
+                        <span className="font-mono text-slate-500">₹200</span>
+                      </div>
+                      <div className="px-2.5 py-1.5 flex justify-between items-center hover:bg-slate-50/60">
+                        <span className="font-semibold text-slate-800 truncate max-w-[80px]">Ramesh K.</span>
+                        <span className="font-mono text-slate-600">₹16,500</span>
+                        <span className="font-mono text-teal-700 font-bold">₹1,800</span>
+                        <span className="font-mono text-slate-500">₹150</span>
+                      </div>
+                      <div className="px-2.5 py-1.5 flex justify-between items-center hover:bg-slate-50/60">
+                        <span className="font-semibold text-slate-800 truncate max-w-[80px]">Deepak V.</span>
+                        <span className="font-mono text-slate-600">₹28,000</span>
+                        <span className="font-mono text-teal-700 font-bold">₹1,800</span>
+                        <span className="font-mono text-slate-500">₹200</span>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Bottom Statutory Status Badge */}
                   <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-2 text-center text-[10px] font-bold text-emerald-800">
-                    EPFO ECR Text Challan Ready for Upload
+                    ✓ Electronic EPFO ECR & ESIC Challans Verified
                   </div>
                 </div>
               )}
 
               {activeFeature.mockup.type === "geo" && (
-                <div className="relative w-full max-w-[320px] rounded-3xl bg-white border border-slate-200 p-4 shadow-xl text-xs">
-                  <div className="flex justify-between items-center pb-2.5 border-b border-slate-100">
-                    <span className="font-display text-xs font-bold text-slate-900">Mobile Geofence & Selfie</span>
-                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                      50m Radius
+                <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
+                  {/* Phone Notch & Dynamic Island */}
+                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
+                    <span className="font-semibold text-slate-700">10:14</span>
+                    <div className="h-3.5 w-16 rounded-full bg-slate-900 mx-auto" />
+                    <div className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-[10px] font-medium text-slate-500">GPS Live</span>
+                    </div>
+                  </div>
+
+                  {/* Header Row: Field Attendance */}
+                  <div className="flex items-center justify-between pt-2.5 pb-1">
+                    <div className="flex items-center gap-1 text-xs font-bold text-slate-800">
+                      <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
+                      <span>Field Check-in</span>
+                    </div>
+                    <span className="rounded-full bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 text-[9px] border border-emerald-200">
+                      50m Geofence
                     </span>
                   </div>
-                  <div className="relative aspect-[16/9] w-full rounded-2xl bg-teal-900/10 border border-teal-200 my-3 flex flex-col items-center justify-center p-2 text-center">
-                    <MapPin className="h-6 w-6 text-[#12B5A5] animate-bounce" />
-                    <span className="text-[11px] font-bold text-slate-800 mt-1">Bangalore Central Office</span>
-                    <span className="text-[9px] text-slate-500">Within 18m of coordinates • Verified</span>
+
+                  {/* Employee Mini Card */}
+                  <div className="rounded-2xl border border-slate-100 bg-slate-50/60 p-2.5 my-1.5 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-100 text-[#0E7A6E] font-bold text-xs">
+                        RV
+                      </div>
+                      <div>
+                        <span className="font-bold text-xs text-slate-900 block leading-tight">Rahul Verma</span>
+                        <span className="text-[10px] text-slate-500">Field Sales • Emp 2041</span>
+                      </div>
+                    </div>
+                    <span className="h-2 w-2 rounded-full bg-[#12B5A5]" />
                   </div>
-                  <div className="rounded-xl bg-slate-900 text-white p-2 text-center text-[10px] font-bold">
-                    ✓ Anti-Spoof Liveness Confirmed
+
+                  {/* Simulated Geofence Map Radar View */}
+                  <div className="relative aspect-[4/3] w-full rounded-2xl bg-gradient-to-br from-teal-900 via-slate-900 to-[#0A161E] border border-teal-500/30 my-2 overflow-hidden flex flex-col items-center justify-center p-3 text-white text-center shadow-inner">
+                    {/* Concentric rings */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="h-40 w-40 rounded-full border border-teal-500/20 animate-ping opacity-25" />
+                      <div className="absolute h-32 w-32 rounded-full border border-teal-400/30" />
+                      <div className="absolute h-20 w-20 rounded-full border border-teal-300/40 bg-teal-500/10" />
+                    </div>
+
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div className="h-9 w-9 rounded-full bg-[#12B5A5] text-white flex items-center justify-center shadow-lg shadow-teal-500/50 mb-1.5 animate-bounce">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+                      <span className="font-bold text-xs text-white drop-shadow-sm">HDFC Bank Indiranagar</span>
+                      <span className="text-[10px] text-teal-200 font-mono mt-0.5">18m from Geofence Center</span>
+                      <span className="mt-1.5 rounded-full bg-emerald-500/90 text-white text-[9px] font-bold px-2 py-0.5 shadow-xs">
+                        ✓ Inside Approved Zone
+                      </span>
+                    </div>
                   </div>
+
+                  {/* Anti-Spoof & Selfie Liveness Badge */}
+                  <div className="rounded-xl border border-teal-100 bg-teal-50/60 p-2 my-1 text-[10px] space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-slate-700">Selfie Liveness:</span>
+                      <span className="font-bold text-emerald-700">Passed (Score: 99.8%)</span>
+                    </div>
+                    <div className="flex items-center justify-between text-[9px] text-slate-500">
+                      <span>Mock GPS Guard:</span>
+                      <span className="font-bold text-slate-700">Zero Spoof Detected</span>
+                    </div>
+                  </div>
+
+                  {/* Bottom Action Button */}
+                  <button
+                    type="button"
+                    className="w-full mt-2 rounded-xl bg-[#12B5A5] hover:bg-[#0E9486] py-2 text-xs font-bold text-white shadow-xs transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <span>Log Client Visit Punch</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </button>
                 </div>
               )}
 
               {activeFeature.mockup.type === "reports" && (
-                <div className="relative w-full max-w-[320px] rounded-3xl bg-white border border-slate-200 p-4 shadow-xl text-xs">
-                  <div className="flex justify-between items-center pb-2.5 border-b border-slate-100">
-                    <span className="font-display text-xs font-bold text-slate-900">Statutory Registers</span>
-                    <span className="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">
-                      1-Click Export
-                    </span>
+                <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
+                  {/* Phone Notch & Status */}
+                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
+                    <span className="font-semibold text-slate-700">3:45</span>
+                    <div className="h-3.5 w-16 rounded-full bg-slate-900 mx-auto" />
+                    <div className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" />
+                      <span className="text-[10px] font-medium text-slate-500">Audit Ready</span>
+                    </div>
                   </div>
-                  <div className="space-y-2 my-3">
-                    <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100">
-                      <span className="font-bold text-slate-800">Form T Combined Register</span>
-                      <Download className="h-3.5 w-3.5 text-teal-600" />
+
+                  {/* Header Row: Registers & Reports */}
+                  <div className="flex items-center justify-between pt-2.5 pb-1">
+                    <div className="flex items-center gap-1 text-xs font-bold text-slate-800">
+                      <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
+                      <span>Statutory Registers</span>
                     </div>
-                    <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100">
-                      <span className="font-bold text-slate-800">Monthly Muster Roll</span>
-                      <Download className="h-3.5 w-3.5 text-teal-600" />
+                    <span className="text-[10px] font-bold text-[#0E7A6E]">FY 2025-26</span>
+                  </div>
+
+                  {/* Summary Metric Strip */}
+                  <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-2.5 my-1.5 grid grid-cols-2 gap-2 text-[10px]">
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight block">Total Headcount</span>
+                      <span className="font-display text-base font-black text-slate-900 block leading-tight">480 Staff</span>
                     </div>
-                    <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100">
-                      <span className="font-bold text-slate-800">Bank CMS Bulk File (CSV)</span>
-                      <Download className="h-3.5 w-3.5 text-teal-600" />
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight block">Audit Compliance</span>
+                      <span className="font-bold text-emerald-600 block text-xs mt-0.5">100% Filed ✓</span>
                     </div>
+                  </div>
+
+                  {/* Downloadable Statutory Registers List */}
+                  <div className="space-y-1.5 my-2 text-[10px]">
+                    <div className="flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/90 hover:border-teal-300 shadow-2xs">
+                      <div>
+                        <span className="font-bold text-slate-800 block text-[11px]">Form T Combined Register</span>
+                        <span className="text-[9px] text-slate-500">Muster roll & statutory wages</span>
+                      </div>
+                      <span className="rounded-lg bg-teal-50 text-[#0E7A6E] font-bold px-2 py-1 text-[9px] border border-teal-200 flex items-center gap-1">
+                        <Download className="h-2.5 w-2.5" />
+                        <span>CSV</span>
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/90 hover:border-teal-300 shadow-2xs">
+                      <div>
+                        <span className="font-bold text-slate-800 block text-[11px]">EPFO ECR 2.0 Return</span>
+                        <span className="text-[9px] text-slate-500">Electronic portal text format</span>
+                      </div>
+                      <span className="rounded-lg bg-teal-50 text-[#0E7A6E] font-bold px-2 py-1 text-[9px] border border-teal-200 flex items-center gap-1">
+                        <Download className="h-2.5 w-2.5" />
+                        <span>TXT</span>
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/90 hover:border-teal-300 shadow-2xs">
+                      <div>
+                        <span className="font-bold text-slate-800 block text-[11px]">Bank CMS Payment File</span>
+                        <span className="text-[9px] text-slate-500">HDFC, ICICI, SBI direct transfer</span>
+                      </div>
+                      <span className="rounded-lg bg-teal-50 text-[#0E7A6E] font-bold px-2 py-1 text-[9px] border border-teal-200 flex items-center gap-1">
+                        <Download className="h-2.5 w-2.5" />
+                        <span>CSV</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Bottom Verification Strip */}
+                  <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-2 text-center text-[10px] font-bold text-emerald-800">
+                    ✓ Inspected & Certified Under Indian Labour Code
                   </div>
                 </div>
               )}
 
               {activeFeature.mockup.type === "admin" && (
-                <div className="relative w-full max-w-[320px] rounded-3xl bg-white border border-slate-200 p-4 shadow-xl text-xs">
-                  <div className="flex justify-between items-center pb-2.5 border-b border-slate-100">
-                    <span className="font-display text-xs font-bold text-slate-900">Branch Permissions</span>
-                    <span className="text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full">
-                      Multi-Branch
+                <div className="relative w-full max-w-[320px] rounded-[38px] bg-white border border-slate-200/90 p-4 shadow-2xl text-slate-800">
+                  {/* Phone Notch & Status */}
+                  <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono pb-2 border-b border-slate-100">
+                    <span className="font-semibold text-slate-700">4:10</span>
+                    <div className="h-3.5 w-16 rounded-full bg-slate-900 mx-auto" />
+                    <div className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
+                      <span className="text-[10px] font-medium text-slate-500">Enterprise</span>
+                    </div>
+                  </div>
+
+                  {/* Header Row: Branch Roles */}
+                  <div className="flex items-center justify-between pt-2.5 pb-1">
+                    <div className="flex items-center gap-1 text-xs font-bold text-slate-800">
+                      <ChevronLeft className="h-3.5 w-3.5 text-slate-400" />
+                      <span>Role Permissions</span>
+                    </div>
+                    <span className="text-[10px] font-bold text-purple-700">3 Branches</span>
+                  </div>
+
+                  {/* Branch Tab Switcher */}
+                  <div className="flex gap-1 my-1.5 text-[9px] overflow-x-auto no-scrollbar font-bold">
+                    <span className="rounded-full bg-[#12B5A5] text-white px-2.5 py-0.5 shadow-xs whitespace-nowrap">
+                      Mumbai HQ
+                    </span>
+                    <span className="rounded-full bg-slate-100 text-slate-600 px-2 py-0.5 whitespace-nowrap">
+                      Bengaluru Unit
+                    </span>
+                    <span className="rounded-full bg-slate-100 text-slate-600 px-2 py-0.5 whitespace-nowrap">
+                      Pune Plant
                     </span>
                   </div>
-                  <div className="space-y-2 my-3">
-                    <div className="p-2 rounded-xl bg-purple-50/60 border border-purple-100">
-                      <span className="font-bold text-slate-900 block">Branch Manager</span>
-                      <span className="text-[10px] text-slate-500">Approve leaves & shifts for Factory Unit 1</span>
+
+                  {/* Role Detail Cards */}
+                  <div className="space-y-1.5 my-2 text-[10px]">
+                    <div className="p-2.5 rounded-2xl bg-purple-50/70 border border-purple-200">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-slate-900 block text-[11px]">Branch Manager</span>
+                        <span className="text-[9px] font-bold text-purple-800 bg-purple-100 px-1.5 py-0.5 rounded">Full Roster</span>
+                      </div>
+                      <span className="text-[10px] text-slate-600 block mt-1 leading-snug">
+                        Approve shifts, leaves & overtime for Mumbai HQ only. Cannot edit statutory structures.
+                      </span>
                     </div>
-                    <div className="p-2 rounded-xl bg-teal-50/60 border border-teal-100">
-                      <span className="font-bold text-slate-900 block">Payroll Accountant</span>
-                      <span className="text-[10px] text-slate-500">Compute payout & export bank files</span>
+
+                    <div className="p-2.5 rounded-2xl bg-teal-50/70 border border-teal-200">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-slate-900 block text-[11px]">Payroll Accountant</span>
+                        <span className="text-[9px] font-bold text-[#0E7A6E] bg-teal-100 px-1.5 py-0.5 rounded">Payout Locked</span>
+                      </div>
+                      <span className="text-[10px] text-slate-600 block mt-1 leading-snug">
+                        Compute salaries, process bulk adjustments, and generate bank disbursement sheets.
+                      </span>
                     </div>
+                  </div>
+
+                  {/* Device Security & Audit Pin */}
+                  <div className="rounded-xl border border-slate-200/90 bg-slate-50/80 p-2 text-[9px] space-y-1">
+                    <div className="flex items-center justify-between text-slate-600">
+                      <span>Device Binding:</span>
+                      <span className="font-bold text-slate-800">UUID: 8F2A-44B1 (Bound)</span>
+                    </div>
+                    <div className="flex items-center justify-between text-slate-600">
+                      <span>Audit Trail IP:</span>
+                      <span className="font-mono font-bold text-slate-800">103.21.58.12 • Logged</span>
+                    </div>
+                  </div>
+
+                  {/* Bottom Security Badge */}
+                  <div className="mt-2 rounded-xl bg-slate-900 text-white p-2 text-center text-[10px] font-bold flex items-center justify-center gap-1.5">
+                    <Lock className="h-3 w-3 text-teal-400" />
+                    <span>SOC-2 Type II & Indian IT Act Compliant</span>
                   </div>
                 </div>
               )}
