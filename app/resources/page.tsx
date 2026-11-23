@@ -34,10 +34,10 @@ export default function ResourcesHubPage() {
     },
     {
       title: "HR Glossary",
-      href: "/resources/glossary",
+      href: "/glossary",
       desc: "Payroll and statutory terms explained in plain, simple language: CTC, basic salary, arrears, regularisation and more.",
       icon: FileText,
-      count: "32 terms",
+      count: "33 terms",
     },
     {
       title: "Articles & Blog",

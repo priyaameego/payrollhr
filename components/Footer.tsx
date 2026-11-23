@@ -265,7 +265,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/resources/glossary" className="text-slate-600 hover:text-[#12B5A5]">
+                <Link href="/glossary" className="text-slate-600 hover:text-[#12B5A5]">
                   Glossary
                 </Link>
               </li>

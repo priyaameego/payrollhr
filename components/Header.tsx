@@ -42,6 +42,7 @@ import solutionsData from "@/data/solutions.json";
 import toolsData from "@/data/tools.json";
 import templatesData from "@/data/templates.json";
 import glossaryData from "@/data/glossary.json";
+import { termToSlug } from "@/data/glossaryDetails";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -726,7 +727,7 @@ export default function Header() {
                       {["Absenteeism", "Arrears", "Attendance regularisation", "Basic salary", "Bank salary file", "Carry forward", "CTC", "Full and final settlement"].map((term) => (
                         <Link
                           key={term}
-                          href="/resources/glossary"
+                          href={`/glossary/${termToSlug(term)}`}
                           onClick={() => setActiveMenu(null)}
                           className="group flex items-center gap-2.5 rounded-lg py-1.5 text-xs font-semibold text-slate-800 hover:text-[#0E7A6E] transition-colors"
                         >
@@ -741,7 +742,7 @@ export default function Header() {
 
                   <div className="mt-4 pt-3">
                     <Link
-                      href="/resources/glossary"
+                      href="/glossary"
                       onClick={() => setActiveMenu(null)}
                       className="block w-full rounded-xl border border-teal-200 bg-white py-2.5 text-center text-xs font-bold text-[#0E7A6E] hover:bg-teal-50 hover:border-teal-300 transition-colors shadow-2xs"
                     >
@@ -967,7 +968,7 @@ export default function Header() {
                       {["Absenteeism", "Arrears", "Basic salary", "CTC", "Full and final settlement"].map((term) => (
                         <Link
                           key={term}
-                          href="/resources/glossary"
+                          href={`/glossary/${termToSlug(term)}`}
                           onClick={() => setMobileOpen(false)}
                           className="block py-1 text-xs text-slate-700 hover:text-[#12B5A5]"
                         >
@@ -975,7 +976,7 @@ export default function Header() {
                         </Link>
                       ))}
                       <Link
-                        href="/resources/glossary"
+                        href="/glossary"
                         onClick={() => setMobileOpen(false)}
                         className="block pt-1 font-bold text-xs text-[#12B5A5]"
                       >
