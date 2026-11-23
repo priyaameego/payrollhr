@@ -167,7 +167,7 @@ export const resourceLinks = [
     short: "Step-by-step explanations.",
   },
   {
-    to: "/resources/templates",
+    to: "/templates",
     name: "HR templates",
     short: "Free downloadable sheets.",
   },

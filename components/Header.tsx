@@ -528,29 +528,32 @@ export default function Header() {
                     </p>
 
                     <div className="mt-4 space-y-1">
-                      {templatesData.slice(0, 7).map((tpl: any) => (
-                        <Link
-                          key={tpl.file}
-                          href="/resources/templates"
-                          onClick={() => setActiveMenu(null)}
-                          className="group flex items-center gap-2.5 rounded-lg py-1.5 text-xs font-semibold text-slate-800 hover:text-[#0E7A6E] transition-colors"
-                        >
-                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-teal-50 text-[#12B5A5] border border-teal-100/70 group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
-                            <FileText className="h-3 w-3 stroke-[2.2]" />
-                          </span>
-                          <span className="truncate group-hover:underline">{tpl.name}</span>
-                        </Link>
-                      ))}
+                      {templatesData.slice(0, 7).map((tpl: any) => {
+                        const slug = tpl.file ? tpl.file.replace(/\.csv$/, "") : "";
+                        return (
+                          <Link
+                            key={tpl.file}
+                            href={`/templates/${slug}`}
+                            onClick={() => setActiveMenu(null)}
+                            className="group flex items-center gap-2.5 rounded-lg py-1.5 text-xs font-semibold text-slate-800 hover:text-[#0E7A6E] transition-colors"
+                          >
+                            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-teal-50 text-[#12B5A5] border border-teal-100/70 group-hover:bg-[#12B5A5] group-hover:text-white transition-colors">
+                              <FileText className="h-3 w-3 stroke-[2.2]" />
+                            </span>
+                            <span className="truncate group-hover:underline">{tpl.name}</span>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-slate-100">
                     <Link
-                      href="/resources/templates"
+                      href="/templates"
                       onClick={() => setActiveMenu(null)}
                       className="inline-flex items-center gap-1 text-xs font-bold text-[#12B5A5] hover:text-[#0E7A6E] group"
                     >
-                      <span>View all 11 templates</span>
+                      <span>View all 12 templates</span>
                       <span className="group-hover:translate-x-0.5 transition-transform">→</span>
                     </Link>
                   </div>
@@ -942,22 +945,25 @@ export default function Header() {
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#12B5A5]">Templates & Checklists</span>
                     <div className="mt-1 space-y-1">
-                      {templatesData.slice(0, 5).map((tpl: any) => (
-                        <Link
-                          key={tpl.file}
-                          href="/resources/templates"
-                          onClick={() => setMobileOpen(false)}
-                          className="block py-1 text-xs text-slate-700 hover:text-[#12B5A5]"
-                        >
-                          {tpl.name}
-                        </Link>
-                      ))}
+                      {templatesData.slice(0, 6).map((tpl: any) => {
+                        const slug = tpl.file ? tpl.file.replace(/\.csv$/, "") : "";
+                        return (
+                          <Link
+                            key={tpl.file}
+                            href={`/templates/${slug}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="block py-1 text-xs text-slate-700 hover:text-[#12B5A5]"
+                          >
+                            {tpl.name}
+                          </Link>
+                        );
+                      })}
                       <Link
-                        href="/resources/templates"
+                        href="/templates"
                         onClick={() => setMobileOpen(false)}
                         className="block pt-1 font-bold text-xs text-[#12B5A5]"
                       >
-                        All 11 templates →
+                        All 12 templates →
                       </Link>
                     </div>
                   </div>

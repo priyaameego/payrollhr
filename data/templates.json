@@ -53,5 +53,10 @@
     "file": "full-and-final-settlement-checklist.csv",
     "name": "Full & Final Settlement Checklist",
     "text": "Last salary, leave encashment, gratuity, recoveries and letters to issue."
+  },
+  {
+    "file": "appreciation-letter-format.csv",
+    "name": "Appreciation Letter Format",
+    "text": "Formal letters of appreciation, employee of the month citations, long-service recognition, and gift tax rules."
   }
 ]

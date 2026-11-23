@@ -27,17 +27,17 @@ export default function ResourcesHubPage() {
     },
     {
       title: "HR Templates",
-      href: "/resources/templates",
+      href: "/templates",
       desc: "Free downloadable spreadsheet templates for staff registration, attendance registers, exit checklists and salary slips.",
       icon: FileSpreadsheet,
-      count: "11 templates",
+      count: "12 templates",
     },
     {
       title: "HR Glossary",
       href: "/glossary",
       desc: "Payroll and statutory terms explained in plain, simple language: CTC, basic salary, arrears, regularisation and more.",
       icon: FileText,
-      count: "33 terms",
+      count: "38 terms",
     },
     {
       title: "Articles & Blog",
