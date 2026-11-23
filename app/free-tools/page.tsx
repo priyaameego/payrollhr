@@ -70,11 +70,11 @@ export default function FreeToolsIndexPage() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#F0F6FE]/70 via-[#F8FBFE]/40 to-white py-10 sm:py-16">
-      {/* Background ambient glow inspired by AttendoHR */}
+    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#F0FDFB]/70 via-[#FAFDFD]/40 to-white py-10 sm:py-16">
+      {/* Background ambient glow */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
         <div className="h-[500px] w-[800px] rounded-full bg-teal-100/35 blur-[140px] -translate-y-56 pointer-events-none" />
-        <div className="h-[400px] w-[600px] rounded-full bg-sky-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
+        <div className="h-[400px] w-[600px] rounded-full bg-teal-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-12 sm:space-y-16">
@@ -107,7 +107,7 @@ export default function FreeToolsIndexPage() {
           </p>
         </div>
 
-        {/* Prominent Search Bar & Category Navigation (Inspired by AttendoHR) */}
+        {/* Prominent Search Bar & Category Navigation */}
         <div className="max-w-3xl mx-auto space-y-4">
           {/* Search Input */}
           <div className="relative flex items-center">
@@ -296,7 +296,7 @@ export default function FreeToolsIndexPage() {
           </div>
         </section>
 
-        {/* Call to Action Banner (AttendoHR Signature Dark Luxury Showcase) */}
+        {/* Call to Action Banner */}
         <section className="relative overflow-hidden rounded-3xl border border-teal-800/40 bg-gradient-to-br from-slate-950 via-[#072B28] to-slate-900 p-8 sm:p-14 text-center shadow-2xl text-white">
           {/* Glowing background radial ambient light */}
           <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[350px] w-[600px] rounded-full bg-teal-500/20 blur-[130px]" />

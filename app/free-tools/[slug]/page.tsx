@@ -124,27 +124,27 @@ export default async function CalculatorDetailPage({
   const subjectText = getSubjectText(tool.name);
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#F0F6FE]/70 via-[#F8FBFE]/40 to-white py-10 sm:py-16">
+    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#F0FDFB]/80 via-[#FAFDFD]/50 to-white py-10 sm:py-16">
       {/* Ambient background glowing gradient orbs */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-        <div className="h-[500px] w-[800px] rounded-full bg-sky-100/35 blur-[140px] -translate-y-56 pointer-events-none" />
+        <div className="h-[500px] w-[800px] rounded-full bg-teal-100/35 blur-[140px] -translate-y-56 pointer-events-none" />
         <div className="h-[400px] w-[600px] rounded-full bg-teal-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
       </div>
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 space-y-12 sm:space-y-16">
         {/* ============================================================ */}
-        {/* 1. HERO HEADER SECTION (Screenshot 1 Exact Match) */}
+        {/* 1. HERO HEADER SECTION */}
         {/* ============================================================ */}
         <div className="text-center max-w-3xl mx-auto space-y-3.5">
           {/* Top Pill Badge */}
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-sky-200/90 bg-sky-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#0284c7] shadow-2xs">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-teal-200/90 bg-[#E8FAF7] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#0E7A6E] shadow-2xs">
             <span>FREE TOOL • NO SIGN-UP</span>
           </div>
 
-          {/* Main Headline H1 with Blue Subject Accent */}
+          {/* Main Headline H1 with Brand Teal Subject Accent */}
           <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-[1.16]">
             Free{" "}
-            <span className="text-[#0284c7]">
+            <span className="text-[#0E7A6E]">
               {subjectText}
             </span>{" "}
             Calculator India
@@ -155,13 +155,13 @@ export default async function CalculatorDetailPage({
             {detail?.introduction || tool.short}
           </p>
 
-          {/* Breadcrumbs Navigation (Matching Screenshot 1) */}
+          {/* Breadcrumbs Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs text-slate-400 font-medium pt-1">
-            <Link href="/" className="hover:text-[#0284c7] transition-colors">
+            <Link href="/" className="hover:text-[#12B5A5] transition-colors">
               Home
             </Link>
             <span>›</span>
-            <Link href="/free-tools" className="hover:text-[#0284c7] transition-colors">
+            <Link href="/free-tools" className="hover:text-[#12B5A5] transition-colors">
               Free Tools
             </Link>
             <span>›</span>
@@ -170,21 +170,21 @@ export default async function CalculatorDetailPage({
         </div>
 
         {/* ============================================================ */}
-        {/* 2. INTERACTIVE CALCULATOR ENGINE RUNNER (Screenshots 1, 2, 3) */}
+        {/* 2. INTERACTIVE CALCULATOR ENGINE RUNNER */}
         {/* ============================================================ */}
         <section aria-label="Interactive Calculator" className="scroll-mt-12">
           <CalculatorRunner slug={tool.slug} name={tool.name} />
         </section>
 
         {/* ============================================================ */}
-        {/* 3. EDITORIAL GUIDE: WHAT IS THIS TOPIC? (Screenshot 4 Match) */}
+        {/* 3. EDITORIAL GUIDE: WHAT IS THIS TOPIC? */}
         {/* ============================================================ */}
         {detail && (
           <section className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-10 shadow-card space-y-6">
             <div>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
                 What is the{" "}
-                <span className="text-[#0284c7]">
+                <span className="text-[#0E7A6E]">
                   {subjectText}
                 </span>
                 ?
@@ -195,11 +195,11 @@ export default async function CalculatorDetailPage({
               The {subjectText.toLowerCase()} is designed to simplify standard Indian salary and workforce calculations. Whether managing central government scales, private sector CTC components, or daily labor rates, calculations strictly follow statutory labor regulations.
             </p>
 
-            {/* Checkmark Bullets List (Screenshot 4 Exact Match) */}
+            {/* Checkmark Bullets List */}
             <div className="space-y-3 pt-2">
               {detail.whatItDoes.map((bullet, idx) => (
                 <div key={idx} className="flex items-start gap-3">
-                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[#0284c7] mt-0.5">
+                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-[#0E7A6E] mt-0.5">
                     <Check className="h-3 w-3 stroke-[3]" />
                   </div>
                   <span className="text-sm text-slate-700 font-medium leading-relaxed">
@@ -212,21 +212,24 @@ export default async function CalculatorDetailPage({
         )}
 
         {/* ============================================================ */}
-        {/* 4. MID-CONTENT CTA BANNER (Screenshot 5 Match) */}
+        {/* 4. MID-CONTENT CTA BANNER */}
         {/* ============================================================ */}
-        <section className="rounded-3xl bg-gradient-to-r from-[#0284c7] via-[#0284c7] to-[#0369a1] p-8 sm:p-12 text-center text-white shadow-xl space-y-4">
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-snug">
+        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-[#072B28] to-slate-900 border border-teal-800/40 p-8 sm:p-12 text-center text-white shadow-xl space-y-4">
+          <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-teal-500/20 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#12B5A5]/20 blur-3xl" />
+
+          <h2 className="relative font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-snug">
             Automate Payroll with PayroleHR
           </h2>
 
-          <p className="text-sm sm:text-base text-sky-100 leading-relaxed font-normal max-w-xl mx-auto">
-            PayroleHR handles salary structures, allowances, and statutory compliance for 30,000+ businesses. Same-day go-live, no per-employee pricing.
+          <p className="relative text-sm sm:text-base text-teal-100/90 leading-relaxed font-normal max-w-xl mx-auto">
+            PayroleHR handles salary structures, allowances, and statutory compliance for 30,000+ businesses. Same-day go-live, transparent pricing.
           </p>
 
-          <div className="pt-2">
+          <div className="relative pt-2">
             <Link
               href="/book-a-demo"
-              className="rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[#0284c7] shadow-md hover:bg-sky-50 transition-all hover:scale-105 inline-block"
+              className="rounded-full bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-block cursor-pointer"
             >
               Book a Free Demo →
             </Link>
@@ -234,13 +237,13 @@ export default async function CalculatorDetailPage({
         </section>
 
         {/* ============================================================ */}
-        {/* 5. FORMULA & WORKED EXAMPLE (Screenshot 6 Match) */}
+        {/* 5. FORMULA & WORKED EXAMPLE */}
         {/* ============================================================ */}
         <section className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-10 shadow-card space-y-6">
           <div>
             <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
               How is{" "}
-              <span className="text-[#0284c7]">
+              <span className="text-[#0E7A6E]">
                 {subjectText}
               </span>{" "}
               Calculated?
@@ -250,14 +253,14 @@ export default async function CalculatorDetailPage({
             </p>
           </div>
 
-          {/* Black Formula Bar (Screenshot 6 Match) */}
+          {/* Black Formula Bar */}
           <div className="rounded-2xl bg-[#18181B] text-white p-4 sm:p-5 text-center font-mono font-bold text-sm sm:text-base shadow-md">
             {detail?.formulaCode || tool.formula}
           </div>
 
-          {/* Blue Worked Example Box (Screenshot 6 Match) */}
+          {/* Teal Worked Example Box */}
           {detail?.workedExample && (
-            <div className="rounded-r-2xl border-l-4 border-[#0284c7] bg-[#F0F9FF] border-y border-r border-sky-100 p-6 space-y-3">
+            <div className="rounded-r-2xl border-l-4 border-[#12B5A5] bg-[#F0FDFB] border-y border-r border-teal-100/80 p-6 space-y-3">
               <div className="font-bold text-sm sm:text-base text-slate-900">
                 {detail.workedExample.scenario}
               </div>
@@ -265,13 +268,13 @@ export default async function CalculatorDetailPage({
               <div className="space-y-1.5 font-mono text-xs sm:text-sm text-slate-700">
                 {detail.workedExample.calculation.map((line, idx) => (
                   <div key={idx} className="flex items-start gap-2">
-                    <span className="text-[#0284c7] font-bold">•</span>
+                    <span className="text-[#0E7A6E] font-bold">•</span>
                     <span>{line}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-2 border-t border-sky-200/70 font-display font-extrabold text-base text-[#0284c7]">
+              <div className="pt-2 border-t border-teal-200/70 font-display font-extrabold text-base text-[#0E7A6E]">
                 {detail.workedExample.result}
               </div>
             </div>
@@ -291,7 +294,7 @@ export default async function CalculatorDetailPage({
                   {detail.formulaBreakdown.map((row, idx) => (
                     <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
                       <td className="py-3 px-4 font-bold text-slate-900 font-mono text-xs">
-                        <span className="rounded-md bg-sky-50 border border-sky-200 px-2 py-0.5 text-[#0284c7]">
+                        <span className="rounded-md bg-teal-50 border border-teal-200/80 px-2 py-0.5 text-[#0E7A6E]">
                           {row.variable}
                         </span>
                       </td>
@@ -310,7 +313,7 @@ export default async function CalculatorDetailPage({
         {detail?.whoIsItFor && (
           <section className="space-y-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0284c7] font-mono">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0E7A6E] font-mono">
                 Target Audience
               </span>
               <h2 className="mt-1 font-display text-2xl font-bold text-slate-950">
@@ -322,10 +325,10 @@ export default async function CalculatorDetailPage({
               {detail.whoIsItFor.map((persona, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:border-[#0284c7] hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                  className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:border-teal-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-[#0284c7] mb-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-[#0E7A6E] mb-3">
                       {getPersonaIcon(idx)}
                     </div>
                     <h3 className="font-display text-sm font-bold text-slate-900 mb-1.5">
@@ -347,7 +350,7 @@ export default async function CalculatorDetailPage({
         {detail?.howToUseSteps && (
           <section className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-10 shadow-card space-y-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0284c7] font-mono">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0E7A6E] font-mono">
                 How-To Instructions
               </span>
               <h2 className="mt-1 font-display text-2xl font-bold text-slate-950">
@@ -361,7 +364,7 @@ export default async function CalculatorDetailPage({
                   key={step.step}
                   className="rounded-2xl border border-slate-100 bg-slate-50/60 p-5 flex gap-4"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#0284c7] to-[#0369a1] text-white font-mono font-black text-xs shadow-sm">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#12B5A5] to-[#0E7A6E] text-white font-mono font-black text-xs shadow-sm">
                     {step.step}
                   </div>
                   <div>
@@ -384,7 +387,7 @@ export default async function CalculatorDetailPage({
         {faqItems.length > 0 && (
           <section className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-10 shadow-card space-y-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0284c7] font-mono">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0E7A6E] font-mono">
                 Frequently Asked Questions
               </span>
               <h2 className="mt-1 font-display text-2xl font-bold text-slate-950">
@@ -412,7 +415,7 @@ export default async function CalculatorDetailPage({
               </div>
               <Link
                 href="/free-tools"
-                className="text-xs sm:text-sm font-bold text-[#0284c7] hover:text-[#0369a1] transition flex items-center gap-1.5 group"
+                className="text-xs sm:text-sm font-bold text-[#0E7A6E] hover:text-[#12B5A5] transition flex items-center gap-1.5 group"
               >
                 <span>View all {toolsData.length} calculators</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -424,11 +427,11 @@ export default async function CalculatorDetailPage({
                 <Link
                   key={relTool.slug}
                   href={`/free-tools/${relTool.slug}`}
-                  className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-2xs hover:border-[#0284c7] hover:shadow-md transition-all duration-300 group flex flex-col justify-between"
+                  className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-2xs hover:border-teal-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-50 text-[#0284c7] group-hover:scale-105 group-hover:bg-[#0284c7] group-hover:text-white transition-all">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#E8FAF7] text-[#0E7A6E] group-hover:scale-105 group-hover:bg-[#12B5A5] group-hover:text-white transition-all">
                         {getToolIcon(relTool.slug)}
                       </div>
                       <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600">
@@ -436,7 +439,7 @@ export default async function CalculatorDetailPage({
                       </span>
                     </div>
 
-                    <h3 className="font-display text-sm font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors leading-snug">
+                    <h3 className="font-display text-sm font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-snug">
                       {relTool.name}
                     </h3>
                     <p className="mt-1 text-xs text-slate-500 line-clamp-2 leading-relaxed">
@@ -444,7 +447,7 @@ export default async function CalculatorDetailPage({
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0284c7]">
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0E7A6E]">
                     <span>Calculate Now</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </div>

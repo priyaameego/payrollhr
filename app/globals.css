@@ -112,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-/* AttendoHR-Inspired Luxury Icon Containers (High-Contrast & No White-on-White) */
+/* Luxury Icon Containers (High-Contrast & No White-on-White) */
 .attendo-icon-box {
   display: flex;
   align-items: center;
@@ -326,7 +326,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================================ */
-/* ATTENDOHR SIGNATURE BUTTON & INTERACTION STYLING */
+/* PAYROLEHR SIGNATURE BUTTON & INTERACTION STYLING */
 /* ============================================================ */
 .btn-attendo-primary {
   background: linear-gradient(135deg, #12B5A5 0%, #0E9486 100%);
@@ -374,7 +374,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0px) scale(0.98);
 }
 
-/* AttendoHR Circular Process Flow */
+/* Circular Process Flow */
 .attendo-flow-circle {
   width: 6.5rem;
   height: 6.5rem;
@@ -404,7 +404,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================================ */
-/* HERO LUXURY ANIMATIONS (AttendoHR / BambooHR Refined Polish) */
+/* HERO LUXURY ANIMATIONS */
 /* ============================================================ */
 @keyframes heroGradientShift {
   0%, 100% {

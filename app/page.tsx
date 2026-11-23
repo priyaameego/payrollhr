@@ -60,7 +60,7 @@ function WhatsAppIcon({ className = "h-4 w-4 shrink-0" }: { className?: string }
   );
 }
 
-// 3D Visual Badges inspired by AttendoHR Showcase Design
+// 3D Visual Badges Showcase Design
 function Calendar3DBadge({ className = "" }: { className?: string }) {
   return (
     <div className={`filter drop-shadow-xl select-none ${className}`}>
@@ -253,7 +253,7 @@ export default function HomePage() {
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-10 lg:gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:items-center">
-            {/* Left Hero Text (BambooHR + AttendoHR Clean Structure) */}
+            {/* Left Hero Text Clean Structure */}
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-full border border-teal-200/80 bg-teal-50/70 px-4 py-1.5 text-xs font-bold text-[#0E7A6E] shadow-2xs hover:border-teal-300 hover:shadow-xs transition-all duration-300 cursor-default animate-fade-up">
                 <Sparkles className="h-3.5 w-3.5 text-[#12B5A5] animate-pulse" />
@@ -298,7 +298,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* CTAs (AttendoHR Premium Button Styling) */}
+              {/* CTAs (PayroleHR Premium Button Styling) */}
               <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-fade-up [animation-delay:550ms]">
                 <Link
                   href="/book-a-demo"
@@ -327,7 +327,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Review Stars & Social Proof (AttendoHR / BambooHR Rating Bar) */}
+              {/* Review Stars & Social Proof Rating Bar */}
               <div className="mt-6 flex items-center justify-center lg:justify-start gap-3 text-xs font-semibold text-slate-700 animate-fade-up [animation-delay:650ms]">
                 <div className="flex items-center gap-1.5">
                   <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white border border-slate-200 shadow-2xs font-black text-rose-500 text-[10px]">
@@ -760,7 +760,7 @@ export default function HomePage() {
       </div>
 
       {/* ============================================================ */}
-      {/* 3. IS THIS HOW YOUR PAYROLL RUNS TODAY? (AttendoHR Problem Breakdown) */}
+      {/* 3. IS THIS HOW YOUR PAYROLL RUNS TODAY? (Problem Breakdown) */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto">
@@ -945,7 +945,7 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 4. FROM PUNCH TO PAYSLIP, FULLY AUTOMATED (AttendoHR Process Flow) */}
+      {/* 4. FROM PUNCH TO PAYSLIP, FULLY AUTOMATED (Process Flow) */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="rounded-3xl border border-teal-100/90 bg-gradient-to-b from-[#F0FDFB]/80 via-white to-white p-8 sm:p-14 shadow-card">
@@ -1212,7 +1212,7 @@ export default function HomePage() {
       <StaffNeedsWordCloud />
 
       {/* ============================================================ */}
-      {/* 5. COMPLETE PRODUCT SUITE - 5-PART ALTERNATING ATTENDOHR SHOWCASE */}
+      {/* 5. COMPLETE PRODUCT SUITE - 5-PART ALTERNATING SHOWCASE */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto">
@@ -1231,7 +1231,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* 5 Alternating Feature Sections (Matching AttendoHR Showcase Design) */}
+        {/* 5 Alternating Feature Sections (Showcase Design) */}
         <div className="mt-16 space-y-20 sm:space-y-28">
           {/* ========================================================== */}
           {/* 1. ATTENDANCE MANAGEMENT (Left Mockup, Right Content) */}

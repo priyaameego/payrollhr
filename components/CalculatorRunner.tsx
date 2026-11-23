@@ -37,7 +37,7 @@ export default function CalculatorRunner({ slug, name }: CalculatorRunnerProps) 
       {/* Dark Top Header Bar (Matching Reference Screenshot 1) */}
       <div className="bg-[#18181B] px-6 py-4 flex items-center justify-between text-white">
         <div className="flex items-center gap-2.5 font-bold font-display text-base sm:text-lg text-white">
-          <Layers className="h-5 w-5 text-sky-400" />
+          <Layers className="h-5 w-5 text-[#12B5A5]" />
           <span>{name}</span>
         </div>
         <div className="flex items-center gap-2.5">
@@ -140,14 +140,14 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Pay Level</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="7th CPC Pay Matrix level">
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="7th CPC Pay Matrix level">
               ?
             </span>
           </div>
           <select
             value={payLevel}
             onChange={(e) => handleLevelChange(e.target.value)}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] focus:ring-2 focus:ring-sky-100 outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-2 focus:ring-teal-100 outline-none shadow-xs font-medium"
           >
             {Object.entries(payMatrixLevels).map(([key, val]) => (
               <option key={key} value={key}>
@@ -164,7 +164,7 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Current Basic Pay (₹)</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Your monthly entry or stepped basic pay">
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Your monthly entry or stepped basic pay">
               ?
             </span>
           </div>
@@ -173,7 +173,7 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
             value={basicPay}
             onChange={(e) => setBasicPay(Number(e.target.value))}
             placeholder="e.g. 44,900"
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] focus:ring-2 focus:ring-sky-100 outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-2 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal leading-relaxed mt-1.5">
             Enter your actual basic pay. Auto-filled when you select a pay level above.
@@ -184,7 +184,7 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Current DA Percentage (%)</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Existing Dearness Allowance percentage">
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Existing Dearness Allowance percentage">
               ?
             </span>
           </div>
@@ -193,7 +193,7 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
             value={daPct}
             onChange={(e) => setDaPct(Number(e.target.value))}
             placeholder="e.g. 53"
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] focus:ring-2 focus:ring-sky-100 outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-2 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal leading-relaxed mt-1.5">
             Central government DA as of Jan 2026 is 53%. Used to compute your current gross for comparison.
@@ -204,7 +204,7 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Expected Fitment Factor</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Multiplication index factor">
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Multiplication index factor">
               ?
             </span>
           </div>
@@ -215,7 +215,7 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
             step="0.01"
             value={fitment}
             onChange={(e) => setFitment(parseFloat(e.target.value))}
-            className="w-full accent-[#0284c7] cursor-pointer"
+            className="w-full accent-[#12B5A5] cursor-pointer"
           />
           <div className="flex justify-between text-[11px] text-slate-400 font-semibold mt-1">
             <span>1.92x</span>
@@ -223,7 +223,7 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
             <span>2.86x</span>
           </div>
           <div className="mt-2">
-            <span className="inline-block rounded-xl border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-black text-[#0284c7]">
+            <span className="inline-block rounded-xl border border-teal-200 bg-[#E8FAF7] px-3 py-1 text-xs font-black text-[#0E7A6E]">
               {fitment.toFixed(2)}x
             </span>
           </div>
@@ -236,14 +236,14 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">City Type for HRA</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="City classification tier">
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="City classification tier">
               ?
             </span>
           </div>
           <select
             value={cityType}
             onChange={(e) => setCityType(e.target.value)}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] focus:ring-2 focus:ring-sky-100 outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-2 focus:ring-teal-100 outline-none shadow-xs font-medium"
           >
             <option value="X">X City (Metro - 27% HRA)</option>
             <option value="Y">Y City (Tier-2 - 18% HRA)</option>
@@ -258,16 +258,16 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
         <button
           type="button"
           onClick={() => setHasCalculated(true)}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate 8th CPC Salary →</span>
         </button>
       </div>
 
       {/* Right Column: Results Display (Matching Screenshot 1 & 2) */}
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">
             NEW BASIC PAY (8TH CPC)
           </span>
 
@@ -280,26 +280,26 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
           </p>
 
           {/* Breakdown Rows */}
-          <div className="space-y-2.5 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-2.5 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Current Gross Pay:</span>
               <span className="font-semibold text-slate-800">₹{currentGross.toLocaleString("en-IN")}</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Revised DA (resets to 0%):</span>
               <span className="font-semibold text-slate-800">₹0</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Revised HRA ({Math.round(hraRate * 100)}%):</span>
               <span className="font-semibold text-slate-800">₹{newHRA.toLocaleString("en-IN")}</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Revised Transport Allowance:</span>
               <span className="font-semibold text-slate-800">₹{newTA.toLocaleString("en-IN")}</span>
             </div>
-            <div className="flex justify-between items-center py-1.5 font-bold text-slate-900 border-b border-sky-200/80">
+            <div className="flex justify-between items-center py-1.5 font-bold text-slate-900 border-b border-teal-200/80">
               <span>Estimated New Gross:</span>
-              <span className="text-base text-[#0284c7]">₹{newGross.toLocaleString("en-IN")}</span>
+              <span className="text-base text-[#0E7A6E]">₹{newGross.toLocaleString("en-IN")}</span>
             </div>
             <div className="flex justify-between items-center py-1 text-emerald-700 font-bold bg-emerald-50/80 px-2.5 py-1.5 rounded-xl border border-emerald-100">
               <span>Estimated Monthly Hike:</span>
@@ -313,7 +313,7 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 hover:border-sky-300 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -322,13 +322,13 @@ function EighthPayCommissionCalc({ onCopy, copied }: { onCopy: (s: string) => vo
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Calculation Copied!" : "Copy Full Summary"}</span>
           </button>
 
-          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-sky-100">
+          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-teal-100/80">
             * Estimates are indicative. Final 8th CPC pay revision will be announced by the Government of India. DA resets to 0% on new basic after implementation.
           </p>
         </div>
@@ -366,13 +366,13 @@ function SalaryPerDayCalc({ onCopy, copied }: { onCopy: (s: string) => void; cop
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Monthly Gross Salary (₹)</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Monthly wage basis">?</span>
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Monthly wage basis">?</span>
           </div>
           <input
             type="number"
             value={monthlySalary}
             onChange={(e) => setMonthlySalary(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal mt-1.5">Enter the gross monthly wages before deductions.</p>
         </div>
@@ -380,12 +380,12 @@ function SalaryPerDayCalc({ onCopy, copied }: { onCopy: (s: string) => void; cop
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Days Basis</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Divisor basis">?</span>
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Divisor basis">?</span>
           </div>
           <select
             value={basis}
             onChange={(e) => setBasis(e.target.value)}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           >
             <option value="fixed26">Fixed 26 days (Factory / Standard work days)</option>
             <option value="fixed30">Fixed 30 days (Commercial basis)</option>
@@ -402,7 +402,7 @@ function SalaryPerDayCalc({ onCopy, copied }: { onCopy: (s: string) => void; cop
               type="number"
               value={customDays}
               onChange={(e) => setCustomDays(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
         )}
@@ -410,13 +410,13 @@ function SalaryPerDayCalc({ onCopy, copied }: { onCopy: (s: string) => void; cop
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Days Attended / Paid</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Present + paid leaves">?</span>
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Present + paid leaves">?</span>
           </div>
           <input
             type="number"
             value={paidDays}
             onChange={(e) => setPaidDays(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal mt-1.5">Number of payable days in the current salary cycle.</p>
         </div>
@@ -424,28 +424,28 @@ function SalaryPerDayCalc({ onCopy, copied }: { onCopy: (s: string) => void; cop
         <button
           type="button"
           onClick={() => {}}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl transition-all cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate Daily Salary →</span>
         </button>
       </div>
 
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">DAILY SALARY RATE</span>
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">DAILY SALARY RATE</span>
           <div className="font-display text-4xl sm:text-5xl font-black text-slate-950 mt-1 mb-2">
             ₹{perDay.toFixed(2)}
           </div>
           <p className="text-xs text-slate-500 mb-6">Calculated rate per payable working day</p>
 
-          <div className="space-y-3 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-3 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Hourly Rate (8h Shift):</span>
               <span className="font-semibold text-slate-800">₹{perHour8.toFixed(2)} / hr</span>
             </div>
-            <div className="flex justify-between items-center py-1.5 font-bold text-slate-900 border-b border-sky-200/80">
+            <div className="flex justify-between items-center py-1.5 font-bold text-slate-900 border-b border-teal-200/80">
               <span>Payable for {paidDays} Days:</span>
-              <span className="text-base text-[#0284c7]">₹{totalPay.toFixed(2)}</span>
+              <span className="text-base text-[#0E7A6E]">₹{totalPay.toFixed(2)}</span>
             </div>
           </div>
         </div>
@@ -454,7 +454,7 @@ function SalaryPerDayCalc({ onCopy, copied }: { onCopy: (s: string) => void; cop
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -462,12 +462,12 @@ function SalaryPerDayCalc({ onCopy, copied }: { onCopy: (s: string) => void; cop
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Copied!" : "Copy Summary"}</span>
           </button>
-          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-sky-100">
+          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-teal-100/80">
             * Standard calculation divisor based on Indian payroll practices.
           </p>
         </div>
@@ -504,13 +504,13 @@ function AttendanceCalc({ onCopy, copied }: { onCopy: (s: string) => void; copie
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Total Working Days</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Total rostered working days">?</span>
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Total rostered working days">?</span>
           </div>
           <input
             type="number"
             value={totalWorkingDays}
             onChange={(e) => setTotalWorkingDays(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal mt-1.5">Scheduled shift days in the calendar month.</p>
         </div>
@@ -518,13 +518,13 @@ function AttendanceCalc({ onCopy, copied }: { onCopy: (s: string) => void; copie
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Full Present Days</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Punches with full hours">?</span>
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Punches with full hours">?</span>
           </div>
           <input
             type="number"
             value={presentDays}
             onChange={(e) => setPresentDays(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal mt-1.5">Days with successful check-in & check-out.</p>
         </div>
@@ -532,13 +532,13 @@ function AttendanceCalc({ onCopy, copied }: { onCopy: (s: string) => void; copie
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Half Days (Counted as 0.5)</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Half-day deductions or partial shifts">?</span>
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Half-day deductions or partial shifts">?</span>
           </div>
           <input
             type="number"
             value={halfDays}
             onChange={(e) => setHalfDays(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal mt-1.5">Each half day counts as 0.5 present day.</p>
         </div>
@@ -546,26 +546,26 @@ function AttendanceCalc({ onCopy, copied }: { onCopy: (s: string) => void; copie
         <button
           type="button"
           onClick={() => {}}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl transition-all cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate Attendance Rate →</span>
         </button>
       </div>
 
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">ATTENDANCE PERCENTAGE</span>
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">ATTENDANCE PERCENTAGE</span>
           <div className="font-display text-4xl sm:text-5xl font-black text-slate-950 mt-1 mb-2">
             {pct.toFixed(1)}%
           </div>
           <p className="text-xs text-slate-500 mb-6">Attended {attended} out of {totalWorkingDays} days</p>
 
-          <div className="space-y-3 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-3 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Effective Attended Days:</span>
               <span className="font-semibold text-slate-800">{attended} Days</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Loss of Pay / Absent Days:</span>
               <span className="font-semibold text-rose-600">{absentDays} Days</span>
             </div>
@@ -582,7 +582,7 @@ function AttendanceCalc({ onCopy, copied }: { onCopy: (s: string) => void; copie
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -590,12 +590,12 @@ function AttendanceCalc({ onCopy, copied }: { onCopy: (s: string) => void; copie
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Copied!" : "Copy Summary"}</span>
           </button>
-          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-sky-100">
+          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-teal-100/80">
             * Standard attendance calculation used across Indian payroll.
           </p>
         </div>
@@ -634,13 +634,13 @@ function OvertimeCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
         <div>
           <div className="flex items-center gap-1 mb-1.5">
             <label className="text-sm font-bold text-slate-800">Monthly Basic Salary (₹)</label>
-            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-sky-100 text-[#0284c7] text-[10px] font-bold cursor-help" title="Ordinary wage rate basis">?</span>
+            <span className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-teal-100/90 text-[#0E7A6E] text-[10px] font-bold cursor-help" title="Ordinary wage rate basis">?</span>
           </div>
           <input
             type="number"
             value={basicSalary}
             onChange={(e) => setBasicSalary(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal mt-1.5">Under the Factories Act, ordinary rate of wages is based on Basic + DA.</p>
         </div>
@@ -652,7 +652,7 @@ function OvertimeCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
               type="number"
               value={days}
               onChange={(e) => setDays(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
           <div>
@@ -661,7 +661,7 @@ function OvertimeCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
               type="number"
               value={hoursPerDay}
               onChange={(e) => setHoursPerDay(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
         </div>
@@ -673,7 +673,7 @@ function OvertimeCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
               type="number"
               value={otHours}
               onChange={(e) => setOtHours(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
           <div>
@@ -681,7 +681,7 @@ function OvertimeCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
             <select
               value={multiplier}
               onChange={(e) => setMultiplier(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             >
               <option value="2.0">2.0× (Factories Act Statutory)</option>
               <option value="1.5">1.5× (Standard Commercial)</option>
@@ -693,32 +693,32 @@ function OvertimeCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
         <button
           type="button"
           onClick={() => {}}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl transition-all cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate Overtime Payout →</span>
         </button>
       </div>
 
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">TOTAL OVERTIME PAY</span>
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">TOTAL OVERTIME PAY</span>
           <div className="font-display text-4xl sm:text-5xl font-black text-slate-950 mt-1 mb-2">
             ₹{totalOtPay.toFixed(2)}
           </div>
           <p className="text-xs text-slate-500 mb-6">Payout for {otHours} extra hours at {multiplier}x rate</p>
 
-          <div className="space-y-3 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-3 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Standard Hourly Rate:</span>
               <span className="font-semibold text-slate-800">₹{hourlyRate.toFixed(2)} / hr</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Overtime Rate ({multiplier}×):</span>
               <span className="font-semibold text-slate-800">₹{otHourlyRate.toFixed(2)} / hr</span>
             </div>
             <div className="flex justify-between items-center py-1.5 font-bold text-slate-900">
               <span>Total Overtime Earnings:</span>
-              <span className="text-base text-[#0284c7]">₹{totalOtPay.toFixed(2)}</span>
+              <span className="text-base text-[#0E7A6E]">₹{totalOtPay.toFixed(2)}</span>
             </div>
           </div>
         </div>
@@ -727,7 +727,7 @@ function OvertimeCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -735,12 +735,12 @@ function OvertimeCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Copied!" : "Copy Summary"}</span>
           </button>
-          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-sky-100">
+          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-teal-100/80">
             * Overtime rules conform to Indian statutory provisions.
           </p>
         </div>
@@ -784,7 +784,7 @@ function LeaveCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied: bo
               type="number"
               value={opening}
               onChange={(e) => setOpening(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
           <div>
@@ -794,7 +794,7 @@ function LeaveCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied: bo
               step="0.25"
               value={accrualRate}
               onChange={(e) => setAccrualRate(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
         </div>
@@ -806,7 +806,7 @@ function LeaveCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied: bo
               type="number"
               value={months}
               onChange={(e) => setMonths(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
           <div>
@@ -815,7 +815,7 @@ function LeaveCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied: bo
               type="number"
               value={taken}
               onChange={(e) => setTaken(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
         </div>
@@ -826,7 +826,7 @@ function LeaveCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied: bo
             type="number"
             value={cap}
             onChange={(e) => setCap(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal mt-1.5">Maximum leave days allowed to roll into next year.</p>
         </div>
@@ -834,26 +834,26 @@ function LeaveCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied: bo
         <button
           type="button"
           onClick={() => {}}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl transition-all cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate Leave Balance →</span>
         </button>
       </div>
 
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">AVAILABLE LEAVE BALANCE</span>
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">AVAILABLE LEAVE BALANCE</span>
           <div className="font-display text-4xl sm:text-5xl font-black text-slate-950 mt-1 mb-2">
             {available.toFixed(1)} Days
           </div>
           <p className="text-xs text-slate-500 mb-6">Earned {earned} days, availed {taken} days</p>
 
-          <div className="space-y-3 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-3 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Eligible to Carry Forward:</span>
               <span className="font-semibold text-slate-800">{carryForward.toFixed(1)} Days</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Lapsed Beyond Cap:</span>
               <span className="font-semibold text-rose-600">{lapsed.toFixed(1)} Days</span>
             </div>
@@ -864,7 +864,7 @@ function LeaveCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied: bo
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -872,12 +872,12 @@ function LeaveCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied: bo
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Copied!" : "Copy Summary"}</span>
           </button>
-          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-sky-100">
+          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-teal-100/80">
             * Conforms to Factories Act & Shops Act leave accrual provisions.
           </p>
         </div>
@@ -918,7 +918,7 @@ function SalaryBreakupCalc({ onCopy, copied }: { onCopy: (s: string) => void; co
             type="number"
             value={annualCtc}
             onChange={(e) => setAnnualCtc(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal mt-1.5">Total annual cost to company.</p>
         </div>
@@ -931,7 +931,7 @@ function SalaryBreakupCalc({ onCopy, copied }: { onCopy: (s: string) => void; co
             max="60"
             value={basicPct}
             onChange={(e) => setBasicPct(Number(e.target.value))}
-            className="w-full accent-[#0284c7] cursor-pointer"
+            className="w-full accent-[#12B5A5] cursor-pointer"
           />
           <p className="text-xs text-slate-500 font-normal mt-1">Recommended 50% for optimal statutory compliance.</p>
         </div>
@@ -941,7 +941,7 @@ function SalaryBreakupCalc({ onCopy, copied }: { onCopy: (s: string) => void; co
           <select
             value={cityType}
             onChange={(e) => setCityType(e.target.value)}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           >
             <option value="metro">Metro (50% of Basic HRA)</option>
             <option value="nonmetro">Non-Metro (40% of Basic HRA)</option>
@@ -951,36 +951,36 @@ function SalaryBreakupCalc({ onCopy, copied }: { onCopy: (s: string) => void; co
         <button
           type="button"
           onClick={() => {}}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl transition-all cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate CTC Breakup →</span>
         </button>
       </div>
 
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">MONTHLY GROSS SALARY</span>
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">MONTHLY GROSS SALARY</span>
           <div className="font-display text-4xl sm:text-5xl font-black text-slate-950 mt-1 mb-2">
             ₹{monthlyGross.toFixed(0)}
           </div>
           <p className="text-xs text-slate-500 mb-6">Derived from ₹{(annualCtc / 100000).toFixed(1)} Lakh Annual CTC</p>
 
-          <div className="space-y-2.5 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-2.5 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Basic Pay ({basicPct}%):</span>
               <span className="font-semibold text-slate-800">₹{basicMonthly.toFixed(0)} / mo</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">House Rent Allowance (HRA):</span>
               <span className="font-semibold text-slate-800">₹{hraMonthly.toFixed(0)} / mo</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Employer PF Contribution:</span>
               <span className="font-semibold text-slate-800">₹{pfMonthly.toFixed(0)} / mo</span>
             </div>
             <div className="flex justify-between items-center py-1.5 font-bold text-slate-900">
               <span>Special Allowance (Balancing):</span>
-              <span className="text-base text-[#0284c7]">₹{specialAllowance.toFixed(0)} / mo</span>
+              <span className="text-base text-[#0E7A6E]">₹{specialAllowance.toFixed(0)} / mo</span>
             </div>
           </div>
         </div>
@@ -989,7 +989,7 @@ function SalaryBreakupCalc({ onCopy, copied }: { onCopy: (s: string) => void; co
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -997,12 +997,12 @@ function SalaryBreakupCalc({ onCopy, copied }: { onCopy: (s: string) => void; co
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Copied!" : "Copy Summary"}</span>
           </button>
-          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-sky-100">
+          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-teal-100/80">
             * Standard Indian CTC structure meeting Code on Wages requirements.
           </p>
         </div>
@@ -1041,7 +1041,7 @@ function WorkingDaysCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
             type="number"
             value={totalCalendarDays}
             onChange={(e) => setTotalCalendarDays(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
         </div>
 
@@ -1052,7 +1052,7 @@ function WorkingDaysCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
               type="number"
               value={sundays}
               onChange={(e) => setSundays(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
           <div>
@@ -1061,7 +1061,7 @@ function WorkingDaysCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
               type="number"
               value={saturdaysOff}
               onChange={(e) => setSaturdaysOff(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
         </div>
@@ -1072,37 +1072,37 @@ function WorkingDaysCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
             type="number"
             value={publicHolidays}
             onChange={(e) => setPublicHolidays(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
         </div>
 
         <button
           type="button"
           onClick={() => {}}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl transition-all cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate Working Days →</span>
         </button>
       </div>
 
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">TOTAL WORKING DAYS</span>
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">TOTAL WORKING DAYS</span>
           <div className="font-display text-4xl sm:text-5xl font-black text-slate-950 mt-1 mb-2">
             {workingDays} Days
           </div>
           <p className="text-xs text-slate-500 mb-6">{totalOffs} non-working days deducted</p>
 
-          <div className="space-y-2.5 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-2.5 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Total Calendar Days:</span>
               <span className="font-semibold text-slate-800">{totalCalendarDays} Days</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Weekly Offs:</span>
               <span className="font-semibold text-slate-800">{sundays + saturdaysOff} Days</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Public Holidays:</span>
               <span className="font-semibold text-slate-800">{publicHolidays} Days</span>
             </div>
@@ -1113,7 +1113,7 @@ function WorkingDaysCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -1121,7 +1121,7 @@ function WorkingDaysCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Copied!" : "Copy Summary"}</span>
@@ -1181,7 +1181,7 @@ function CtcToInHandCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
             type="number"
             value={annualCtc}
             onChange={(e) => setAnnualCtc(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
         </div>
 
@@ -1190,7 +1190,7 @@ function CtcToInHandCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
           <select
             value={regime}
             onChange={(e) => setRegime(e.target.value)}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           >
             <option value="new">New Tax Regime (Default, ₹75k Std Deduction)</option>
             <option value="old">Old Tax Regime (With 80C Deductions)</option>
@@ -1200,34 +1200,34 @@ function CtcToInHandCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
         <button
           type="button"
           onClick={() => {}}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl transition-all cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate In-Hand Salary →</span>
         </button>
       </div>
 
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">ESTIMATED MONTHLY TAKE-HOME</span>
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">ESTIMATED MONTHLY TAKE-HOME</span>
           <div className="font-display text-4xl sm:text-5xl font-black text-slate-950 mt-1 mb-2">
             ₹{inHandMonthly.toLocaleString("en-IN")}
           </div>
           <p className="text-xs text-slate-500 mb-6">Net salary credited to your bank account each month</p>
 
-          <div className="space-y-2.5 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-2.5 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Monthly Gross Salary:</span>
               <span className="font-semibold text-slate-800">₹{monthlyGross.toFixed(0)}</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Employee PF (12%):</span>
               <span className="font-semibold text-slate-800">₹{pfEmployee.toFixed(0)}</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Professional Tax (PT):</span>
               <span className="font-semibold text-slate-800">₹{ptMonthly}</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Projected Monthly TDS:</span>
               <span className="font-semibold text-rose-600">₹{monthlyTds}</span>
             </div>
@@ -1238,7 +1238,7 @@ function CtcToInHandCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -1246,12 +1246,12 @@ function CtcToInHandCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Copied!" : "Copy Summary"}</span>
           </button>
-          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-sky-100">
+          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-teal-100/80">
             * Estimated under Indian Income Tax Act. Real figures depend on individual investments.
           </p>
         </div>
@@ -1289,7 +1289,7 @@ function GratuityCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
             type="number"
             value={basicAndDa}
             onChange={(e) => setBasicAndDa(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
           <p className="text-xs text-slate-500 font-normal mt-1.5">Under Payment of Gratuity Act 1972, wage basis is last drawn Basic + DA.</p>
         </div>
@@ -1301,7 +1301,7 @@ function GratuityCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
               type="number"
               value={years}
               onChange={(e) => setYears(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
           <div>
@@ -1310,7 +1310,7 @@ function GratuityCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
               type="number"
               value={months}
               onChange={(e) => setMonths(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
         </div>
@@ -1322,32 +1322,32 @@ function GratuityCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
         <button
           type="button"
           onClick={() => {}}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl transition-all cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate Gratuity Amount →</span>
         </button>
       </div>
 
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">ESTIMATED GRATUITY PAYOUT</span>
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">ESTIMATED GRATUITY PAYOUT</span>
           <div className="font-display text-4xl sm:text-5xl font-black text-slate-950 mt-1 mb-2">
             ₹{cappedGratuity.toLocaleString("en-IN")}
           </div>
           <p className="text-xs text-slate-500 mb-6">Qualifying tenure: {roundedYears} completed years</p>
 
-          <div className="space-y-2.5 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-2.5 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Daily Gratuity Wage (15/26):</span>
               <span className="font-semibold text-slate-800">₹{(basicAndDa * (15 / 26)).toFixed(2)}</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Qualifying Years Counted:</span>
               <span className="font-semibold text-slate-800">{roundedYears} Years</span>
             </div>
             <div className="flex justify-between items-center py-1.5 font-bold text-slate-900">
               <span>Statutory Ceiling:</span>
-              <span className="text-base text-[#0284c7]">₹20,00,000 (20 Lakhs)</span>
+              <span className="text-base text-[#0E7A6E]">₹20,00,000 (20 Lakhs)</span>
             </div>
           </div>
         </div>
@@ -1356,7 +1356,7 @@ function GratuityCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -1364,12 +1364,12 @@ function GratuityCalc({ onCopy, copied }: { onCopy: (s: string) => void; copied:
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Copied!" : "Copy Summary"}</span>
           </button>
-          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-sky-100">
+          <p className="text-[11px] text-slate-500 leading-relaxed font-normal pt-2 border-t border-teal-100/80">
             * As per Payment of Gratuity Act 1972.
           </p>
         </div>
@@ -1411,7 +1411,7 @@ function PayrollCostCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
             type="number"
             value={headcount}
             onChange={(e) => setHeadcount(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
         </div>
 
@@ -1421,7 +1421,7 @@ function PayrollCostCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
             type="number"
             value={avgGross}
             onChange={(e) => setAvgGross(Number(e.target.value))}
-            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+            className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
           />
         </div>
 
@@ -1432,7 +1432,7 @@ function PayrollCostCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
               type="number"
               value={pfRate}
               onChange={(e) => setPfRate(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
           <div>
@@ -1441,7 +1441,7 @@ function PayrollCostCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
               type="number"
               value={benefitsPerHead}
               onChange={(e) => setBenefitsPerHead(Number(e.target.value))}
-              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#0284c7] outline-none shadow-xs font-medium"
+              className="w-full rounded-2xl border border-slate-200/90 bg-white px-4 py-3.5 text-sm sm:text-base text-slate-900 focus:border-[#12B5A5] focus:ring-1 focus:ring-teal-100 outline-none shadow-xs font-medium"
             />
           </div>
         </div>
@@ -1449,36 +1449,36 @@ function PayrollCostCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
         <button
           type="button"
           onClick={() => {}}
-          className="w-full rounded-2xl bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#0284c7] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl transition-all cursor-pointer mt-4"
+          className="w-full rounded-2xl bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
         >
           <span>Calculate Total Payroll Cost →</span>
         </button>
       </div>
 
-      <div className="lg:col-span-5 bg-[#F0F9FF]/80 border-t lg:border-t-0 lg:border-l border-sky-100 p-6 sm:p-8 flex flex-col justify-between">
+      <div className="lg:col-span-5 bg-gradient-to-b from-[#F0FDFB]/90 via-[#FAFDFD] to-white border-t lg:border-t-0 lg:border-l border-teal-100/90 p-6 sm:p-8 flex flex-col justify-between">
         <div>
-          <span className="text-xs font-bold text-[#0284c7] uppercase tracking-wider block">TOTAL MONTHLY COMMITMENT</span>
+          <span className="text-xs font-bold text-[#0E7A6E] uppercase tracking-wider block">TOTAL MONTHLY COMMITMENT</span>
           <div className="font-display text-4xl sm:text-5xl font-black text-slate-950 mt-1 mb-2">
             ₹{totalMonthlyPayroll.toLocaleString("en-IN")}
           </div>
           <p className="text-xs text-slate-500 mb-6">Total monthly payroll outgo for {headcount} team members</p>
 
-          <div className="space-y-2.5 pt-4 border-t border-sky-200/70 text-xs sm:text-sm">
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+          <div className="space-y-2.5 pt-4 border-t border-teal-200/70 text-xs sm:text-sm">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Cost per Employee:</span>
               <span className="font-semibold text-slate-800">₹{costPerEmployee.toFixed(0)} / mo</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Total Gross Wages:</span>
               <span className="font-semibold text-slate-800">₹{(avgGross * headcount).toLocaleString("en-IN")}</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-sky-100">
+            <div className="flex justify-between items-center py-1 border-b border-teal-100/80">
               <span className="text-slate-600">Total Statutory Overheads:</span>
               <span className="font-semibold text-slate-800">₹{((employerPfPerHead + benefitsPerHead) * headcount).toLocaleString("en-IN")}</span>
             </div>
             <div className="flex justify-between items-center py-1.5 font-bold text-slate-900">
               <span>Annual Manpower Budget:</span>
-              <span className="text-base text-[#0284c7]">₹{(annualPayroll / 10000000).toFixed(2)} Crore</span>
+              <span className="text-base text-[#0E7A6E]">₹{(annualPayroll / 10000000).toFixed(2)} Crore</span>
             </div>
           </div>
         </div>
@@ -1487,7 +1487,7 @@ function PayrollCostCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-2xl border border-sky-200 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0284c7] hover:bg-sky-50 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full rounded-2xl border border-teal-200/90 bg-white py-3 px-4 text-xs sm:text-sm font-bold text-[#0E7A6E] hover:bg-teal-50/80 hover:border-teal-300 hover:-translate-y-0.5 shadow-2xs flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset Calculator</span>
@@ -1495,7 +1495,7 @@ function PayrollCostCalc({ onCopy, copied }: { onCopy: (s: string) => void; copi
           <button
             type="button"
             onClick={() => onCopy(resultText)}
-            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0284c7] transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0E7A6E] transition-colors"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
             <span>{copied ? "Copied!" : "Copy Summary"}</span>

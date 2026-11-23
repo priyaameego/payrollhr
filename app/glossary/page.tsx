@@ -63,7 +63,7 @@ export default function GlossaryPage() {
       {/* Ambient background glowing gradient orbs */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
         <div className="h-[500px] w-[800px] rounded-full bg-teal-100/35 blur-[140px] -translate-y-56 pointer-events-none" />
-        <div className="h-[400px] w-[600px] rounded-full bg-sky-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
+        <div className="h-[400px] w-[600px] rounded-full bg-teal-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-12 sm:space-y-16">
@@ -82,13 +82,13 @@ export default function GlossaryPage() {
         {/* HERO HEADER: "HR & payroll terms, explained simply" (Screenshot 1) */}
         {/* ============================================================ */}
         <div className="text-left max-w-3xl space-y-3">
-          <div className="text-xs font-black uppercase tracking-wider text-[#0284c7]">
+          <div className="text-xs font-black uppercase tracking-wider text-[#0E7A6E]">
             GLOSSARY
           </div>
 
           <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight">
             HR &amp; payroll terms,{" "}
-            <span className="italic text-[#0284c7] font-serif font-bold">
+            <span className="italic text-[#0E7A6E] font-serif font-bold">
               explained simply
             </span>
           </h1>
@@ -123,7 +123,7 @@ export default function GlossaryPage() {
             )}
             <button
               type="button"
-              className="rounded-full bg-gradient-to-r from-[#0284c7] via-[#0369a1] to-[#0284c7] px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md shadow-sky-500/25 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
+              className="rounded-full bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] hover:from-[#0E9486] hover:to-[#086359] px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
             >
               Search
             </button>

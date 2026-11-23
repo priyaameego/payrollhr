@@ -72,11 +72,11 @@ export default async function GlossaryDetailPage({
   )} ${detail.lawRules.join(" ")}`;
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#F0F6FE]/70 via-[#F8FBFE]/40 to-white py-8 sm:py-14">
+    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#F0FDFB]/70 via-[#FAFDFD]/40 to-white py-8 sm:py-14">
       {/* Ambient background glowing gradient mesh in PayroleHR Teal */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
         <div className="h-[500px] w-[800px] rounded-full bg-teal-100/35 blur-[140px] -translate-y-56 pointer-events-none" />
-        <div className="h-[400px] w-[600px] rounded-full bg-sky-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
+        <div className="h-[400px] w-[600px] rounded-full bg-teal-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">

@@ -660,7 +660,7 @@ export default function FeaturesInteractiveShowcase({
                     </div>
                   </div>
 
-                  {/* Centered Dark Counter Card (Exact Attendo screenshot look) */}
+                  {/* Centered Dark Counter Card */}
                   <div className="rounded-2xl bg-[#10141E] border border-slate-800 p-4 my-2 text-center shadow-lg text-white">
                     <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold block mb-2">
                       Working Hours
@@ -1378,7 +1378,7 @@ export default function FeaturesInteractiveShowcase({
                     <div className="grid grid-cols-12 gap-2 items-center py-1">
                       <div className="col-span-5 relative flex items-center justify-center">
                         <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 100 100">
-                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#0284c7" strokeWidth="14" strokeDasharray="136 226" strokeDashoffset="0" />
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#12B5A5" strokeWidth="14" strokeDasharray="136 226" strokeDashoffset="0" />
                           <circle cx="50" cy="50" r="36" fill="transparent" stroke="#f59e0b" strokeWidth="14" strokeDasharray="45 226" strokeDashoffset="-138" />
                           <circle cx="50" cy="50" r="36" fill="transparent" stroke="#ef4444" strokeWidth="14" strokeDasharray="22 226" strokeDashoffset="-185" />
                           <circle cx="50" cy="50" r="36" fill="transparent" stroke="#8b5cf6" strokeWidth="14" strokeDasharray="19 226" strokeDashoffset="-207" />
@@ -1390,9 +1390,9 @@ export default function FeaturesInteractiveShowcase({
                       </div>
 
                       <div className="col-span-7 space-y-1 text-[9px]">
-                        <div className="flex items-center justify-between px-2 py-1 rounded-lg bg-sky-50/70 border border-sky-100">
+                        <div className="flex items-center justify-between px-2 py-1 rounded-lg bg-teal-50/70 border border-teal-100">
                           <span className="font-bold text-slate-800">24</span>
-                          <span className="flex items-center gap-1 text-sky-700 font-medium"><span className="h-1.5 w-1.5 rounded-full bg-[#0284c7]" /> On Time</span>
+                          <span className="flex items-center gap-1 text-teal-700 font-medium"><span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" /> On Time</span>
                         </div>
                         <div className="flex items-center justify-between px-2 py-1 rounded-lg bg-rose-50/70 border border-rose-100">
                           <span className="font-bold text-slate-800">2</span>
@@ -1513,7 +1513,7 @@ export default function FeaturesInteractiveShowcase({
                     <div className="flex items-center justify-center gap-3">
                       <div className="relative flex items-center justify-center">
                         <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 100 100">
-                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#0284c7" strokeWidth="14" strokeDasharray="136 226" strokeDashoffset="0" />
+                          <circle cx="50" cy="50" r="36" fill="transparent" stroke="#12B5A5" strokeWidth="14" strokeDasharray="136 226" strokeDashoffset="0" />
                           <circle cx="50" cy="50" r="36" fill="transparent" stroke="#f59e0b" strokeWidth="14" strokeDasharray="45 226" strokeDashoffset="-138" />
                           <circle cx="50" cy="50" r="36" fill="transparent" stroke="#ef4444" strokeWidth="14" strokeDasharray="22 226" strokeDashoffset="-185" />
                           <circle cx="50" cy="50" r="36" fill="transparent" stroke="#8b5cf6" strokeWidth="14" strokeDasharray="19 226" strokeDashoffset="-207" />
@@ -1524,7 +1524,7 @@ export default function FeaturesInteractiveShowcase({
                         </div>
                       </div>
                       <div className="space-y-0.5 text-[8px]">
-                        <div className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#0284c7]" /> 24 On Time</div>
+                        <div className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#12B5A5]" /> 24 On Time</div>
                         <div className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#ef4444]" /> 2 Late</div>
                         <div className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#f59e0b]" /> 3 Not in Yet</div>
                         <div className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-[#8b5cf6]" /> 4 Leave</div>
@@ -1571,7 +1571,7 @@ export default function FeaturesInteractiveShowcase({
                         {c.desc.split(c.linkText)[0]}
                         <Link
                           href={c.linkHref || "/book-demo"}
-                          className="text-[#0284c7] font-medium underline decoration-[#0284c7]/50 hover:text-[#0369a1] hover:decoration-[#0369a1] transition-colors"
+                          className="text-[#0E7A6E] font-medium underline decoration-[#12B5A5]/60 hover:text-[#12B5A5] hover:decoration-[#12B5A5] transition-colors"
                         >
                           {c.linkText}
                         </Link>
