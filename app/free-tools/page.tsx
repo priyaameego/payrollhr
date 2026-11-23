@@ -68,11 +68,11 @@ export default function FreeToolsIndexPage() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-b from-white via-[#FAFDFD] to-white py-8 sm:py-12">
-      {/* Background ambient glow */}
+    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#F0F6FE]/70 via-[#F8FBFE]/40 to-white py-10 sm:py-16">
+      {/* Background ambient glow inspired by AttendoHR */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-        <div className="h-[400px] w-[700px] rounded-full bg-teal-50/60 blur-[130px] -translate-y-48" />
-        <div className="h-[350px] w-[500px] rounded-full bg-blue-50/50 blur-[120px] translate-y-96 translate-x-32" />
+        <div className="h-[500px] w-[800px] rounded-full bg-teal-100/35 blur-[140px] -translate-y-56 pointer-events-none" />
+        <div className="h-[400px] w-[600px] rounded-full bg-sky-100/30 blur-[130px] translate-y-96 translate-x-40 pointer-events-none" />
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-12 sm:space-y-16">
@@ -294,31 +294,55 @@ export default function FreeToolsIndexPage() {
           </div>
         </section>
 
-        {/* Call to Action Banner */}
-        <section className="rounded-3xl border border-teal-100 bg-gradient-to-r from-teal-50/70 via-white to-teal-50/70 p-8 sm:p-12 text-center shadow-card">
-          <span className="inline-block rounded-full bg-[#E6F9F6] border border-teal-200/80 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0E7A6E]">
-            Automate Workforce Calculations
-          </span>
-          <h2 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
-            Need to automate these calculations across your entire workforce?
-          </h2>
-          <p className="mt-2.5 text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-            PayroleHR connects biometric face check-ins, mobile GPS punches, shift rosters, and compliant bank payout files into one automated flow.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/book-a-demo"
-              className="rounded-full bg-gradient-to-r from-[#12B5A5] to-[#0E9486] px-8 py-3.5 text-sm font-bold text-white shadow-md hover:shadow-lg transition-all inline-flex items-center gap-2"
-            >
-              <span>Book a Free Demo</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/features"
-              className="rounded-full border border-teal-200 bg-white px-7 py-3.5 text-sm font-bold text-slate-800 hover:bg-slate-50 transition-colors"
-            >
-              Explore All Features
-            </Link>
+        {/* Call to Action Banner (AttendoHR Signature Dark Luxury Showcase) */}
+        <section className="relative overflow-hidden rounded-3xl border border-teal-800/40 bg-gradient-to-br from-slate-950 via-[#072B28] to-slate-900 p-8 sm:p-14 text-center shadow-2xl text-white">
+          {/* Glowing background radial ambient light */}
+          <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[350px] w-[600px] rounded-full bg-teal-500/20 blur-[130px]" />
+
+          <div className="relative z-10 max-w-2xl mx-auto space-y-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-300 shadow-sm">
+              <Sparkles className="h-3.5 w-3.5 text-teal-300" />
+              Automate Workforce Calculations
+            </span>
+
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Need to automate these calculations across your entire workforce?
+            </h2>
+
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+              PayroleHR connects biometric face check-ins, mobile GPS punches, shift rosters, and compliant bank payout files into one automated flow.
+            </p>
+
+            <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/book-a-demo"
+                className="rounded-full bg-gradient-to-r from-[#12B5A5] via-[#0E9486] to-[#0A7B6E] px-8 py-4 text-sm font-bold text-white shadow-lg shadow-teal-500/30 hover:shadow-teal-500/50 hover:scale-105 transition-all duration-300 inline-flex items-center gap-2.5"
+              >
+                <span>Book a Free Demo</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/features"
+                className="rounded-full border border-white/25 bg-white/10 hover:bg-white/15 px-7 py-4 text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 inline-flex items-center gap-2"
+              >
+                <span>Explore All Features</span>
+              </Link>
+            </div>
+
+            <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-medium border-t border-white/10">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-teal-400" />
+                150+ Indian Companies
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-teal-400" />
+                0.18s Face Attendance
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-teal-400" />
+                1-Click Bank Files
+              </span>
+            </div>
           </div>
         </section>
       </div>
