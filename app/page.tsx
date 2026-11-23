@@ -244,7 +244,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* 1. HERO SECTION */}
       {/* ============================================================ */}
-      <section className="relative pt-6 sm:pt-10 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-[#F0F6FE]/90 via-[#F8FBFE]/60 to-transparent">
+      <section className="relative pt-6 sm:pt-10 pb-6 sm:pb-8 overflow-hidden bg-gradient-to-b from-[#F0F6FE]/90 via-[#F8FBFE]/60 to-transparent">
         {/* Soft background clean SaaS sky/teal gradient mesh */}
         <div
           aria-hidden="true"
@@ -591,7 +591,7 @@ export default function HomePage() {
           </div>
 
           {/* Trust Indicators Bar (Clean full-width below hero columns) */}
-          <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-medium text-slate-500 border-t border-slate-200/70 pt-5">
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-medium text-slate-500 border-t border-slate-200/70 pt-4 pb-1">
             <div className="group flex items-center gap-2 transition-colors hover:text-slate-800">
               <CheckCircle2 className="h-4 w-4 text-[#12B5A5] transition-transform duration-300 group-hover:scale-110" />
               <span>Indian statutory compliant</span>
@@ -611,7 +611,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* 2. TRUST & STATUTORY FOUNDATION (Ticker + 4 Enterprise Pillars) */}
       {/* ============================================================ */}
-      <div className="-mt-14 sm:-mt-20 space-y-6 sm:space-y-7">
+      <div className="-mt-20 sm:-mt-28 space-y-7 sm:space-y-8">
         {/* LIVE MARQUEE TICKER (PagarBook Clean SaaS Style with Real SVGs) */}
         <div className="relative overflow-hidden border-y border-[#C8EFE6] bg-[#F3FAF8] py-3.5 shadow-2xs">
           <div className="animate-marquee flex items-center whitespace-nowrap text-xs sm:text-[13px] font-semibold text-slate-800">
@@ -647,63 +647,111 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* STATUTORY STRIP (4 Real-World Enterprise Pillars) */}
+        {/* STATUTORY STRIP (4 Spacious, High-Contrast Enterprise Pillars) */}
         <section className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="rounded-3xl border border-teal-100/90 bg-gradient-to-r from-white via-[#F0FDFB] to-white p-5 sm:p-6 shadow-sm">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-3xl border border-teal-100/90 bg-gradient-to-br from-[#FAFCFC] via-white to-[#F2FAF8] p-5 sm:p-7 shadow-sm">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {/* Card 1: Indian Payroll */}
-              <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4.5 bg-white border border-slate-100/80 rounded-2xl shadow-2xs">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#E6FAF7] to-[#D0F5EE] border border-teal-200/90 text-[#0E7A6E] shadow-2xs group-hover:scale-105 group-hover:bg-[#12B5A5] group-hover:text-white transition-all">
-                  <IndianRupee className="h-5 w-5 stroke-[2.4]" />
+              <div className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-2xs hover:shadow-xl hover:border-teal-300 hover:-translate-y-1 transition-all duration-300">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8FAF7] border border-[#B4EFE7] text-[#0E7A6E] shadow-2xs group-hover:scale-105 group-hover:bg-[#12B5A5] group-hover:border-[#12B5A5] group-hover:text-white transition-all duration-300">
+                      <IndianRupee className="h-6 w-6 stroke-[2.4]" />
+                    </div>
+                    <span className="rounded-full bg-teal-50 border border-teal-200/90 px-2.5 py-1 text-[11px] font-bold text-[#0E7A6E]">
+                      100% Compliant
+                    </span>
+                  </div>
+
+                  <h4 className="font-display text-base font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
+                    Indian Payroll
+                  </h4>
+                  <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                    Pre-configured formulas for PF (12%), ESI (0.75%), State PT &amp; TDS challans.
+                  </p>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-bold text-slate-900 text-hover-lux truncate">Indian Payroll</h4>
-                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">PF, ESI, Professional Tax, TDS</p>
-                  <span className="inline-block mt-2 rounded-md bg-teal-50 border border-teal-200/80 px-2.5 py-0.5 text-[10px] font-bold text-[#0E7A6E]">
-                    100% Statutory Compliant
-                  </span>
+
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-slate-500 group-hover:text-[#0E7A6E] transition-colors">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[#12B5A5] shrink-0" />
+                  <span>Zero Excel Errors</span>
                 </div>
               </div>
 
               {/* Card 2: Universal Access */}
-              <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4.5 bg-white border border-slate-100/80 rounded-2xl shadow-2xs">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-50 to-teal-50 border border-sky-200/90 text-sky-700 shadow-2xs group-hover:scale-105 group-hover:bg-sky-600 group-hover:text-white transition-all">
-                  <MonitorSmartphone className="h-5 w-5 stroke-[2.4]" />
+              <div className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-2xs hover:shadow-xl hover:border-sky-300 hover:-translate-y-1 transition-all duration-300">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E0F2FE] border border-[#BAE6FD] text-[#0284C7] shadow-2xs group-hover:scale-105 group-hover:bg-[#0284C7] group-hover:border-[#0284C7] group-hover:text-white transition-all duration-300">
+                      <MonitorSmartphone className="h-6 w-6 stroke-[2.4]" />
+                    </div>
+                    <span className="rounded-full bg-sky-50 border border-sky-200/90 px-2.5 py-1 text-[11px] font-bold text-sky-800">
+                      Cloud + App
+                    </span>
+                  </div>
+
+                  <h4 className="font-display text-base font-bold text-slate-900 group-hover:text-[#0284C7] transition-colors">
+                    Universal Access
+                  </h4>
+                  <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                    Staff view payslips on mobile. HR &amp; management approve payroll from any browser.
+                  </p>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-bold text-slate-900 text-hover-lux truncate">Universal Access</h4>
-                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Works on phone, tablet or laptop</p>
-                  <span className="inline-block mt-2 rounded-md bg-sky-50 border border-sky-200/80 px-2.5 py-0.5 text-[10px] font-bold text-sky-800">
-                    Web • Android • iOS
-                  </span>
+
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-slate-500 group-hover:text-[#0284C7] transition-colors">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[#0284C7] shrink-0" />
+                  <span>Android, iOS &amp; Web</span>
                 </div>
               </div>
 
               {/* Card 3: Isolated Data */}
-              <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4.5 bg-white border border-slate-100/80 rounded-2xl shadow-2xs">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-50 to-teal-50 border border-indigo-200/90 text-indigo-700 shadow-2xs group-hover:scale-105 group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                  <Database className="h-5 w-5 stroke-[2.4]" />
+              <div className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-2xs hover:shadow-xl hover:border-indigo-300 hover:-translate-y-1 transition-all duration-300">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#EEF2FF] border border-[#C7D2FE] text-[#4F46E5] shadow-2xs group-hover:scale-105 group-hover:bg-[#4F46E5] group-hover:border-[#4F46E5] group-hover:text-white transition-all duration-300">
+                      <Database className="h-6 w-6 stroke-[2.4]" />
+                    </div>
+                    <span className="rounded-full bg-indigo-50 border border-indigo-200/90 px-2.5 py-1 text-[11px] font-bold text-indigo-800">
+                      Tenant DB
+                    </span>
+                  </div>
+
+                  <h4 className="font-display text-base font-bold text-slate-900 group-hover:text-[#4F46E5] transition-colors">
+                    Isolated Data
+                  </h4>
+                  <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                    Strict organizational database isolation. Zero cross-tenant data bleed.
+                  </p>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-bold text-slate-900 text-hover-lux truncate">Isolated Data</h4>
-                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Each organisation separate</p>
-                  <span className="inline-block mt-2 rounded-md bg-indigo-50 border border-indigo-200/80 px-2.5 py-0.5 text-[10px] font-bold text-indigo-800">
-                    Dedicated Tenant DB
-                  </span>
+
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-slate-500 group-hover:text-[#4F46E5] transition-colors">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[#4F46E5] shrink-0" />
+                  <span>Dedicated Tenant Vault</span>
                 </div>
               </div>
 
               {/* Card 4: Audit Logged */}
-              <div className="attendo-card attendo-card-hover group flex items-start gap-3.5 p-4.5 bg-white border border-slate-100/80 rounded-2xl shadow-2xs">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200/90 text-emerald-700 shadow-2xs group-hover:scale-105 group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                  <ClipboardCheck className="h-5 w-5 stroke-[2.4]" />
+              <div className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-2xs hover:shadow-xl hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ECFDF5] border border-[#A7F3D0] text-[#059669] shadow-2xs group-hover:scale-105 group-hover:bg-[#059669] group-hover:border-[#059669] group-hover:text-white transition-all duration-300">
+                      <ClipboardCheck className="h-6 w-6 stroke-[2.4]" />
+                    </div>
+                    <span className="rounded-full bg-emerald-50 border border-emerald-200/90 px-2.5 py-1 text-[11px] font-bold text-emerald-800">
+                      Immutable
+                    </span>
+                  </div>
+
+                  <h4 className="font-display text-base font-bold text-slate-900 group-hover:text-[#059669] transition-colors">
+                    Audit Logged
+                  </h4>
+                  <p className="mt-2 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                    Every attendance punch, salary revision and payment approval is logged.
+                  </p>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-bold text-slate-900 text-hover-lux truncate">Audit Logged</h4>
-                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Every punch, edit &amp; approval</p>
-                  <span className="inline-block mt-2 rounded-md bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800">
-                    Tamper-Proof History
-                  </span>
+
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-slate-500 group-hover:text-[#059669] transition-colors">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[#059669] shrink-0" />
+                  <span>Tamper-Proof Audit Trail</span>
                 </div>
               </div>
             </div>
