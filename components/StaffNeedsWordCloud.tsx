@@ -285,7 +285,7 @@ export default function StaffNeedsWordCloud() {
         {/* Interactive Search Bar */}
         <div className="mt-8 max-w-xl mx-auto">
           <div className="relative flex items-center">
-            <Search className="absolute left-4.5 h-5 w-5 text-slate-400 pointer-events-none" />
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
@@ -302,7 +302,7 @@ export default function StaffNeedsWordCloud() {
                 }
               }}
               placeholder="Search: gratuity, grace period, salary advance, form 16..."
-              className="w-full rounded-full border border-slate-300/80 bg-white py-3.5 pl-12 pr-12 text-sm sm:text-base text-slate-950 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-none focus:ring-4 focus:ring-teal-100 shadow-sm transition-all font-medium"
+              className="w-full rounded-full border border-slate-300/80 bg-white py-3.5 pl-14 pr-12 text-sm sm:text-base text-slate-950 placeholder:text-slate-400 focus:border-[#12B5A5] focus:outline-none focus:ring-4 focus:ring-teal-100 shadow-sm transition-all font-medium"
             />
             {searchQuery && (
               <button
@@ -310,7 +310,7 @@ export default function StaffNeedsWordCloud() {
                 onClick={() => {
                   setSearchQuery("");
                 }}
-                className="absolute right-4 rounded-full p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition cursor-pointer"
+                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition cursor-pointer"
                 aria-label="Clear search"
               >
                 <X className="h-4 w-4" />
