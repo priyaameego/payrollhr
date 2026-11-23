@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, BookOpen, FileSpreadsheet, Sparkles, HelpCircle, FileText } from "lucide-react";
+import { ArrowRight, ChevronRight, BookOpen, FileSpreadsheet, Sparkles, HelpCircle, FileText, Calculator } from "lucide-react";
 import { resourceLinks } from "@/data/navigation";
 
 export const metadata = {
@@ -17,6 +17,13 @@ export default function ResourcesHubPage() {
       desc: "Step-by-step practical guides to payroll cycles, salary components, attendance rules, leave accrual and overtime.",
       icon: BookOpen,
       count: "7 guides",
+    },
+    {
+      title: "Free HR Calculators",
+      href: "/free-tools",
+      desc: "Interactive calculators for daily wages, overtime, attendance rate, CTC in-hand, leave balances and statutory gratuity.",
+      icon: Calculator,
+      count: "9 calculators",
     },
     {
       title: "HR Templates",
