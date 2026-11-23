@@ -214,35 +214,40 @@ export default function GlossaryPage() {
                     </span>
                   </div>
 
-                  {/* Right Column: Responsive Grid of Cards with Premium Hover Lift (Screenshot 2 Match) */}
-                  <div className="md:col-span-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {terms.map((item: any) => {
-                      const slug = termToSlug(item.term);
-                      return (
-                        <Link
-                          key={slug}
-                          href={`/glossary/${slug}`}
-                          className="group relative rounded-3xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-2xs hover:shadow-xl hover:shadow-teal-500/10 hover:border-teal-300 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
-                        >
-                          <div>
-                            <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-snug">
-                              {item.term}
-                            </h3>
-                            <p className="mt-2 text-xs sm:text-[13px] text-slate-600 line-clamp-3 leading-relaxed font-normal">
-                              {item.def}
-                            </p>
-                          </div>
+                    {/* Right Column: Responsive Grid of Cards with Premium Hover Lift */}
+                    <div className="md:col-span-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {terms.map((item: any) => {
+                        const slug = termToSlug(item.term);
+                        return (
+                          <Link
+                            key={slug}
+                            href={`/glossary/${slug}`}
+                            className="lux-card-target lux-card-sheen group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white via-white to-[#F8FDFD]/50 p-5 sm:p-6 shadow-2xs hover:shadow-2xl hover:shadow-teal-900/10 hover:border-teal-400 hover:-translate-y-2 transition-all duration-300"
+                          >
+                            {/* Top Animated Accent Gradient Line */}
+                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#12B5A5]/0 to-transparent group-hover:via-[#12B5A5] transition-all duration-500" />
 
-                          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
-                            <span>Read definition</span>
-                            <span className="ml-1.5 transition-transform duration-200 group-hover:translate-x-1.5">
-                              →
-                            </span>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
+                            <div className="relative z-10">
+                              <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#0E7A6E] group-hover:translate-x-0.5 transition-all duration-300 leading-snug">
+                                {item.term}
+                              </h3>
+                              <p className="mt-2 text-xs sm:text-[13px] text-slate-600 line-clamp-3 leading-relaxed font-normal group-hover:text-slate-700 transition-colors duration-300">
+                                {item.def}
+                              </p>
+                            </div>
+
+                            <div className="relative z-10 mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0E7A6E]">
+                              <span className="group-hover:text-[#12B5A5] group-hover:translate-x-0.5 transition-all duration-300">
+                                Read definition
+                              </span>
+                              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-teal-50 text-[#0E7A6E] border border-teal-100 group-hover:bg-gradient-to-r group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:border-transparent group-hover:scale-110 group-hover:shadow-sm transition-all duration-300">
+                                <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                              </span>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
                 </div>
               </div>
             ))}

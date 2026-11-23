@@ -325,13 +325,13 @@ export default async function CalculatorDetailPage({
               {detail.whoIsItFor.map((persona, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs hover:border-teal-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between"
+                  className="lux-card-target group relative overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white to-[#F8FDFD]/50 p-6 shadow-xs hover:shadow-xl hover:shadow-teal-900/10 hover:border-teal-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-[#0E7A6E] mb-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 border border-teal-200/60 text-[#0E7A6E] mb-3.5 shadow-2xs group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:shadow-md group-hover:shadow-teal-500/25 transition-all duration-300">
                       {getPersonaIcon(idx)}
                     </div>
-                    <h3 className="font-display text-sm font-bold text-slate-900 mb-1.5">
+                    <h3 className="font-display text-sm font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors mb-1.5">
                       {persona.role}
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed font-normal">
@@ -362,13 +362,13 @@ export default async function CalculatorDetailPage({
               {detail.howToUseSteps.map((step) => (
                 <div
                   key={step.step}
-                  className="rounded-2xl border border-slate-100 bg-slate-50/60 p-5 flex gap-4"
+                  className="lux-card-target group rounded-2xl border border-slate-200/80 bg-white p-5 flex gap-4 hover:border-teal-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#12B5A5] to-[#0E7A6E] text-white font-mono font-black text-xs shadow-sm">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#12B5A5] to-[#0E7A6E] text-white font-mono font-black text-xs shadow-sm group-hover:scale-110 transition-transform">
                     {step.step}
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-slate-900">
+                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
                       {step.title}
                     </h3>
                     <p className="mt-1 text-xs text-slate-600 leading-relaxed font-normal">
@@ -422,34 +422,44 @@ export default async function CalculatorDetailPage({
               </Link>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {relatedTools.map((relTool: any) => (
                 <Link
                   key={relTool.slug}
                   href={`/free-tools/${relTool.slug}`}
-                  className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-2xs hover:border-teal-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group flex flex-col justify-between"
+                  className="lux-card-target lux-card-sheen group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white via-white to-[#F8FDFD]/60 p-6 sm:p-7 shadow-2xs hover:shadow-2xl hover:shadow-teal-900/10 hover:border-teal-400 hover:-translate-y-2 transition-all duration-300"
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#E8FAF7] text-[#0E7A6E] group-hover:scale-105 group-hover:bg-[#12B5A5] group-hover:text-white transition-all">
+                  {/* Top Animated Accent Gradient Line */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#12B5A5]/0 to-transparent group-hover:via-[#12B5A5] transition-all duration-500" />
+
+                  {/* Subtle Ambient Corner Glow on Hover */}
+                  <div className="pointer-events-none absolute -top-16 -right-16 h-36 w-36 rounded-full bg-teal-400/0 blur-2xl group-hover:bg-teal-400/15 transition-all duration-500" />
+
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8FAF7] border border-teal-200/70 text-[#0E7A6E] shadow-2xs group-hover:scale-110 group-hover:rotate-1 group-hover:bg-gradient-to-br group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:shadow-lg group-hover:shadow-teal-500/25 group-hover:border-transparent transition-all duration-300">
                         {getToolIcon(relTool.slug)}
                       </div>
-                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600">
+                      <span className="rounded-full bg-slate-100/90 border border-slate-200/80 px-3 py-1 text-[11px] font-bold text-slate-600 group-hover:bg-teal-50 group-hover:border-teal-200 group-hover:text-[#0E7A6E] transition-all duration-300">
                         {relTool.category}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-sm font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-snug">
+                    <h3 className="font-display text-base font-extrabold text-slate-900 group-hover:text-[#0E7A6E] group-hover:translate-x-0.5 transition-all duration-300 leading-snug">
                       {relTool.name}
                     </h3>
-                    <p className="mt-1 text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                    <p className="mt-2 text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed group-hover:text-slate-700 transition-colors duration-300 font-normal">
                       {relTool.short}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0E7A6E]">
-                    <span>Calculate Now</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs font-bold text-[#0E7A6E] group-hover:text-[#12B5A5] group-hover:translate-x-0.5 transition-all duration-300 flex items-center gap-1.5">
+                      <span>Calculate Now</span>
+                    </span>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-50/90 text-[#0E7A6E] border border-teal-100 group-hover:bg-gradient-to-r group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:border-transparent group-hover:shadow-md group-hover:shadow-teal-500/30 group-hover:scale-110 transition-all duration-300">
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                    </span>
                   </div>
                 </Link>
               ))}

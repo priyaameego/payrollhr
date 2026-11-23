@@ -85,27 +85,34 @@ export default function ResourcesHubPage() {
           <Link
             key={cat.href}
             href={cat.href}
-            className="attendo-card attendo-card-hover group p-7 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
+            className="lux-card-target lux-card-sheen group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white via-white to-[#F8FDFD]/50 p-7 shadow-xs hover:shadow-2xl hover:shadow-teal-900/10 hover:border-teal-400 hover:-translate-y-2 transition-all duration-300"
           >
-            <div>
+            {/* Top Animated Accent Gradient Line */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#12B5A5]/0 to-transparent group-hover:via-[#12B5A5] transition-all duration-500" />
+
+            <div className="relative z-10">
               <div className="flex items-center justify-between">
-                <div className="attendo-icon-box h-12 w-12 shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8FAF7] border border-teal-200/70 text-[#0E7A6E] shadow-2xs group-hover:scale-110 group-hover:rotate-1 group-hover:bg-gradient-to-br group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:shadow-lg group-hover:shadow-teal-500/25 group-hover:border-transparent transition-all duration-300">
                   <cat.icon className="h-6 w-6 stroke-[2.2]" />
                 </div>
-                <span className="rounded-full bg-[#E8FAF7] border border-teal-200/80 px-3 py-1 text-xs font-bold text-[#0E7A6E]">
+                <span className="rounded-full bg-slate-100/90 border border-slate-200/80 px-3 py-1 text-xs font-bold text-slate-600 group-hover:bg-teal-50 group-hover:border-teal-200 group-hover:text-[#0E7A6E] transition-all duration-300">
                   {cat.count}
                 </span>
               </div>
-              <h2 className="mt-5 font-display text-xl font-bold text-slate-900 text-hover-lux">
+              <h2 className="mt-5 font-display text-xl font-bold text-slate-900 group-hover:text-[#0E7A6E] group-hover:translate-x-0.5 transition-all duration-300">
                 {cat.title}
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal group-hover:text-slate-700 transition-colors duration-300">
                 {cat.desc}
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
-              <span className="text-hover-lux font-bold">Explore {cat.title}</span>
-              <ArrowRight className="h-4 w-4 arrow-hover-lux" />
+            <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0E7A6E]">
+              <span className="group-hover:text-[#12B5A5] group-hover:translate-x-0.5 transition-all duration-300 font-bold">
+                Explore {cat.title}
+              </span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-50/90 text-[#0E7A6E] border border-teal-100 group-hover:bg-gradient-to-r group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:border-transparent group-hover:shadow-md group-hover:shadow-teal-500/30 group-hover:scale-110 transition-all duration-300">
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </span>
             </div>
           </Link>
         ))}

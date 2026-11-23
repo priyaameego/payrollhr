@@ -151,10 +151,13 @@ export default function SolutionsIndexPage() {
               <Link
                 key={sol.slug}
                 href={`/solutions/${sol.slug}`}
-                className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:border-[#12B5A5] hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                className="lux-card-target lux-card-sheen group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white via-white to-[#F8FDFD]/50 p-5 sm:p-6 shadow-xs hover:border-teal-400 hover:shadow-2xl hover:shadow-teal-900/10 hover:-translate-y-2 transition-all duration-300"
               >
+                {/* Top Animated Accent Gradient Line */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#12B5A5]/0 to-transparent group-hover:via-[#12B5A5] transition-all duration-500" />
+
                 {/* Top Image Preview */}
-                <div>
+                <div className="relative z-10">
                   <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-100">
                     <Image
                       src={sol.image || `/images/solutions/solution-${sol.slug}.jpg`}
@@ -171,11 +174,11 @@ export default function SolutionsIndexPage() {
 
                   {/* Header Row with Icon Box */}
                   <div className="flex items-center gap-3.5 mt-5">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-teal-50 border border-teal-100 text-[#12B5A5] group-hover:bg-[#12B5A5] group-hover:text-white transition-colors duration-300">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#E8FAF7] border border-teal-200/70 text-[#0E7A6E] shadow-2xs group-hover:scale-110 group-hover:rotate-1 group-hover:bg-gradient-to-br group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:shadow-md group-hover:shadow-teal-500/25 group-hover:border-transparent transition-all duration-300">
                       <FeatureIcon slug={sol.slug} className="h-5 w-5 stroke-[2.2]" />
                     </div>
                     <div>
-                      <h3 className="font-display text-lg font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-tight">
+                      <h3 className="font-display text-lg font-bold text-slate-900 group-hover:text-[#0E7A6E] group-hover:translate-x-0.5 transition-all duration-300 leading-tight">
                         {sol.name}
                       </h3>
                       <span className="text-[11px] text-slate-500 font-medium">
@@ -185,18 +188,18 @@ export default function SolutionsIndexPage() {
                   </div>
 
                   {/* Description */}
-                  <p className="mt-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="mt-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal group-hover:text-slate-700 transition-colors duration-300">
                     {sol.short}
                   </p>
 
                   {/* Mini Stats Chips */}
                   {sol.stats && sol.stats.length >= 2 && (
                     <div className="mt-4 pt-3 border-t border-slate-100 grid grid-cols-2 gap-2 text-[10px]">
-                      <div className="rounded-lg bg-slate-50 p-2 border border-slate-100">
+                      <div className="rounded-xl bg-slate-50 p-2 border border-slate-100">
                         <span className="text-slate-400 block text-[9px] uppercase font-bold">{sol.stats[0].label}</span>
                         <span className="font-bold text-slate-800 truncate block mt-0.5">{sol.stats[0].value}</span>
                       </div>
-                      <div className="rounded-lg bg-teal-50/70 p-2 border border-teal-100">
+                      <div className="rounded-xl bg-teal-50/70 p-2 border border-teal-100">
                         <span className="text-teal-600 block text-[9px] uppercase font-bold">{sol.stats[1].label}</span>
                         <span className="font-bold text-[#0E7A6E] truncate block mt-0.5">{sol.stats[1].value}</span>
                       </div>
@@ -204,10 +207,14 @@ export default function SolutionsIndexPage() {
                   )}
                 </div>
 
-                {/* Footer Link */}
-                <div className="mt-6 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5] group-hover:text-[#0E7A6E] transition-colors">
-                  <span>Explore {sol.name} Blueprint</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                {/* Footer Link Button */}
+                <div className="relative z-10 mt-6 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0E7A6E]">
+                  <span className="group-hover:text-[#12B5A5] group-hover:translate-x-0.5 transition-all duration-300 font-bold">
+                    Explore Blueprint
+                  </span>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-50/90 text-[#0E7A6E] border border-teal-100 group-hover:bg-gradient-to-r group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:border-transparent group-hover:shadow-md group-hover:shadow-teal-500/30 group-hover:scale-110 transition-all duration-300">
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </span>
                 </div>
               </Link>
             ))}

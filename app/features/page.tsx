@@ -120,28 +120,35 @@ export default function FeaturesPage() {
                     <Link
                       key={slug}
                       href={`/features/${slug}`}
-                      className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-2xs hover:border-[#12B5A5] hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                      className="lux-card-target lux-card-sheen group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white via-white to-[#F8FDFD]/50 p-5 sm:p-6 shadow-2xs hover:shadow-2xl hover:shadow-teal-900/10 hover:border-teal-400 hover:-translate-y-2 transition-all duration-300"
                     >
-                      <div>
+                      {/* Top Animated Accent Gradient Line */}
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#12B5A5]/0 to-transparent group-hover:via-[#12B5A5] transition-all duration-500" />
+
+                      <div className="relative z-10">
                         <div className="flex items-center justify-between">
-                          <div className="attendo-icon-box h-10 w-10 shrink-0">
+                          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E8FAF7] border border-teal-200/70 text-[#0E7A6E] shadow-2xs group-hover:scale-110 group-hover:rotate-1 group-hover:bg-gradient-to-br group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:shadow-md group-hover:shadow-teal-500/25 group-hover:border-transparent transition-all duration-300">
                             <FeatureIcon slug={slug} className="h-5 w-5 stroke-[2.2]" />
                           </div>
-                          <span className="text-[10px] font-mono font-bold text-teal-700 bg-teal-50 border border-teal-200/80 rounded-full px-2 py-0.5 uppercase">
+                          <span className="text-[10px] font-mono font-bold text-[#0E7A6E] bg-teal-50 border border-teal-200/80 rounded-full px-2.5 py-0.5 uppercase group-hover:bg-teal-100 transition-colors">
                             Active
                           </span>
                         </div>
-                        <h4 className="mt-3 font-display text-sm font-bold text-slate-900 group-hover:text-[#0E7A6E] transition-colors">
+                        <h4 className="mt-4 font-display text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0E7A6E] group-hover:translate-x-0.5 transition-all duration-300">
                           {feat.name}
                         </h4>
-                        <p className="mt-1 text-xs text-slate-500 leading-relaxed line-clamp-2">
+                        <p className="mt-1.5 text-xs text-slate-500 leading-relaxed line-clamp-2 group-hover:text-slate-700 transition-colors duration-300">
                           {feat.short}
                         </p>
                       </div>
 
-                      <div className="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#12B5A5]">
-                        <span>View specifications</span>
-                        <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                      <div className="relative z-10 mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0E7A6E]">
+                        <span className="group-hover:text-[#12B5A5] group-hover:translate-x-0.5 transition-all duration-300">
+                          View specifications
+                        </span>
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-teal-50 text-[#0E7A6E] border border-teal-100 group-hover:bg-gradient-to-r group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:border-transparent group-hover:scale-110 transition-all duration-300">
+                          <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </span>
                       </div>
                     </Link>
                   );

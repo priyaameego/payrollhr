@@ -84,9 +84,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .payrole-card-hover:hover,
 .attendo-card-hover:hover {
-  transform: translateY(-5px);
-  border-color: rgba(18, 181, 165, 0.7);
-  box-shadow: 0 22px 45px -10px rgba(18, 181, 165, 0.2), 0 8px 18px -4px rgba(0, 0, 0, 0.04);
+  transform: translateY(-7px);
+  border-color: rgba(18, 181, 165, 0.75);
+  box-shadow: 0 24px 50px -10px rgba(18, 181, 165, 0.22), 0 8px 18px -4px rgba(0, 0, 0, 0.04);
+}
+
+.payrole-card-hover:hover h2,
+.payrole-card-hover:hover h3,
+.payrole-card-hover:hover h4,
+.attendo-card-hover:hover h2,
+.attendo-card-hover:hover h3,
+.attendo-card-hover:hover h4 {
+  color: #0E7A6E;
+  transform: translateX(2px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .payrole-card-sheen,
@@ -105,9 +116,11 @@ h1, h2, h3, h4, h5, h6 {
   height: 2.5px;
   background: linear-gradient(90deg, transparent, #12B5A5, #8FE8DC, transparent);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
 }
 
+.payrole-card-hover:hover.payrole-card-sheen::before,
+.attendo-card-hover:hover.attendo-card-sheen::before,
 .attendo-card-sheen:hover::before {
   opacity: 1;
 }
@@ -328,14 +341,16 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================================ */
 /* PAYROLEHR SIGNATURE BUTTON & INTERACTION STYLING */
 /* ============================================================ */
-.btn-attendo-primary {
+.btn-attendo-primary,
+.btn-payrole-primary {
   background: linear-gradient(135deg, #12B5A5 0%, #0E9486 100%);
   box-shadow: 0 10px 25px -5px rgba(18, 181, 165, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
-.btn-attendo-primary::after {
+.btn-attendo-primary::after,
+.btn-payrole-primary::after {
   content: '';
   position: absolute;
   top: 0;
@@ -346,31 +361,37 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-100%);
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.btn-attendo-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 36px -6px rgba(18, 181, 165, 0.55), 0 4px 10px -2px rgba(0, 0, 0, 0.08);
+.btn-attendo-primary:hover,
+.btn-payrole-primary:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 20px 42px -6px rgba(18, 181, 165, 0.58), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
 }
-.btn-attendo-primary:hover::after {
+.btn-attendo-primary:hover::after,
+.btn-payrole-primary:hover::after {
   transform: translateX(100%);
 }
-.btn-attendo-primary:active {
+.btn-attendo-primary:active,
+.btn-payrole-primary:active {
   transform: translateY(0px) scale(0.98);
 }
 
-.btn-attendo-secondary {
+.btn-attendo-secondary,
+.btn-payrole-secondary {
   background: #FFFFFF;
   border: 1.5px solid #E2E8F0;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.btn-attendo-secondary:hover {
-  transform: translateY(-2px);
+.btn-attendo-secondary:hover,
+.btn-payrole-secondary:hover {
+  transform: translateY(-2.5px);
   border-color: #12B5A5;
   background: #F0FDFB;
   color: #0E7A6E;
-  box-shadow: 0 12px 28px -6px rgba(18, 181, 165, 0.2);
+  box-shadow: 0 14px 30px -6px rgba(18, 181, 165, 0.22);
 }
-.btn-attendo-secondary:active {
+.btn-attendo-secondary:active,
+.btn-payrole-secondary:active {
   transform: translateY(0px) scale(0.98);
 }
 
@@ -657,10 +678,56 @@ h1, h2, h3, h4, h5, h6 {
   filter: blur(0);
 }
 
+/* Card Scroll Reveal Animation */
+.lux-card-reveal {
+  opacity: 0;
+  transform: translateY(26px) scale(0.985);
+  transition: 
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.lux-card-reveal.lux-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Card Sheen Sweep on Hover */
+.lux-card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.lux-card-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(18, 181, 165, 0.08) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.lux-card-sheen:hover::after {
+  left: 150%;
+  transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* Accessibility: Respect Reduced Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
   .lux-text-reveal,
   .lux-heading-reveal,
+  .lux-card-reveal,
   .animate-hero-gradient,
   .animate-hero-mesh,
   .animate-hero-card,

@@ -55,7 +55,7 @@ export default function ScrollTextAnimator() {
         }
       );
 
-      // Select target headings, section subtitles and badge pills inside main and footer
+      // Select target headings, section subtitles, badge pills, and cards
       const selectors = [
         "main h1:not([data-no-scroll-reveal])",
         "main h2:not([data-no-scroll-reveal])",
@@ -63,6 +63,7 @@ export default function ScrollTextAnimator() {
         "main section > div > div > p:not([data-no-scroll-reveal])",
         "main p.leading-relaxed:not([data-no-scroll-reveal])",
         "main [data-scroll-text]",
+        "main .lux-card-target",
       ];
 
       const elements = Array.from(
@@ -73,15 +74,18 @@ export default function ScrollTextAnimator() {
       const containers = new Map<HTMLElement, HTMLElement[]>();
 
       elements.forEach((el) => {
-        // Exclude elements inside navbar, header, dropdowns, forms, or mockups
+        const isCard = el.classList.contains("lux-card-target");
+
+        // Exclude elements inside navbar, header, forms, or dialogs (unless it's an intentional card)
         if (
-          el.closest("header") ||
-          el.closest("nav") ||
-          el.closest("form") ||
-          el.closest("[role='dialog']") ||
-          el.closest(".no-scroll-reveal") ||
-          el.closest("svg") ||
-          el.closest("button")
+          !isCard &&
+          (el.closest("header") ||
+            el.closest("nav") ||
+            el.closest("form") ||
+            el.closest("[role='dialog']") ||
+            el.closest(".no-scroll-reveal") ||
+            el.closest("svg") ||
+            el.closest("button"))
         ) {
           return;
         }
@@ -96,12 +100,20 @@ export default function ScrollTextAnimator() {
       containers.forEach((group) => {
         group.forEach((el, index) => {
           if (!observedElements.has(el)) {
-            // Apply base luxury reveal class
+            // Apply appropriate luxury reveal class
+            const isCard = el.classList.contains("lux-card-target");
             const isHeading = el.tagName === "H1" || el.tagName === "H2";
-            el.classList.add(isHeading ? "lux-heading-reveal" : "lux-text-reveal");
+            
+            if (isCard) {
+              el.classList.add("lux-card-reveal");
+            } else if (isHeading) {
+              el.classList.add("lux-heading-reveal");
+            } else {
+              el.classList.add("lux-text-reveal");
+            }
 
-            // Natural cascading stagger delay (0ms, 120ms, 240ms, etc.)
-            const delay = Math.min(index * 110, 330);
+            // Natural cascading stagger delay (0ms, 90ms, 180ms, 270ms, etc.)
+            const delay = Math.min(index * 90, 360);
             el.style.transitionDelay = `${delay}ms`;
 
             // If already inside the visible viewport, reveal immediately

@@ -189,31 +189,37 @@ export default function FreeToolsIndexPage() {
                 <Link
                   key={tool.slug}
                   href={`/free-tools/${tool.slug}`}
-                  className="rounded-3xl border border-teal-100/90 bg-white p-7 shadow-sm hover:shadow-xl hover:border-[#12B5A5] transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
+                  className="lux-card-target lux-card-sheen group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white via-white to-[#F8FDFD]/60 p-6 sm:p-8 shadow-2xs hover:shadow-2xl hover:shadow-teal-900/10 hover:border-teal-400 hover:-translate-y-2 transition-all duration-300"
                 >
-                  <div>
+                  {/* Top Animated Accent Gradient Line */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#12B5A5]/0 to-transparent group-hover:via-[#12B5A5] transition-all duration-500" />
+
+                  {/* Subtle Ambient Corner Glow on Hover */}
+                  <div className="pointer-events-none absolute -top-16 -right-16 h-36 w-36 rounded-full bg-teal-400/0 blur-2xl group-hover:bg-teal-400/15 transition-all duration-500" />
+
+                  <div className="relative z-10">
                     {/* Card Top: Icon & Category */}
                     <div className="flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8FAF7] border border-teal-200/60 text-[#12B5A5] shadow-2xs group-hover:scale-105 transition-transform">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8FAF7] border border-teal-200/70 text-[#0E7A6E] shadow-2xs group-hover:scale-110 group-hover:rotate-1 group-hover:bg-gradient-to-br group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:shadow-lg group-hover:shadow-teal-500/25 group-hover:border-transparent transition-all duration-300">
                         {getToolIcon(tool.slug)}
                       </div>
-                      <span className="rounded-full bg-[#E8FAF7] border border-teal-200 px-3 py-1 text-[11px] font-bold text-[#0E7A6E]">
+                      <span className="rounded-full bg-slate-100/90 border border-slate-200/80 px-3 py-1 text-[11px] font-bold text-slate-600 group-hover:bg-teal-50 group-hover:border-teal-200 group-hover:text-[#0E7A6E] transition-all duration-300">
                         {tool.category}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h2 className="mt-5 font-display text-lg font-extrabold text-slate-900 group-hover:text-[#0E7A6E] transition-colors leading-snug">
+                    <h2 className="mt-5 font-display text-lg font-extrabold text-slate-900 group-hover:text-[#0E7A6E] group-hover:translate-x-0.5 transition-all duration-300 leading-snug">
                       {tool.name}
                     </h2>
 
                     {/* Short Description */}
-                    <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2 font-normal">
+                    <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2 font-normal group-hover:text-slate-700 transition-colors duration-300">
                       {tool.short}
                     </p>
 
                     {/* Transparent Formula Pill */}
-                    <div className="mt-3.5 rounded-xl bg-slate-50/90 p-2.5 text-[11px] font-mono text-slate-700 border border-slate-200/70 line-clamp-2">
+                    <div className="mt-3.5 rounded-xl bg-slate-50/90 p-2.5 text-[11px] font-mono text-slate-700 border border-slate-200/70 line-clamp-2 group-hover:border-teal-200 group-hover:bg-teal-50/40 transition-colors duration-300">
                       {tool.formula}
                     </div>
 
@@ -226,10 +232,14 @@ export default function FreeToolsIndexPage() {
                     )}
                   </div>
 
-                  {/* Card Bottom: CTA Button */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0E7A6E] group-hover:text-[#12B5A5] transition-colors">
-                    <span>Open Calculator</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  {/* Card Bottom: Animated CTA Button */}
+                  <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs font-bold text-[#0E7A6E] group-hover:text-[#12B5A5] group-hover:translate-x-0.5 transition-all duration-300 flex items-center gap-1.5">
+                      <span>Open Calculator</span>
+                    </span>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-50/90 text-[#0E7A6E] border border-teal-100 group-hover:bg-gradient-to-r group-hover:from-[#12B5A5] group-hover:to-[#0E7A6E] group-hover:text-white group-hover:border-transparent group-hover:shadow-md group-hover:shadow-teal-500/30 group-hover:scale-110 transition-all duration-300">
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                    </span>
                   </div>
                 </Link>
               );
