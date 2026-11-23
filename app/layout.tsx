@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollTextAnimator from "@/components/ScrollTextAnimator";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
     <html lang="en" className={`${jakarta.variable} ${dmSans.variable}`}>
       <body className="min-h-screen bg-[#FAFCFE] text-slate-800 antialiased flex flex-col selection:bg-teal-100 selection:text-teal-900">
         <Header />
+        <ScrollTextAnimator />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

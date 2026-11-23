@@ -618,8 +618,49 @@ h1, h2, h3, h4, h5, h6 {
   animation: cameraFeedBreathe 5s ease-in-out infinite;
 }
 
+/* ============================================================ */
+/* PREMIUM SCROLL TEXT REVEAL ANIMATIONS (Apple / Linear Luxe) */
+/* ============================================================ */
+.lux-text-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(5px);
+  transition: 
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
+
+.lux-text-reveal.lux-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.lux-heading-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(7px);
+  transition: 
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
+
+.lux-heading-reveal.lux-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
 /* Accessibility: Respect Reduced Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
+  .lux-text-reveal,
+  .lux-heading-reveal,
   .animate-hero-gradient,
   .animate-hero-mesh,
   .animate-hero-card,
@@ -635,5 +676,6 @@ h1, h2, h3, h4, h5, h6 {
     transform: none !important;
     filter: none !important;
     transition: none !important;
+    opacity: 1 !important;
   }
 }
